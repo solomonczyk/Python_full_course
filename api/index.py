@@ -5,9 +5,8 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from starlette.middleware.base import BaseHTTPMiddleware
 from pydantic import BaseModel
 
 # ── paths ──────────────────────────────────────────────────────────────────
@@ -74,15 +73,23 @@ app.add_middleware(
 )
 
 # ── middleware: fix Vercel path rewrites ───────────────────────────────────
-class VercelPathMiddleware(BaseHTTPMiddleware):
-    async def dispatch(self, request: Request, call_next):
-        # Handle Vercel rewrite paths - strip /api/index prefix if present
-        path = request.url.path
-        if path.startswith("/api/index/"):
-            request.scope["path"] = path.replace("/api/index", "", 1)
-        elif path == "/api/index":
-            request.scope["path"] = "/"
-        return await call_next(request)
+class VercelPathMiddleware:
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope["type"] == "http":
+            path = scope.get("path", "")
+            # Handle Vercel rewrite paths
+            if path.startswith("/api/index/"):
+                scope["path"] = path[len("/api/index"):]  # /api/index/lessons -> /lessons
+            elif path == "/api/index":
+                scope["path"] = "/"
+            elif path.startswith("/api/"):
+                scope["path"] = path[4:]  # /api/lessons -> /lessons
+            elif path == "/api":
+                scope["path"] = "/"
+        return await self.app(scope, receive, send)
 
 app.add_middleware(VercelPathMiddleware)
 
