@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { Lesson } from '../types'
+import { CHARACTER_AVATARS } from '../constants'
 
 interface Props {
   mission: Lesson['mission']
@@ -120,7 +121,9 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
 
       {bagusVisible && (
         <div className="mx-8 mb-8 bg-error-container text-on-error-container p-4 rounded-xl border-2 border-error-bagus flex gap-4 items-center animate-bounce">
-          <div className="shrink-0 w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl">🐛</div>
+          <div className="shrink-0 w-12 h-12 bg-white rounded-full overflow-hidden border-2 border-error-bagus">
+            <img src={CHARACTER_AVATARS.bagus} alt="Багус" className="w-full h-full object-cover" />
+          </div>
           <div>
             <p className="font-sans font-bold text-[13px]">ОЙ! Багус нашёл ошибку!</p>
             <p className="text-sm">

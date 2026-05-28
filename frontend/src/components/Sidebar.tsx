@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import type { LessonSummary, Progress } from '../types'
+import { CHARACTER_AVATARS } from '../constants'
 
 interface Props {
   lessons: LessonSummary[]
@@ -30,7 +31,9 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
       >
         <div className="mb-8 px-2">
           <div className="flex items-center gap-3 mb-2">
-            <div className="w-10 h-10 rounded-full bg-mentor-ksyu flex items-center justify-center text-xl">🤖</div>
+            <div className="w-10 h-10 rounded-full overflow-hidden shrink-0">
+              <img src={CHARACTER_AVATARS.ksyu} alt="Ксю" className="w-full h-full object-cover" />
+            </div>
             <div>
               <h2 className="font-sans text-[13px] font-bold text-on-surface">Ксю — наставник</h2>
               <p className="text-[11px] text-on-surface-variant">Python Quest</p>

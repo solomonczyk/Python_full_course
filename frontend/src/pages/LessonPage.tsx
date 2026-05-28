@@ -54,6 +54,18 @@ export default function LessonPage() {
         </h2>
       </section>
 
+      {/* Scene illustration */}
+      {lesson.scene_image && (
+        <section className="relative group overflow-hidden rounded-[24px] shadow-sm">
+          <img
+            src={lesson.scene_image}
+            alt=""
+            className="w-full aspect-[21/9] object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+        </section>
+      )}
+
       {/* Explanation dialogue */}
       <DialogueBubble
         character={lesson.explanation.character}

@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress } from '../types'
+import CharacterAvatar from '../components/CharacterAvatar'
 
 interface Props {
   lessons: LessonSummary[]
@@ -23,13 +24,18 @@ export default function HomePage({ lessons, progress }: Props) {
     <div className="w-full max-w-[800px]">
       {/* Hero */}
       <section className="mb-12">
-        <div className="flex items-center gap-2 text-secondary mb-3 font-sans text-[13px] font-bold">
-          <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>auto_awesome</span>
-          <span>ИНТЕРАКТИВНЫЙ КУРС</span>
+        <div className="flex items-center gap-4 mb-6">
+          <CharacterAvatar character="ksyu" size="lg" />
+          <div>
+            <div className="flex items-center gap-2 text-secondary mb-1 font-sans text-[13px] font-bold">
+              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>auto_awesome</span>
+              <span>ИНТЕРАКТИВНЫЙ КУРС</span>
+            </div>
+            <h1 className="font-display font-extrabold text-[36px] leading-[44px] tracking-tight text-on-surface">
+              Python Quest
+            </h1>
+          </div>
         </div>
-        <h1 className="font-display font-extrabold text-[36px] leading-[44px] tracking-tight text-on-surface mb-4">
-          Python Quest
-        </h1>
         <p className="font-sans text-[16px] leading-6 text-on-surface-variant max-w-[600px]">
           Учись программировать на Python вместе с персонажами Ксю, Ва, Да и Багусом. Сюжет, диалоги, квизы и миссии.
         </p>

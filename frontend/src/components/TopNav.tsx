@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import type { LessonSummary } from '../types'
+import { USER_AVATAR } from '../constants'
 
 interface Props {
   lessons: LessonSummary[]
@@ -41,8 +42,8 @@ export default function TopNav({ lessons, currentId, onMenuClick }: Props) {
             Далее →
           </button>
         )}
-        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container bg-surface-container-high flex items-center justify-center text-lg">
-          👤
+        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
+          <img src={USER_AVATAR} alt="User" className="w-full h-full object-cover" />
         </div>
       </div>
     </header>

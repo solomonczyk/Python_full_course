@@ -16,9 +16,11 @@ export interface LessonSummary {
   subtitle: string
   topic: string
   locked: boolean
+  scene_image?: string
 }
 
 export interface Lesson extends LessonSummary {
+  scene_image?: string
   explanation: {
     text: string
     character: Character

@@ -98,6 +98,7 @@ app.add_middleware(VercelPathMiddleware)
 def list_lessons() -> list[dict[str, Any]]:
     return [
         {k: l[k] for k in ("id","part","chapter","lesson","slug","title","subtitle","topic","locked")}
+        | ({"scene_image": l["scene_image"]} if "scene_image" in l and l.get("scene_image") else {})
         for l in _lessons()
     ]
 
@@ -105,7 +106,7 @@ def list_lessons() -> list[dict[str, Any]]:
 def get_lesson(lesson_id: str) -> dict[str, Any]:
     for l in _lessons():
         if l["id"] == lesson_id:
-            return l
+            return {k: v for k, v in l.items() if v is not None or k != "scene_image"}
     raise HTTPException(status_code=404, detail=f"Lesson '{lesson_id}' not found")
 
 # ── routes: progress ───────────────────────────────────────────────────────
