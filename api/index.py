@@ -7,7 +7,7 @@ from typing import Any, Optional
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.base import BaseHTTPMiddleware
+from starlette.middleware.base import BaseHTTPMiddleware
 from pydantic import BaseModel
 
 # ── paths ──────────────────────────────────────────────────────────────────
