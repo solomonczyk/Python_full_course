@@ -61,7 +61,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                         className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-sans text-[13px] font-bold transition-all
                           ${lesson.locked ? 'opacity-50 cursor-not-allowed' : ''}
                           ${isActive
-                            ? 'bg-primary/5 text-primary border-l-4 border-primary rounded-l-none -ml-[1px]'
+                            ? 'bg-primary/5 text-primary font-extrabold shadow-[-4px_0_0_0_#006e25]'
                             : 'text-on-surface-variant hover:bg-surface-container-high'
                           }`}
                       >
