@@ -1,8 +1,10 @@
+import os
 import sqlite3
 from pathlib import Path
 
-DB_PATH = Path(__file__).parent.parent / "data" / "progress.db"
-DB_PATH.parent.mkdir(exist_ok=True)
+_default = Path(__file__).parent.parent / "data" / "progress.db"
+DB_PATH = Path(os.environ.get("DB_PATH", str(_default)))
+DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
 def get_connection() -> sqlite3.Connection:
