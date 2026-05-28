@@ -68,14 +68,14 @@ app.add_middleware(
 )
 
 # ── routes: lessons ────────────────────────────────────────────────────────
-@app.get("/lessons")
+@app.get("/api/lessons")
 def list_lessons() -> list[dict[str, Any]]:
     return [
         {k: l[k] for k in ("id","part","chapter","lesson","slug","title","subtitle","topic","locked")}
         for l in _lessons()
     ]
 
-@app.get("/lessons/{lesson_id}")
+@app.get("/api/lessons/{lesson_id}")
 def get_lesson(lesson_id: str) -> dict[str, Any]:
     for l in _lessons():
         if l["id"] == lesson_id:
@@ -83,13 +83,13 @@ def get_lesson(lesson_id: str) -> dict[str, Any]:
     raise HTTPException(status_code=404, detail=f"Lesson '{lesson_id}' not found")
 
 # ── routes: progress ───────────────────────────────────────────────────────
-@app.get("/progress")
+@app.get("/api/progress")
 def get_progress() -> list[dict[str, Any]]:
     with _db() as conn:
         rows = conn.execute("SELECT * FROM progress").fetchall()
     return [dict(r) for r in rows]
 
-@app.post("/progress")
+@app.post("/api/progress")
 def update_progress(body: ProgressUpdate) -> dict[str, Any]:
     with _db() as conn:
         conn.execute(
@@ -105,7 +105,7 @@ def update_progress(body: ProgressUpdate) -> dict[str, Any]:
         row = conn.execute("SELECT * FROM progress WHERE lesson_id=?", (body.lesson_id,)).fetchone()
     return dict(row)
 
-@app.delete("/progress/{lesson_id}")
+@app.delete("/api/progress/{lesson_id}")
 def reset_progress(lesson_id: str) -> dict[str, str]:
     with _db() as conn:
         conn.execute("DELETE FROM progress WHERE lesson_id=?", (lesson_id,))
@@ -113,7 +113,7 @@ def reset_progress(lesson_id: str) -> dict[str, str]:
     return {"status": "reset", "lesson_id": lesson_id}
 
 # ── routes: quiz ───────────────────────────────────────────────────────────
-@app.post("/quiz/check")
+@app.post("/api/quiz/check")
 def check_quiz(body: QuizAnswer) -> dict[str, Any]:
     lesson = next((l for l in _lessons() if l["id"] == body.lesson_id), None)
     if not lesson:
@@ -128,7 +128,7 @@ def check_quiz(body: QuizAnswer) -> dict[str, Any]:
         "explanation": correct["text"] if correct else None,
     }
 
-@app.post("/quiz/what-outputs")
+@app.post("/api/quiz/what-outputs")
 def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
     lesson = next((l for l in _lessons() if l["id"] == body.lesson_id), None)
     if not lesson:
