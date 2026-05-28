@@ -1,6 +1,7 @@
 import json
 import os
 import sqlite3
+import urllib.request
 from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Optional
@@ -23,6 +24,9 @@ class ProgressUpdate(BaseModel):
 class QuizAnswer(BaseModel):
     lesson_id: str
     answer_id: str
+
+class ChatMessage(BaseModel):
+    message: str
 
 # ── db ─────────────────────────────────────────────────────────────────────
 _db_ready = False
@@ -167,6 +171,76 @@ def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
         "correct": wo["correct"] == body.answer_id,
         "correct_answer": wo["correct"],
     }
+
+# ── AI chat ────────────────────────────────────────────────────────────────
+_AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")
+_AI_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
+
+_FALLBACK_RESPONSES: dict[str, str] = {
+    "print": "`print()` выводит данные в консоль. Пример: `print('Hello, World!')`",
+    "input": "`input()` читает строку от пользователя. Пример: `name = input('Как тебя зовут? ')`",
+    "variable": "Переменные хранят данные. Пример: `name = 'Ксю'` — теперь в name лежит строка 'Ксю'.",
+    "if": "`if` проверяет условие. Пример: `if x > 5: print('Больше 5')`",
+    "else": "`else` — ветка, которая выполняется, если условие if ложно. Пример: `if x > 5: ... else: ...`",
+    "elif": "`elif` = else if. Позволяет проверить несколько условий подряд.",
+    "for": "`for i in range(n):` повторяет код n раз. Пример: `for i in range(3): print(i)`",
+    "range": "`range(start, stop, step)` генерирует последовательность чисел.",
+    "while": "`while условие:` выполняет код, пока условие истинно. Будь осторожен с бесконечными циклами!",
+    "list": "Список — упорядоченная коллекция. `items = [1, 2, 3]`. Индексация с нуля.",
+    "def": "`def имя_функции():` создаёт функцию. Пример: `def greet(): print('Привет!')`",
+    "return": "`return` возвращает значение из функции. Без return функция вернёт None.",
+    "class": "Классы — чертежи для объектов. `class Hero: def __init__(self, name): self.name = name`",
+    "string": "Строки — текст в кавычках. Можно складывать: `'Hello' + ' ' + 'World'`",
+    "f-string": "f-строки подставляют значения: `f'Привет, {name}!'`",
+    "import": "`import random` импортирует модуль. `random.randint(1, 10)` — случайное число от 1 до 10.",
+}
+
+def _fallback_reply(message: str) -> str:
+    msg_lower = message.lower()
+    for keyword, reply in _FALLBACK_RESPONSES.items():
+        if keyword in msg_lower:
+            explanations = {
+                "не работает": "Проверь синтаксис: двоеточия после if/for/def, отступы (4 пробела), закрытые кавычки.",
+                "ошибк": "NameError — переменная не определена. TypeError — несовместимые типы. SyntaxError — ошибка в синтаксисе.",
+            }
+            for ek, ev in explanations.items():
+                if ek in msg_lower:
+                    return ev + "\n\n" + reply
+            return reply
+    return ("Я — Python-эксперт из Python Quest. Задай мне вопрос по Python: "
+            "как работает функция, как исправить ошибку, что значит этот код. "
+            "Постараюсь помочь! Если вопрос сложный — попроси Ксю подключить API-ключ для доступа к полной версии.")
+
+@app.post("/ai/chat")
+def ai_chat(body: ChatMessage) -> dict[str, str]:
+    if _AI_KEY:
+        try:
+            payload = json.dumps({
+                "model": "deepseek-chat",
+                "messages": [
+                    {"role": "system", "content": "You are a Python expert tutor in the Python Quest interactive course. Answer clearly and concisely in Russian. Provide code examples where helpful."},
+                    {"role": "user", "content": body.message},
+                ],
+                "max_tokens": 1024,
+                "temperature": 0.7,
+            }).encode()
+            req = urllib.request.Request(
+                _AI_ENDPOINT,
+                data=payload,
+                headers={
+                    "Content-Type": "application/json",
+                    "Authorization": f"Bearer {_AI_KEY}",
+                },
+                method="POST",
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read())
+            reply = data["choices"][0]["message"]["content"]
+            return {"reply": reply}
+        except Exception as e:
+            return {"reply": f"Ошибка подключения к AI: {e}\n\nИспользую встроенную базу знаний:\n\n{_fallback_reply(body.message)}"}
+    return {"reply": _fallback_reply(body.message)}
+
 
 # ── health ─────────────────────────────────────────────────────────────────
 @app.get("/")

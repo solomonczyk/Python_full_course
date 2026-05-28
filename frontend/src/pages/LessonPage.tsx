@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
-import { useLesson, useProgress } from '../hooks/useApi'
+import { useLesson } from '../hooks/useApi'
+import { useProgressContext } from '../hooks/ProgressContext'
 import DialogueBubble from '../components/DialogueBubble'
 import CodeBlock from '../components/CodeBlock'
 import QuizSection from '../components/QuizSection'
@@ -8,7 +9,7 @@ import MissionCard from '../components/MissionCard'
 export default function LessonPage() {
   const { id } = useParams<{ id: string }>()
   const { lesson, loading, error } = useLesson(id ?? '')
-  const { progress, markComplete } = useProgress()
+  const { progress, markComplete } = useProgressContext()
 
   if (loading) {
     return (

@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom'
-import { useLessons, useProgress } from './hooks/useApi'
+import { useLessons } from './hooks/useApi'
+import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
 import TopNav from './components/TopNav'
 import Sidebar from './components/Sidebar'
+import ChatWidget from './components/ChatWidget'
 import HomePage from './pages/HomePage'
 import LessonPage from './pages/LessonPage'
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { lessons } = useLessons()
-  const { progress } = useProgress()
+  const { progress } = useProgressContext()
   const { id } = useParams()
 
   return (
@@ -31,6 +33,7 @@ function Layout() {
           <Route path="/lesson/:id" element={<LessonPage />} />
         </Routes>
       </main>
+      <ChatWidget />
     </div>
   )
 }
@@ -38,9 +41,11 @@ function Layout() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/*" element={<Layout />} />
-      </Routes>
+      <ProgressProvider>
+        <Routes>
+          <Route path="/*" element={<Layout />} />
+        </Routes>
+      </ProgressProvider>
     </BrowserRouter>
   )
 }

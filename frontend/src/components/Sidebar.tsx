@@ -65,7 +65,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                             : 'text-on-surface-variant hover:bg-surface-container-high'
                           }`}
                       >
-                        <span className="material-symbols-outlined text-[18px] shrink-0" style={{ fontVariationSettings: `'FILL' ${isDone ? '1' : '0'}` }}>
+                        <span className={`material-symbols-outlined text-[18px] shrink-0 ${lesson.locked ? 'text-outline' : isDone ? 'text-action-da' : 'text-transparent'}`} style={{ fontVariationSettings: `'FILL' ${isDone ? '1' : '0'}` }}>
                           {lesson.locked ? 'lock' : isDone ? 'check_circle' : 'radio_button_unchecked'}
                         </span>
                         <span className={isDone ? 'text-action-da' : ''}>{lesson.id} {lesson.title}</span>
