@@ -5,8 +5,9 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.base import BaseHTTPMiddleware
 from pydantic import BaseModel
 
 # ── paths ──────────────────────────────────────────────────────────────────
@@ -66,11 +67,24 @@ app = FastAPI(title="Python Quest API", version="1.0.0")
 _extra = os.environ.get("ALLOWED_ORIGIN", "")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", *([_extra] if _extra else [])],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", *([_extra] if _extra else [])],
     allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# ── middleware: fix Vercel path rewrites ───────────────────────────────────
+class VercelPathMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        # Handle Vercel rewrite paths - strip /api/index prefix if present
+        path = request.url.path
+        if path.startswith("/api/index/"):
+            request.scope["path"] = path.replace("/api/index", "", 1)
+        elif path == "/api/index":
+            request.scope["path"] = "/"
+        return await call_next(request)
+
+app.add_middleware(VercelPathMiddleware)
 
 # ── routes: lessons ────────────────────────────────────────────────────────
 @app.get("/lessons")
@@ -154,3 +168,8 @@ def root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "healthy"}
+
+
+# ── Vercel ASGI handler ────────────────────────────────────────────────────
+# Export app for Vercel serverless runtime
+__all__ = ["app"]
