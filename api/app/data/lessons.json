@@ -5,38 +5,54 @@
     "chapter": 1,
     "lesson": 1,
     "slug": "print",
-    "title": "Функция print()",
+    "title": "print()",
     "subtitle": "Твой голос в коде",
     "topic": "print()",
     "locked": false,
     "explanation": {
-      "text": "Привет, исследователь! 👋 Представь, что Python — это твой помощник. Чтобы он что-то сказал тебе или показал результат своей работы, ему нужна команда. Самая первая и важная команда — это `print()`. Она просто выводит на экран то, что ты напишешь внутри скобок.",
+      "text": "`print()` выводит текст или значение на экран.",
       "character": "ksyu",
       "code_example": "print(\"Привет, Python!\")",
       "output": "Привет, Python!"
     },
     "quiz": {
-      "question": "Выбери верное утверждение о функции print():",
+      "question": "Что делает функция print()?",
       "options": [
-        { "id": "a", "text": "Она удаляет код из файла", "correct": false },
-        { "id": "b", "text": "Она выводит текст или значение на экран", "correct": true },
-        { "id": "c", "text": "Она выключает компьютер", "correct": false }
+        {
+          "id": "a",
+          "text": "Выводит текст или значение на экран",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Удаляет файл",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Запрашивает ввод от пользователя",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "print(\"2 + 2\")",
-      "options": ["4", "2 + 2", "Ошибка"],
-      "correct": "2 + 2"
+      "code": "print(\"Python\")\nprint(\"Quest\")",
+      "options": [
+        "Python",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Python"
     },
     "find_bug": {
-      "description": "Этот код вызовет NameError. Почему?",
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "print(Привет)",
-      "hint": "Ты забыл кавычки вокруг слова Привет. В Python текст всегда должен быть в кавычках!"
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Твои первые шаги",
-      "description": "Напиши программу, которая выводит манифест",
-      "task": "Используй функцию `print()`, чтобы вывести в точности следующую строку:",
+      "title": "Миссия: print()",
+      "description": "Напиши программу по теме урока «print()»",
+      "task": "Напиши программу, которая выводит следующий результат:",
       "expected_output": "Я начинаю путь Python",
       "character": "da"
     }
@@ -46,40 +62,56 @@
     "part": 1,
     "chapter": 1,
     "lesson": 2,
-    "slug": "variables",
-    "title": "Переменные",
-    "subtitle": "Коробки для хранения данных",
-    "topic": "variables",
+    "slug": "stroki-i-kavychki",
+    "title": "Строки и кавычки",
+    "subtitle": "Текст и кавычки",
+    "topic": "строки",
     "locked": false,
     "explanation": {
-      "text": "Переменная — это как коробка с именем. Ты кладёшь в неё значение и можешь использовать его позже. В Python переменные создаются простым присваиванием: `name = 'Python'`.",
+      "text": "Строка — это текст, который пишется в кавычках.",
       "character": "ksyu",
-      "code_example": "name = \"Python\"\nprint(name)",
-      "output": "Python"
+      "code_example": "word = \"Ксю\"\nprint(word)",
+      "output": "Ксю"
     },
     "quiz": {
-      "question": "Как создать переменную в Python?",
+      "question": "Что такое строка в Python?",
       "options": [
-        { "id": "a", "text": "var name = 'Python'", "correct": false },
-        { "id": "b", "text": "name = 'Python'", "correct": true },
-        { "id": "c", "text": "let name = 'Python'", "correct": false }
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "x = 5\nprint(x + 3)",
-      "options": ["5", "8", "x + 3"],
-      "correct": "8"
+      "code": "hero = \"Да\"\nprint(hero)",
+      "options": [
+        "Да",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Да"
     },
     "find_bug": {
-      "description": "Что не так с этим кодом?",
-      "code": "print(name)\nname = 'Python'",
-      "hint": "Нельзя использовать переменную до её создания. Сначала присвой значение, потом используй!"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = Багус\nprint(word)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Представься",
-      "description": "Создай переменную и выведи её",
-      "task": "Создай переменную `name` со своим именем и выведи приветствие:",
-      "expected_output": "Привет, я Python-герой!",
+      "title": "Миссия: Строки и кавычки",
+      "description": "Напиши программу по теме урока «Строки и кавычки»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Багус",
       "character": "da"
     }
   },
@@ -88,124 +120,396 @@
     "part": 1,
     "chapter": 1,
     "lesson": 3,
-    "slug": "input",
-    "title": "Функция input()",
-    "subtitle": "Слушай пользователя",
-    "topic": "input()",
+    "slug": "peremennye",
+    "title": "Переменные",
+    "subtitle": "Именованные контейнеры",
+    "topic": "переменные",
     "locked": false,
     "explanation": {
-      "text": "Функция `input()` — это способ получить информацию от пользователя. Программа останавливается и ждёт, пока человек что-то введёт и нажмёт Enter. Всё, что введут — будет строкой (`str`).",
+      "text": "Переменная — имя для значения, которое можно использовать позже.",
       "character": "ksyu",
-      "code_example": "name = input()\nprint(\"Привет,\", name)",
-      "output": "Привет, [введённое имя]"
+      "code_example": "level = 1\nprint(level)",
+      "output": "1"
     },
     "quiz": {
-      "question": "Какой тип данных возвращает input()?",
+      "question": "Как создать переменную в Python?",
       "options": [
-        { "id": "a", "text": "int (число)", "correct": false },
-        { "id": "b", "text": "str (строка)", "correct": true },
-        { "id": "c", "text": "bool (True/False)", "correct": false }
+        {
+          "id": "a",
+          "text": "name = 'Python'",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "var name = 'Python'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "let name = 'Python'",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "x = input()\nprint(type(x))",
-      "options": ["<class 'int'>", "<class 'str'>", "<class 'float'>"],
-      "correct": "<class 'str'>"
+      "code": "x = 5\nx = 7\nprint(x)",
+      "options": [
+        "7",
+        "8",
+        "6"
+      ],
+      "correct": "7"
     },
     "find_bug": {
-      "description": "Почему этот код не сложит числа?",
-      "code": "a = input()\nb = input()\nprint(a + b)",
-      "hint": "input() возвращает строку! '3' + '5' = '35', а не 8. Нужно: int(a) + int(b)"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "coins = 10\nprint(\"coins\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Персональное приветствие",
-      "description": "Спроси имя и поприветствуй",
-      "task": "Получи имя от пользователя и выведи:",
-      "expected_output": "Добро пожаловать в КсюВаДа, [имя]!",
+      "title": "Миссия: Переменные",
+      "description": "Напиши программу по теме урока «Переменные»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "10",
       "character": "da"
     }
   },
   {
     "id": "1-4",
     "part": 1,
-    "chapter": 2,
+    "chapter": 1,
     "lesson": 4,
-    "slug": "if-else",
-    "title": "Условие if/else",
-    "subtitle": "Выбор пути",
-    "topic": "if/else",
+    "slug": "input",
+    "title": "input()",
+    "subtitle": "Диалог с программой",
+    "topic": "input()",
     "locked": false,
     "explanation": {
-      "text": "Ва говорит: условие `if` — это развилка на дороге. Если условие истинно (`True`) — идёт один путь. Если ложно (`False`) — другой, через `else`.",
-      "character": "va",
-      "code_example": "age = 18\nif age >= 18:\n    print(\"Взрослый\")\nelse:\n    print(\"Ребёнок\")",
-      "output": "Взрослый"
+      "text": "`input()` ждёт ввод пользователя и возвращает строку.",
+      "character": "ksyu",
+      "code_example": "name = input()\nprint(name)",
+      "output": ""
     },
     "quiz": {
-      "question": "Что выведет код: if 5 > 3: print('Да') else: print('Нет')?",
+      "question": "Какой тип данных возвращает input()?",
       "options": [
-        { "id": "a", "text": "Нет", "correct": false },
-        { "id": "b", "text": "Да", "correct": true },
-        { "id": "c", "text": "Ошибка", "correct": false }
+        {
+          "id": "a",
+          "text": "str (строка)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "int (число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "bool (True/False)",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "x = 10\nif x > 20:\n    print(\"Большое\")\nelse:\n    print(\"Маленькое\")",
-      "options": ["Большое", "Маленькое", "Ошибка"],
-      "correct": "Маленькое"
+      "code": "name = input()\nprint(\"Привет\")\nprint(name)",
+      "options": [],
+      "correct": "print(name)"
     },
     "find_bug": {
-      "description": "Что не так с этим кодом?",
-      "code": "if x > 5\n    print('yes')",
-      "hint": "После условия if нужно поставить двоеточие! Правильно: if x > 5:"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "name = input\nprint(name)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Пропускной пункт",
-      "description": "Проверь возраст и выведи результат",
-      "task": "Получи число от пользователя. Если >= 18 — выведи 'Добро пожаловать', иначе — 'Доступ запрещён'.",
-      "expected_output": "Добро пожаловать / Доступ запрещён",
+      "title": "Миссия: input()",
+      "description": "Напиши программу по теме урока «input()»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Андрей",
       "character": "da"
     }
   },
   {
     "id": "1-5",
     "part": 1,
-    "chapter": 2,
+    "chapter": 1,
     "lesson": 5,
-    "slug": "for-range",
-    "title": "Цикл for и range()",
-    "subtitle": "Повторяй действия",
-    "topic": "for/range",
+    "slug": "intinput",
+    "title": "int(input())",
+    "subtitle": "Диалог с программой",
+    "topic": "int(input())",
     "locked": false,
     "explanation": {
-      "text": "Цикл `for` позволяет повторить действие несколько раз. `range(n)` создаёт последовательность чисел от 0 до n-1. Это как шаги в квесте — каждый шаг выполняет одно действие.",
-      "character": "da",
-      "code_example": "for i in range(3):\n    print(i)",
-      "output": "0\n1\n2"
+      "text": "Чтобы введённое значение стало числом, нужен `int()`.",
+      "character": "ksyu",
+      "code_example": "number = int(input())\nprint(number + 1)",
+      "output": ""
     },
     "quiz": {
-      "question": "Сколько раз выполнится цикл: for i in range(5)?",
+      "question": "Какой тип данных возвращает input()?",
       "options": [
-        { "id": "a", "text": "4 раза", "correct": false },
-        { "id": "b", "text": "5 раз", "correct": true },
-        { "id": "c", "text": "6 раз", "correct": false }
+        {
+          "id": "a",
+          "text": "str (строка)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "int (число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "bool (True/False)",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "for i in range(3):\n    print(i * 2)",
-      "options": ["0 2 4", "1 2 3", "2 4 6"],
-      "correct": "0 2 4"
+      "code": "x = int(input())\nprint(x * 2)",
+      "options": [],
+      "correct": "print(x * 2)"
     },
     "find_bug": {
-      "description": "Багус сломал цикл. Что не так?",
-      "code": "for i in range(3)\n    print(i)",
-      "hint": "После range(3) нужно двоеточие! Правильно: for i in range(3):"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = input()\nprint(x + 1)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Лестница чисел",
-      "description": "Напечатай числа от 1 до 5",
-      "task": "Используй цикл for и range(), чтобы вывести числа от 1 до 5 каждое на новой строке.",
-      "expected_output": "1\n2\n3\n4\n5",
+      "title": "Миссия: int(input())",
+      "description": "Напиши программу по теме урока «int(input())»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "9",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-6",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 6,
+    "slug": "arifmetika",
+    "title": "Арифметика",
+    "subtitle": "Сложение, вычитание и умножение",
+    "topic": "арифметика",
+    "locked": false,
+    "explanation": {
+      "text": "Python умеет складывать, вычитать, умножать и делить числа.",
+      "character": "ksyu",
+      "code_example": "a = 10\nb = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)",
+      "output": "13\n7\n30"
+    },
+    "quiz": {
+      "question": "Что делает оператор + в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Складывает числа",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Умножает числа",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Делит числа",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 6\ny = 2\nprint(x * y + 1)",
+      "options": [
+        "13",
+        "14",
+        "12"
+      ],
+      "correct": "13"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = int(input())\nb = int(input())\nprint(\"a + b\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Арифметика",
+      "description": "Напиши программу по теме урока «Арифметика»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "13",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-7",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 7,
+    "slug": "sravneniya",
+    "title": "Сравнения",
+    "subtitle": "Больше, меньше или равно",
+    "topic": "сравнения",
+    "locked": false,
+    "explanation": {
+      "text": "Сравнение задаёт вопрос и возвращает `True` или `False`.",
+      "character": "va",
+      "code_example": "print(5 > 3)\nprint(5 == 3)",
+      "output": "True\nFalse"
+    },
+    "quiz": {
+      "question": "Что возвращает операция сравнения?",
+      "options": [
+        {
+          "id": "a",
+          "text": "True или False",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(10 == 10)\nprint(2 > 5)",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = int(input())\nb = int(input())\nprint(a = b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Сравнения",
+      "description": "Напиши программу по теме урока «Сравнения»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "True",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-8",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 8,
+    "slug": "if",
+    "title": "if",
+    "subtitle": "Ветвление в коде",
+    "topic": "if",
+    "locked": false,
+    "explanation": {
+      "text": "`if` выполняет код, только если условие истинно.",
+      "character": "va",
+      "code_example": "age = int(input())\nif age >= 18:\n    print(\"Можно\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда выполняется код внутри if?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда условие истинно (True)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда условие ложно (False)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Всегда",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 10\nif x > 5:\n    print(\"Да\")",
+      "options": [
+        "Да",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Да"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = int(input())\nif x > 0:\nprint(\"Плюс\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: if",
+      "description": "Напиши программу по теме урока «if»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Плюс",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-9",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 9,
+    "slug": "if-else",
+    "title": "if else",
+    "subtitle": "Выбор пути",
+    "topic": "if",
+    "locked": false,
+    "explanation": {
+      "text": "`else` выполняется, если условие в `if` ложно.",
+      "character": "va",
+      "code_example": "age = int(input())\nif age >= 18:\n    print(\"Можно\")\nelse:\n    print(\"Нельзя\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда выполняется блок else?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда условие if ложно",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда условие if истинно",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Всегда после if",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 2\nif x > 5:\n    print(\"Большое\")\nelse:\n    print(\"Маленькое\")",
+      "options": [
+        "Маленькое",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Маленькое"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = int(input())\nif x % 2 == 0:\n    print(\"even\")\nelse x % 2 != 0:\n    print(\"odd\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: if else",
+      "description": "Напиши программу по теме урока «if else»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "odd",
       "character": "da"
     }
   },
@@ -214,40 +518,56 @@
     "part": 2,
     "chapter": 3,
     "lesson": 1,
-    "slug": "lists",
-    "title": "Списки",
-    "subtitle": "Коллекция данных",
-    "topic": "list",
+    "slug": "elif",
+    "title": "elif",
+    "subtitle": "Множественный выбор",
+    "topic": "elif",
     "locked": false,
     "explanation": {
-      "text": "Список (`list`) — это упорядоченная коллекция элементов. Индексация начинается с 0. Архивариус Памяти говорит: список — это полка с пронумерованными ящиками.",
-      "character": "ksyu",
-      "code_example": "heroes = ['Ксю', 'Ва', 'Да']\nprint(heroes[0])",
-      "output": "Ксю"
+      "text": "`elif` нужен, когда вариантов больше двух.",
+      "character": "va",
+      "code_example": "temp = int(input())\nif temp < 0:\n    print(\"Мороз\")\nelif temp < 20:\n    print(\"Прохладно\")\nelse:\n    print(\"Тепло\")",
+      "output": ""
     },
     "quiz": {
-      "question": "Какой индекс у первого элемента списка?",
+      "question": "Сколько условий можно проверить с помощью elif?",
       "options": [
-        { "id": "a", "text": "1", "correct": false },
-        { "id": "b", "text": "0", "correct": true },
-        { "id": "c", "text": "-1", "correct": false }
+        {
+          "id": "a",
+          "text": "Сколько угодно",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Только одно",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Максимум два",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "items = [10, 20, 30]\nprint(items[-1])",
-      "options": ["10", "30", "Ошибка"],
-      "correct": "30"
+      "code": "x = 10\nif x < 5:\n    print(\"A\")\nelif x < 15:\n    print(\"B\")\nelse:\n    print(\"C\")",
+      "options": [
+        "B",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "B"
     },
     "find_bug": {
-      "description": "IndexError — почему?",
-      "code": "items = [1, 2, 3]\nprint(items[3])",
-      "hint": "Индексы идут от 0 до 2. items[3] не существует! Максимум: items[2]"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "mark = int(input())\nif mark == 5:\n    print(\"Отлично\")\nif mark == 4:\n    print(\"Хорошо\")\nelse:\n    print(\"Повторить\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Инвентарь героя",
-      "description": "Создай список предметов",
-      "task": "Создай список из 3 предметов и выведи их все через цикл for.",
-      "expected_output": "[предмет 1]\n[предмет 2]\n[предмет 3]",
+      "title": "Миссия: elif",
+      "description": "Напиши программу по теме урока «elif»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Хорошо",
       "character": "da"
     }
   },
@@ -256,40 +576,4406 @@
     "part": 2,
     "chapter": 3,
     "lesson": 2,
-    "slug": "functions",
-    "title": "Функции",
-    "subtitle": "Пакуй код в магию",
-    "topic": "def",
-    "locked": true,
+    "slug": "logicheskie-tsepochki",
+    "title": "Логические цепочки",
+    "subtitle": "Цепочка условий",
+    "topic": "логические",
+    "locked": false,
     "explanation": {
-      "text": "Функция — это именованный блок кода, который можно вызывать снова и снова. Ва говорит: функция — это заклинание. Выучи один раз и применяй где угодно.",
+      "text": "Цепочка условий выбирает один путь из нескольких.",
       "character": "va",
-      "code_example": "def greet(name):\n    print(f'Привет, {name}!')\n\ngreet('Питон')",
-      "output": "Привет, Питон!"
+      "code_example": "score = int(input())\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+      "output": ""
     },
     "quiz": {
-      "question": "Какое ключевое слово используется для создания функции?",
+      "question": "Что такое логическая цепочка?",
       "options": [
-        { "id": "a", "text": "function", "correct": false },
-        { "id": "b", "text": "def", "correct": true },
-        { "id": "c", "text": "func", "correct": false }
+        {
+          "id": "a",
+          "text": "Несколько условий, проверяемых по порядку",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Одно условие",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Математическая формула",
+          "correct": false
+        }
       ]
     },
     "what_outputs": {
-      "code": "def double(x):\n    return x * 2\n\nprint(double(5))",
-      "options": ["5", "10", "double(5)"],
-      "correct": "10"
+      "code": "x = 80\nif x >= 90:\n    print(\"A\")\nelif x >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+      "options": [
+        "B",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "B"
     },
     "find_bug": {
-      "description": "Функция не возвращает результат. Почему?",
-      "code": "def add(a, b):\n    a + b\n\nprint(add(2, 3))",
-      "hint": "Нет ключевого слова return! Правильно: return a + b"
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "age = int(input())\nif age < 18:\n    print(\"teen\")\nelif age < 13:\n    print(\"child\")\nelse:\n    print(\"adult\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
     },
     "mission": {
-      "title": "Миссия: Создай заклинание",
-      "description": "Напиши свою первую функцию",
-      "task": "Создай функцию `power(name)`, которая выводит: 'Заклинание [name] активировано!'",
-      "expected_output": "Заклинание Огонь активировано!",
+      "title": "Миссия: Логические цепочки",
+      "description": "Напиши программу по теме урока «Логические цепочки»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "teen",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-3",
+    "part": 2,
+    "chapter": 4,
+    "lesson": 3,
+    "slug": "random.randint",
+    "title": "random.randint",
+    "subtitle": "Элемент неожиданности",
+    "topic": "random.randint",
+    "locked": false,
+    "explanation": {
+      "text": "`random.randint(a, b)` выдаёт случайное целое число от `a` до `b` включительно.",
+      "character": "da",
+      "code_example": "import random\nx = random.randint(1, 6)\nprint(x)",
+      "output": "4"
+    },
+    "quiz": {
+      "question": "Что возвращает random.randint(a, b)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Случайное целое число от a до b",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Случайное вещественное число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Случайную строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "import random\nprint(\"Кубик брошен\")",
+      "options": [
+        "Кубик брошен",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Кубик брошен"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = random.randint(1, 6)\nprint(x)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: random.randint",
+      "description": "Напиши программу по теме урока «random.randint»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "случайное число от 1 до 3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-4",
+    "part": 2,
+    "chapter": 4,
+    "lesson": 4,
+    "slug": "prostaya-igra-s-random",
+    "title": "Простая игра с random",
+    "subtitle": "Элемент неожиданности",
+    "topic": "простая",
+    "locked": false,
+    "explanation": {
+      "text": "Случайность можно соединять с условиями и делать игры.",
+      "character": "da",
+      "code_example": "import random\nsecret = random.randint(1, 3)\nguess = int(input())\nif guess == secret:\n    print(\"Победа\")\nelse:\n    print(\"Промах\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что возвращает random.randint(a, b)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Случайное целое число от a до b",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Случайное вещественное число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Случайную строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "secret = 2\nguess = 2\nif guess == secret:\n    print(\"Победа\")\nelse:\n    print(\"Промах\")",
+      "options": [
+        "Победа",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Победа"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "import random\nsecret = random.randint(1, 10)\nif guess == secret:\n    print(\"Победа\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Простая игра с random",
+      "description": "Напиши программу по теме урока «Простая игра с random»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Угадал",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-5",
+    "part": 2,
+    "chapter": 5,
+    "lesson": 5,
+    "slug": "pervoe-znakomstvo-s-for",
+    "title": "Первое знакомство с for",
+    "subtitle": "Повторение — мать учения",
+    "topic": "первое",
+    "locked": false,
+    "explanation": {
+      "text": "`for` нужен, чтобы повторять действие несколько раз.",
+      "character": "da",
+      "code_example": "for i in range(3):\n    print(\"Привет\")",
+      "output": "Привет\nПривет\nПривет"
+    },
+    "quiz": {
+      "question": "Сколько раз выполнится цикл for i in range(5)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 раз",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "4 раза",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "6 раз",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(3):\n    print(i)",
+      "options": [
+        "0",
+        "1",
+        "2"
+      ],
+      "correct": "0"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i in range(3)\n    print(\"Python\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Первое знакомство с for",
+      "description": "Напиши программу по теме урока «Первое знакомство с for»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Python",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-6",
+    "part": 2,
+    "chapter": 5,
+    "lesson": 6,
+    "slug": "range",
+    "title": "range",
+    "subtitle": "Генератор чисел",
+    "topic": "range",
+    "locked": false,
+    "explanation": {
+      "text": "`range` создаёт последовательность чисел для цикла.",
+      "character": "da",
+      "code_example": "for i in range(1, 6):\n    print(i)",
+      "output": "1\n2\n3\n4\n5"
+    },
+    "quiz": {
+      "question": "Что создаёт функция range(3)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Последовательность 0, 1, 2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Последовательность 1, 2, 3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Число 3",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(2, 5):\n    print(i)",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": "2"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i in range(1, 4):\n    print(i)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: range",
+      "description": "Напиши программу по теме урока «range»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "1",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-1",
+    "part": 3,
+    "chapter": 6,
+    "lesson": 1,
+    "slug": "float-i-tipy-dannykh",
+    "title": "Float и типы данных",
+    "subtitle": "Числа с запятой",
+    "topic": "float",
+    "locked": false,
+    "explanation": {
+      "text": "`float` хранит дробные числа.",
+      "character": "ksyu",
+      "code_example": "length = 4.5\nwidth = 2\nprint(length * width)",
+      "output": "9.0"
+    },
+    "quiz": {
+      "question": "Какой тип у числа 3.14 в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "float (вещественное число)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "int (целое число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "str (строка)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 2.5\nprint(x * 2)",
+      "options": [
+        "5.0",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "5.0"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = input()\nprint(x * 2)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Float и типы данных",
+      "description": "Напиши программу по теме урока «Float и типы данных»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "7.0",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-2",
+    "part": 3,
+    "chapter": 6,
+    "lesson": 2,
+    "slug": "obychnoe-delenie",
+    "title": "Обычное деление /",
+    "subtitle": "Арифметика чисел",
+    "topic": "обычное",
+    "locked": false,
+    "explanation": {
+      "text": "`/` делит точно и возвращает дробный результат.",
+      "character": "ksyu",
+      "code_example": "print(10 / 4)",
+      "output": "2.5"
+    },
+    "quiz": {
+      "question": "Что вернёт выражение 7 / 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3.5 (вещественное число)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3 (целое число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Ошибку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(9 / 2)",
+      "options": [
+        "4.5",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "4.5"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = int(input())\nb = int(input())\nprint(a // b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Обычное деление /",
+      "description": "Напиши программу по теме урока «Обычное деление /»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "5.0",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-3",
+    "part": 3,
+    "chapter": 6,
+    "lesson": 3,
+    "slug": "tselochislennoe-delenie",
+    "title": "Целочисленное деление //",
+    "subtitle": "Арифметика чисел",
+    "topic": "целочисленное",
+    "locked": false,
+    "explanation": {
+      "text": "`//` показывает, сколько полных частей помещается.",
+      "character": "ksyu",
+      "code_example": "print(10 // 3)",
+      "output": "3"
+    },
+    "quiz": {
+      "question": "Что вернёт выражение 7 / 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3.5 (вещественное число)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3 (целое число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Ошибку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(17 // 5)",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = int(input())\nb = int(input())\nprint(a / b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Целочисленное деление //",
+      "description": "Напиши программу по теме урока «Целочисленное деление //»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-4",
+    "part": 3,
+    "chapter": 6,
+    "lesson": 4,
+    "slug": "ostatok-ot-deleniya",
+    "title": "Остаток от деления %",
+    "subtitle": "Остаток от деления",
+    "topic": "остаток",
+    "locked": false,
+    "explanation": {
+      "text": "`%` показывает, сколько осталось после деления.",
+      "character": "ksyu",
+      "code_example": "print(10 % 3)",
+      "output": "1"
+    },
+    "quiz": {
+      "question": "Что вернёт выражение 7 % 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "1 (остаток от деления)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(17 % 5)",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": "2"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = int(input())\nb = int(input())\nprint(a // b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Остаток от деления %",
+      "description": "Напиши программу по теме урока «Остаток от деления %»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "2",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-5",
+    "part": 3,
+    "chapter": 6,
+    "lesson": 5,
+    "slug": "opredelenie-na-chetnost",
+    "title": "Определение на чётность",
+    "subtitle": "Арифметика чисел",
+    "topic": "определение",
+    "locked": false,
+    "explanation": {
+      "text": "Число чётное, если остаток от деления на 2 равен нулю.",
+      "character": "ksyu",
+      "code_example": "n = int(input())\nif n % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что вернёт выражение 7 / 2?",
+      "options": [
+        {
+          "id": "a",
+          "text": "3.5 (вещественное число)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "3 (целое число)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Ошибку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "n = 8\nprint(n % 2 == 0)",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "n = int(input())\nif n / 2 == 0:\n    print(\"yes\")\nelse:\n    print(\"no\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Определение на чётность",
+      "description": "Напиши программу по теме урока «Определение на чётность»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "yes",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-6",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 6,
+    "slug": "bool",
+    "title": "Bool",
+    "subtitle": "Правда или ложь",
+    "topic": "bool",
+    "locked": false,
+    "explanation": {
+      "text": "`bool` хранит только `True` или `False`.",
+      "character": "va",
+      "code_example": "is_open = True\nif is_open:\n    print(\"open\")",
+      "output": "open"
+    },
+    "quiz": {
+      "question": "Сколько значений у типа bool?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Два: True и False",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Одно: True",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Три: True, False и None",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(5 > 2)\nprint(5 < 2)",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "flag = true\nprint(flag)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Bool",
+      "description": "Напиши программу по теме урока «Bool»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "True",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-7",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 7,
+    "slug": "sostoyaniya-obektov",
+    "title": "Состояния объектов",
+    "subtitle": "Флаги состояния",
+    "topic": "состояния",
+    "locked": false,
+    "explanation": {
+      "text": "Состояние удобно хранить в bool-переменной.",
+      "character": "va",
+      "code_example": "door_is_open = False\nif door_is_open:\n    print(\"Проходи\")\nelse:\n    print(\"Закрыто\")",
+      "output": "Закрыто"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Состояния объектов»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Состояния",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "is_ready = False\nif is_ready:\n    print(\"go\")\nelse:\n    print(\"wait\")",
+      "options": [
+        "wait",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "wait"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "is_ready = \"нет\"\nif is_ready:\n    print(\"start\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Состояния объектов",
+      "description": "Напиши программу по теме урока «Состояния объектов»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "start",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-8",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 8,
+    "slug": "korotkaya-zapis-usloviy",
+    "title": "Короткая запись условий",
+    "subtitle": "Сокращённая запись",
+    "topic": "короткая",
+    "locked": false,
+    "explanation": {
+      "text": "Если переменная уже bool, её не нужно сравнивать с `True`.",
+      "character": "va",
+      "code_example": "is_ready = True\nif is_ready:\n    print(\"Готово\")",
+      "output": "Готово"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Короткая запись условий»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Короткая",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "ok = True\nif ok:\n    print(\"yes\")",
+      "options": [
+        "yes",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "yes"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "found = True\nif found = True:\n    print(\"found\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Короткая запись условий",
+      "description": "Напиши программу по теме урока «Короткая запись условий»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "found",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-9",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 9,
+    "slug": "and",
+    "title": "and",
+    "subtitle": "Логическое И",
+    "topic": "and",
+    "locked": false,
+    "explanation": {
+      "text": "`and` требует, чтобы оба условия были истинными.",
+      "character": "va",
+      "code_example": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"Можно\")",
+      "output": "Можно"
+    },
+    "quiz": {
+      "question": "Когда условие с and истинно?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда обе части истинны",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда хотя бы одна часть истинна",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Когда обе части ложны",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(True and False)\nprint(True and True)",
+      "options": [
+        "False",
+        "True",
+        "None"
+      ],
+      "correct": "False"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "age = int(input())\nanswer = input()\nif age >= 18 or answer == \"да\":\n    print(\"ok\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: and",
+      "description": "Напиши программу по теме урока «and»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "ok",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-10",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 10,
+    "slug": "or",
+    "title": "or",
+    "subtitle": "Логическое ИЛИ",
+    "topic": "or",
+    "locked": false,
+    "explanation": {
+      "text": "`or` срабатывает, если хотя бы одно условие истинно.",
+      "character": "va",
+      "code_example": "day = input()\nif day == \"суббота\" or day == \"воскресенье\":\n    print(\"Выходной\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда условие с or истинно?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда хотя бы одна часть истинна",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда обе части истинны",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Когда обе части ложны",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(False or True)\nprint(False or False)",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "day = input()\nif day == \"сб\" or \"вс\":\n    print(\"weekend\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: or",
+      "description": "Напиши программу по теме урока «or»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "weekend",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-11",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 11,
+    "slug": "not",
+    "title": "not",
+    "subtitle": "Логическое НЕ",
+    "topic": "not",
+    "locked": false,
+    "explanation": {
+      "text": "`not` переворачивает логическое значение.",
+      "character": "va",
+      "code_example": "is_closed = False\nif not is_closed:\n    print(\"Открыто\")",
+      "output": "Открыто"
+    },
+    "quiz": {
+      "question": "Что делает оператор not?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Инвертирует значение (True → False)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Удваивает значение",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Проверяет наличие значения",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(not True)\nprint(not False)",
+      "options": [
+        "False",
+        "True",
+        "None"
+      ],
+      "correct": "False"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = input()\nif not \"a\" in word:\nprint(\"no a\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: not",
+      "description": "Напиши программу по теме урока «not»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "no a",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-12",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 12,
+    "slug": "optimizatsiya-if",
+    "title": "Оптимизация if",
+    "subtitle": "Ветвление в коде",
+    "topic": "оптимизация",
+    "locked": false,
+    "explanation": {
+      "text": "Большие условия нужно писать так, чтобы их было легко читать.",
+      "character": "va",
+      "code_example": "name = input()\nphone = input()\nif name and phone:\n    print(\"ok\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда выполняется код внутри if?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда условие истинно (True)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда условие ложно (False)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Всегда",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "name = \"\"\nphone = \"123\"\nif name and phone:\n    print(\"ok\")\nelse:\n    print(\"bad\")",
+      "options": [
+        "bad",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "bad"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "name = input()\nservice = input()\nif name or service:\n    print(\"accepted\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Оптимизация if",
+      "description": "Напиши программу по теме урока «Оптимизация if»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "accepted",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-13",
+    "part": 3,
+    "chapter": 7,
+    "lesson": 13,
+    "slug": "vlozhennye-if",
+    "title": "Вложенные if",
+    "subtitle": "Ветвление в коде",
+    "topic": "вложенные",
+    "locked": false,
+    "explanation": {
+      "text": "Вложенный `if` нужен, когда второй вопрос имеет смысл только после первого.",
+      "character": "va",
+      "code_example": "age = int(input())\nif age >= 18:\n    ticket = input()\n    if ticket == \"да\":\n        print(\"Вход\")\n    else:\n        print(\"Нужен билет\")\nelse:\n    print(\"Рано\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда выполняется код внутри if?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Когда условие истинно (True)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Когда условие ложно (False)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Всегда",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "age = 17\nif age >= 18:\n    print(\"adult\")\nelse:\n    print(\"young\")",
+      "options": [
+        "young",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "young"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "password = input()\nif password == \"1234\":\ncode = input()\n    if code == \"999\":\n        print(\"ok\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Вложенные if",
+      "description": "Напиши программу по теме урока «Вложенные if»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "ok",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-14",
+    "part": 3,
+    "chapter": 8,
+    "lesson": 14,
+    "slug": "for-i-range-baza",
+    "title": "For и range база",
+    "subtitle": "Повторение — мать учения",
+    "topic": "for",
+    "locked": false,
+    "explanation": {
+      "text": "`for` повторяет действие для каждого значения из диапазона.",
+      "character": "da",
+      "code_example": "for i in range(3):\n    print(\"step\")",
+      "output": "step\nstep\nstep"
+    },
+    "quiz": {
+      "question": "Сколько раз выполнится цикл for i in range(5)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "5 раз",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "4 раза",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "6 раз",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(2):\n    print(i)",
+      "options": [
+        "0",
+        "1",
+        "2"
+      ],
+      "correct": "0"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i range(4):\n    print(\"go\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: For и range база",
+      "description": "Напиши программу по теме урока «For и range база»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "go",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-15",
+    "part": 3,
+    "chapter": 8,
+    "lesson": 15,
+    "slug": "diapazon-rangestart-stop",
+    "title": "Диапазон range(start, stop)",
+    "subtitle": "Генератор чисел",
+    "topic": "диапазон",
+    "locked": false,
+    "explanation": {
+      "text": "`range(start, stop)` идёт от start до stop, не включая stop.",
+      "character": "da",
+      "code_example": "for i in range(1, 5):\n    print(i)",
+      "output": "1\n2\n3\n4"
+    },
+    "quiz": {
+      "question": "Что создаёт функция range(3)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Последовательность 0, 1, 2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Последовательность 1, 2, 3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Число 3",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(3, 6):\n    print(i)",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i in range(2, 5):\n    print(i)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Диапазон range(start, stop)",
+      "description": "Напиши программу по теме урока «Диапазон range(start, stop)»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "2",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-16",
+    "part": 3,
+    "chapter": 8,
+    "lesson": 16,
+    "slug": "shag-range",
+    "title": "Шаг range",
+    "subtitle": "Генератор чисел",
+    "topic": "шаг",
+    "locked": false,
+    "explanation": {
+      "text": "Третий аргумент `range` задаёт шаг.",
+      "character": "da",
+      "code_example": "for i in range(0, 10, 2):\n    print(i)",
+      "output": "0\n2\n4\n6\n8"
+    },
+    "quiz": {
+      "question": "Что создаёт функция range(3)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Последовательность 0, 1, 2",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Последовательность 1, 2, 3",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Число 3",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(1, 6, 2):\n    print(i)",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i in range(0, 9, 3):\n    print(i)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Шаг range",
+      "description": "Напиши программу по теме урока «Шаг range»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "0",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-17",
+    "part": 3,
+    "chapter": 8,
+    "lesson": 17,
+    "slug": "obratnyy-khod",
+    "title": "Обратный ход",
+    "subtitle": "Движение назад",
+    "topic": "обратный",
+    "locked": false,
+    "explanation": {
+      "text": "Отрицательный шаг позволяет идти назад.",
+      "character": "da",
+      "code_example": "for i in range(5, 0, -1):\n    print(i)",
+      "output": "5\n4\n3\n2\n1"
+    },
+    "quiz": {
+      "question": "Как перебрать числа от 5 до 1?",
+      "options": [
+        {
+          "id": "a",
+          "text": "range(5, 0, -1)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "range(1, 5)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "range(5, 1)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(3, 0, -1):\n    print(i)",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for i in range(5, 1):\n    print(i)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Обратный ход",
+      "description": "Напиши программу по теме урока «Обратный ход»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "5",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-18",
+    "part": 3,
+    "chapter": 8,
+    "lesson": 18,
+    "slug": "peremennye-v-tsiklakh",
+    "title": "Переменные в циклах",
+    "subtitle": "Именованные контейнеры",
+    "topic": "переменные",
+    "locked": false,
+    "explanation": {
+      "text": "Переменная-накопитель хранит результат, который меняется на каждом шаге.",
+      "character": "da",
+      "code_example": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)",
+      "output": "6"
+    },
+    "quiz": {
+      "question": "Как создать переменную в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "name = 'Python'",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "var name = 'Python'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "let name = 'Python'",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "s = 0\nfor i in range(1, 4):\n    s += i\nprint(s)",
+      "options": [
+        "6",
+        "7",
+        "5"
+      ],
+      "correct": "6"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "total = 0\nfor i in range(1, 4):\n    total = i\nprint(total)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Переменные в циклах",
+      "description": "Напиши программу по теме урока «Переменные в циклах»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "10",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-19",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 19,
+    "slug": "stroki-baza",
+    "title": "Строки база",
+    "subtitle": "Текст и кавычки",
+    "topic": "строки",
+    "locked": false,
+    "explanation": {
+      "text": "Строка — последовательность символов.",
+      "character": "ksyu",
+      "code_example": "word = \"python\"\nprint(word)",
+      "output": "python"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "word = \"cat\"\nprint(word)",
+      "options": [
+        "cat",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "cat"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = дом\nprint(word)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Строки база",
+      "description": "Напиши программу по теме урока «Строки база»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "дом",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-20",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 20,
+    "slug": "operator-in-dlya-strok",
+    "title": "Оператор in для строк",
+    "subtitle": "Текст и кавычки",
+    "topic": "оператор",
+    "locked": false,
+    "explanation": {
+      "text": "`in` проверяет, есть ли часть текста внутри строки.",
+      "character": "ksyu",
+      "code_example": "text = \"hello python\"\nprint(\"python\" in text)",
+      "output": "True"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"a\" in \"cat\")",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "text = input()\nif @ in text:\n    print(\"email\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Оператор in для строк",
+      "description": "Напиши программу по теме урока «Оператор in для строк»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "email",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-21",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 21,
+    "slug": "len",
+    "title": "len",
+    "subtitle": "Длина объекта",
+    "topic": "len",
+    "locked": false,
+    "explanation": {
+      "text": "`len()` возвращает длину строки или списка.",
+      "character": "ksyu",
+      "code_example": "word = \"python\"\nprint(len(word))",
+      "output": "6"
+    },
+    "quiz": {
+      "question": "Что возвращает функция len()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Количество элементов в объекте",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Длину самого длинного элемента",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Сумму всех элементов",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(len(\"Ксю\"))",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "password = input()\nprint(password.len())",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: len",
+      "description": "Напиши программу по теме урока «len»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "6",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-22",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 22,
+    "slug": "f-stroka",
+    "title": "F-строка",
+    "subtitle": "Текст и кавычки",
+    "topic": "f-строка",
+    "locked": false,
+    "explanation": {
+      "text": "F-строка вставляет значения переменных внутрь текста.",
+      "character": "ksyu",
+      "code_example": "name = \"Ксю\"\nlevel = 3\nprint(f\"{name}: {level}\")",
+      "output": "Ксю: 3"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "name = \"Да\"\nprint(f\"Привет, {name}\")",
+      "options": [
+        "Привет, Да",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "Привет, Да"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "name = input()\nprint(\"Герой {name}\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: F-строка",
+      "description": "Напиши программу по теме урока «F-строка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "Герой Андрей: 5",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-23",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 23,
+    "slug": "metody-strok",
+    "title": "Методы строк",
+    "subtitle": "Текст и кавычки",
+    "topic": "методы",
+    "locked": false,
+    "explanation": {
+      "text": "Методы строк помогают менять регистр и убирать пробелы.",
+      "character": "ksyu",
+      "code_example": "text = \"  PyThOn  \"\nprint(text.lower().strip())",
+      "output": "python"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "text = \" ДА \"\nprint(text.strip().lower())",
+      "options": [
+        "да",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "да"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "answer = input()\nanswer.lower()\nprint(answer)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Методы строк",
+      "description": "Напиши программу по теме урока «Методы строк»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "да",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-24",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 24,
+    "slug": "indeksy",
+    "title": "Индексы",
+    "subtitle": "Доступ по номеру",
+    "topic": "индексы",
+    "locked": false,
+    "explanation": {
+      "text": "Индекс — номер символа. Счёт начинается с 0.",
+      "character": "ksyu",
+      "code_example": "word = \"python\"\nprint(word[0])",
+      "output": "p"
+    },
+    "quiz": {
+      "question": "Какой индекс у первого символа строки?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "word = \"cat\"\nprint(word[2])",
+      "options": [
+        "t",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "t"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = input()\nprint(word[1])",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Индексы",
+      "description": "Напиши программу по теме урока «Индексы»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "p",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-25",
+    "part": 3,
+    "chapter": 9,
+    "lesson": 25,
+    "slug": "srezy",
+    "title": "Срезы",
+    "subtitle": "Извлечение части",
+    "topic": "срезы",
+    "locked": false,
+    "explanation": {
+      "text": "Срез берёт часть строки.",
+      "character": "ksyu",
+      "code_example": "word = \"python\"\nprint(word[0:2])",
+      "output": "py"
+    },
+    "quiz": {
+      "question": "Что вернёт 'Python'[0:3]?",
+      "options": [
+        {
+          "id": "a",
+          "text": "'Pyt'",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "'Pyth'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "'ython'",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "word = \"python\"\nprint(word[1:4])",
+      "options": [
+        "yth",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "yth"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = input()\nprint(word[0:3])  # если слово короткое, что будет?",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Срезы",
+      "description": "Напиши программу по теме урока «Срезы»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "pyt",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-26",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 26,
+    "slug": "perebor-stroki",
+    "title": "Перебор строки",
+    "subtitle": "Текст и кавычки",
+    "topic": "перебор",
+    "locked": false,
+    "explanation": {
+      "text": "Цикл может пройти по каждой букве строки.",
+      "character": "ksyu",
+      "code_example": "word = \"abc\"\nfor letter in word:\n    print(letter)",
+      "output": "a\nb\nc"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for ch in \"hi\":\n    print(ch)",
+      "options": [
+        "h",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "h"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "word = input()\nfor i in word:\nprint(i)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Перебор строки",
+      "description": "Напиши программу по теме урока «Перебор строки»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "к",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-27",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 27,
+    "slug": "spiski-baza",
+    "title": "Списки база",
+    "subtitle": "Коллекции данных",
+    "topic": "списки",
+    "locked": false,
+    "explanation": {
+      "text": "Список хранит несколько значений в одной переменной.",
+      "character": "da",
+      "code_example": "items = [\"меч\", \"щит\"]\nprint(items)",
+      "output": "['меч', 'щит']"
+    },
+    "quiz": {
+      "question": "Какой индекс у первого элемента списка?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "items = [1, 2, 3]\nprint(items[0])",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "items = [\"меч\", \"щит\"\nprint(items)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Списки база",
+      "description": "Напиши программу по теме урока «Списки база»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2, 3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-28",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 28,
+    "slug": "zamena-elementa-spiska",
+    "title": "Замена элемента списка",
+    "subtitle": "Коллекции данных",
+    "topic": "замена",
+    "locked": false,
+    "explanation": {
+      "text": "Элемент списка можно заменить по индексу.",
+      "character": "da",
+      "code_example": "items = [\"старый щит\", \"меч\"]\nitems[0] = \"новый щит\"\nprint(items)",
+      "output": "['новый щит', 'меч']"
+    },
+    "quiz": {
+      "question": "Как изменить элемент списка?",
+      "options": [
+        {
+          "id": "a",
+          "text": "spisok[0] = новое_значение",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "spisok[0] == новое_значение",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "spisok[0] = новое_значение()",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1, 2]\na[1] = 5\nprint(a)",
+      "options": [
+        "[1, 5]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 5]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1, 2, 3]\na[3] = 9\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Замена элемента списка",
+      "description": "Напиши программу по теме урока «Замена элемента списка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 9, 3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-29",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 29,
+    "slug": "pop",
+    "title": "pop",
+    "subtitle": "Удаление по индексу",
+    "topic": "pop",
+    "locked": false,
+    "explanation": {
+      "text": "`pop()` удаляет элемент и может вернуть его.",
+      "character": "da",
+      "code_example": "items = [\"меч\", \"щит\"]\ndeleted = items.pop()\nprint(deleted)\nprint(items)",
+      "output": "щит\n['меч']"
+    },
+    "quiz": {
+      "question": "Что делает метод pop()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Удаляет и возвращает элемент по индексу",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Удаляет элемент по значению",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Добавляет элемент в конец",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1, 2, 3]\nprint(a.pop())\nprint(a)",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = []\na.pop()",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: pop",
+      "description": "Напиши программу по теме урока «pop»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[10, 20]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-30",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 30,
+    "slug": "remove",
+    "title": "remove",
+    "subtitle": "Удаление по значению",
+    "topic": "remove",
+    "locked": false,
+    "explanation": {
+      "text": "`remove(value)` удаляет элемент по значению.",
+      "character": "da",
+      "code_example": "items = [\"меч\", \"щит\"]\nitems.remove(\"щит\")\nprint(items)",
+      "output": "['меч']"
+    },
+    "quiz": {
+      "question": "Что делает метод remove()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Удаляет первый элемент с указанным значением",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Удаляет элемент по индексу",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Удаляет все элементы",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [\"x\", \"y\", \"x\"]\na.remove(\"x\")\nprint(a)",
+      "options": [
+        "['y', 'x']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['y', 'x']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [\"a\", \"b\"]\na.remove(\"c\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: remove",
+      "description": "Напиши программу по теме урока «remove»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "['a', 'c']",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-31",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 31,
+    "slug": "append",
+    "title": "append",
+    "subtitle": "Добавление в конец",
+    "topic": "append",
+    "locked": false,
+    "explanation": {
+      "text": "`append()` добавляет элемент в конец списка.",
+      "character": "da",
+      "code_example": "items = []\nitems.append(\"ключ\")\nprint(items)",
+      "output": "['ключ']"
+    },
+    "quiz": {
+      "question": "Что делает метод append()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Добавляет элемент в конец списка",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Добавляет элемент в начало списка",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Удаляет последний элемент",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = []\na.append(5)\na.append(7)\nprint(a)",
+      "options": [
+        "[5, 7]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[5, 7]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = []\na.append = 5\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: append",
+      "description": "Напиши программу по теме урока «append»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-32",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 32,
+    "slug": "index",
+    "title": "index",
+    "subtitle": "Поиск по значению",
+    "topic": "index",
+    "locked": false,
+    "explanation": {
+      "text": "`index(value)` возвращает индекс первого найденного значения.",
+      "character": "da",
+      "code_example": "items = [\"меч\", \"ключ\"]\nprint(items.index(\"ключ\"))",
+      "output": "1"
+    },
+    "quiz": {
+      "question": "Что возвращает метод list.index(x)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Индекс первого вхождения элемента x",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Значение элемента по индексу x",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Количество вхождений элемента x",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [\"x\", \"y\"]\nprint(a.index(\"y\"))",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [\"a\", \"b\"]\nprint(a.index(\"c\"))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: index",
+      "description": "Напиши программу по теме урока «index»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "2",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-33",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 33,
+    "slug": "summa-elementov-spiska",
+    "title": "Сумма элементов списка",
+    "subtitle": "Коллекции данных",
+    "topic": "сумма",
+    "locked": false,
+    "explanation": {
+      "text": "Сумму можно накопить через цикл.",
+      "character": "da",
+      "code_example": "numbers = [1, 2, 3]\ntotal = 0\nfor n in numbers:\n    total += n\nprint(total)",
+      "output": "6"
+    },
+    "quiz": {
+      "question": "Как найти сумму чисел в списке?",
+      "options": [
+        {
+          "id": "a",
+          "text": "sum(spisok)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "spisok.sum()",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "sum(spisok, 0)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "numbers = [2, 3]\ns = 0\nfor n in numbers:\n    s += n\nprint(s)",
+      "options": [
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": "5"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "numbers = [1, 2, 3]\nfor n in numbers:\n    total += n\nprint(total)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Сумма элементов списка",
+      "description": "Напиши программу по теме урока «Сумма элементов списка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "6",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-34",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 34,
+    "slug": "count",
+    "title": "count",
+    "subtitle": "Количество вхождений",
+    "topic": "count",
+    "locked": false,
+    "explanation": {
+      "text": "`count(value)` считает, сколько раз значение встречается в списке.",
+      "character": "da",
+      "code_example": "items = [\"зелье\", \"меч\", \"зелье\"]\nprint(items.count(\"зелье\"))",
+      "output": "2"
+    },
+    "quiz": {
+      "question": "Что возвращает метод count()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Количество вхождений элемента",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Индекс элемента",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Сумму элементов",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1, 1, 2]\nprint(a.count(1))",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": "2"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1, 2]\nprint(count(1))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: count",
+      "description": "Напиши программу по теме урока «count»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-35",
+    "part": 3,
+    "chapter": 10,
+    "lesson": 35,
+    "slug": "filtratsiya-spiska",
+    "title": "Фильтрация списка",
+    "subtitle": "Коллекции данных",
+    "topic": "фильтрация",
+    "locked": false,
+    "explanation": {
+      "text": "Фильтрация — это выбор только нужных элементов.",
+      "character": "da",
+      "code_example": "numbers = [1, 2, 3, 4]\nfor n in numbers:\n    if n % 2 == 0:\n        print(n)",
+      "output": "2\n4"
+    },
+    "quiz": {
+      "question": "Как оставить в списке только чётные числа?",
+      "options": [
+        {
+          "id": "a",
+          "text": "[x for x in nums if x % 2 == 0]",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "nums.filter(even)",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "filter(nums, even)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for n in [1, 2, 3]:\n    if n > 1:\n        print(n)",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": "2"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "numbers = [1, 2]\nif n > 0:\n    print(n)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Фильтрация списка",
+      "description": "Напиши программу по теме урока «Фильтрация списка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "5",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-36",
+    "part": 3,
+    "chapter": 11,
+    "lesson": 36,
+    "slug": "insert",
+    "title": "insert",
+    "subtitle": "Вставка элемента",
+    "topic": "insert",
+    "locked": false,
+    "explanation": {
+      "text": "`insert(index, value)` вставляет элемент в нужное место.",
+      "character": "da",
+      "code_example": "items = [\"меч\", \"зелье\"]\nitems.insert(1, \"щит\")\nprint(items)",
+      "output": "['меч', 'щит', 'зелье']"
+    },
+    "quiz": {
+      "question": "Что делает spisok.insert(0, x)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Вставляет x на позицию 0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Удаляет элемент на позиции 0",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Заменяет элемент на позиции 0",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1, 3]\na.insert(1, 2)\nprint(a)",
+      "options": [
+        "[1, 2, 3]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 2, 3]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1, 3]\na.insert(2)\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: insert",
+      "description": "Напиши программу по теме урока «insert»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2, 3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-37",
+    "part": 3,
+    "chapter": 11,
+    "lesson": 37,
+    "slug": "extend",
+    "title": "extend",
+    "subtitle": "Расширение списка",
+    "topic": "extend",
+    "locked": false,
+    "explanation": {
+      "text": "`extend()` добавляет элементы другого списка по одному.",
+      "character": "da",
+      "code_example": "a = [1, 2]\nb = [3, 4]\na.extend(b)\nprint(a)",
+      "output": "[1, 2, 3, 4]"
+    },
+    "quiz": {
+      "question": "Что делает метод extend()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Добавляет все элементы другого списка в конец",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Добавляет один элемент в конец",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Удаляет все элементы",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [\"a\"]\na.extend([\"b\", \"c\"])\nprint(a)",
+      "options": [
+        "['a', 'b', 'c']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['a', 'b', 'c']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1, 2]\na.extend(3)\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: extend",
+      "description": "Напиши программу по теме урока «extend»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2, 3, 4]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-38",
+    "part": 3,
+    "chapter": 11,
+    "lesson": 38,
+    "slug": "srezy-spiskov",
+    "title": "Срезы списков",
+    "subtitle": "Извлечение части",
+    "topic": "срезы",
+    "locked": false,
+    "explanation": {
+      "text": "Списки поддерживают срезы так же, как строки.",
+      "character": "da",
+      "code_example": "a = [10, 20, 30, 40]\nprint(a[1:3])",
+      "output": "[20, 30]"
+    },
+    "quiz": {
+      "question": "Что вернёт 'Python'[0:3]?",
+      "options": [
+        {
+          "id": "a",
+          "text": "'Pyt'",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "'Pyth'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "'ython'",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1, 2, 3]\nprint(a[:2])",
+      "options": [
+        "[1, 2]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 2]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1, 2, 3]\nprint(a[3])",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Срезы списков",
+      "description": "Напиши программу по теме урока «Срезы списков»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-39",
+    "part": 3,
+    "chapter": 11,
+    "lesson": 39,
+    "slug": "random.choice",
+    "title": "random.choice",
+    "subtitle": "Элемент неожиданности",
+    "topic": "random.choice",
+    "locked": false,
+    "explanation": {
+      "text": "`choice` выбирает случайный элемент из списка.",
+      "character": "da",
+      "code_example": "import random\nitems = [\"меч\", \"щит\"]\nprint(random.choice(items))",
+      "output": "меч"
+    },
+    "quiz": {
+      "question": "Что возвращает random.randint(a, b)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Случайное целое число от a до b",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Случайное вещественное число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Случайную строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "import random\nprint(random.choice([\"a\"]))",
+      "options": [
+        "a",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "a"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "items = [1,2,3]\nprint(random.choice(items))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: random.choice",
+      "description": "Напиши программу по теме урока «random.choice»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "случайное число 1, 2 или 3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "3-40",
+    "part": 3,
+    "chapter": 11,
+    "lesson": 40,
+    "slug": "random.shuffle",
+    "title": "random.shuffle",
+    "subtitle": "Элемент неожиданности",
+    "topic": "random.shuffle",
+    "locked": false,
+    "explanation": {
+      "text": "`shuffle` перемешивает список на месте.",
+      "character": "da",
+      "code_example": "import random\ncards = [1, 2, 3]\nrandom.shuffle(cards)\nprint(cards)",
+      "output": "[1, 3, 2]"
+    },
+    "quiz": {
+      "question": "Что возвращает random.randint(a, b)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Случайное целое число от a до b",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Случайное вещественное число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Случайную строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "import random\na = [1]\nrandom.shuffle(a)\nprint(a)",
+      "options": [
+        "[1]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "import random\na = [1,2]\nb = random.shuffle(a)\nprint(b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: random.shuffle",
+      "description": "Напиши программу по теме урока «random.shuffle»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "перемешанный список",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-1",
+    "part": 4,
+    "chapter": 12,
+    "lesson": 1,
+    "slug": "flagi",
+    "title": "Флаги",
+    "subtitle": "Сигнальные переменные",
+    "topic": "флаги",
+    "locked": false,
+    "explanation": {
+      "text": "Флаг — переменная-сигнал: найдено/не найдено, готово/не готово.",
+      "character": "va",
+      "code_example": "found = False\nfor x in [1, 2, 3]:\n    if x == 2:\n        found = True\nprint(found)",
+      "output": "True"
+    },
+    "quiz": {
+      "question": "Что такое переменная-флаг?",
+      "options": [
+        {
+          "id": "a",
+          "text": "True/False переменная для отслеживания состояния",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Переменная для хранения числа",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Функция для проверки условия",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "found = False\nfor x in [1, 2]:\n    if x == 3:\n        found = True\nprint(found)",
+      "options": [
+        "False",
+        "True",
+        "None"
+      ],
+      "correct": "False"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for x in [1, 2]:\n    if x == 2:\n        found = True\nprint(found)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Флаги",
+      "description": "Напиши программу по теме урока «Флаги»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "yes",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-2",
+    "part": 4,
+    "chapter": 12,
+    "lesson": 2,
+    "slug": "break",
+    "title": "break",
+    "subtitle": "Прерывание цикла",
+    "topic": "break",
+    "locked": false,
+    "explanation": {
+      "text": "`break` немедленно останавливает цикл.",
+      "character": "va",
+      "code_example": "for x in [1, 2, 3]:\n    if x == 2:\n        break\n    print(x)",
+      "output": "1"
+    },
+    "quiz": {
+      "question": "Что делает оператор break?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Немедленно завершает цикл",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Пропускает текущую итерацию",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Завершает программу",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "for x in [1, 2, 3]:\n    print(x)\n    if x == 2:\n        break",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for x in [1,2,3]:\n    break\n    print(x)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: break",
+      "description": "Напиши программу по теме урока «break»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "1",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-3",
+    "part": 4,
+    "chapter": 12,
+    "lesson": 3,
+    "slug": "poisk-maksimuma",
+    "title": "Поиск максимума",
+    "subtitle": "Поиск максимума",
+    "topic": "поиск",
+    "locked": false,
+    "explanation": {
+      "text": "Максимум можно найти вручную, сравнивая элементы.",
+      "character": "va",
+      "code_example": "numbers = [4, 9, 2]\nmx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)",
+      "output": "9"
+    },
+    "quiz": {
+      "question": "Как найти максимальное число в списке?",
+      "options": [
+        {
+          "id": "a",
+          "text": "max(spisok)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "spisok.max()",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "maximum(spisok)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "nums = [3, 1, 5]\nmx = nums[0]\nfor n in nums:\n    if n > mx:\n        mx = n\nprint(mx)",
+      "options": [
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": "5"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "numbers = [1, 2]\nmx = 0\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Поиск максимума",
+      "description": "Напиши программу по теме урока «Поиск максимума»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "10",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-4",
+    "part": 4,
+    "chapter": 12,
+    "lesson": 4,
+    "slug": "poisk-minimuma",
+    "title": "Поиск минимума",
+    "subtitle": "Поиск минимума",
+    "topic": "поиск",
+    "locked": false,
+    "explanation": {
+      "text": "Минимум ищется так же, только условие обратное.",
+      "character": "va",
+      "code_example": "numbers = [4, 9, 2]\nmn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
+      "output": "2"
+    },
+    "quiz": {
+      "question": "Как найти минимальное число в списке?",
+      "options": [
+        {
+          "id": "a",
+          "text": "min(spisok)",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "spisok.min()",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "minimum(spisok)",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "nums = [3, 1, 5]\nmn = nums[0]\nfor n in nums:\n    if n < mn:\n        mn = n\nprint(mn)",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "numbers = [-5, -2]\nmn = 0\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Поиск минимума",
+      "description": "Напиши программу по теме урока «Поиск минимума»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "2",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-5",
+    "part": 4,
+    "chapter": 12,
+    "lesson": 5,
+    "slug": "maksimalnaya-dlina",
+    "title": "Максимальная длина",
+    "subtitle": "Поиск максимума",
+    "topic": "максимальная",
+    "locked": false,
+    "explanation": {
+      "text": "Можно сравнивать не сами строки, а их длину.",
+      "character": "va",
+      "code_example": "names = [\"Ксю\", \"Архивариус\"]\nlongest = names[0]\nfor name in names:\n    if len(name) > len(longest):\n        longest = name\nprint(longest)",
+      "output": "Архивариус"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Максимальная длина»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Максимальная",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "names = [\"Да\", \"Багус\"]\nprint(len(names[1]))",
+      "options": [
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": "5"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "names = []\nlongest = names[0]\nprint(longest)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Максимальная длина",
+      "description": "Напиши программу по теме урока «Максимальная длина»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "python",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-6",
+    "part": 4,
+    "chapter": 13,
+    "lesson": 6,
+    "slug": "pervyy-s-kontsa",
+    "title": "Первый с конца",
+    "subtitle": "Итерация с конца",
+    "topic": "первый",
+    "locked": false,
+    "explanation": {
+      "text": "Иногда нужно идти по списку справа налево.",
+      "character": "va",
+      "code_example": "items = [1, 2, 3]\nfor i in range(len(items)-1, -1, -1):\n    print(items[i])",
+      "output": "3\n2\n1"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Первый с конца»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Первый",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [10, 20]\nfor i in range(len(a)-1, -1, -1):\n    print(a[i])",
+      "options": [
+        "20",
+        "21",
+        "19"
+      ],
+      "correct": "20"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1,2,3]\nfor i in range(len(a), 0, -1):\n    print(a[i])",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Первый с конца",
+      "description": "Напиши программу по теме урока «Первый с конца»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-7",
+    "part": 4,
+    "chapter": 13,
+    "lesson": 7,
+    "slug": "none",
+    "title": "None",
+    "subtitle": "Пустое значение",
+    "topic": "none",
+    "locked": false,
+    "explanation": {
+      "text": "`None` означает: значения пока нет.",
+      "character": "va",
+      "code_example": "result = None\nfor x in [2, 4, 5]:\n    if x % 2 != 0:\n        result = x\n        break\nprint(result)",
+      "output": "5"
+    },
+    "quiz": {
+      "question": "Что означает None в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Отсутствие значения",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Ноль",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пустую строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = None\nprint(x)",
+      "options": [
+        "None",
+        "Ошибка",
+        "Ошибка"
+      ],
+      "correct": "None"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "result = none\nprint(result)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: None",
+      "description": "Напиши программу по теме урока «None»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "-3",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-8",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 8,
+    "slug": "algoritmicheskoe-myshlenie",
+    "title": "Алгоритмическое мышление",
+    "subtitle": "Планирование кода",
+    "topic": "алгоритмическое",
+    "locked": false,
+    "explanation": {
+      "text": "Перед кодом нужно понять вход, выход, переменные, цикл и условие.",
+      "character": "va",
+      "code_example": "numbers = [1, -2, 3]\ntotal = 0\nfor n in numbers:\n    if n > 0:\n        total += n\nprint(total)",
+      "output": "4"
+    },
+    "quiz": {
+      "question": "Что такое алгоритмическое мышление?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Умение разбивать задачу на шаги",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Знание всех функций Python",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Скорость написания кода",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "nums = [-1, 2, 3]\ns = 0\nfor n in nums:\n    if n > 0:\n        s += n\nprint(s)",
+      "options": [
+        "5",
+        "6",
+        "4"
+      ],
+      "correct": "5"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "numbers = [1, -2]\ncount = 0\nfor n in numbers:\n    if n > 0:\n        count = n\nprint(count)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Алгоритмическое мышление",
+      "description": "Напиши программу по теме урока «Алгоритмическое мышление»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "2",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-9",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 9,
+    "slug": "join",
+    "title": "join",
+    "subtitle": "Поиск в тексте",
+    "topic": "join",
+    "locked": false,
+    "explanation": {
+      "text": "`join` собирает список строк в одну строку.",
+      "character": "ksyu",
+      "code_example": "words = [\"я\", \"учу\", \"python\"]\nprint(\" \".join(words))",
+      "output": "я учу python"
+    },
+    "quiz": {
+      "question": "Что делает ' | '.join(list)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Соединяет элементы списка через ' | '",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Разделяет строку по ' | '",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Добавляет ' | ' в конец строки",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"-\".join([\"a\",\"b\",\"c\"]))",
+      "options": [
+        "a-b-c",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "a-b-c"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "items = [1,2,3]\nprint(\" \".join(items))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: join",
+      "description": "Напиши программу по теме урока «join»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "a b c",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-10",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 10,
+    "slug": "perenos-stroki-n",
+    "title": "Перенос строки \\n",
+    "subtitle": "Текст и кавычки",
+    "topic": "перенос",
+    "locked": false,
+    "explanation": {
+      "text": "`\\n` внутри строки означает переход на новую строку.",
+      "character": "ksyu",
+      "code_example": "lines = [\"a\", \"b\"]\nprint(\"\\n\".join(lines))",
+      "output": "a\nb"
+    },
+    "quiz": {
+      "question": "Что такое строка в Python?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Текст в кавычках",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Специальный символ",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"a\\nb\")",
+      "options": [
+        "a",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "a"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "print(\"/n\".join([\"a\",\"b\"]))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Перенос строки \\n",
+      "description": "Напиши программу по теме урока «Перенос строки \\n»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "one",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-11",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 11,
+    "slug": "raspakovka",
+    "title": "Распаковка",
+    "subtitle": "Распаковка значений",
+    "topic": "распаковка",
+    "locked": false,
+    "explanation": {
+      "text": "Оператор `*` распаковывает элементы списка в отдельные значения.",
+      "character": "ksyu",
+      "code_example": "items = [\"меч\", \"щит\"]\nprint(*items)",
+      "output": "меч щит"
+    },
+    "quiz": {
+      "question": "Что делает `*` перед списком?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Распаковывает элементы списка",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Умножает все элементы",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Создаёт копию списка",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(*[1, 2, 3])",
+      "options": [
+        "1 2 3",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "1 2 3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "items = [\"a\",\"b\"]\nprint(items*)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Распаковка",
+      "description": "Напиши программу по теме урока «Распаковка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "a b",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-12",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 12,
+    "slug": "split",
+    "title": "split",
+    "subtitle": "Разделение строки",
+    "topic": "split",
+    "locked": false,
+    "explanation": {
+      "text": "`split` разбивает строку на список.",
+      "character": "ksyu",
+      "code_example": "text = \"меч щит ключ\"\nprint(text.split())",
+      "output": "['меч', 'щит', 'ключ']"
+    },
+    "quiz": {
+      "question": "Что возвращает 'a b c'.split()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "['a', 'b', 'c']",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "'a', 'b', 'c'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "['a b c']",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"a b\".split())",
+      "options": [
+        "['a', 'b']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['a', 'b']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "text = input()\nprint(split(text))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: split",
+      "description": "Напиши программу по теме урока «split»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "['a', 'b', 'c']",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-13",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 13,
+    "slug": "split-po-razdelitelyu",
+    "title": "split по разделителю",
+    "subtitle": "Разделение строки",
+    "topic": "split",
+    "locked": false,
+    "explanation": {
+      "text": "В `split(\",\")` можно указать конкретный разделитель.",
+      "character": "ksyu",
+      "code_example": "text = \"a,b,c\"\nprint(text.split(\",\"))",
+      "output": "['a', 'b', 'c']"
+    },
+    "quiz": {
+      "question": "Что возвращает 'a b c'.split()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "['a', 'b', 'c']",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "'a', 'b', 'c'",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "['a b c']",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"1,2\".split(\",\"))",
+      "options": [
+        "['1', '2']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['1', '2']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "text = \"a,b\"\nprint(text.split())",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: split по разделителю",
+      "description": "Напиши программу по теме урока «split по разделителю»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "['red', 'green', 'blue']",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-14",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 14,
+    "slug": "map",
+    "title": "map",
+    "subtitle": "Преобразование данных",
+    "topic": "map",
+    "locked": false,
+    "explanation": {
+      "text": "`map` применяет функцию к каждому элементу.",
+      "character": "va",
+      "code_example": "numbers = list(map(int, [\"1\", \"2\"]))\nprint(numbers)",
+      "output": "[1, 2]"
+    },
+    "quiz": {
+      "question": "Что делает функция map()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Применяет функцию к каждому элементу последовательности",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Создаёт карту маршрутов",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Преобразует тип данных",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "nums = list(map(int, \"1 2 3\".split()))\nprint(sum(nums))",
+      "options": [
+        "6",
+        "7",
+        "5"
+      ],
+      "correct": "6"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "nums = input().split()\nprint(sum(nums))",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: map",
+      "description": "Напиши программу по теме урока «map»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "6",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-15",
+    "part": 4,
+    "chapter": 14,
+    "lesson": 15,
+    "slug": "sort",
+    "title": "sort",
+    "subtitle": "Логическое ИЛИ",
+    "topic": "sort",
+    "locked": false,
+    "explanation": {
+      "text": "`sort()` сортирует список на месте.",
+      "character": "va",
+      "code_example": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)",
+      "output": "[1, 2, 3]"
+    },
+    "quiz": {
+      "question": "Что делает метод list.sort()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Сортирует список на месте",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Возвращает отсортированную копию",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Переворачивает список",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [2,1]\na.sort()\nprint(a)",
+      "options": [
+        "[1, 2]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 2]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [2,1]\nb = a.sort()\nprint(b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: sort",
+      "description": "Напиши программу по теме урока «sort»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 3, 5]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-16",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 16,
+    "slug": "sorted",
+    "title": "sorted",
+    "subtitle": "Логическое ИЛИ",
+    "topic": "sorted",
+    "locked": false,
+    "explanation": {
+      "text": "`sorted()` создаёт новый отсортированный список.",
+      "character": "va",
+      "code_example": "nums = [3, 1, 2]\nnew_nums = sorted(nums)\nprint(new_nums)\nprint(nums)",
+      "output": "[1, 2, 3]\n[3, 1, 2]"
+    },
+    "quiz": {
+      "question": "Что делает функция sorted()?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Возвращает отсортированную копию последовательности",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Сортирует список на месте",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Проверяет, отсортирован ли список",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [2,1]\nprint(sorted(a))\nprint(a)",
+      "options": [
+        "[1, 2]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 2]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [3,1]\nsorted(a)\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: sorted",
+      "description": "Напиши программу по теме урока «sorted»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2, 3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-17",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 17,
+    "slug": "key",
+    "title": "key",
+    "subtitle": "Ключ сортировки",
+    "topic": "key",
+    "locked": false,
+    "explanation": {
+      "text": "`key` говорит, по какому правилу сортировать.",
+      "character": "va",
+      "code_example": "names = [\"Ксю\", \"Архивариус\", \"Да\"]\nnames.sort(key=len)\nprint(names)",
+      "output": "['Да', 'Ксю', 'Архивариус']"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «key»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "key",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "names = [\"aaa\",\"b\"]\nprint(sorted(names, key=len))",
+      "options": [
+        "['b', 'aaa']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['b', 'aaa']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "names = [\"aa\",\"b\"]\nnames.sort(len)\nprint(names)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: key",
+      "description": "Напиши программу по теме урока «key»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "['b', 'aa', 'ccc']",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-18",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 18,
+    "slug": "vlozhennye-spiski",
+    "title": "Вложенные списки",
+    "subtitle": "Условие в условии",
+    "topic": "вложенные",
+    "locked": false,
+    "explanation": {
+      "text": "Вложенный список — список внутри списка, удобно для таблиц.",
+      "character": "va",
+      "code_example": "table = [[\"Ксю\", 10], [\"Да\", 12]]\nprint(table[0][0])",
+      "output": "Ксю"
+    },
+    "quiz": {
+      "question": "Какой индекс у первого элемента списка?",
+      "options": [
+        {
+          "id": "a",
+          "text": "0",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "1",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "-1",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "t = [[1,2],[3,4]]\nprint(t[1][0])",
+      "options": [
+        "3",
+        "4",
+        "2"
+      ],
+      "correct": "3"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "t = [[1,2]]\nprint(t[1][0])",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Вложенные списки",
+      "description": "Напиши программу по теме урока «Вложенные списки»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "b",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-19",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 19,
+    "slug": "izmenenie-vlozhennykh-spiskov",
+    "title": "Изменение вложенных списков",
+    "subtitle": "Условие в условии",
+    "topic": "изменение",
+    "locked": false,
+    "explanation": {
+      "text": "Внутренние элементы можно менять по двум индексам.",
+      "character": "va",
+      "code_example": "table = [[\"Ксю\", 10]]\ntable[0][1] = 20\nprint(table)",
+      "output": "[['Ксю', 20]]"
+    },
+    "quiz": {
+      "question": "Как изменить элемент списка?",
+      "options": [
+        {
+          "id": "a",
+          "text": "spisok[0] = новое_значение",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "spisok[0] == новое_значение",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "spisok[0] = новое_значение()",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "t = [[1,2]]\nt[0][0] = 9\nprint(t)",
+      "options": [
+        "[[9, 2]]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[[9, 2]]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "t = [[1,2]]\nt[0,1] = 5",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Изменение вложенных списков",
+      "description": "Напиши программу по теме урока «Изменение вложенных списков»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[[1, 2], [3, 8]]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-20",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 20,
+    "slug": "perebor-vlozhennogo-spiska",
+    "title": "Перебор вложенного списка",
+    "subtitle": "Условие в условии",
+    "topic": "перебор",
+    "locked": false,
+    "explanation": {
+      "text": "Вложенные списки можно перебирать как строки таблицы.",
+      "character": "da",
+      "code_example": "orders = [[\"Анна\", 100], [\"Иван\", 200]]\nfor order in orders:\n    print(order[0], order[1])",
+      "output": "Анна 100\nИван 200"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Перебор вложенного списка»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Перебор",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "t = [[\"a\",1]]\nfor row in t:\n    print(row[0])",
+      "options": [
+        "a",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "a"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "for row in table:\n    print(row)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Перебор вложенного списка",
+      "description": "Напиши программу по теме урока «Перебор вложенного списка»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "a",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-21",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 21,
+    "slug": "ssylki",
+    "title": "Ссылки",
+    "subtitle": "Связи объектов",
+    "topic": "ссылки",
+    "locked": false,
+    "explanation": {
+      "text": "Две переменные могут смотреть на один список.",
+      "character": "va",
+      "code_example": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)",
+      "output": "[1, 2, 3]"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Ссылки»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Ссылки",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1]\nb = a\nb.append(2)\nprint(a)",
+      "options": [
+        "[1, 2]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1, 2]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1]\nb = a\nb = b.append(2)\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Ссылки",
+      "description": "Напиши программу по теме урока «Ссылки»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-22",
+    "part": 4,
+    "chapter": 15,
+    "lesson": 22,
+    "slug": "izmenyaemye-i-neizmenyaemye-tipy",
+    "title": "Изменяемые и неизменяемые типы",
+    "subtitle": "Редактирование",
+    "topic": "изменяемые",
+    "locked": false,
+    "explanation": {
+      "text": "Списки изменяемые, строки и числа — нет.",
+      "character": "va",
+      "code_example": "a = [1]\na.append(2)\nprint(a)\nx = 5\nx = 6\nprint(x)",
+      "output": "[1, 2]\n6"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Изменяемые и неизменяемые типы»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Изменяемые",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "s = \"hi\"\ns = \"bye\"\nprint(s)",
+      "options": [
+        "bye",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "bye"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "s = \"hi\"\ns[0] = \"b\"",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Изменяемые и неизменяемые типы",
+      "description": "Напиши программу по теме урока «Изменяемые и неизменяемые типы»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1, 2]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-23",
+    "part": 4,
+    "chapter": 16,
+    "lesson": 23,
+    "slug": "is",
+    "title": "is",
+    "subtitle": "Сравнение объектов",
+    "topic": "is",
+    "locked": false,
+    "explanation": {
+      "text": "`is` проверяет, один и тот же это объект или нет.",
+      "character": "va",
+      "code_example": "a = [1]\nb = a\nprint(a is b)",
+      "output": "True"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «is»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "is",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1]\nb = [1]\nprint(a == b)\nprint(a is b)",
+      "options": [
+        "True",
+        "False",
+        "None"
+      ],
+      "correct": "True"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1]\nb = [1]\nprint(a = b)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: is",
+      "description": "Напиши программу по теме урока «is»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "True",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-24",
+    "part": 4,
+    "chapter": 16,
+    "lesson": 24,
+    "slug": "copy",
+    "title": "copy",
+    "subtitle": "Копирование",
+    "topic": "copy",
+    "locked": false,
+    "explanation": {
+      "text": "`copy()` создаёт поверхностную копию списка.",
+      "character": "ksyu",
+      "code_example": "a = [1, 2]\nb = a.copy()\nb.append(3)\nprint(a)\nprint(b)",
+      "output": "[1, 2]\n[1, 2, 3]"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «copy»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "copy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "a = [1]\nb = a.copy()\nb.append(2)\nprint(a)",
+      "options": [
+        "[1]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[1]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [1]\nb = a\nb.append(2)\nprint(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: copy",
+      "description": "Напиши программу по теме урока «copy»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[1]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-25",
+    "part": 4,
+    "chapter": 16,
+    "lesson": 25,
+    "slug": "deepcopy",
+    "title": "deepcopy",
+    "subtitle": "Копирование",
+    "topic": "deepcopy",
+    "locked": false,
+    "explanation": {
+      "text": "`deepcopy` нужен для безопасного копирования вложенных списков.",
+      "character": "ksyu",
+      "code_example": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0].append(2)\nprint(a)\nprint(b)",
+      "output": "[[1]]\n[[1, 2]]"
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «deepcopy»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "deepcopy",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0][0] = 9\nprint(a)",
+      "options": [
+        "[[1]]",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "[[1]]"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "a = [[1]]\nb = copy.deepcopy(a)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: deepcopy",
+      "description": "Напиши программу по теме урока «deepcopy»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "[[1]]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-26",
+    "part": 4,
+    "chapter": 16,
+    "lesson": 26,
+    "slug": "while",
+    "title": "while",
+    "subtitle": "Цикл с условием",
+    "topic": "while",
+    "locked": false,
+    "explanation": {
+      "text": "`while` повторяет код, пока условие истинно.",
+      "character": "va",
+      "code_example": "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1",
+      "output": "1\n2\n3"
+    },
+    "quiz": {
+      "question": "Когда выполняется цикл while?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Пока условие истинно",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Пока условие ложно",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Только один раз",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 1\nwhile x < 3:\n    print(x)\n    x += 1",
+      "options": [
+        "1",
+        "2",
+        "3"
+      ],
+      "correct": "1"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "x = 1\nwhile x <= 3:\n    print(x)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: while",
+      "description": "Напиши программу по теме урока «while»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "1",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-27",
+    "part": 4,
+    "chapter": 16,
+    "lesson": 27,
+    "slug": "while-true",
+    "title": "while True",
+    "subtitle": "Цикл с условием",
+    "topic": "while",
+    "locked": false,
+    "explanation": {
+      "text": "`while True` создаёт бесконечный цикл, который останавливают через `break`.",
+      "character": "va",
+      "code_example": "while True:\n    command = input()\n    if command == \"exit\":\n        break\n    print(command)",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Когда выполняется цикл while?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Пока условие истинно",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Пока условие ложно",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Только один раз",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "i = 0\nwhile True:\n    print(i)\n    break",
+      "options": [
+        "0",
+        "1",
+        "2"
+      ],
+      "correct": "0"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "while True:\n    print(\"hi\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: while True",
+      "description": "Напиши программу по теме урока «while True»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "go",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-28",
+    "part": 4,
+    "chapter": 17,
+    "lesson": 28,
+    "slug": "do-pravilnogo-vvoda",
+    "title": "До правильного ввода",
+    "subtitle": "Контроль ввода",
+    "topic": "до",
+    "locked": false,
+    "explanation": {
+      "text": "`while` удобен, когда нужно повторять ввод до правильного ответа.",
+      "character": "ksyu",
+      "code_example": "password = \"\"\nwhile password != \"1234\":\n    password = input()\nprint(\"ok\")",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «До правильного ввода»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "До",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = \"\"\nwhile x != \"a\":\n    x = \"a\"\nprint(\"done\")",
+      "options": [
+        "done",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "done"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "answer = input()\nwhile answer != \"да\":\n    input()\nprint(\"accepted\")",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: До правильного ввода",
+      "description": "Напиши программу по теме урока «До правильного ввода»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "accepted",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-29",
+    "part": 4,
+    "chapter": 17,
+    "lesson": 29,
+    "slug": "chat-bot",
+    "title": "Чат-бот",
+    "subtitle": "Диалоговый бот",
+    "topic": "чат-бот",
+    "locked": false,
+    "explanation": {
+      "text": "Чат-бот — цикл, который читает команду и отвечает.",
+      "character": "da",
+      "code_example": "while True:\n    msg = input().lower()\n    if msg == \"привет\":\n        print(\"Привет\")\n    elif msg == \"выход\":\n        break",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Чат-бот»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Чат-бот",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "msg = \"Привет\".lower()\nprint(msg)",
+      "options": [
+        "привет",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "привет"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "while True:\nmsg = input()",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Чат-бот",
+      "description": "Напиши программу по теме урока «Чат-бот»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "hello",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-30",
+    "part": 4,
+    "chapter": 17,
+    "lesson": 30,
+    "slug": "task-menedzher",
+    "title": "Таск-менеджер",
+    "subtitle": "Менеджер задач",
+    "topic": "таск-менеджер",
+    "locked": false,
+    "explanation": {
+      "text": "Таск-менеджер хранит список задач и работает через команды.",
+      "character": "da",
+      "code_example": "tasks = []\ncommand = input()\nif command == \"add\":\n    task = input()\n    tasks.append(task)\nprint(tasks)",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что изучается в уроке «Таск-менеджер»?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Таск-менеджер",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Другая тема",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Пока не знаю",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "tasks=[]\ntasks.append(\"learn\")\nprint(tasks)",
+      "options": [
+        "['learn']",
+        "Ошибка",
+        "None"
+      ],
+      "correct": "['learn']"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "tasks = []\ntasks.append = input()\nprint(tasks)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: Таск-менеджер",
+      "description": "Напиши программу по теме урока «Таск-менеджер»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "['learn python']",
+      "character": "da"
+    }
+  },
+  {
+    "id": "4-31",
+    "part": 4,
+    "chapter": 17,
+    "lesson": 31,
+    "slug": "random-while-igra",
+    "title": "random + while игра",
+    "subtitle": "Элемент неожиданности",
+    "topic": "random",
+    "locked": false,
+    "explanation": {
+      "text": "Случайность и цикл позволяют делать игру с попытками.",
+      "character": "da",
+      "code_example": "import random\nsecret = 2\nattempts = 3\nwhile attempts > 0:\n    guess = int(input())\n    if guess == secret:\n        print(\"win\")\n        break\n    attempts -= 1",
+      "output": ""
+    },
+    "quiz": {
+      "question": "Что возвращает random.randint(a, b)?",
+      "options": [
+        {
+          "id": "a",
+          "text": "Случайное целое число от a до b",
+          "correct": true
+        },
+        {
+          "id": "b",
+          "text": "Случайное вещественное число",
+          "correct": false
+        },
+        {
+          "id": "c",
+          "text": "Случайную строку",
+          "correct": false
+        }
+      ]
+    },
+    "what_outputs": {
+      "code": "attempts = 2\nwhile attempts > 0:\n    print(attempts)\n    attempts -= 1",
+      "options": [
+        "2",
+        "3",
+        "1"
+      ],
+      "correct": "2"
+    },
+    "find_bug": {
+      "description": "В этом коде есть ошибка. Найди и исправь её.",
+      "code": "attempts = 3\nwhile attempts > 0:\n    print(attempts)",
+      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+    },
+    "mission": {
+      "title": "Миссия: random + while игра",
+      "description": "Напиши программу по теме урока «random + while игра»",
+      "task": "Напиши программу, которая выводит следующий результат:",
+      "expected_output": "3",
       "character": "da"
     }
   }

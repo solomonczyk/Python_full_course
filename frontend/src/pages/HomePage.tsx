@@ -9,8 +9,9 @@ interface Props {
 
 const PART_LABELS: Record<number, string> = {
   1: 'Вход в Python',
-  2: 'Уверенная база',
-  3: 'Продвинутый уровень',
+  2: 'Условия и циклы',
+  3: 'Уверенная база Python',
+  4: 'Башня алгоритмов',
 }
 
 export default function HomePage({ lessons, progress }: Props) {
