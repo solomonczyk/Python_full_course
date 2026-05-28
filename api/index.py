@@ -1,6 +1,7 @@
 import json
 import os
 import sqlite3
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Optional
 
@@ -44,11 +45,15 @@ def _ensure_db() -> None:
     conn.close()
     _db_ready = True
 
+@contextmanager
 def _db() -> sqlite3.Connection:
     _ensure_db()
     conn = sqlite3.connect(str(_DB_PATH))
     conn.row_factory = sqlite3.Row
-    return conn
+    try:
+        yield conn
+    finally:
+        conn.close()
 
 # ── lessons ────────────────────────────────────────────────────────────────
 def _lessons() -> list[dict[str, Any]]:

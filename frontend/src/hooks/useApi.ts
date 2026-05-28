@@ -10,8 +10,18 @@ export function useLessons() {
 
   useEffect(() => {
     fetch(`${BASE}/lessons`)
-      .then((r) => r.json())
-      .then(setLessons)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load lessons')
+        return r.json()
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          console.warn('Lessons data is not an array:', data)
+          setLessons([])
+          return
+        }
+        setLessons(data)
+      })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false))
   }, [])
@@ -45,13 +55,27 @@ export function useProgress() {
 
   useEffect(() => {
     fetch(`${BASE}/progress`)
-      .then((r) => r.json())
-      .then((data: Progress[]) => {
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load progress')
+        return r.json()
+      })
+      .then((data: Progress[] | null) => {
+        if (!Array.isArray(data)) {
+          console.warn('Progress data is not an array:', data)
+          return
+        }
         const map: Record<string, Progress> = {}
-        data.forEach((p) => (map[p.lesson_id] = p))
+        data.forEach((p) => {
+          if (p && p.lesson_id) {
+            map[p.lesson_id] = p
+          }
+        })
         setProgress(map)
       })
-      .catch(() => {})
+      .catch((err) => {
+        console.error('Error loading progress:', err)
+        setProgress({})
+      })
   }, [])
 
   const markComplete = async (lesson_id: string, score?: number) => {
@@ -73,6 +97,7 @@ export async function checkQuizAnswer(lesson_id: string, answer_id: string) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ lesson_id, answer_id }),
   })
+  if (!res.ok) throw new Error('Failed to check quiz answer')
   return res.json()
 }
 
@@ -82,5 +107,6 @@ export async function checkWhatOutputs(lesson_id: string, answer_id: string) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ lesson_id, answer_id }),
   })
+  if (!res.ok) throw new Error('Failed to check what-outputs')
   return res.json()
 }
