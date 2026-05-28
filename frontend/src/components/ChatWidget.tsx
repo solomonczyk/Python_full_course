@@ -58,12 +58,14 @@ export default function ChatWidget() {
       {/* Floating button */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-on-primary shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden border-2 border-white ring-2 ring-primary/30"
         aria-label={open ? 'Закрыть чат' : 'Открыть чат'}
       >
-        <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>
-          {open ? 'close' : 'chat'}
-        </span>
+        <img
+          src={CHARACTER_AVATARS.va}
+          alt="Python Expert"
+          className="w-full h-full object-cover"
+        />
       </button>
 
       {/* Chat panel */}
