@@ -1,12 +1,18 @@
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
+import type { LessonSummary } from '../types'
 import DialogueBubble from '../components/DialogueBubble'
 import CodeBlock from '../components/CodeBlock'
 import QuizSection from '../components/QuizSection'
 import MissionCard from '../components/MissionCard'
 
-export default function LessonPage() {
+interface Props {
+  lessons: LessonSummary[]
+}
+
+export default function LessonPage({ lessons }: Props) {
+  const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const { lesson, loading, error } = useLesson(id ?? '')
   const { progress, markComplete } = useProgressContext()
@@ -91,6 +97,49 @@ export default function LessonPage() {
         lessonId={lesson.id}
         onComplete={(score) => markComplete(lesson.id, score)}
       />
+
+      {/* Navigation */}
+      {(() => {
+        const idx = lessons.findIndex((l) => l.id === lesson.id)
+        const prev = idx > 0 ? lessons[idx - 1] : null
+        const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : null
+        return (
+          <section className="flex items-center justify-between gap-4 pt-4 border-t border-outline-variant">
+            {prev ? (
+              <button
+                onClick={() => navigate(`/lesson/${prev.id}`)}
+                className="flex items-center gap-2 px-5 py-3 rounded-xl border-2 border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary active:scale-[0.98] transition-all font-sans text-[14px] font-bold"
+              >
+                <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+                <div className="text-left">
+                  <div className="text-[11px] text-on-surface-variant/60 font-normal">Попередній</div>
+                  <div>{prev.id}: {prev.title}</div>
+                </div>
+              </button>
+            ) : <div />}
+            {next && !next.locked ? (
+              <button
+                onClick={() => navigate(`/lesson/${next.id}`)}
+                className="flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-on-primary shadow-md hover:opacity-90 active:scale-[0.98] transition-all font-sans text-[14px] font-bold"
+              >
+                <div className="text-right">
+                  <div className="text-[11px] text-on-primary/70 font-normal">Наступний</div>
+                  <div>{next.id}: {next.title}</div>
+                </div>
+                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+              </button>
+            ) : next?.locked ? (
+              <div className="flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-outline-variant text-outline font-sans text-[14px] font-bold opacity-60">
+                <div className="text-right">
+                  <div className="text-[11px] font-normal">Заблоковано</div>
+                  <div>{next.id}: {next.title}</div>
+                </div>
+                <span className="material-symbols-outlined text-[18px]">lock</span>
+              </div>
+            ) : <div />}
+          </section>
+        )
+      })()}
     </div>
   )
 }

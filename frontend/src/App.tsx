@@ -30,7 +30,7 @@ function Layout() {
       <main className="md:ml-[280px] pt-24 pb-12 px-6 flex justify-center">
         <Routes>
           <Route path="/" element={<HomePage lessons={lessons} progress={progress} />} />
-          <Route path="/lesson/:id" element={<LessonPage />} />
+          <Route path="/lesson/:id" element={<LessonPage lessons={lessons} />} />
         </Routes>
       </main>
       <ChatWidget />
