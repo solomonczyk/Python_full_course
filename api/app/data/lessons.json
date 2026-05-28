@@ -1,0 +1,296 @@
+[
+  {
+    "id": "1-1",
+    "part": 1,
+    "chapter": 1,
+    "lesson": 1,
+    "slug": "print",
+    "title": "Функция print()",
+    "subtitle": "Твой голос в коде",
+    "topic": "print()",
+    "locked": false,
+    "explanation": {
+      "text": "Привет, исследователь! 👋 Представь, что Python — это твой помощник. Чтобы он что-то сказал тебе или показал результат своей работы, ему нужна команда. Самая первая и важная команда — это `print()`. Она просто выводит на экран то, что ты напишешь внутри скобок.",
+      "character": "ksyu",
+      "code_example": "print(\"Привет, Python!\")",
+      "output": "Привет, Python!"
+    },
+    "quiz": {
+      "question": "Выбери верное утверждение о функции print():",
+      "options": [
+        { "id": "a", "text": "Она удаляет код из файла", "correct": false },
+        { "id": "b", "text": "Она выводит текст или значение на экран", "correct": true },
+        { "id": "c", "text": "Она выключает компьютер", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "print(\"2 + 2\")",
+      "options": ["4", "2 + 2", "Ошибка"],
+      "correct": "2 + 2"
+    },
+    "find_bug": {
+      "description": "Этот код вызовет NameError. Почему?",
+      "code": "print(Привет)",
+      "hint": "Ты забыл кавычки вокруг слова Привет. В Python текст всегда должен быть в кавычках!"
+    },
+    "mission": {
+      "title": "Миссия: Твои первые шаги",
+      "description": "Напиши программу, которая выводит манифест",
+      "task": "Используй функцию `print()`, чтобы вывести в точности следующую строку:",
+      "expected_output": "Я начинаю путь Python",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-2",
+    "part": 1,
+    "chapter": 1,
+    "lesson": 2,
+    "slug": "variables",
+    "title": "Переменные",
+    "subtitle": "Коробки для хранения данных",
+    "topic": "variables",
+    "locked": false,
+    "explanation": {
+      "text": "Переменная — это как коробка с именем. Ты кладёшь в неё значение и можешь использовать его позже. В Python переменные создаются простым присваиванием: `name = 'Python'`.",
+      "character": "ksyu",
+      "code_example": "name = \"Python\"\nprint(name)",
+      "output": "Python"
+    },
+    "quiz": {
+      "question": "Как создать переменную в Python?",
+      "options": [
+        { "id": "a", "text": "var name = 'Python'", "correct": false },
+        { "id": "b", "text": "name = 'Python'", "correct": true },
+        { "id": "c", "text": "let name = 'Python'", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 5\nprint(x + 3)",
+      "options": ["5", "8", "x + 3"],
+      "correct": "8"
+    },
+    "find_bug": {
+      "description": "Что не так с этим кодом?",
+      "code": "print(name)\nname = 'Python'",
+      "hint": "Нельзя использовать переменную до её создания. Сначала присвой значение, потом используй!"
+    },
+    "mission": {
+      "title": "Миссия: Представься",
+      "description": "Создай переменную и выведи её",
+      "task": "Создай переменную `name` со своим именем и выведи приветствие:",
+      "expected_output": "Привет, я Python-герой!",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-3",
+    "part": 1,
+    "chapter": 1,
+    "lesson": 3,
+    "slug": "input",
+    "title": "Функция input()",
+    "subtitle": "Слушай пользователя",
+    "topic": "input()",
+    "locked": false,
+    "explanation": {
+      "text": "Функция `input()` — это способ получить информацию от пользователя. Программа останавливается и ждёт, пока человек что-то введёт и нажмёт Enter. Всё, что введут — будет строкой (`str`).",
+      "character": "ksyu",
+      "code_example": "name = input()\nprint(\"Привет,\", name)",
+      "output": "Привет, [введённое имя]"
+    },
+    "quiz": {
+      "question": "Какой тип данных возвращает input()?",
+      "options": [
+        { "id": "a", "text": "int (число)", "correct": false },
+        { "id": "b", "text": "str (строка)", "correct": true },
+        { "id": "c", "text": "bool (True/False)", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = input()\nprint(type(x))",
+      "options": ["<class 'int'>", "<class 'str'>", "<class 'float'>"],
+      "correct": "<class 'str'>"
+    },
+    "find_bug": {
+      "description": "Почему этот код не сложит числа?",
+      "code": "a = input()\nb = input()\nprint(a + b)",
+      "hint": "input() возвращает строку! '3' + '5' = '35', а не 8. Нужно: int(a) + int(b)"
+    },
+    "mission": {
+      "title": "Миссия: Персональное приветствие",
+      "description": "Спроси имя и поприветствуй",
+      "task": "Получи имя от пользователя и выведи:",
+      "expected_output": "Добро пожаловать в КсюВаДа, [имя]!",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-4",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 4,
+    "slug": "if-else",
+    "title": "Условие if/else",
+    "subtitle": "Выбор пути",
+    "topic": "if/else",
+    "locked": false,
+    "explanation": {
+      "text": "Ва говорит: условие `if` — это развилка на дороге. Если условие истинно (`True`) — идёт один путь. Если ложно (`False`) — другой, через `else`.",
+      "character": "va",
+      "code_example": "age = 18\nif age >= 18:\n    print(\"Взрослый\")\nelse:\n    print(\"Ребёнок\")",
+      "output": "Взрослый"
+    },
+    "quiz": {
+      "question": "Что выведет код: if 5 > 3: print('Да') else: print('Нет')?",
+      "options": [
+        { "id": "a", "text": "Нет", "correct": false },
+        { "id": "b", "text": "Да", "correct": true },
+        { "id": "c", "text": "Ошибка", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "x = 10\nif x > 20:\n    print(\"Большое\")\nelse:\n    print(\"Маленькое\")",
+      "options": ["Большое", "Маленькое", "Ошибка"],
+      "correct": "Маленькое"
+    },
+    "find_bug": {
+      "description": "Что не так с этим кодом?",
+      "code": "if x > 5\n    print('yes')",
+      "hint": "После условия if нужно поставить двоеточие! Правильно: if x > 5:"
+    },
+    "mission": {
+      "title": "Миссия: Пропускной пункт",
+      "description": "Проверь возраст и выведи результат",
+      "task": "Получи число от пользователя. Если >= 18 — выведи 'Добро пожаловать', иначе — 'Доступ запрещён'.",
+      "expected_output": "Добро пожаловать / Доступ запрещён",
+      "character": "da"
+    }
+  },
+  {
+    "id": "1-5",
+    "part": 1,
+    "chapter": 2,
+    "lesson": 5,
+    "slug": "for-range",
+    "title": "Цикл for и range()",
+    "subtitle": "Повторяй действия",
+    "topic": "for/range",
+    "locked": false,
+    "explanation": {
+      "text": "Цикл `for` позволяет повторить действие несколько раз. `range(n)` создаёт последовательность чисел от 0 до n-1. Это как шаги в квесте — каждый шаг выполняет одно действие.",
+      "character": "da",
+      "code_example": "for i in range(3):\n    print(i)",
+      "output": "0\n1\n2"
+    },
+    "quiz": {
+      "question": "Сколько раз выполнится цикл: for i in range(5)?",
+      "options": [
+        { "id": "a", "text": "4 раза", "correct": false },
+        { "id": "b", "text": "5 раз", "correct": true },
+        { "id": "c", "text": "6 раз", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "for i in range(3):\n    print(i * 2)",
+      "options": ["0 2 4", "1 2 3", "2 4 6"],
+      "correct": "0 2 4"
+    },
+    "find_bug": {
+      "description": "Багус сломал цикл. Что не так?",
+      "code": "for i in range(3)\n    print(i)",
+      "hint": "После range(3) нужно двоеточие! Правильно: for i in range(3):"
+    },
+    "mission": {
+      "title": "Миссия: Лестница чисел",
+      "description": "Напечатай числа от 1 до 5",
+      "task": "Используй цикл for и range(), чтобы вывести числа от 1 до 5 каждое на новой строке.",
+      "expected_output": "1\n2\n3\n4\n5",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-1",
+    "part": 2,
+    "chapter": 3,
+    "lesson": 1,
+    "slug": "lists",
+    "title": "Списки",
+    "subtitle": "Коллекция данных",
+    "topic": "list",
+    "locked": false,
+    "explanation": {
+      "text": "Список (`list`) — это упорядоченная коллекция элементов. Индексация начинается с 0. Архивариус Памяти говорит: список — это полка с пронумерованными ящиками.",
+      "character": "ksyu",
+      "code_example": "heroes = ['Ксю', 'Ва', 'Да']\nprint(heroes[0])",
+      "output": "Ксю"
+    },
+    "quiz": {
+      "question": "Какой индекс у первого элемента списка?",
+      "options": [
+        { "id": "a", "text": "1", "correct": false },
+        { "id": "b", "text": "0", "correct": true },
+        { "id": "c", "text": "-1", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "items = [10, 20, 30]\nprint(items[-1])",
+      "options": ["10", "30", "Ошибка"],
+      "correct": "30"
+    },
+    "find_bug": {
+      "description": "IndexError — почему?",
+      "code": "items = [1, 2, 3]\nprint(items[3])",
+      "hint": "Индексы идут от 0 до 2. items[3] не существует! Максимум: items[2]"
+    },
+    "mission": {
+      "title": "Миссия: Инвентарь героя",
+      "description": "Создай список предметов",
+      "task": "Создай список из 3 предметов и выведи их все через цикл for.",
+      "expected_output": "[предмет 1]\n[предмет 2]\n[предмет 3]",
+      "character": "da"
+    }
+  },
+  {
+    "id": "2-2",
+    "part": 2,
+    "chapter": 3,
+    "lesson": 2,
+    "slug": "functions",
+    "title": "Функции",
+    "subtitle": "Пакуй код в магию",
+    "topic": "def",
+    "locked": true,
+    "explanation": {
+      "text": "Функция — это именованный блок кода, который можно вызывать снова и снова. Ва говорит: функция — это заклинание. Выучи один раз и применяй где угодно.",
+      "character": "va",
+      "code_example": "def greet(name):\n    print(f'Привет, {name}!')\n\ngreet('Питон')",
+      "output": "Привет, Питон!"
+    },
+    "quiz": {
+      "question": "Какое ключевое слово используется для создания функции?",
+      "options": [
+        { "id": "a", "text": "function", "correct": false },
+        { "id": "b", "text": "def", "correct": true },
+        { "id": "c", "text": "func", "correct": false }
+      ]
+    },
+    "what_outputs": {
+      "code": "def double(x):\n    return x * 2\n\nprint(double(5))",
+      "options": ["5", "10", "double(5)"],
+      "correct": "10"
+    },
+    "find_bug": {
+      "description": "Функция не возвращает результат. Почему?",
+      "code": "def add(a, b):\n    a + b\n\nprint(add(2, 3))",
+      "hint": "Нет ключевого слова return! Правильно: return a + b"
+    },
+    "mission": {
+      "title": "Миссия: Создай заклинание",
+      "description": "Напиши свою первую функцию",
+      "task": "Создай функцию `power(name)`, которая выводит: 'Заклинание [name] активировано!'",
+      "expected_output": "Заклинание Огонь активировано!",
+      "character": "da"
+    }
+  }
+]
