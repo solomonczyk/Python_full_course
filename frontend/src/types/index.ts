@@ -68,6 +68,7 @@ export interface ReviewBlock {
     description: string
     code: string
     hint: string
+    correct?: string
   }
   task: ReviewTask
 }
@@ -130,6 +131,7 @@ export interface Lesson extends LessonSummary {
     description: string
     code: string
     hint: string
+    correct?: string
   }
   mission: {
     title: string

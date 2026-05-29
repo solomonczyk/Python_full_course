@@ -6,9 +6,26 @@ interface Props {
 }
 
 export default function FindBugBlock({ findBug }: Props) {
-  const [showHint, setShowHint] = useState(false)
+  const [code, setCode] = useState(findBug?.code ?? '')
+  const [status, setStatus] = useState<'idle' | 'correct' | 'wrong' | 'hint'>('idle')
 
   if (!findBug) return null
+
+  const handleCheck = () => {
+    if (!findBug.correct) {
+      setStatus('hint')
+      return
+    }
+    // Normalize: trim whitespace, collapse multiple spaces
+    const normalizedCode = code.trim().replace(/\s+/g, ' ')
+    const normalizedCorrect = findBug.correct.trim().replace(/\s+/g, ' ')
+    setStatus(normalizedCode === normalizedCorrect ? 'correct' : 'wrong')
+  }
+
+  const handleReset = () => {
+    setCode(findBug.code)
+    setStatus('idle')
+  }
 
   return (
     <section className="bg-error-container/20 rounded-2xl p-6 border border-error-bagus/30 relative overflow-hidden">
@@ -21,21 +38,58 @@ export default function FindBugBlock({ findBug }: Props) {
 
       <p className="text-[15px] leading-[22px] text-on-surface-variant mb-4">{findBug.description}</p>
 
-      {/* Code with error marker */}
-      <div className="bg-white/80 p-5 rounded-xl font-mono text-[14px] leading-5 border-l-4 border-error text-on-surface mb-4">
-        {findBug.code}
+      {/* Editable code field */}
+      <textarea
+        value={code}
+        onChange={(e) => { setCode(e.target.value); setStatus('idle') }}
+        className={`w-full p-5 rounded-xl font-mono text-[14px] leading-6 border-2 bg-white resize-y min-h-[80px]
+          ${status === 'correct'
+            ? 'border-action-da bg-green-50'
+            : status === 'wrong'
+              ? 'border-error bg-red-50'
+              : 'border-outline-variant focus:border-secondary'
+          }
+          transition-colors outline-none`}
+        spellCheck={false}
+        placeholder="Исправь код здесь..."
+      />
+
+      {/* Buttons */}
+      <div className="flex gap-3 mt-4">
+        <button
+          onClick={handleCheck}
+          disabled={status === 'correct'}
+          className="flex-1 py-3 bg-error-bagus text-white font-sans text-[13px] font-bold rounded-xl
+                     hover:opacity-90 active:scale-[0.98] transition-all
+                     disabled:opacity-50 disabled:cursor-default"
+        >
+          {findBug.correct ? 'Проверить' : 'Показать подсказку'}
+        </button>
+        <button
+          onClick={handleReset}
+          className="py-3 px-5 bg-white text-on-surface-variant font-sans text-[13px] font-bold rounded-xl
+                     border-2 border-outline-variant hover:border-secondary active:scale-[0.98] transition-all"
+        >
+          Сбросить
+        </button>
       </div>
 
-      {!showHint ? (
-        <button
-          onClick={() => setShowHint(true)}
-          className="w-full py-3 bg-error-bagus/10 text-error font-sans text-[13px] font-bold rounded-xl
-                     hover:bg-error-bagus/20 active:scale-[0.98] transition-all"
-        >
-          Показать подсказку
-        </button>
-      ) : (
-        <div className="p-4 bg-white/80 rounded-xl border border-error-bagus/30">
+      {/* Feedback */}
+      {status === 'correct' && (
+        <div className="mt-4 p-4 bg-green-50 rounded-xl border border-action-da">
+          <p className="font-sans text-[14px] font-bold text-action-da">✅ Верно! Ошибка исправлена.</p>
+        </div>
+      )}
+      {status === 'wrong' && (
+        <div className="mt-4 p-4 bg-red-50 rounded-xl border border-error">
+          <p className="font-sans text-[14px] font-bold text-error mb-2">❌ Ещё не так. Попробуй ещё раз.</p>
+          {findBug.hint && (
+            <p className="text-sm text-on-surface"><span className="font-bold">💡 Подсказка:</span> {findBug.hint}</p>
+          )}
+        </div>
+      )}
+      {status === 'hint' && findBug.hint && (
+        <div className="mt-4 p-4 bg-white/80 rounded-xl border border-error-bagus/30">
           <p className="text-sm text-on-surface"><span className="font-bold">💡 Подсказка:</span> {findBug.hint}</p>
         </div>
       )}

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Lesson } from '../types'
 
 interface Props {
@@ -6,7 +7,15 @@ interface Props {
 }
 
 export default function PredictOutputBlock({ whatOutputs, onAnswer }: Props) {
+  const [selected, setSelected] = useState<string | null>(null)
+
   if (!whatOutputs) return null
+
+  const handleClick = (opt: string) => {
+    if (selected !== null) return // already answered
+    setSelected(opt)
+    onAnswer?.(opt === whatOutputs.correct, opt)
+  }
 
   return (
     <section className="bg-white rounded-2xl p-6 shadow-sm border border-outline-variant">
@@ -30,19 +39,48 @@ export default function PredictOutputBlock({ whatOutputs, onAnswer }: Props) {
 
       {/* Answer options */}
       <div className="flex gap-3 flex-wrap">
-        {whatOutputs.options.map((opt) => (
-          <button
-            key={opt}
-            onClick={() => onAnswer?.(opt === whatOutputs.correct, opt)}
-            className="flex-1 min-w-[80px] py-3 px-4 rounded-xl border-2 border-outline-variant
-                       font-mono text-[14px] font-bold text-on-surface whitespace-pre-wrap text-center
-                       hover:border-secondary hover:bg-secondary/5
-                       active:scale-[0.97] transition-all"
-          >
-            {opt}
-          </button>
-        ))}
+        {whatOutputs.options.map((opt) => {
+          const isSelected = selected === opt
+          const isCorrect = opt === whatOutputs.correct
+          let borderColor = 'border-outline-variant hover:border-secondary hover:bg-secondary/5'
+          if (isSelected) {
+            borderColor = isCorrect
+              ? 'border-action-da bg-green-50'
+              : 'border-error bg-red-50'
+          } else if (selected !== null && isCorrect) {
+            borderColor = 'border-action-da bg-green-50' // show correct answer after selection
+          }
+
+          return (
+            <button
+              key={opt}
+              onClick={() => handleClick(opt)}
+              disabled={selected !== null}
+              className={`flex-1 min-w-[80px] py-3 px-4 rounded-xl border-2 font-mono text-[14px] font-bold whitespace-pre-wrap text-center transition-all
+                ${borderColor}
+                ${selected !== null ? 'cursor-default' : 'active:scale-[0.97]'}
+                ${isSelected && isCorrect ? 'text-action-da' : isSelected && !isCorrect ? 'text-error' : 'text-on-surface'}
+              `}
+            >
+              {opt}
+            </button>
+          )
+        })}
       </div>
+
+      {/* Result feedback */}
+      {selected && (
+        <div className={`mt-4 p-3 rounded-xl font-sans text-[14px] font-bold ${
+          selected === whatOutputs.correct
+            ? 'bg-green-50 text-action-da'
+            : 'bg-red-50 text-error'
+        }`}>
+          {selected === whatOutputs.correct
+            ? '✅ Верно!'
+            : `❌ Неверно. Правильный вывод:\n${whatOutputs.correct}`
+          }
+        </div>
+      )}
     </section>
   )
 }
