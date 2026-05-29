@@ -37,37 +37,6 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="w-full max-w-[800px]">
-      {/* Reviews section */}
-      {reviews.length > 0 && (
-        <section className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>repeat</span>
-            </div>
-            <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface">Повторение</h2>
-            <span className="bg-purple-100 text-purple-600 text-[12px] font-bold px-2 py-0.5 rounded-full">{reviews.length}</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {reviews.map((r) => (
-              <button
-                key={r.id}
-                onClick={() => navigate(`/review/${r.id}`)}
-                className="text-left p-5 rounded-2xl border-2 border-purple-200 bg-purple-50/50 hover:shadow-md hover:border-purple-400 transition-all active:scale-[0.99]"
-              >
-                <div className="flex items-center gap-2 text-purple-600 mb-2 font-sans text-[13px] font-bold">
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>repeat</span>
-                  <span>{r.type === 'quick_recall' ? 'Быстрое' : r.type === 'chapter_review' ? 'Глава' : r.type === 'boss_review' ? 'Мини-игра' : 'Часть'}</span>
-                  <span className="mx-1">·</span>
-                  <span className="text-on-surface-variant">{r.part}.{r.chapter}</span>
-                </div>
-                <h3 className="font-display text-[20px] leading-7 font-semibold text-on-surface">{r.title}</h3>
-                <p className="font-sans text-[15px] text-on-surface-variant mt-1">{r.subtitle}</p>
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* Hero */}
       <section className="mb-12">
         <div className="flex items-center gap-4 mb-6">
@@ -103,6 +72,37 @@ export default function HomePage({ lessons, progress }: Props) {
 
       {/* Character intro */}
       <CharacterIntroSection />
+
+      {/* Reviews section — after intro, before lessons */}
+      {reviews.length > 0 && (
+        <section className="mb-10">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>repeat</span>
+            </div>
+            <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface">Повторение</h2>
+            <span className="bg-purple-100 text-purple-600 text-[12px] font-bold px-2 py-0.5 rounded-full">{reviews.length}</span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {reviews.map((r) => (
+              <button
+                key={r.id}
+                onClick={() => navigate(`/review/${r.id}`)}
+                className="text-left p-5 rounded-2xl border-2 border-purple-200 bg-purple-50/50 hover:shadow-md hover:border-purple-400 transition-all active:scale-[0.99]"
+              >
+                <div className="flex items-center gap-2 text-purple-600 mb-2 font-sans text-[13px] font-bold">
+                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>repeat</span>
+                  <span>{r.type === 'quick_recall' ? 'Быстрое' : r.type === 'chapter_review' ? 'Глава' : r.type === 'boss_review' ? 'Мини-игра' : 'Часть'}</span>
+                  <span className="mx-1">·</span>
+                  <span className="text-on-surface-variant">{r.part}.{r.chapter}</span>
+                </div>
+                <h3 className="font-display text-[20px] leading-7 font-semibold text-on-surface">{r.title}</h3>
+                <p className="font-sans text-[15px] text-on-surface-variant mt-1">{r.subtitle}</p>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Lessons by part */}
       {parts.map((part) => {
