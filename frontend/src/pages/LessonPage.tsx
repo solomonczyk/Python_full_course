@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
@@ -24,6 +25,11 @@ export default function LessonPage({ lessons }: Props) {
   const { id } = useParams<{ id: string }>()
   const { lesson, loading, error } = useLesson(id ?? '')
   const { progress, markComplete } = useProgressContext()
+
+  // Scroll to top when lesson data loads (handles async fetch completion)
+  useEffect(() => {
+    if (lesson) window.scrollTo(0, 0)
+  }, [lesson?.id])
 
   if (loading) {
     return (

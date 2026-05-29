@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useLessons } from './hooks/useApi'
 import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
@@ -17,8 +17,8 @@ function Layout() {
   const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
   const currentLessonId = match ? match[1] : undefined
 
-  // Scroll to top on every route change
-  useEffect(() => {
+  // Scroll to top on every route change (useLayoutEffect fires before paint)
+  useLayoutEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
 

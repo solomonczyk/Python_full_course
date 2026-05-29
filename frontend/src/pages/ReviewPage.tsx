@@ -29,6 +29,11 @@ export default function ReviewPage() {
     window.scrollTo(0, 0)
   }, [id])
 
+  // Scroll to top when review data loads (catches async fetch completion)
+  useEffect(() => {
+    if (review) window.scrollTo(0, 0)
+  }, [review?.id])
+
   if (loading) {
     return (
       <div className="w-full max-w-[800px] flex items-center justify-center h-64">
