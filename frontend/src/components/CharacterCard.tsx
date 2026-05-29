@@ -9,29 +9,27 @@ interface Props {
 
 export default function CharacterCard({ name, role, description, storyFunction, image, antagonist }: Props) {
   return (
-    <div className={`flex items-start gap-4 p-5 rounded-2xl border-2 transition-all hover:shadow-md
+    <div className={`rounded-2xl border-2 overflow-hidden transition-all hover:shadow-md
       ${antagonist
         ? 'border-error-bagus/40 bg-error-container/10'
         : 'border-outline-variant bg-white'
       }`}
     >
-      <div className={`w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 shadow-sm
-        ${antagonist ? 'border-error-bagus' : 'border-outline-variant'}`}
-      >
-        <img src={image} alt={name} className="w-full h-full object-cover" />
+      <div className="w-full aspect-[3/2] overflow-hidden bg-surface-container-low">
+        <img src={image} alt={name} className="w-full h-full object-contain" />
       </div>
-      <div className="min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <h3 className="font-display text-[20px] leading-7 font-bold text-on-surface">{name}</h3>
-          <span className={`text-[12px] font-bold font-sans px-2 py-0.5 rounded-full
-            ${antagonist ? 'bg-error-bagus/15 text-error' : 'bg-surface-container text-on-surface-variant'}`}
+      <div className="p-5">
+        <div className="flex items-center gap-2 flex-wrap mb-2">
+          <h3 className="font-display text-[22px] leading-7 font-bold text-on-surface">{name}</h3>
+          <span className={`text-[12px] font-bold font-sans px-2.5 py-0.5 rounded-full
+            ${antagonist ? 'bg-error-bagus/15 text-error' : 'bg-primary/10 text-primary'}`}
           >
             {role}
           </span>
         </div>
-        <p className="font-sans text-[14px] leading-[20px] text-on-surface-variant mt-1">{description}</p>
-        <p className="font-sans text-[13px] leading-[18px] text-on-surface-variant/70 mt-1">
-          <span className="font-bold text-primary">{antagonist ? '⚔️' : '✨'}</span> {storyFunction}
+        <p className="font-sans text-[14px] leading-[20px] text-on-surface-variant">{description}</p>
+        <p className="font-sans text-[13px] leading-[18px] text-on-surface-variant/70 mt-2 pt-2 border-t border-outline-variant/30">
+          <span className="font-bold">{antagonist ? '⚔️' : '✨'}</span> {storyFunction}
         </p>
       </div>
     </div>
