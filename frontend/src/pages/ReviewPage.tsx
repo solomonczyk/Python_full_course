@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useReview } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
@@ -24,6 +24,10 @@ export default function ReviewPage() {
   const [quizResults, setQuizResults] = useState<Record<string, { correct: boolean; correct_id: string }>>({})
   const [outputResult, setOutputResult] = useState<{ correct: boolean; correct_answer: string } | null>(null)
   const [completed, setCompleted] = useState(false)
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
 
   if (loading) {
     return (

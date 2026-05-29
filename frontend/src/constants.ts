@@ -1,12 +1,11 @@
 import type { Character } from './types'
 
-export const USER_AVATAR =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuACyMc-SyLpfNkZotntINNyoHx9l0zmKyQhhR_Bgb_9dVrZedTdNJ5g-ImsWbP4ZKO_-Szp0MoDQUmWLdwbg-DX7x4l0QCUSrULcAV5SZZ6gURM3IoRGY1YnbgZIqv0DyruxcWtqb0CBL5xJPVJQdf8zEp7Z3cEW-LJkxTrqdP8dfX6bYBt5r1KoZeG6HDoCk_HTqdKqM4Bj4BUioavbMxW76wELLz-hXgg20NuxjnzcvgFapmwUYBUUYOJHETVTGhLwVBJ0iEy9tqI'
+export const USER_AVATAR = '/avatars/ksyu.png'
 
 export const CHARACTER_AVATARS: Record<Character, string> = {
-  ksyu: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB0EBJ88Mxz2ZoOzUFyEaGH8CYLkc0yKInLZhUAaw42J8SNS-ntcBrt6H8I8l1rCzwa2Y6vp_q8wbpJsWAcu1Fkl86LQWDCLu7ZNO9THJ4EOwpXywn0ex8Mjm_imb96QPe5vSFLAEUbu3bXqySgzVa90LR7G-d_u5PR6xg4fPrIswb2rP-61JRRZZU-yerof--NuBJmaZbXohBLVp0w-vD_9zsNxcNJTHi_c9ScT-DQ7Vnzej3DwVcsqd0Pbs1NLFuvfSSnD2wOj59',
-  va: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBTEaJZ68ZeXuMozpyfSpAiTBSn1lG9n_mggdn55E0dGlbK5FFV8GP9DiKFlTw80G8Z2-MPUyki0HCcX28v0bCvmUAZhVy6RN1pYysdPBIk6TYewaEDEYBhjCLotQQYXOxu8NM7xpIaxqVZk73z26tKr6SxCnbnHt_ZfFJgoWVlaCo3dcVnVKsylVtI3_dT5ZFG7g_NJeysItAT7icZGDiknE35PA5cJOHAUZSZxWHbyGUQZF8f-P26Pf73yKsOH1G1-7VAULCknQUO',
-  da: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAKOHQQZW5dgSvuMy7SDrOchqg2Y7mwfsx-uO7D3tYcEjFbfG3n6wc45GfD9iTn5WIrYHqo0iPohlXPa8lq4IB7HmeZwR2p9WsRPRZd4NrNl6Mlh9GE54dgrDa_mWl4gLk6DOSDmIovBH3PGjFOwdWpp-RYrPqLTfAMnEK51F83L7J59AWx0OFViCDd2qzn1tU9ObmbumZVo3eMuBbPofzQmUiSwpsdkJscyRro3Ieg57FSVoy-TEUjnXgLwfd-guqL7Ua44Cvhifxh',
-  bagus: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCFpWER1OQX1xaIaT3C8LY1Va6D4Oi7qJc1pcp7eWVmqvEwsgoBrwzpUQmHa3Nvmi0cMXIod-_QCbY4kYSYuidSenxa1qhwyS03wROxAgl-qLEwOGAi-s61u0HdBlZhZ7P-ZesKDLfASa_0YJvbi0SqDYSC6HCb48yf3jqoFmgiCzCX2ILI02qeyT7F4W9xHLtJA3kwFfu8WyaxC8iXYNyYMNTQwEcx4r0toJytGPzd995ELJ85yIOC_qZWk9X5M6IWhmcycitwCild',
-  novice: USER_AVATAR,
+  ksyu: '/avatars/ksyu.png',
+  va: '/avatars/va.png',
+  da: '/avatars/da.png',
+  bagus: '/avatars/bagus.png',
+  novice: '/avatars/ksyu.png',
 }

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
@@ -48,6 +49,10 @@ export default function LessonPage({ lessons }: Props) {
   }
 
   const isDone = progress[lesson.id]?.completed
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
 
   return (
     <div className="w-full max-w-[800px] flex flex-col gap-12">
