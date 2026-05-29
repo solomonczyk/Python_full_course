@@ -6,6 +6,7 @@ const BORDER: Record<Character, string> = {
   va:    'border-logic-va/40',
   da:    'border-action-da/40',
   bagus: 'border-error-bagus/40',
+  novice: 'border-outline-variant',
 }
 
 const NAMES: Record<Character, string> = {
@@ -13,6 +14,7 @@ const NAMES: Record<Character, string> = {
   va:    'Ва',
   da:    'Да',
   bagus: 'Багус',
+  novice: 'Новичок',
 }
 
 const NAME_COLORS: Record<Character, string> = {
@@ -20,6 +22,7 @@ const NAME_COLORS: Record<Character, string> = {
   va:    'text-tertiary',
   da:    'text-primary',
   bagus: 'text-error',
+  novice: 'text-on-surface-variant',
 }
 
 function renderText(text: string) {

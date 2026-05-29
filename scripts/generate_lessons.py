@@ -100,10 +100,10 @@ GAME_RELEVANCE_MAP.sort(key=lambda x: len(x[0]), reverse=True)  # most specific 
 
 # ── story placement per part ────────────────────────────────────────────────
 STORY_PLACEMENT_PER_PART: dict[int, str] = {
-    1: "Малёк только начинает знакомство с миром Python. Каждая команда — это первый шаг к созданию собственной игры.",
-    2: "В школе внедряют IT-систему, и всё идёт не по плану. Малёк учится управлять логикой и добавлять случайность.",
-    3: "Малёк в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
-    4: "Багус запер Малёка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
+    1: "Новичок только начинает знакомство с миром Python. Каждая команда — это первый шаг к созданию собственной игры.",
+    2: "В школе внедряют IT-систему, и всё идёт не по плану. Новичок учится управлять логикой и добавлять случайность.",
+    3: "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
+    4: "Багус запер Новичока в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
 }
 
 # ── story placement per topic ────────────────────────────────────────────────
@@ -161,18 +161,23 @@ STORY_PLACEMENT_MAP.sort(key=lambda x: len(x[0]), reverse=True)
 # ── pre-topic dialogue templates ─────────────────────────────────────────────
 PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     (r"print", [
-        {"character": "ksyu", "text": "Малёк, хочешь сказать миру Python «Привет»? Начни с print."},
-        {"character": "ma", "text": "А это сложно?"},
-        {"character": "ksyu", "text": "Проще некуда. Пишешь print('...') — и программа говорит."},
+        {"character": "ksyu", "text": "Новичок, добро пожаловать в Python Quest! В конце этого курса ты напишешь свою первую консольную игру — «Побег из Башни Багуса»."},
+        {"character": "novice", "text": "Я? Сам? Прям игру?"},
+        {"character": "ksyu", "text": "Да. Не огромную, не идеальную, но свою. Мы будем собирать её шаг за шагом — от первой команды до готового игрового цикла."},
+        {"character": "va", "text": "Но сразу предупрежу: местами будет сложно. Некоторые темы придётся проходить дважды. Ошибки — это нормально. В программировании не страшно ошибиться, страшно не попробовать."},
+        {"character": "da", "text": "И ещё: не гонись за скоростью. Наша цель — не пройти быстрее, а собрать работающую игру своими руками. Если что-то непонятно — вернись, перечитай, попробуй ещё раз."},
+        {"character": "ksyu", "text": "Для начала советую писать код прямо в браузере — на online-python.com. VS Code и другие «взрослые» среды подождут до тех пор, пока ты не почувствуешь себя уверенно. Если застрянешь на запуске — это не значит, что ты не понимаешь Python."},
+        {"character": "novice", "text": "Звучит как план. С чего начнём?"},
+        {"character": "ksyu", "text": "С самого простого. print(). Это голос твоей будущей игры."},
     ]),
     (r"строк(и|а|у)", [
         {"character": "ksyu", "text": "Текст в коде — это строка. Её всегда нужно брать в кавычки."},
-        {"character": "ma", "text": "А если забыть кавычки?"},
+        {"character": "novice", "text": "А если забыть кавычки?"},
         {"character": "ksyu", "text": "Python не поймёт, где начинается и заканчивается текст."},
     ]),
     (r"кавычк", [
         {"character": "ksyu", "text": "Текст в коде — это строка. Её всегда нужно брать в кавычки."},
-        {"character": "ma", "text": "А если забыть кавычки?"},
+        {"character": "novice", "text": "А если забыть кавычки?"},
         {"character": "ksyu", "text": "Python не поймёт, где начинается и заканчивается текст."},
     ]),
     (r"переменн", [
@@ -181,13 +186,13 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"input", [
         {"character": "ksyu", "text": "input() ждёт, пока игрок что-то введёт. Это как дверь в программу."},
-        {"character": "ma", "text": "То есть программа задаёт вопрос и ждёт ответ?"},
+        {"character": "novice", "text": "То есть программа задаёт вопрос и ждёт ответ?"},
         {"character": "ksyu", "text": "Да. И ответ всегда приходит как текст."},
     ]),
     (r"int\(input", [
         {"character": "ksyu", "text": "input() возвращает строку. Если тебе нужно число — заверни input() в int()."},
         {"character": "va", "text": "Иначе программа сложит строки, а не числа."},
-        {"character": "ma", "text": "Как «2» + «2» = «22»?"},
+        {"character": "novice", "text": "Как «2» + «2» = «22»?"},
         {"character": "va", "text": "Именно. А int() превращает «2» в 2, и тогда 2 + 2 = 4."},
     ]),
     (r"арифмет", [
@@ -196,37 +201,37 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"сравнени", [
         {"character": "va", "text": "Сравнения проверяют, истинно условие или ложно. Результат — True или False."},
-        {"character": "ma", "text": "Как в игре: если здоровье > 0, я жив?"},
+        {"character": "novice", "text": "Как в игре: если здоровье > 0, я жив?"},
         {"character": "va", "text": "Да. Это и есть сравнение."},
     ]),
     (r"\bif\b(?!.*\belse\b)", [
         {"character": "va", "text": "if проверяет условие. Если оно истинно, код внутри if выполняется."},
-        {"character": "ma", "text": "А если ложно?"},
+        {"character": "novice", "text": "А если ложно?"},
         {"character": "va", "text": "Тогда код if пропускается."},
     ]),
     (r"if else", [
         {"character": "va", "text": "if — это «если», else — «иначе». Один путь или другой."},
-        {"character": "ma", "text": "То есть если условие истинно — одно, если ложно — другое?"},
+        {"character": "novice", "text": "То есть если условие истинно — одно, если ложно — другое?"},
         {"character": "va", "text": "Да. Двух вариантов достаточно для многих игровых ситуаций."},
     ]),
     (r"elif", [
         {"character": "va", "text": "elif добавляет третий, четвёртый, пятый вариант. Как перекрёсток."},
-        {"character": "ma", "text": "Не два пути, а много?"},
+        {"character": "novice", "text": "Не два пути, а много?"},
         {"character": "va", "text": "Да. elif ставится между if и else."},
     ]),
     (r"логич[ес]", [
         {"character": "va", "text": "Логические цепочки проверяют несколько условий по порядку."},
-        {"character": "ma", "text": "Как if, elif, else?"},
+        {"character": "novice", "text": "Как if, elif, else?"},
         {"character": "va", "text": "Да. Первое истинное условие срабатывает, остальные пропускаются."},
     ]),
     (r"random", [
         {"character": "da", "text": "random.randint() добавляет случайность. Игра оживает, когда результат непредсказуем."},
-        {"character": "ma", "text": "Как бросок кубика?"},
+        {"character": "novice", "text": "Как бросок кубика?"},
         {"character": "da", "text": "Да. От 1 до 6 — и каждый раз по-разному."},
     ]),
     (r"\bfor\b", [
         {"character": "da", "text": "for — это цикл. Он повторяет действие заданное количество раз."},
-        {"character": "ma", "text": "Зачем повторять?"},
+        {"character": "novice", "text": "Зачем повторять?"},
         {"character": "da", "text": "Чтобы перебрать предметы в инвентаре, комнаты или события."},
     ]),
     (r"range", [
@@ -235,7 +240,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"float", [
         {"character": "ksyu", "text": "float — это число с точкой. 3.14, 0.5, 2.0."},
-        {"character": "ma", "text": "Когда в игре нужны такие числа?"},
+        {"character": "novice", "text": "Когда в игре нужны такие числа?"},
         {"character": "ksyu", "text": "Для точных расчётов: проценты, вероятность, рейтинг."},
     ]),
     (r"деление|остаток|%", [
@@ -244,17 +249,17 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"bool", [
         {"character": "va", "text": "bool — это тип данных с двумя значениями: True и False."},
-        {"character": "ma", "text": "Как ответ на вопрос?"},
+        {"character": "novice", "text": "Как ответ на вопрос?"},
         {"character": "va", "text": "Да. Найден ключ? True. Дверь открыта? False."},
     ]),
     (r"and|or|not", [
         {"character": "va", "text": "and, or, not — логические операторы. Они соединяют условия."},
-        {"character": "ma", "text": "Если есть ключ И игрок у двери?"},
+        {"character": "novice", "text": "Если есть ключ И игрок у двери?"},
         {"character": "va", "text": "Да. and требует, чтобы оба условия были истинны."},
     ]),
     (r"вложенны[ехй] if|вложенны[хй] услов", [
         {"character": "va", "text": "if внутри if — это вложенное условие. Когда одной проверки мало."},
-        {"character": "ma", "text": "Сначала проверить, есть ли ключ, а потом — подходит ли он?"},
+        {"character": "novice", "text": "Сначала проверить, есть ли ключ, а потом — подходит ли он?"},
         {"character": "va", "text": "Да. Это и есть вложенность."},
     ]),
     (r"метод.*строк|строк.*метод", [
@@ -263,67 +268,67 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"индекс", [
         {"character": "ksyu", "text": "Индекс — это номер элемента. В Python счёт начинается с 0."},
-        {"character": "ma", "text": "Первый элемент — это 0?"},
+        {"character": "novice", "text": "Первый элемент — это 0?"},
         {"character": "ksyu", "text": "Да. Это поначалу непривычно, но быстро запоминается."},
     ]),
     (r"срез", [
         {"character": "ksyu", "text": "Срез — это часть строки или списка. От индекса до индекса."},
-        {"character": "ma", "text": "Как отрезать кусок?"},
+        {"character": "novice", "text": "Как отрезать кусок?"},
         {"character": "ksyu", "text": "Да. 'Python'[0:3] — это 'Pyt'."},
     ]),
     (r"списк[а-я]*", [
         {"character": "da", "text": "Список — это набор элементов в квадратных скобках. Инвентарь героя — это список."},
-        {"character": "ma", "text": "То есть я могу сложить туда предметы?"},
+        {"character": "novice", "text": "То есть я могу сложить туда предметы?"},
         {"character": "da", "text": "Да. И добавлять новые, и удалять ненужные."},
     ]),
     (r"append", [
         {"character": "da", "text": "append() добавляет элемент в конец списка. Нашёл ключ — добавь в инвентарь."},
-        {"character": "ma", "text": "Просто inventory.append('ключ')?"},
+        {"character": "novice", "text": "Просто inventory.append('ключ')?"},
         {"character": "da", "text": "Да. Одна строка — и предмет в инвентаре."},
     ]),
     (r"remove", [
         {"character": "da", "text": "remove() удаляет первый элемент с указанным значением."},
-        {"character": "ma", "text": "Когда пригодится?"},
+        {"character": "novice", "text": "Когда пригодится?"},
         {"character": "da", "text": "Использовал зелье — удали из инвентаря."},
     ]),
     (r"pop", [
         {"character": "da", "text": "pop() удаляет и возвращает элемент по индексу. Без индекса — последний."},
-        {"character": "ma", "text": "Как достать последний предмет?"},
+        {"character": "novice", "text": "Как достать последний предмет?"},
         {"character": "da", "text": "inventory.pop() — забирает последний."},
     ]),
     (r"choice|shuffle", [
         {"character": "da", "text": "random.choice() выбирает случайный элемент. random.shuffle() перемешивает весь список."},
-        {"character": "ma", "text": "Чтобы каждый раз было по-разному?"},
+        {"character": "novice", "text": "Чтобы каждый раз было по-разному?"},
         {"character": "da", "text": "Да. Случайные предметы, случайные события — игра становится живой."},
     ]),
     (r"флаг", [
         {"character": "va", "text": "Флаг — это переменная True/False. Она хранит состояние: найден ключ или нет."},
-        {"character": "ma", "text": "Одна переменная — одно состояние?"},
+        {"character": "novice", "text": "Одна переменная — одно состояние?"},
         {"character": "va", "text": "Да. Просто и надёжно."},
     ]),
     (r"break", [
         {"character": "va", "text": "break завершает цикл немедленно. Как команда «выход» в игре."},
-        {"character": "ma", "text": "Цикл прерывается прямо внутри?"},
+        {"character": "novice", "text": "Цикл прерывается прямо внутри?"},
         {"character": "va", "text": "Да. Где бы ты ни был — break выходит из цикла."},
     ]),
     (r"\bnone\b|\bNone\b", [
         {"character": "va", "text": "None — это «ничего». Не ноль, не пустая строка, а отсутствие значения."},
-        {"character": "ma", "text": "Когда в игре бывает None?"},
+        {"character": "novice", "text": "Когда в игре бывает None?"},
         {"character": "va", "text": "В комнате нет предмета — значение None. Удобно для проверок."},
     ]),
     (r"\bwhile\b", [
         {"character": "va", "text": "while повторяет код, пока условие истинно. Главный игровой цикл."},
-        {"character": "ma", "text": "Как пока я жив, игра продолжается?"},
+        {"character": "novice", "text": "Как пока я жив, игра продолжается?"},
         {"character": "va", "text": "Да. while health > 0 — игра работает."},
     ]),
     (r"join", [
         {"character": "ksyu", "text": "join() соединяет элементы списка в одну строку с разделителем."},
-        {"character": "ma", "text": "Чтобы красиво вывести инвентарь?"},
+        {"character": "novice", "text": "Чтобы красиво вывести инвентарь?"},
         {"character": "ksyu", "text": "Да. ' | '.join(items) → «ключ | зелье | монета»"},
     ]),
     (r"split", [
         {"character": "ksyu", "text": "split() разбивает строку на части по разделителю."},
-        {"character": "ma", "text": "Чтобы разобрать команду игрока?"},
+        {"character": "novice", "text": "Чтобы разобрать команду игрока?"},
         {"character": "ksyu", "text": "Да. 'взять ключ'.split() → ['взять', 'ключ']"},
     ]),
     (r"map", [
@@ -336,7 +341,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"алгорит", [
         {"character": "va", "text": "Алгоритмическое мышление — это умение разбить задачу на шаги."},
-        {"character": "ma", "text": "Как план перед написанием кода?"},
+        {"character": "novice", "text": "Как план перед написанием кода?"},
         {"character": "va", "text": "Да. Сначала подумать, потом писать."},
     ]),
     # ── extended coverage (category-level) ──
@@ -354,7 +359,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"влож.*(?:if|услов)", [
         {"character": "va", "text": "Вложенные if — это if внутри if. Как матрёшка: сначала проверяем одно, потом другое."},
-        {"character": "ma", "text": "А если условий много?"},
+        {"character": "novice", "text": "А если условий много?"},
         {"character": "va", "text": "Старайся не уходить глубже 2-3 уровней. Иначе код станет нечитаемым."},
     ]),
     (r"обратн.*ход|с.*конц|реверс", [
@@ -371,12 +376,12 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"\bin\b", [
         {"character": "ksyu", "text": "in проверяет, есть ли элемент в строке или списке. Возвращает True или False."},
-        {"character": "ma", "text": "Как проверить, есть ли ключ в инвентаре?"},
+        {"character": "novice", "text": "Как проверить, есть ли ключ в инвентаре?"},
         {"character": "ksyu", "text": "if 'key' in inventory: — проще некуда."},
     ]),
     (r"\blen\b|длин", [
         {"character": "ksyu", "text": "len() — это длина. Считает количество символов в строке или элементов в списке."},
-        {"character": "ma", "text": "То есть len('Python') = 6?"},
+        {"character": "novice", "text": "То есть len('Python') = 6?"},
         {"character": "ksyu", "text": "Да. Счёт с единицы, не с нуля."},
     ]),
     (r"\bindex\b", [
@@ -385,17 +390,17 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"\bcount\b", [
         {"character": "da", "text": "count() считает, сколько раз элемент встречается в списке."},
-        {"character": "ma", "text": "Сколько зелий у меня в инвентаре?"},
+        {"character": "novice", "text": "Сколько зелий у меня в инвентаре?"},
         {"character": "da", "text": "inventory.count('зелье') — и ты знаешь количество."},
     ]),
     (r"\binsert\b", [
         {"character": "da", "text": "insert() вставляет элемент на конкретное место в списке."},
-        {"character": "ma", "text": "В начало списка?"},
+        {"character": "novice", "text": "В начало списка?"},
         {"character": "da", "text": "inventory.insert(0, 'монета') — вставит монету на первую позицию."},
     ]),
     (r"\bextend\b", [
         {"character": "da", "text": "extend() добавляет все элементы другого списка в конец."},
-        {"character": "ma", "text": "А чем отличается от append?"},
+        {"character": "novice", "text": "А чем отличается от append?"},
         {"character": "da", "text": "append добавляет один элемент, extend — много. extend(['a', 'b']) вставит a и b."},
     ]),
     (r"максим|максимальн", [
@@ -408,7 +413,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"распаков", [
         {"character": "ksyu", "text": "Распаковка — это когда ты разбираешь список на отдельные переменные."},
-        {"character": "ma", "text": "Как name, age = ['Малёк', 16]?"},
+        {"character": "novice", "text": "Как name, age = ['Новичок', 16]?"},
         {"character": "ksyu", "text": "Да. Элементов слева должно быть столько же, сколько в списке."},
     ]),
     (r"\bkey\b", [
@@ -421,7 +426,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"изменя[еи]", [
         {"character": "va", "text": "Изменяемые типы (списки, словари) можно менять на месте. Неизменяемые (строки, числа) — нет."},
-        {"character": "ma", "text": "То есть строку нельзя изменить после создания?"},
+        {"character": "novice", "text": "То есть строку нельзя изменить после создания?"},
         {"character": "va", "text": "Да. Только создать новую."},
     ]),
     (r"\bis\b", [
@@ -442,7 +447,7 @@ PRE_TOPIC_DIALOGUE_MAP: list[tuple[str, list[dict[str, str]]]] = [
     ]),
     (r"чат.?бот", [
         {"character": "da", "text": "Чат-бот — это программа, которая отвечает на сообщения. Как твоя будущая игра."},
-        {"character": "ma", "text": "То есть игра — это тоже чат-бот?"},
+        {"character": "novice", "text": "То есть игра — это тоже чат-бот?"},
         {"character": "da", "text": "Почти. Игрок вводит команду — игра отвечает. Цикл ввода-обработки-вывода."},
     ]),
     (r"таск.?мен|менедж", [
@@ -631,7 +636,7 @@ POST_ERROR_DIALOGUE_MAP.sort(key=lambda x: len(x[0]), reverse=True)
 MINI_SUMMARY_MAP: list[tuple[str, str]] = [
     ("print", "print() выводит текст на экран. Это голос твоей программы."),
     ("кавычк", "Строки — это текст в кавычках. Python без кавычек не понимает текст."),
-    ("переменн", "Переменные хранят данные. name = 'Малёк' — создай и используй."),
+    ("переменн", "Переменные хранят данные. name = 'Новичок' — создай и используй."),
     ("input", "input() получает данные от игрока. Возвращает всегда строку."),
     ("int(input", "int() превращает строку в число. Нужно для расчётов."),
     ("арифмет", "Арифметика: +, -, *, /. Работает с числами, как в калькуляторе."),
@@ -846,6 +851,7 @@ NAME_TO_CHAR: dict[str, str] = {
     "Ва": "va",
     "Да": "da",
     "Багус": "bagus",
+    "Новичок": "novice",
 }
 
 # ── chapter mapping per part ───────────────────────────────────────────────
@@ -947,6 +953,75 @@ TOPIC_CHARACTERS: list[tuple[str, str]] = [
     ("deepcopy", "ksyu"),
     ("while", "va"),
 ]
+
+# ── difficulty map ─────────────────────────────────────────────────────────
+DIFFICULTY_MAP: list[tuple[str, str]] = [
+    # boss topics (most complex, project-level)
+    (r"random.*while.*игра|final.*game|финальн.*проект", "boss"),
+    # hard topics
+    ("вложенны[ехй] if|влож.*услов|влож.*списк|измен.*влож|перебор.*влож", "hard"),
+    ("\bwhile\b", "hard"),
+    ("\bmap\b", "hard"),
+    ("\bsort\b|\bsorted\b", "hard"),
+    ("\breferences?\b|\bссылк\b", "hard"),
+    ("\bcopy\b|\bdeepcopy\b", "hard"),
+    ("\bis\b", "hard"),
+    ("\bkey\b", "hard"),
+    ("\bif else\b|if.+else", "medium"),
+    ("\belif\b", "medium"),
+    ("\bfor\b", "medium"),
+    ("\brange\b", "medium"),
+    ("\break\b", "medium"),
+    ("\bwhile true\b", "hard"),
+    ("списк", "medium"),
+    ("pop|remove|append|insert|extend", "medium"),
+    ("индекс|срез", "medium"),
+    ("метод.*строк|join|split|f-стр", "medium"),
+    ("фильтра|сумм", "medium"),
+    ("if ", "easy"),
+    ("print", "easy"),
+    ("строк|кавычк", "easy"),
+    ("переменн", "easy"),
+    ("input", "easy"),
+    ("int\(input", "easy"),
+    ("арифмет", "easy"),
+    ("сравнени", "easy"),
+    ("random", "easy"),
+    ("float", "easy"),
+    ("bool", "easy"),
+    ("and|or|not", "easy"),
+    ("\bin\b", "easy"),
+    ("\blen\b", "easy"),
+    ("none", "easy"),
+]
+DIFFICULTY_MAP.sort(key=lambda x: len(x[0]), reverse=True)
+
+# ── time estimate by difficulty ────────────────────────────────────────────
+TIME_ESTIMATE_MAP: dict[str, int] = {
+    "easy": 15,
+    "medium": 25,
+    "hard": 40,
+    "boss": 50,
+}
+
+
+def get_difficulty(topic: str, lesson_title: str) -> str:
+    """Determine lesson difficulty from topic + title."""
+    combined = f"{topic} {lesson_title}"
+    for pattern, diff in DIFFICULTY_MAP:
+        try:
+            if re.search(pattern, combined, re.I):
+                return diff
+        except re.error:
+            if pattern.lower() in combined.lower():
+                return diff
+    return "medium"
+
+
+def get_time_estimate(difficulty: str) -> int:
+    """Get time estimate in minutes from difficulty."""
+    return TIME_ESTIMATE_MAP.get(difficulty, 20)
+
 
 # ── quiz templates per topic ───────────────────────────────────────────────
 # Fallback: if no specific template matches, generate a generic one
@@ -1665,6 +1740,15 @@ def parse_lessons(md_text: str) -> list[dict]:
         # Syntax reminder
         syntax_reminder = get_syntax_reminder(topic, raw_title)
 
+        # Difficulty + time estimate
+        difficulty = get_difficulty(topic, raw_title)
+        estimated_time_min = get_time_estimate(difficulty)
+
+        # ── Новичок protagonist enrichment ──
+        story_placement = _ensure_novice_in_story(story_placement, part, raw_title)
+        pre_topic_dialogue = _ensure_novice_in_dialogue(pre_topic_dialogue, raw_title, "pre_topic")
+        post_error_dialogue = _ensure_novice_in_dialogue(post_error_dialogue, raw_title, "post_error")
+
         lesson = {
             "id": lesson_id,
             "part": part,
@@ -1673,6 +1757,8 @@ def parse_lessons(md_text: str) -> list[dict]:
             "slug": slugify(raw_title),
             "title": raw_title,
             "subtitle": subtitle,
+            "difficulty": difficulty,
+            "estimated_time_min": estimated_time_min,
             "topic": topic,
             "locked": False,
             "story_placement": story_placement,
@@ -1919,6 +2005,145 @@ def get_syntax_reminder(topic: str, lesson_title: str) -> dict | None:
     return None
 
 
+# ── Новичок protagonist enrichment ─────────────────────────────────────────
+
+NOVICE = "novice"
+NOVICE_NAME = "Новичок"
+
+# Generic novice lines for pre-topic dialogue (enrichment fallback)
+PRE_NOVICE_LINES: list[dict[str, str]] = [
+    {"character": NOVICE, "text": "Я, честно, ещё не до конца разобрался. Объясни ещё раз?"},
+    {"character": "ksyu", "text": "Конечно. Смотри внимательно, тут важно понять логику, а не запомнить команду."},
+    {"character": "va", "text": "Главное — не спешить. Разберём по шагам."},
+    {"character": NOVICE, "text": "Кажется, дошло. Можно попробовать самому?"},
+    {"character": "da", "text": "Отлично! Дальше будет практика — там и проверишь."},
+]
+
+# Generic novice lines for post-error dialogue (enrichment fallback)
+POST_NOVICE_LINES: list[dict[str, str]] = [
+    {"character": NOVICE, "text": "А, понял! Я тут не то написал. Надо было по-другому."},
+    {"character": "ksyu", "text": "Именно. Ошибка — это сигнал, что ты уже близко к правильному решению."},
+    {"character": "va", "text": "Теперь ты это запомнишь надёжнее, чем если бы сразу получилось."},
+    {"character": NOVICE, "text": "Точно. В следующий раз буду внимательнее."},
+]
+
+
+def _ensure_novice_in_story(text: str | None, part: int, title: str) -> str:
+    """Ensure story_placement mentions Новичок."""
+    if not text:
+        parts = {1: "Новичок", 2: "Новичок", 3: "Новичок", 4: "Новичок"}
+        name = parts.get(part, "Новичок")
+        return f"{name} продолжает изучение темы «{title}»."
+    if NOVICE_NAME not in text:
+        # Prepend Новичок to make the story student-centric
+        text = f"{NOVICE_NAME} {text[0].lower() + text[1:]}"
+    return text
+
+
+NOVICE_ACKS = [
+    {"character": NOVICE, "text": "А, понятно. Так это работает!"},
+    {"character": NOVICE, "text": "То есть я должен просто запомнить этот шаблон?"},
+    {"character": NOVICE, "text": "Кажется, доходит. Можно пример?"},
+]
+
+NOVICE_ERRS = [
+    {"character": NOVICE, "text": "Ой, я понял — я перепутал порядок."},
+    {"character": NOVICE, "text": "Ага, моя ошибка. Теперь вижу."},
+    {"character": NOVICE, "text": "Понял, спасибо. Буду знать."},
+]
+
+
+def _intersperse_novice(lines: list[dict[str, str]], ack_pool: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Break up sequences of 3+ mentor-only lines by inserting novice acknowledgments."""
+    result: list[dict[str, str]] = []
+    mentor_run = 0
+    ack_idx = 0
+    for line in lines:
+        if line.get("character") == NOVICE:
+            mentor_run = 0
+            result.append(line)
+        else:
+            mentor_run += 1
+            if mentor_run >= 3:
+                # Insert novice ack before this line to break the run
+                ack = ack_pool[ack_idx % len(ack_pool)]
+                result.append(ack)
+                ack_idx += 1
+                mentor_run = 1  # This line starts a new run
+            result.append(line)
+    return result
+
+
+def _ensure_novice_in_dialogue(
+    dialogue: list[dict[str, str]] | None,
+    title: str,
+    dlg_type: str,
+) -> list[dict[str, str]]:
+    """Ensure every dialogue has ≥2 Новичок lines with proper structure and no long mentor runs."""
+    if not dialogue:
+        dialogue = []
+
+    novice_count = sum(1 for d in dialogue if d.get("character") == NOVICE)
+
+    # Phase 1: ensure ≥2 novice lines
+    if novice_count == 0:
+        if dlg_type == "pre_topic":
+            dialogue.insert(0, PRE_NOVICE_LINES[0])  # question
+            dialogue.append(PRE_NOVICE_LINES[3])     # rephrase
+        else:
+            dialogue.insert(0, POST_NOVICE_LINES[0])  # admit
+            dialogue.append(POST_NOVICE_LINES[3])     # corrected
+        novice_count = 2
+    elif novice_count == 1:
+        if dlg_type == "pre_topic":
+            dialogue.append(PRE_NOVICE_LINES[3])  # rephrase
+        else:
+            dialogue.insert(0, POST_NOVICE_LINES[0])  # admit
+        novice_count = 2
+
+    # Phase 2: verify structure for pre_topic (question + rephrase)
+    if dlg_type == "pre_topic":
+        has_question = any(
+            d.get("character") == NOVICE and "?" in d.get("text", "")
+            for d in dialogue
+        )
+        has_rephrase = any(
+            d.get("character") == NOVICE and any(
+                kw in d.get("text", "").lower() for kw in ("понял", "дошл", "ясн", "так")
+            )
+            for d in dialogue
+        )
+        if not has_question:
+            dialogue.insert(0, {"character": NOVICE, "text": "А зачем это вообще нужно? Мне это пригодится?"})
+        if not has_rephrase:
+            dialogue.append({"character": NOVICE, "text": "Кажется, понял. Надо просто запомнить порядок?"})
+
+    # Phase 2: verify structure for post_error (admit + corrected)
+    if dlg_type == "post_error":
+        has_admit = any(
+            d.get("character") == NOVICE and any(
+                kw in d.get("text", "").lower() for kw in ("ошиб", "не то", "неправ", "перепутал")
+            )
+            for d in dialogue
+        )
+        has_corrected = any(
+            d.get("character") == NOVICE and any(
+                kw in d.get("text", "").lower() for kw in ("понял", "запомн", "в следующ", "буду")
+            )
+            for d in dialogue
+        )
+        if not has_admit:
+            dialogue.insert(0, {"character": NOVICE, "text": "Ой, я кажется нашёл ошибку. Я не то написал?"})
+        if not has_corrected:
+            dialogue.append({"character": NOVICE, "text": "Понял, спасибо. В следующий раз замечу такую ошибку."})
+
+    # Phase 3: intersperse novice acknowledgments to break mentor runs ≥3
+    ack_pool = NOVICE_ACKS if dlg_type == "pre_topic" else NOVICE_ERRS
+    dialogue = _intersperse_novice(dialogue, ack_pool)
+
+    return dialogue
+
+
 # ── Main ───────────────────────────────────────────────────────────────────
 
 def main():
@@ -1950,6 +2175,8 @@ def main():
         "title": "Лестница отступов Багуса",
         "subtitle": "Восхождение по ступеням кода",
         "topic": "indentation",
+        "difficulty": "boss",
+        "estimated_time_min": 50,
         "locked": False,
         "scene_image": None,
         "story_placement": "Багус построил лестницу из неправильных отступов. Чтобы пройти дальше, нужно понять, как работают блоки и отступы в Python.",
@@ -2001,6 +2228,16 @@ def main():
             "character": "da",
         },
     }
+    # Enrich with Новичок protagonist content
+    bagus_lesson["story_placement"] = _ensure_novice_in_story(
+        bagus_lesson.get("story_placement"), 3, bagus_lesson["title"]
+    )
+    bagus_lesson["pre_topic_dialogue"] = _ensure_novice_in_dialogue(
+        bagus_lesson.get("pre_topic_dialogue"), bagus_lesson["title"], "pre_topic"
+    )
+    bagus_lesson["post_error_dialogue"] = _ensure_novice_in_dialogue(
+        bagus_lesson.get("post_error_dialogue"), bagus_lesson["title"], "post_error"
+    )
     lessons.append(bagus_lesson)
     print(f"Added special lesson: {bagus_lesson['title']} (3-41)")
 

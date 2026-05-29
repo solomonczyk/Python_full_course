@@ -1,4 +1,4 @@
-export type Character = 'ksyu' | 'va' | 'da' | 'bagus'
+export type Character = 'ksyu' | 'va' | 'da' | 'bagus' | 'novice'
 
 export interface QuizOption {
   id: string
@@ -85,6 +85,8 @@ export interface ReviewSummary {
 
 // ── Lesson types ────────────────────────────────────────────────────────
 
+export type Difficulty = 'easy' | 'medium' | 'hard' | 'boss'
+
 export interface LessonSummary {
   id: string
   part: number
@@ -95,6 +97,8 @@ export interface LessonSummary {
   subtitle: string
   topic: string
   locked: boolean
+  difficulty: Difficulty
+  estimated_time_min: number
   scene_image?: string
 }
 

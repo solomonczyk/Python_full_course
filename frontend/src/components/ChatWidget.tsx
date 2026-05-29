@@ -55,16 +55,15 @@ export default function ChatWidget() {
 
   return (
     <>
-      {/* Floating button */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
-        {!open && (
-          <div className="bg-white rounded-xl shadow-lg border border-outline-variant px-4 py-3 max-w-[250px] relative animate-fade-in">
-            <p className="font-sans text-[13px] leading-[18px] text-on-surface">
-              <span className="font-bold text-primary">Ва:</span> Нажимай, только если сам не можешь решить задание 😉
-            </p>
-            <div className="absolute -bottom-2 right-6 w-3 h-3 bg-white border-r border-b border-outline-variant rotate-45" />
-          </div>
-        )}
+      {/* Floating button with hover tooltip */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 group/chat">
+        <div className={`bg-white rounded-xl shadow-lg border border-outline-variant px-4 py-3 max-w-[250px] relative transition-all duration-200
+          ${open ? 'opacity-0 pointer-events-none' : 'opacity-0 group-hover/chat:opacity-100'}`}>
+          <p className="font-sans text-[13px] leading-[18px] text-on-surface">
+            <span className="font-bold text-primary">Ва:</span> Нажимай, только если сам не можешь решить задание 😉
+          </p>
+          <div className="absolute -bottom-2 right-6 w-3 h-3 bg-white border-r border-b border-outline-variant rotate-45" />
+        </div>
         <button
           onClick={() => setOpen((v) => !v)}
           className="w-14 h-14 rounded-full bg-primary shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden border-2 border-white ring-2 ring-primary/30 relative"

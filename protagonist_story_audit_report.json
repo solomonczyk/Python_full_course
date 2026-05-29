@@ -1,0 +1,20 @@
+{
+  "total_lessons": 87,
+  "checks": {
+    "story_placement_with_protagonist": "87/87",
+    "pre_topic_dialogues_with_protagonist_2plus": "87/87",
+    "post_error_dialogues_with_protagonist_2plus": "87/87",
+    "mentor_only_dialogues": 0,
+    "lecture_card_dialogues": 0
+  },
+  "canonical_protagonist": "Новичок",
+  "issues": [],
+  "summary": {
+    "story_placement_with_protagonist": 87,
+    "pre_topic_with_2plus_novice": 87,
+    "post_error_with_2plus_novice": 87,
+    "mentor_only_violations": 0,
+    "lecture_card_violations": 0
+  },
+  "verdict": "ACCEPTED"
+}

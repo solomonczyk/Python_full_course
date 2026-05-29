@@ -1,0 +1,23 @@
+{
+  "total_lessons": 87,
+  "difficulty_distribution": {
+    "easy": 28,
+    "medium": 53,
+    "hard": 4,
+    "boss": 2
+  },
+  "hard_lessons_count": 4,
+  "checks": {
+    "hard_lessons_have_syntax_reminder": true,
+    "hard_lessons_have_post_error_dialogue": true,
+    "no_sharp_easy_hard_jumps_without_review": true,
+    "hard_topics_have_review_support": true
+  },
+  "issues": [],
+  "passed_checks": [
+    "All 4 hard lessons have syntax_reminder",
+    "All 4 hard lessons have post_error_dialogue",
+    "No sharp difficulty jumps without in-between review"
+  ],
+  "verdict": "PASSED"
+}

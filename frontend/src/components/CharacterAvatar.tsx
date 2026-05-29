@@ -6,6 +6,7 @@ const LABELS: Record<Character, string> = {
   va: 'Ва',
   da: 'Да',
   bagus: 'Багус',
+  novice: 'Новичок',
 }
 
 const COLORS: Record<Character, string> = {
@@ -13,6 +14,7 @@ const COLORS: Record<Character, string> = {
   va: 'border-logic-va',
   da: 'border-action-da',
   bagus: 'border-error-bagus',
+  novice: 'border-outline-variant',
 }
 
 interface Props {
