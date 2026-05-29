@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useLessons } from './hooks/useApi'
 import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
@@ -16,6 +16,11 @@ function Layout() {
   const location = useLocation()
   const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
   const currentLessonId = match ? match[1] : undefined
+
+  // Scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen bg-background">
@@ -43,6 +48,11 @@ function Layout() {
 }
 
 export default function App() {
+  // Prevent browser from restoring scroll position on back/forward navigation
+  if (typeof window !== 'undefined') {
+    window.history.scrollRestoration = 'manual'
+  }
+
   return (
     <BrowserRouter>
       <ProgressProvider>

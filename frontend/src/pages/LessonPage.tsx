@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
@@ -25,10 +24,6 @@ export default function LessonPage({ lessons }: Props) {
   const { id } = useParams<{ id: string }>()
   const { lesson, loading, error } = useLesson(id ?? '')
   const { progress, markComplete } = useProgressContext()
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [id])
 
   if (loading) {
     return (
