@@ -35,7 +35,7 @@ export default function PredictOutputBlock({ whatOutputs, onAnswer }: Props) {
             key={opt}
             onClick={() => onAnswer?.(opt === whatOutputs.correct, opt)}
             className="flex-1 min-w-[80px] py-3 px-4 rounded-xl border-2 border-outline-variant
-                       font-sans text-[14px] font-bold text-on-surface
+                       font-mono text-[14px] font-bold text-on-surface whitespace-pre-wrap text-center
                        hover:border-secondary hover:bg-secondary/5
                        active:scale-[0.97] transition-all"
           >

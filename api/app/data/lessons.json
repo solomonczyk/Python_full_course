@@ -106,11 +106,11 @@
     "what_outputs": {
       "code": "print(\"Python\")\nprint(\"Quest\")",
       "options": [
-        "Python",
+        "Python\nQuest",
         "Ошибка",
         "None"
       ],
-      "correct": "Python"
+      "correct": "Python\nQuest"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
