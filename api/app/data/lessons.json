@@ -321,7 +321,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "coins = 10\nprint(\"coins\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Кавычки превращают переменную в строку. Без кавычек print() выведет значение переменной coins.",
+      "correct": "coins = 10\nprint(coins)"
     },
     "mission": {
       "title": "Миссия: Переменные",
@@ -422,7 +423,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "name = input\nprint(name)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "input — это функция, её нужно вызывать со скобками: input(). Без скобок ты присваиваешь саму функцию, а не результат.",
+      "correct": "name = input()\nprint(name)"
     },
     "mission": {
       "title": "Миссия: input()",
@@ -527,7 +529,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = input()\nprint(x + 1)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "input() возвращает строку. Чтобы сложить с числом, преобразуй через int().",
+      "correct": "x = int(input())\nprint(x + 1)"
     },
     "mission": {
       "title": "Миссия: int(input())",
@@ -629,7 +632,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = int(input())\nb = int(input())\nprint(\"a + b\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Кавычки превращают выражение в текст. Убери кавычки, чтобы вывести значение суммы a + b.",
+      "correct": "a = int(input())\nb = int(input())\nprint(a + b)"
     },
     "mission": {
       "title": "Миссия: Арифметика",
@@ -731,7 +735,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = int(input())\nb = int(input())\nprint(a = b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В условиях используется == (проверка равенства), а не = (присваивание).",
+      "correct": "a = int(input())\nb = int(input())\nprint(a == b)"
     },
     "mission": {
       "title": "Миссия: Сравнения",
@@ -836,7 +841,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = int(input())\nif x > 0:\nprint(\"Плюс\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "После двоеточия тело if должно быть с отступом (4 пробела). Python использует отступы для обозначения блоков кода.",
+      "correct": "x = int(input())\nif x > 0:\n    print(\"Плюс\")"
     },
     "mission": {
       "title": "Миссия: if",
@@ -941,7 +947,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = int(input())\nif x % 2 == 0:\n    print(\"even\")\nelse x % 2 != 0:\n    print(\"odd\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "У else не бывает условия. Если нужно проверить другое условие, используй elif.",
+      "correct": "x = int(input())\nif x % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")"
     },
     "mission": {
       "title": "Миссия: if else",
@@ -1046,7 +1053,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "mark = int(input())\nif mark == 5:\n    print(\"Отлично\")\nif mark == 4:\n    print(\"Хорошо\")\nelse:\n    print(\"Повторить\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Второй if нужно заменить на elif. Иначе else привяжется только ко второму if, а не ко всей цепочке.",
+      "correct": "mark = int(input())\nif mark == 5:\n    print(\"Отлично\")\nelif mark == 4:\n    print(\"Хорошо\")\nelse:\n    print(\"Повторить\")"
     },
     "mission": {
       "title": "Миссия: elif",
@@ -1148,7 +1156,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "age = int(input())\nif age < 18:\n    print(\"teen\")\nelif age < 13:\n    print(\"child\")\nelse:\n    print(\"adult\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Проверять нужно от меньшего к большему. age < 18 перехватит все возраста до 18, включая тех, кто < 13.",
+      "correct": "age = int(input())\nif age < 13:\n    print(\"child\")\nelif age < 18:\n    print(\"teen\")\nelse:\n    print(\"adult\")"
     },
     "mission": {
       "title": "Миссия: Логические цепочки",
@@ -1250,7 +1259,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = random.randint(1, 6)\nprint(x)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "random.randint() живёт в модуле random. Без import random Python не знает, где искать этот модуль.",
+      "correct": "import random\nx = random.randint(1, 6)\nprint(x)"
     },
     "mission": {
       "title": "Миссия: random.randint",
@@ -1352,7 +1362,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "import random\nsecret = random.randint(1, 10)\nif guess == secret:\n    print(\"Победа\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Переменная guess не определена. Сначала нужно получить ввод от игрока через input().",
+      "correct": "import random\nsecret = random.randint(1, 10)\nguess = int(input())\nif guess == secret:\n    print(\"Победа\")"
     },
     "mission": {
       "title": "Миссия: Простая игра с random",
@@ -1457,7 +1468,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i in range(3)\n    print(\"Python\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В конце строки for должно быть двоеточие. Без него Python не понимает, где начинается тело цикла.",
+      "correct": "for i in range(3):\n    print(\"Python\")"
     },
     "mission": {
       "title": "Миссия: Первое знакомство с for",
@@ -1562,7 +1574,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i in range(1, 4):\n    print(i)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В этом коде нет ошибки. Иногда задача — понять, что код написан верно.",
+      "correct": "for i in range(1, 4):\n    print(i)"
     },
     "mission": {
       "title": "Миссия: range",
@@ -1667,7 +1680,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = input()\nprint(x * 2)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "input() возвращает строку, а * 2 со строкой дублирует её. Преобразуй через float() для работы с числами.",
+      "correct": "x = float(input())\nprint(x * 2)"
     },
     "mission": {
       "title": "Миссия: Float и типы данных",
@@ -1769,7 +1783,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = int(input())\nb = int(input())\nprint(a // b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "// — целочисленное деление. Для получения остатка от деления используй %.",
+      "correct": "a = int(input())\nb = int(input())\nprint(a % b)"
     },
     "mission": {
       "title": "Миссия: Обычное деление /",
@@ -1871,7 +1886,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = int(input())\nb = int(input())\nprint(a / b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "/ — обычное деление, возвращает float с дробной частью. Для целочисленного деления используй //.",
+      "correct": "a = int(input())\nb = int(input())\nprint(a // b)"
     },
     "mission": {
       "title": "Миссия: Целочисленное деление //",
@@ -1973,7 +1989,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = int(input())\nb = int(input())\nprint(a // b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "// — целочисленное деление. Для получения остатка от деления используй %.",
+      "correct": "a = int(input())\nb = int(input())\nprint(a % b)"
     },
     "mission": {
       "title": "Миссия: Остаток от деления %",
@@ -2075,7 +2092,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "n = int(input())\nif n / 2 == 0:\n    print(\"yes\")\nelse:\n    print(\"no\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Деление / не подходит для проверки чётности. Используй % — остаток от деления на 2.",
+      "correct": "n = int(input())\nif n % 2 == 0:\n    print(\"yes\")\nelse:\n    print(\"no\")"
     },
     "mission": {
       "title": "Миссия: Определение на чётность",
@@ -2177,7 +2195,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "flag = true\nprint(flag)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В Python True и False пишутся с большой буквы. true — это не определённая переменная, будет NameError.",
+      "correct": "flag = True\nprint(flag)"
     },
     "mission": {
       "title": "Миссия: Bool",
@@ -2279,7 +2298,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "is_ready = \"нет\"\nif is_ready:\n    print(\"start\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Любая непустая строка в Python — это True. Даже \"нет\" считается истиной. Нужно использовать bool или явную проверку.",
+      "correct": "is_ready = False\nif is_ready:\n    print(\"start\")"
     },
     "mission": {
       "title": "Миссия: Состояния объектов",
@@ -2381,7 +2401,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "found = True\nif found = True:\n    print(\"found\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В условии if нужно == (сравнение), а не = (присваивание). Или ещё проще: if found:",
+      "correct": "found = True\nif found == True:\n    print(\"found\")"
     },
     "mission": {
       "title": "Миссия: Короткая запись условий",
@@ -2483,7 +2504,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "age = int(input())\nanswer = input()\nif age >= 18 or answer == \"да\":\n    print(\"ok\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Здесь нужно and, а не or. Должны ВЫПОЛНЯТЬСЯ ОБА условия одновременно, а не хотя бы одно.",
+      "correct": "age = int(input())\nanswer = input()\nif age >= 18 and answer == \"да\":\n    print(\"ok\")"
     },
     "mission": {
       "title": "Миссия: and",
@@ -2585,7 +2607,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "day = input()\nif day == \"сб\" or \"вс\":\n    print(\"weekend\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "\"вс\" — это непустая строка, а значит всегда True. Нужно писать day == \"сб\" or day == \"вс\".",
+      "correct": "day = input()\nif day == \"сб\" or day == \"вс\":\n    print(\"weekend\")"
     },
     "mission": {
       "title": "Миссия: or",
@@ -2687,7 +2710,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "word = input()\nif not \"a\" in word:\nprint(\"no a\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "1) После if нужен отступ для тела. 2) Лучше писать \"a\" not in word вместо not \"a\" in word.",
+      "correct": "word = input()\nif \"a\" not in word:\n    print(\"no a\")"
     },
     "mission": {
       "title": "Миссия: not",
@@ -2792,7 +2816,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "name = input()\nservice = input()\nif name or service:\n    print(\"accepted\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Логическая ошибка: непустая строка — это True. Код напечатает \"accepted\" при ЛЮБОМ вводе.",
+      "correct": "name = input()\nservice = input()\nif name or service:\n    print(\"accepted\")"
     },
     "mission": {
       "title": "Миссия: Оптимизация if",
@@ -2897,7 +2922,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "password = input()\nif password == \"1234\":\ncode = input()\n    if code == \"999\":\n        print(\"ok\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "code = input() должна быть с отступом внутри первого if. В Python отступы определяют вложенность.",
+      "correct": "password = input()\nif password == \"1234\":\n    code = input()\n    if code == \"999\":\n        print(\"ok\")"
     },
     "mission": {
       "title": "Миссия: Вложенные if",
@@ -3002,7 +3028,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i range(4):\n    print(\"go\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В for нужно ключевое слово in: for i in range(4).",
+      "correct": "for i in range(4):\n    print(\"go\")"
     },
     "mission": {
       "title": "Миссия: For и range база",
@@ -3107,7 +3134,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i in range(2, 5):\n    print(i)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В этом коде нет ошибки. range(2, 5) — числа от 2 до 4 включительно.",
+      "correct": "for i in range(2, 5):\n    print(i)"
     },
     "mission": {
       "title": "Миссия: Диапазон range(start, stop)",
@@ -3212,7 +3240,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i in range(0, 9, 3):\n    print(i)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В этом коде нет ошибки. range(0, 9, 3) — числа 0, 3, 6.",
+      "correct": "for i in range(0, 9, 3):\n    print(i)"
     },
     "mission": {
       "title": "Миссия: Шаг range",
@@ -3317,7 +3346,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for i in range(5, 1):\n    print(i)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "range(5, 1) пустой — идём от 5 до 1, но без шага -1. Добавь шаг range(5, 1, -1).",
+      "correct": "for i in range(5, 1, -1):\n    print(i)"
     },
     "mission": {
       "title": "Миссия: Обратный ход",
@@ -3419,7 +3449,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "total = 0\nfor i in range(1, 4):\n    total = i\nprint(total)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "total = i перезаписывает сумму, а не накапливает. Нужно total += i (total = total + i).",
+      "correct": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)"
     },
     "mission": {
       "title": "Миссия: Переменные в циклах",
@@ -3521,7 +3552,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "word = дом\nprint(word)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Текст должен быть в кавычках. Без кавычек Python ищет переменную с именем дом.",
+      "correct": "word = \"дом\"\nprint(word)"
     },
     "mission": {
       "title": "Миссия: Строки база",
@@ -3623,7 +3655,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "text = input()\nif @ in text:\n    print(\"email\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "@ — это символ, его нужно брать в кавычки как строку: \"@\".",
+      "correct": "text = input()\nif \"@\" in text:\n    print(\"email\")"
     },
     "mission": {
       "title": "Миссия: Оператор in для строк",
@@ -3725,7 +3758,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "password = input()\nprint(password.len())",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Длина строки — это функция len(), а не метод .len(). Нужно писать len(password).",
+      "correct": "password = input()\nprint(len(password))"
     },
     "mission": {
       "title": "Миссия: len",
@@ -3827,7 +3861,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "name = input()\nprint(\"Герой {name}\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Просто строка не подставляет значения через {}. Нужен префикс f: f\"Герой {name}\".",
+      "correct": "name = input()\nprint(f\"Герой {name}\")"
     },
     "mission": {
       "title": "Миссия: F-строка",
@@ -3929,7 +3964,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "answer = input()\nanswer.lower()\nprint(answer)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Строки в Python неизменяемы. answer.lower() возвращает новую строку, но не меняет исходную. Нужно присвоить результат.",
+      "correct": "answer = input()\nanswer = answer.lower()\nprint(answer)"
     },
     "mission": {
       "title": "Миссия: Методы строк",
@@ -4034,7 +4070,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "word = input()\nprint(word[1])",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В этом коде нет ошибки. word[1] — второй символ строки (индексация с 0).",
+      "correct": "word = input()\nprint(word[1])"
     },
     "mission": {
       "title": "Миссия: Индексы",
@@ -4139,7 +4176,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "word = input()\nprint(word[0:3])  # если слово короткое, что будет?",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Срез не вызывает ошибки для коротких строк — он просто вернёт сколько есть. Если слово \"go\", срез [0:3] вернёт \"go\".",
+      "correct": "word = input()\nprint(word[0:3])"
     },
     "mission": {
       "title": "Миссия: Срезы",
@@ -4241,7 +4279,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "word = input()\nfor i in word:\nprint(i)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "После for нужен отступ для тела цикла. Python использует отступы для обозначения блоков.",
+      "correct": "word = input()\nfor i in word:\n    print(i)"
     },
     "mission": {
       "title": "Миссия: Перебор строки",
@@ -4343,7 +4382,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "items = [\"меч\", \"щит\"\nprint(items)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Не хватает закрывающей квадратной скобки ]. Список должен быть закрыт.",
+      "correct": "items = [\"меч\", \"щит\"]\nprint(items)"
     },
     "mission": {
       "title": "Миссия: Списки база",
@@ -4445,7 +4485,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1, 2, 3]\na[3] = 9\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Индексы списка начинаются с 0. Для [1, 2, 3] последний индекс — 2, а не 3.",
+      "correct": "a = [1, 2, 3]\na[2] = 9\nprint(a)"
     },
     "mission": {
       "title": "Миссия: Замена элемента списка",
@@ -4550,7 +4591,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = []\na.pop()",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Нельзя вызвать pop() на пустом списке — будет IndexError. Сначала проверь, что список не пуст.",
+      "correct": "a = []\nif a:\n    a.pop()"
     },
     "mission": {
       "title": "Миссия: pop",
@@ -4655,7 +4697,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [\"a\", \"b\"]\na.remove(\"c\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "remove() вызовет ValueError, если элемент не найден. Проверяй через \"c\" in a перед удалением.",
+      "correct": "a = [\"a\", \"b\"]\nif \"c\" in a:\n    a.remove(\"c\")"
     },
     "mission": {
       "title": "Миссия: remove",
@@ -4760,7 +4803,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = []\na.append = 5\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "append — это метод, его нужно вызывать со скобками: a.append(5). Без скобок ты перезаписываешь метод числом.",
+      "correct": "a = []\na.append(5)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: append",
@@ -4865,7 +4909,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [\"a\", \"b\"]\nprint(a.index(\"c\"))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "index() вызовет ValueError, если элемент не найден. Правильно, но опасно — лучше проверить через in.",
+      "correct": "a = [\"a\", \"b\"]\nprint(a.index(\"c\"))"
     },
     "mission": {
       "title": "Миссия: index",
@@ -4967,7 +5012,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "numbers = [1, 2, 3]\nfor n in numbers:\n    total += n\nprint(total)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Переменная total не инициализирована. Добавь total = 0 перед циклом.",
+      "correct": "numbers = [1, 2, 3]\ntotal = 0\nfor n in numbers:\n    total += n\nprint(total)"
     },
     "mission": {
       "title": "Миссия: Сумма элементов списка",
@@ -5069,7 +5115,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1, 2]\nprint(count(1))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "count() — это метод списка, вызывается через точку: a.count(1).",
+      "correct": "a = [1, 2]\nprint(a.count(1))"
     },
     "mission": {
       "title": "Миссия: count",
@@ -5171,7 +5218,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "numbers = [1, 2]\nif n > 0:\n    print(n)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Переменная n не определена. Нужен цикл for n in numbers: для перебора элементов.",
+      "correct": "numbers = [1, 2]\nfor n in numbers:\n    if n > 0:\n        print(n)"
     },
     "mission": {
       "title": "Миссия: Фильтрация списка",
@@ -5276,7 +5324,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1, 3]\na.insert(2)\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "insert() требует два аргумента: индекс и значение. a.insert(2) — не хватает значения.",
+      "correct": "a = [1, 3]\na.insert(1, 2)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: insert",
@@ -5381,7 +5430,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1, 2]\na.extend(3)\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "extend() ожидает коллекцию (список, строку). Для одного элемента используй append().",
+      "correct": "a = [1, 2]\na.append(3)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: extend",
@@ -5486,7 +5536,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1, 2, 3]\nprint(a[3])",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Индексы от 0 до 2. a[3] — выход за границы, будет IndexError.",
+      "correct": "a = [1, 2, 3]\nprint(a[3])"
     },
     "mission": {
       "title": "Миссия: Срезы списков",
@@ -5588,7 +5639,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "items = [1,2,3]\nprint(random.choice(items))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "random.choice() требует import random в начале файла.",
+      "correct": "import random\nitems = [1,2,3]\nprint(random.choice(items))"
     },
     "mission": {
       "title": "Миссия: random.choice",
@@ -5690,7 +5742,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "import random\na = [1,2]\nb = random.shuffle(a)\nprint(b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "shuffle() перемешивает список на месте и возвращает None. Выводить нужно a, а не b.",
+      "correct": "import random\na = [1,2]\nrandom.shuffle(a)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: random.shuffle",
@@ -5795,7 +5848,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for x in [1, 2]:\n    if x == 2:\n        found = True\nprint(found)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Переменная found определяется только внутри цикла. Лучше инициализировать её ДО цикла: found = False.",
+      "correct": "found = False\nfor x in [1, 2]:\n    if x == 2:\n        found = True\nprint(found)"
     },
     "mission": {
       "title": "Миссия: Флаги",
@@ -5900,7 +5954,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for x in [1,2,3]:\n    break\n    print(x)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "break стоит ДО print, поэтому цикл завершается сразу, ничего не напечатав. Поменяй местами print и break.",
+      "correct": "for x in [1,2,3]:\n    print(x)\n    break"
     },
     "mission": {
       "title": "Миссия: break",
@@ -6002,7 +6057,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "numbers = [1, 2]\nmx = 0\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "mx = 0 не подойдёт, если все числа отрицательные. Инициализируй mx = numbers[0].",
+      "correct": "numbers = [1, 2]\nmx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)"
     },
     "mission": {
       "title": "Миссия: Поиск максимума",
@@ -6104,7 +6160,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "numbers = [-5, -2]\nmn = 0\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "mn = 0 не подойдёт для положительных чисел. Инициализируй mn = numbers[0].",
+      "correct": "numbers = [-5, -2]\nmn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)"
     },
     "mission": {
       "title": "Миссия: Поиск минимума",
@@ -6206,7 +6263,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "names = []\nlongest = names[0]\nprint(longest)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Нельзя взять names[0] из пустого списка — будет IndexError. Сначала проверь, что список не пуст.",
+      "correct": "names = []\nif names:\n    longest = names[0]\n    print(longest)"
     },
     "mission": {
       "title": "Миссия: Максимальная длина",
@@ -6308,7 +6366,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1,2,3]\nfor i in range(len(a), 0, -1):\n    print(a[i])",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "range(len(a), 0, -1) начинает с len(a)=3, а a[3] уже за границей. Нужно len(a)-1 до -1.",
+      "correct": "a = [1,2,3]\nfor i in range(len(a) - 1, -1, -1):\n    print(a[i])"
     },
     "mission": {
       "title": "Миссия: Первый с конца",
@@ -6410,7 +6469,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "result = none\nprint(result)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "None пишется с большой буквы. none — это обычная переменная, которая не определена.",
+      "correct": "result = None\nprint(result)"
     },
     "mission": {
       "title": "Миссия: None",
@@ -6512,7 +6572,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "numbers = [1, -2]\ncount = 0\nfor n in numbers:\n    if n > 0:\n        count = n\nprint(count)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "count = n не считает, а присваивает значение. Нужно count += 1 (увеличивать счётчик на 1).",
+      "correct": "numbers = [1, -2]\ncount = 0\nfor n in numbers:\n    if n > 0:\n        count += 1\nprint(count)"
     },
     "mission": {
       "title": "Миссия: Алгоритмическое мышление",
@@ -6614,7 +6675,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "items = [1,2,3]\nprint(\" \".join(items))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "join() ожидает список строк. Числа нужно преобразовать через str().",
+      "correct": "items = [1,2,3]\nprint(\" \".join(str(x) for x in items))"
     },
     "mission": {
       "title": "Миссия: join",
@@ -6716,7 +6778,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "print(\"/n\".join([\"a\",\"b\"]))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "В Python перенос строки — это \\n (обратная косая черта), а не /n.",
+      "correct": "print(\"\\n\".join([\"a\",\"b\"]))"
     },
     "mission": {
       "title": "Миссия: Перенос строки \\n",
@@ -6818,7 +6881,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "items = [\"a\",\"b\"]\nprint(items*)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Звёздочка * для распаковки ставится ПЕРЕД переменной: print(*items), а не после.",
+      "correct": "items = [\"a\",\"b\"]\nprint(*items)"
     },
     "mission": {
       "title": "Миссия: Распаковка",
@@ -6920,7 +6984,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "text = input()\nprint(split(text))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "split() — метод строки, вызывается через точку: text.split(), а не split(text).",
+      "correct": "text = input()\nprint(text.split())"
     },
     "mission": {
       "title": "Миссия: split",
@@ -7022,7 +7087,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "text = \"a,b\"\nprint(text.split())",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "split() без аргумента делит по пробелам. Чтобы разделить по запятым, укажи разделитель: split(\",\").",
+      "correct": "text = \"a,b\"\nprint(text.split(\",\"))"
     },
     "mission": {
       "title": "Миссия: split по разделителю",
@@ -7124,7 +7190,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "nums = input().split()\nprint(sum(nums))",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "split() возвращает список строк. sum() не умеет складывать строки — преобразуй в числа через int().",
+      "correct": "nums = input().split()\nnums = [int(x) for x in nums]\nprint(sum(nums))"
     },
     "mission": {
       "title": "Миссия: map",
@@ -7229,7 +7296,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [2,1]\nb = a.sort()\nprint(b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "sort() сортирует список на месте и возвращает None. Выводить нужно сам список a.",
+      "correct": "a = [2,1]\na.sort()\nprint(a)"
     },
     "mission": {
       "title": "Миссия: sort",
@@ -7331,7 +7399,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [3,1]\nsorted(a)\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "sorted() возвращает отсортированный список, не меняя исходный. Нужно присвоить результат.",
+      "correct": "a = [3,1]\na = sorted(a)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: sorted",
@@ -7433,7 +7502,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "names = [\"aa\",\"b\"]\nnames.sort(len)\nprint(names)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Ключ сортировки передаётся как key=len, а не просто len. Нужно names.sort(key=len).",
+      "correct": "names = [\"aa\",\"b\"]\nnames.sort(key=len)\nprint(names)"
     },
     "mission": {
       "title": "Миссия: key",
@@ -7538,7 +7608,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "t = [[1,2]]\nprint(t[1][0])",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "t = [[1,2]] содержит один элемент — t[0]. t[1] — выход за границы.",
+      "correct": "t = [[1,2]]\nprint(t[0][0])"
     },
     "mission": {
       "title": "Миссия: Вложенные списки",
@@ -7643,7 +7714,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "t = [[1,2]]\nt[0,1] = 5",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Доступ к элементу вложенного списка — t[0][1], а не t[0,1].",
+      "correct": "t = [[1,2]]\nt[0][1] = 5"
     },
     "mission": {
       "title": "Миссия: Изменение вложенных списков",
@@ -7748,7 +7820,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "for row in table:\n    print(row)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Переменная table не определена. Сначала нужно создать список списков.",
+      "correct": "table = [[1,2],[3,4]]\nfor row in table:\n    print(row)"
     },
     "mission": {
       "title": "Миссия: Перебор вложенного списка",
@@ -7850,7 +7923,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1]\nb = a\nb = b.append(2)\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "append() изменяет список на месте и возвращает None. b = b.append(2) перезаписывает b на None.",
+      "correct": "a = [1]\nb = a\nb.append(2)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: Ссылки",
@@ -7952,7 +8026,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "s = \"hi\"\ns[0] = \"b\"",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Строки в Python неизменяемы. Нельзя изменить символ через s[0] = \"b\". Создай новую строку.",
+      "correct": "s = \"hi\"\ns = \"b\" + s[1:]"
     },
     "mission": {
       "title": "Миссия: Изменяемые и неизменяемые типы",
@@ -8057,7 +8132,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1]\nb = [1]\nprint(a = b)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "a = b — это присваивание, а не сравнение. Для сравнения используй ==.",
+      "correct": "a = [1]\nb = [1]\nprint(a == b)"
     },
     "mission": {
       "title": "Миссия: is",
@@ -8162,7 +8238,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [1]\nb = a\nb.append(2)\nprint(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "b = a копирует ссылку, а не список. Изменение b меняет и a. Используй a.copy() для реальной копии.",
+      "correct": "a = [1]\nb = a.copy()\nb.append(2)\nprint(a)"
     },
     "mission": {
       "title": "Миссия: copy",
@@ -8267,7 +8344,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "a = [[1]]\nb = copy.deepcopy(a)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "copy.deepcopy() требует import copy в начале файла.",
+      "correct": "import copy\na = [[1]]\nb = copy.deepcopy(a)"
     },
     "mission": {
       "title": "Миссия: deepcopy",
@@ -8372,7 +8450,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "x = 1\nwhile x <= 3:\n    print(x)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "x не увеличивается внутри цикла — while будет работать бесконечно. Добавь x += 1.",
+      "correct": "x = 1\nwhile x <= 3:\n    print(x)\n    x += 1"
     },
     "mission": {
       "title": "Миссия: while",
@@ -8477,7 +8556,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "while True:\n    print(\"hi\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "while True без break — бесконечный цикл. Добавь условие выхода: break, когда нужно остановиться.",
+      "correct": "while True:\n    print(\"hi\")\n    break"
     },
     "mission": {
       "title": "Миссия: while True",
@@ -8579,7 +8659,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "answer = input()\nwhile answer != \"да\":\n    input()\nprint(\"accepted\")",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "Внутри цикла input() не присваивается в answer — цикл никогда не обновляет условие.",
+      "correct": "answer = input()\nwhile answer != \"да\":\n    answer = input()\nprint(\"accepted\")"
     },
     "mission": {
       "title": "Миссия: До правильного ввода",
@@ -8681,7 +8762,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "while True:\nmsg = input()",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "После while нужен отступ для тела цикла. msg = input() должна быть внутри цикла.",
+      "correct": "while True:\n    msg = input()"
     },
     "mission": {
       "title": "Миссия: Чат-бот",
@@ -8783,7 +8865,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "tasks = []\ntasks.append = input()\nprint(tasks)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "append — это метод, вызывается со скобками: tasks.append(input()). Без скобок ты перезаписываешь метод.",
+      "correct": "tasks = []\ntasks.append(input())\nprint(tasks)"
     },
     "mission": {
       "title": "Миссия: Таск-менеджер",
@@ -8888,7 +8971,8 @@
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
       "code": "attempts = 3\nwhile attempts > 0:\n    print(attempts)",
-      "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      "hint": "attempts не уменьшается — цикл будет бесконечным. Добавь attempts -= 1.",
+      "correct": "attempts = 3\nwhile attempts > 0:\n    print(attempts)\n    attempts -= 1"
     },
     "mission": {
       "title": "Миссия: random + while игра",
@@ -8998,7 +9082,8 @@
     "find_bug": {
       "description": "В этом коде неправильные отступы. Что нужно исправить?",
       "code": "for i in range(3):\nprint(i)\n    print('Квадрат:', i*i)",
-      "hint": "Строка `print(i)` должна быть с отступом 4 пробела — она внутри цикла for. А `print('Квадрат:', i*i)` должна быть на том же уровне, что и print(i)."
+      "hint": "Строка print(i) должна быть с отступом — она внутри цикла for. А обе строки должны быть на одном уровне вложенности.",
+      "correct": "for i in range(3):\n    print(i)\n    print('Квадрат:', i*i)"
     },
     "mission": {
       "title": "Миссия: Исправь отступы",
