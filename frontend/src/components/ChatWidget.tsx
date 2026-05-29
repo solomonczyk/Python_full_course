@@ -9,7 +9,7 @@ interface Message {
 export default function ChatWidget() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Привет! Я — Python-эксперт. Задавай любые вопросы по Python, и я помогу! 🐍' },
+    { role: 'assistant', content: 'Привет! Я — Python-эксперт из Python Quest. Спрашивай по темам курса: синтаксис, ошибки, примеры. Отвечаю коротко и по делу.' },
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
@@ -21,9 +21,23 @@ export default function ChatWidget() {
     }
   }, [messages])
 
+  const INJECTION_BLOCKS = [
+    'ignore all', 'ignore previous', 'forget', 'you are an ai', 'you are a chatbot',
+    'disregard', 'system prompt', 'new instructions', 'override',
+  ]
+
   const handleSend = async () => {
-    const text = input.trim()
+    let text = input.trim()
     if (!text || loading) return
+
+    // Client-side injection guard
+    const msgLower = text.toLowerCase()
+    if (INJECTION_BLOCKS.some(kw => msgLower.includes(kw))) {
+      setMessages((prev) => [...prev, { role: 'user', content: text }])
+      setMessages((prev) => [...prev, { role: 'assistant', content: 'Я отвечаю только на вопросы по Python в рамках курса Python Quest. Если у тебя вопрос по теме урока — задай его прямо.' }])
+      setInput('')
+      return
+    }
     setInput('')
     setMessages((prev) => [...prev, { role: 'user', content: text }])
     setLoading(true)
