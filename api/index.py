@@ -12,7 +12,12 @@ from pydantic import BaseModel
 
 # ── paths ──────────────────────────────────────────────────────────────────
 _HERE = Path(__file__).parent
-_LESSONS_FILE = _HERE / "app" / "data" / "lessons.json"
+_LESSONS_CANDIDATES = [
+    _HERE / "app" / "data" / "lessons.json",
+    _HERE / "lessons.json",
+    Path.cwd() / "api" / "app" / "data" / "lessons.json",
+    Path("/var/task/api/app/data/lessons.json"),
+]
 _DB_PATH = Path(os.environ.get("DB_PATH", "/tmp/progress.db"))
 
 # ── models ─────────────────────────────────────────────────────────────────
@@ -60,9 +65,21 @@ def _db() -> sqlite3.Connection:
         conn.close()
 
 # ── lessons ────────────────────────────────────────────────────────────────
+_lessons_cache: Optional[list[dict[str, Any]]] = None
+
 def _lessons() -> list[dict[str, Any]]:
-    with open(_LESSONS_FILE, encoding="utf-8") as f:
-        return json.load(f)
+    global _lessons_cache
+    if _lessons_cache is not None:
+        return _lessons_cache
+    for path in _LESSONS_CANDIDATES:
+        try:
+            with open(path, encoding="utf-8") as f:
+                _lessons_cache = json.load(f)
+                return _lessons_cache
+        except (FileNotFoundError, OSError):
+            continue
+    tried = ", ".join(str(p) for p in _LESSONS_CANDIDATES)
+    raise HTTPException(status_code=500, detail=f"lessons.json not found. Tried: {tried}")
 
 # ── app ────────────────────────────────────────────────────────────────────
 app = FastAPI(title="Python Quest API", version="1.0.0")
@@ -271,8 +288,20 @@ def root() -> dict[str, str]:
     return {"status": "ok"}
 
 @app.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "healthy"}
+def health() -> dict[str, Any]:
+    found = next((str(p) for p in _LESSONS_CANDIDATES if p.exists()), None)
+    count = 0
+    try:
+        count = len(_lessons())
+    except Exception:
+        pass
+    return {
+        "status": "healthy",
+        "lessons_file": found,
+        "lessons_count": count,
+        "cwd": str(Path.cwd()),
+        "here": str(_HERE),
+    }
 
 
 # ── Vercel ASGI handler ────────────────────────────────────────────────────
