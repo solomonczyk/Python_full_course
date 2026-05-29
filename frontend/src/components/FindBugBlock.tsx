@@ -16,9 +16,11 @@ export default function FindBugBlock({ findBug }: Props) {
       setStatus('hint')
       return
     }
-    // Normalize: trim whitespace, collapse multiple spaces
-    const normalizedCode = code.trim().replace(/\s+/g, ' ')
-    const normalizedCorrect = findBug.correct.trim().replace(/\s+/g, ' ')
+    // Normalize: trim, collapse spaces, unify quotes (both ' and " are valid Python)
+    const normalize = (s: string) =>
+      s.trim().replace(/\s+/g, ' ').replace(/'/g, '"')
+    const normalizedCode = normalize(code)
+    const normalizedCorrect = normalize(findBug.correct)
     setStatus(normalizedCode === normalizedCorrect ? 'correct' : 'wrong')
   }
 
