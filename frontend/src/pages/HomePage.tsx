@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress, ReviewSummary } from '../types'
 import CharacterAvatar from '../components/CharacterAvatar'
+import CharacterIntroSection from '../components/CharacterIntroSection'
 
 const BASE = '/api'
 
@@ -99,6 +100,9 @@ export default function HomePage({ lessons, progress }: Props) {
           {done} / {total} уроков завершено
         </p>
       </section>
+
+      {/* Character intro */}
+      <CharacterIntroSection />
 
       {/* Lessons by part */}
       {parts.map((part) => {
