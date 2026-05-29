@@ -50,6 +50,8 @@ export function useLesson(id: string) {
   return { lesson, loading, error }
 }
 
+const STORAGE_KEY = 'python-quest-progress'
+
 export function useProgress() {
   const [progress, setProgress] = useState<Record<string, Progress>>({})
 
@@ -60,32 +62,64 @@ export function useProgress() {
         return r.json()
       })
       .then((data: Progress[] | null) => {
-        if (!Array.isArray(data)) {
-          console.warn('Progress data is not an array:', data)
-          return
-        }
         const map: Record<string, Progress> = {}
-        data.forEach((p) => {
-          if (p && p.lesson_id) {
-            map[p.lesson_id] = p
-          }
-        })
+        if (Array.isArray(data)) {
+          data.forEach((p) => {
+            if (p && p.lesson_id) map[p.lesson_id] = p
+          })
+        }
+        // Merge with localStorage so offline/Vercel ephemeral state survives
+        const saved = localStorage.getItem(STORAGE_KEY)
+        if (saved) {
+          try {
+            const local: Record<string, Progress> = JSON.parse(saved)
+            Object.assign(map, local)
+          } catch { /* ignore corrupt localStorage */ }
+        }
         setProgress(map)
       })
       .catch((err) => {
         console.error('Error loading progress:', err)
-        setProgress({})
+        // Fallback to localStorage when API fails
+        const saved = localStorage.getItem(STORAGE_KEY)
+        if (saved) {
+          try {
+            setProgress(JSON.parse(saved))
+          } catch {
+            setProgress({})
+          }
+        } else {
+          setProgress({})
+        }
       })
   }, [])
 
+  const persist = (map: Record<string, Progress>) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(map))
+  }
+
   const markComplete = async (lesson_id: string, score?: number) => {
-    const res = await fetch(`${BASE}/progress`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lesson_id, completed: true, score }),
-    })
-    const updated: Progress = await res.json()
-    setProgress((prev) => ({ ...prev, [lesson_id]: updated }))
+    try {
+      const res = await fetch(`${BASE}/progress`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lesson_id, completed: true, score }),
+      })
+      const updated: Progress = await res.json()
+      setProgress((prev) => {
+        const next = { ...prev, [lesson_id]: updated }
+        persist(next)
+        return next
+      })
+    } catch (e) {
+      // If API fails (Vercel ephemeral), save to localStorage only
+      const updated: Progress = { lesson_id, completed: true, score: score ?? null, updated_at: new Date().toISOString() }
+      setProgress((prev) => {
+        const next = { ...prev, [lesson_id]: updated }
+        persist(next)
+        return next
+      })
+    }
   }
 
   return { progress, markComplete }

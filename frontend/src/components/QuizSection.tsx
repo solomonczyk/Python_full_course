@@ -13,9 +13,14 @@ export default function QuizSection({ lesson, onScore }: Props) {
 
   const handleQuiz = async (id: string) => {
     setQuizAnswer(id)
-    const res = await checkQuizAnswer(lesson.id, id)
-    setQuizResult(res)
-    if (res.correct) onScore?.(100)
+    try {
+      const res = await checkQuizAnswer(lesson.id, id)
+      setQuizResult(res)
+      if (res.correct) onScore?.(100)
+    } catch (e) {
+      console.error('Quiz check failed:', e)
+      setQuizResult({ correct: false, correct_id: '' })
+    }
   }
 
   return (

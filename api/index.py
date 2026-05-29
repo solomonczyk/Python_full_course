@@ -189,6 +189,43 @@ def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
         "correct_answer": wo["correct"],
     }
 
+# ── routes: reviews ────────────────────────────────────────────────────────
+_REVIEW_PATH = _HERE / "app" / "data" / "review_schedule.json"
+
+
+@app.get("/reviews")
+def list_reviews() -> list[dict[str, Any]]:
+    if not _REVIEW_PATH.exists():
+        return []
+    with open(_REVIEW_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    return [
+        {
+            "id": r["id"],
+            "type": r["type"],
+            "title": r["title"],
+            "subtitle": r["subtitle"],
+            "position_after": r["position_after"],
+            "part": r["part"],
+            "chapter": r["chapter"],
+            "topics": r["topics"],
+        }
+        for r in data.get("reviews", [])
+    ]
+
+
+@app.get("/reviews/{review_id}")
+def get_review(review_id: str) -> dict[str, Any]:
+    if not _REVIEW_PATH.exists():
+        raise HTTPException(status_code=404, detail="Review schedule not found")
+    with open(_REVIEW_PATH, encoding="utf-8") as f:
+        data = json.load(f)
+    for r in data.get("reviews", []):
+        if r["id"] == review_id:
+            return r
+    raise HTTPException(status_code=404, detail=f"Review '{review_id}' not found")
+
+
 # ── AI chat ────────────────────────────────────────────────────────────────
 _AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")
 _AI_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
