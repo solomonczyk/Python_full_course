@@ -39,20 +39,26 @@ export default function FindBugBlock({ findBug }: Props) {
       <p className="text-[15px] leading-[22px] text-on-surface-variant mb-4">{findBug.description}</p>
 
       {/* Editable code field */}
-      <textarea
-        value={code}
-        onChange={(e) => { setCode(e.target.value); setStatus('idle') }}
-        className={`w-full p-5 rounded-xl font-mono text-[14px] leading-6 border-2 bg-white resize-y min-h-[80px]
-          ${status === 'correct'
-            ? 'border-action-da bg-green-50'
-            : status === 'wrong'
-              ? 'border-error bg-red-50'
-              : 'border-outline-variant focus:border-secondary'
-          }
-          transition-colors outline-none`}
-        spellCheck={false}
-        placeholder="Исправь код здесь..."
-      />
+      <div className="relative">
+        <textarea
+          value={code}
+          onChange={(e) => { setCode(e.target.value); setStatus('idle') }}
+          className={`w-full p-5 rounded-xl font-mono text-[14px] leading-6 border-2 bg-white resize-y min-h-[80px]
+            ${status === 'correct'
+              ? 'border-action-da bg-green-50'
+              : status === 'wrong'
+                ? 'border-error bg-red-50'
+                : 'border-outline-variant focus:border-secondary focus:bg-blue-50/30'
+            }
+            transition-colors outline-none`}
+          spellCheck={false}
+          placeholder="Исправь код здесь..."
+        />
+        <span className="absolute top-2 right-2 text-[11px] text-outline font-sans flex items-center gap-1 pointer-events-none">
+          <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 0" }}>edit</span>
+          редактируй
+        </span>
+      </div>
 
       {/* Buttons */}
       <div className="flex gap-3 mt-4">
