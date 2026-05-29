@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import type { LessonSummary } from '../types'
 import { USER_AVATAR } from '../constants'
 
@@ -21,8 +21,10 @@ export default function TopNav({ lessons, currentId, onMenuClick }: Props) {
         <button onClick={onMenuClick} className="md:hidden mr-2 text-on-surface-variant">
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
         </button>
-        <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
-        <h1 className="font-display text-[24px] leading-8 font-bold text-primary">Python Quest</h1>
+        <Link to="/" className="flex items-center gap-3">
+          <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
+          <h1 className="font-display text-[24px] leading-8 font-bold text-primary hover:underline underline-offset-4">Python Quest</h1>
+        </Link>
       </div>
 
       <div className="flex items-center gap-3">

@@ -45,6 +45,16 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
         </div>
 
         <nav className="flex-1 space-y-4">
+          <Link
+            to="/"
+            onClick={onClose}
+            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg font-sans text-[13px] font-bold transition-all
+              ${location.pathname === '/' ? 'bg-primary/5 text-primary font-extrabold shadow-[-4px_0_0_0_#006e25]' : 'text-on-surface-variant hover:bg-surface-container-high'}`}
+          >
+            <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 0" }}>home</span>
+            <span>Главная</span>
+          </Link>
+          <div className="border-t border-outline-variant my-2" />
           {parts.map((part) => {
             const partLessons = lessons.filter((l) => l.part === part)
             return (
