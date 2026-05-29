@@ -1749,6 +1749,9 @@ def parse_lessons(md_text: str) -> list[dict]:
         pre_topic_dialogue = _ensure_novice_in_dialogue(pre_topic_dialogue, raw_title, "pre_topic")
         post_error_dialogue = _ensure_novice_in_dialogue(post_error_dialogue, raw_title, "post_error")
 
+        # ── Scene image ──
+        scene_image = f"/scenes/{lesson_id}.png"
+
         lesson = {
             "id": lesson_id,
             "part": part,
@@ -1759,6 +1762,7 @@ def parse_lessons(md_text: str) -> list[dict]:
             "subtitle": subtitle,
             "difficulty": difficulty,
             "estimated_time_min": estimated_time_min,
+            "scene_image": scene_image,
             "topic": topic,
             "locked": False,
             "story_placement": story_placement,
@@ -2177,8 +2181,8 @@ def main():
         "topic": "indentation",
         "difficulty": "boss",
         "estimated_time_min": 50,
+        "scene_image": "/scenes/3-41.png",
         "locked": False,
-        "scene_image": None,
         "story_placement": "Багус построил лестницу из неправильных отступов. Чтобы пройти дальше, нужно понять, как работают блоки и отступы в Python.",
         "pre_topic_dialogue": [
             {"character": "va", "text": "Багус снова напутал с отступами. Его код — это лестница в никуда."},

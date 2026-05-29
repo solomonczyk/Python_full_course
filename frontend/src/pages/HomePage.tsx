@@ -82,7 +82,10 @@ export default function HomePage({ lessons, progress }: Props) {
           </div>
         </div>
         <p className="font-sans text-[16px] leading-6 text-on-surface-variant max-w-[600px]">
-          Учись программировать на Python вместе с персонажами Ксю, Ва, Да и Багусом. Сюжет, диалоги, квизы и миссии.
+          Начни путь в Python как <strong>Новичок</strong>: сначала ты разберёшься с первыми командами, ошибками и условиями, а затем шаг за шагом соберёшь свою первую консольную игру — <strong>«Побег из Башни Багуса»</strong>.
+        </p>
+        <p className="font-sans text-[14px] leading-5 text-on-surface-variant mt-3 max-w-[600px]">
+          Ксю, Ва и Да будут объяснять, поддерживать и тренировать тебя, а Багус — ломать код, прятать ошибки и проверять, действительно ли ты понял тему.
         </p>
 
         {/* Progress bar */}
