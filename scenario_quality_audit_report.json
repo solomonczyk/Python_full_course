@@ -1,0 +1,3272 @@
+{
+  "total_lessons": 87,
+  "summary": {
+    "story_placement": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    },
+    "pre_topic_dialogue": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    },
+    "post_error_dialogue": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    },
+    "game_relevance": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    },
+    "mini_summary": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    },
+    "connection_to_game": {
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0
+    }
+  },
+  "field_analyses": {
+    "story_placement": {
+      "field": "story_placement",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 90,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 94,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 78,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 99,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 75,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 88,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 66,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 87,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 97,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 62,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 61,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 94,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 49,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 66,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 61,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 69,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 64,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 50,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 73,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 73,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 64,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 64,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 71,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 68,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 68,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 81,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 81,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 131,
+          "status": "OK"
+        }
+      ]
+    },
+    "pre_topic_dialogue": {
+      "field": "pre_topic_dialogue",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 1357,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 321,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 389,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 334,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 408,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 397,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 318,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 286,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 350,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 301,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 322,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 379,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 368,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 368,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 391,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 391,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 300,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 408,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 372,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 286,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 330,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 401,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 389,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 321,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 320,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 321,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 412,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 318,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 292,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 321,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 291,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 328,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 357,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 322,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 318,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 343,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 366,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 366,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 311,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 317,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 389,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 395,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 389,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 401,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 336,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 308,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 326,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 321,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 346,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 309,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 309,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 362,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 366,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 366,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 409,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 340,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 401,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 402,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 399,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 373,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 316,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 316,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 375,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 364,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 399,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 319,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 416,
+          "status": "OK"
+        }
+      ]
+    },
+    "post_error_dialogue": {
+      "field": "post_error_dialogue",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 327,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 348,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 327,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 327,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 342,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 356,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 356,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 356,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 356,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 356,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 345,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 353,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 342,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 342,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 341,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 341,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 394,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 362,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 362,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 358,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 345,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 345,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 328,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 348,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 353,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 355,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 355,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 354,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 363,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 361,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 361,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 346,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 346,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 346,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 341,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 360,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 362,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 339,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 361,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 385,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 382,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 331,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 365,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 403,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 382,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 389,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 350,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 344,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 383,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 366,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 362,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 352,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 352,
+          "status": "OK"
+        }
+      ]
+    },
+    "game_relevance": {
+      "field": "game_relevance",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 182,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 185,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 147,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 169,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 146,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 152,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 126,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 159,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 164,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 131,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 155,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 155,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 148,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 129,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 123,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 123,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 109,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 109,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 143,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 138,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 112,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 101,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 137,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 128,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 129,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 129,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 104,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 147,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 146,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 113,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 185,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 151,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 126,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 126,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 185,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 105,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 98,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 92,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 91,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 99,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 81,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 80,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 155,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 114,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 136,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 123,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 122,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 144,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 122,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 111,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 104,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 136,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 101,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 185,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 141,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 98,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 98,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 97,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 132,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 134,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 134,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 127,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 111,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 123,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 136,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 111,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 92,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 117,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 117,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 118,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 110,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 121,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 155,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 133,
+          "status": "OK"
+        }
+      ]
+    },
+    "mini_summary": {
+      "field": "mini_summary",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 58,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 68,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 64,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 60,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 52,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 51,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 55,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 60,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 48,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 58,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 44,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 49,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 49,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 49,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 43,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 84,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 69,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 52,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 48,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 41,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 65,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 77,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 64,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 50,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 58,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 76,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 34,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 53,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 57,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 46,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 37,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 42,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 63,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 58,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 57,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 55,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 37,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 48,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 35,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 55,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 55,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 50,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 56,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 54,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 59,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 57,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 54,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 50,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 50,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 61,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 33,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 42,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 57,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 47,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 68,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 66,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 42,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 56,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 56,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 62,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 81,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 74,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 121,
+          "status": "OK"
+        }
+      ]
+    },
+    "connection_to_game": {
+      "field": "connection_to_game",
+      "total": 87,
+      "ok": 87,
+      "generic_fallback": 0,
+      "too_short": 0,
+      "empty": 0,
+      "details": [
+        {
+          "id": "1-1",
+          "title": "print()",
+          "length": 95,
+          "status": "OK"
+        },
+        {
+          "id": "1-2",
+          "title": "Строки и кавычки",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "1-3",
+          "title": "Переменные",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "1-4",
+          "title": "input()",
+          "length": 84,
+          "status": "OK"
+        },
+        {
+          "id": "1-5",
+          "title": "int(input())",
+          "length": 83,
+          "status": "OK"
+        },
+        {
+          "id": "1-6",
+          "title": "Арифметика",
+          "length": 79,
+          "status": "OK"
+        },
+        {
+          "id": "1-7",
+          "title": "Сравнения",
+          "length": 80,
+          "status": "OK"
+        },
+        {
+          "id": "1-8",
+          "title": "if",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "1-9",
+          "title": "if else",
+          "length": 83,
+          "status": "OK"
+        },
+        {
+          "id": "2-1",
+          "title": "elif",
+          "length": 83,
+          "status": "OK"
+        },
+        {
+          "id": "2-2",
+          "title": "Логические цепочки",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "2-3",
+          "title": "random.randint",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "2-4",
+          "title": "Простая игра с random",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "2-5",
+          "title": "Первое знакомство с for",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "2-6",
+          "title": "range",
+          "length": 78,
+          "status": "OK"
+        },
+        {
+          "id": "3-1",
+          "title": "Float и типы данных",
+          "length": 98,
+          "status": "OK"
+        },
+        {
+          "id": "3-2",
+          "title": "Обычное деление /",
+          "length": 90,
+          "status": "OK"
+        },
+        {
+          "id": "3-3",
+          "title": "Целочисленное деление //",
+          "length": 90,
+          "status": "OK"
+        },
+        {
+          "id": "3-4",
+          "title": "Остаток от деления %",
+          "length": 94,
+          "status": "OK"
+        },
+        {
+          "id": "3-5",
+          "title": "Определение на чётность",
+          "length": 90,
+          "status": "OK"
+        },
+        {
+          "id": "3-6",
+          "title": "Bool",
+          "length": 84,
+          "status": "OK"
+        },
+        {
+          "id": "3-7",
+          "title": "Состояния объектов",
+          "length": 117,
+          "status": "OK"
+        },
+        {
+          "id": "3-8",
+          "title": "Короткая запись условий",
+          "length": 87,
+          "status": "OK"
+        },
+        {
+          "id": "3-9",
+          "title": "and",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-10",
+          "title": "or",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-11",
+          "title": "not",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-12",
+          "title": "Оптимизация if",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-13",
+          "title": "Вложенные if",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "3-14",
+          "title": "For и range база",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-15",
+          "title": "Диапазон range(start, stop)",
+          "length": 78,
+          "status": "OK"
+        },
+        {
+          "id": "3-16",
+          "title": "Шаг range",
+          "length": 78,
+          "status": "OK"
+        },
+        {
+          "id": "3-17",
+          "title": "Обратный ход",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-18",
+          "title": "Переменные в циклах",
+          "length": 86,
+          "status": "OK"
+        },
+        {
+          "id": "3-19",
+          "title": "Строки база",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-20",
+          "title": "Оператор in для строк",
+          "length": 89,
+          "status": "OK"
+        },
+        {
+          "id": "3-21",
+          "title": "len",
+          "length": 79,
+          "status": "OK"
+        },
+        {
+          "id": "3-22",
+          "title": "F-строка",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-23",
+          "title": "Методы строк",
+          "length": 106,
+          "status": "OK"
+        },
+        {
+          "id": "3-24",
+          "title": "Индексы",
+          "length": 85,
+          "status": "OK"
+        },
+        {
+          "id": "3-25",
+          "title": "Срезы",
+          "length": 66,
+          "status": "OK"
+        },
+        {
+          "id": "3-26",
+          "title": "Перебор строки",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-27",
+          "title": "Списки база",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-28",
+          "title": "Замена элемента списка",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-29",
+          "title": "pop",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-30",
+          "title": "remove",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "3-31",
+          "title": "append",
+          "length": 67,
+          "status": "OK"
+        },
+        {
+          "id": "3-32",
+          "title": "index",
+          "length": 59,
+          "status": "OK"
+        },
+        {
+          "id": "3-33",
+          "title": "Сумма элементов списка",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-34",
+          "title": "count",
+          "length": 78,
+          "status": "OK"
+        },
+        {
+          "id": "3-35",
+          "title": "Фильтрация списка",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-36",
+          "title": "insert",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-37",
+          "title": "extend",
+          "length": 75,
+          "status": "OK"
+        },
+        {
+          "id": "3-38",
+          "title": "Срезы списков",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "3-39",
+          "title": "random.choice",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-40",
+          "title": "random.shuffle",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "4-1",
+          "title": "Флаги",
+          "length": 90,
+          "status": "OK"
+        },
+        {
+          "id": "4-2",
+          "title": "break",
+          "length": 88,
+          "status": "OK"
+        },
+        {
+          "id": "4-3",
+          "title": "Поиск максимума",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "4-4",
+          "title": "Поиск минимума",
+          "length": 94,
+          "status": "OK"
+        },
+        {
+          "id": "4-5",
+          "title": "Максимальная длина",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "4-6",
+          "title": "Первый с конца",
+          "length": 88,
+          "status": "OK"
+        },
+        {
+          "id": "4-7",
+          "title": "None",
+          "length": 84,
+          "status": "OK"
+        },
+        {
+          "id": "4-8",
+          "title": "Алгоритмическое мышление",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "4-9",
+          "title": "join",
+          "length": 73,
+          "status": "OK"
+        },
+        {
+          "id": "4-10",
+          "title": "Перенос строки \\n",
+          "length": 82,
+          "status": "OK"
+        },
+        {
+          "id": "4-11",
+          "title": "Распаковка",
+          "length": 102,
+          "status": "OK"
+        },
+        {
+          "id": "4-12",
+          "title": "split",
+          "length": 77,
+          "status": "OK"
+        },
+        {
+          "id": "4-13",
+          "title": "split по разделителю",
+          "length": 77,
+          "status": "OK"
+        },
+        {
+          "id": "4-14",
+          "title": "map",
+          "length": 73,
+          "status": "OK"
+        },
+        {
+          "id": "4-15",
+          "title": "sort",
+          "length": 75,
+          "status": "OK"
+        },
+        {
+          "id": "4-16",
+          "title": "sorted",
+          "length": 75,
+          "status": "OK"
+        },
+        {
+          "id": "4-17",
+          "title": "key",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-18",
+          "title": "Вложенные списки",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "4-19",
+          "title": "Изменение вложенных списков",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "4-20",
+          "title": "Перебор вложенного списка",
+          "length": 72,
+          "status": "OK"
+        },
+        {
+          "id": "4-21",
+          "title": "Ссылки",
+          "length": 96,
+          "status": "OK"
+        },
+        {
+          "id": "4-22",
+          "title": "Изменяемые и неизменяемые типы",
+          "length": 89,
+          "status": "OK"
+        },
+        {
+          "id": "4-23",
+          "title": "is",
+          "length": 70,
+          "status": "OK"
+        },
+        {
+          "id": "4-24",
+          "title": "copy",
+          "length": 98,
+          "status": "OK"
+        },
+        {
+          "id": "4-25",
+          "title": "deepcopy",
+          "length": 91,
+          "status": "OK"
+        },
+        {
+          "id": "4-26",
+          "title": "while",
+          "length": 87,
+          "status": "OK"
+        },
+        {
+          "id": "4-27",
+          "title": "while True",
+          "length": 87,
+          "status": "OK"
+        },
+        {
+          "id": "4-28",
+          "title": "До правильного ввода",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "4-29",
+          "title": "Чат-бот",
+          "length": 80,
+          "status": "OK"
+        },
+        {
+          "id": "4-30",
+          "title": "Таск-менеджер",
+          "length": 81,
+          "status": "OK"
+        },
+        {
+          "id": "4-31",
+          "title": "random + while игра",
+          "length": 93,
+          "status": "OK"
+        },
+        {
+          "id": "3-41",
+          "title": "Лестница отступов Багуса",
+          "length": 121,
+          "status": "OK"
+        }
+      ]
+    }
+  },
+  "tone_progression": {
+    "avg_field_lengths_by_part": {
+      "1": {
+        "game_relevance": 154.8,
+        "story_placement": 81.8,
+        "mini_summary": 59.0,
+        "connection_to_game": 84.2
+      },
+      "2": {
+        "game_relevance": 147.0,
+        "story_placement": 76.2,
+        "mini_summary": 65.8,
+        "connection_to_game": 85.3
+      },
+      "3": {
+        "game_relevance": 120.1,
+        "story_placement": 79.3,
+        "mini_summary": 57.9,
+        "connection_to_game": 84.6
+      },
+      "4": {
+        "game_relevance": 120.3,
+        "story_placement": 82.3,
+        "mini_summary": 56.5,
+        "connection_to_game": 84.6
+      }
+    },
+    "note": "Length should increase from Part 1→4 (more complex topics need more explanation)"
+  },
+  "game_connection_quality": {
+    "lessons_with_weak_game_connection": 0,
+    "weak_entries": []
+  },
+  "dialogue_quality": {
+    "total_issues": 0,
+    "issues": []
+  },
+  "story_placement_quality": {
+    "generic_story_placements": 0,
+    "items": []
+  },
+  "targeted_fixes": [],
+  "verdict": "ACCEPTED"
+}

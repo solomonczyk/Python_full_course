@@ -1,0 +1,52 @@
+{
+  "total_reviews": 40,
+  "total_lessons": 87,
+  "checks": {
+    "max_gap_without_review": {
+      "value": 3,
+      "required": "<= 3",
+      "passed": true
+    },
+    "all_review_types_present": {
+      "value": [
+        "quick_recall",
+        "chapter_review",
+        "boss_review",
+        "part_review"
+      ],
+      "required": [
+        "quick_recall",
+        "chapter_review",
+        "boss_review",
+        "part_review"
+      ],
+      "passed": true
+    },
+    "mixed_reviews": {
+      "value": "37/40 have ≥2 topics",
+      "required": "≥80%",
+      "passed": true
+    },
+    "content_completeness": {
+      "with_questions": "40/40",
+      "with_what_outputs": "40/40",
+      "with_find_bug": "40/40",
+      "with_task": "40/40",
+      "with_dialogue": "40/40"
+    }
+  },
+  "type_counts": {
+    "quick_recall": 19,
+    "chapter_review": 14,
+    "boss_review": 3,
+    "part_review": 4
+  },
+  "proof": {
+    "max_gap_without_review": 3,
+    "mixed_reviews_present": true,
+    "chapter_reviews_present": true,
+    "boss_reviews_present": true,
+    "part_reviews_present": true
+  },
+  "verdict": "PASSED"
+}

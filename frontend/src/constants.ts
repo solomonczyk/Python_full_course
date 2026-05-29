@@ -6,6 +6,6 @@ export const CHARACTER_AVATARS: Record<Character, string> = {
   ksyu: '/avatars/ksyu.webp',
   va: '/avatars/Va.webp',
   da: '/avatars/da.webp',
-  bagus: '/avatars/ba.webp',
+  bagus: '/avatars/bagus.webp',
   novice: '/avatars/novichok.webp',
 }

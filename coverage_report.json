@@ -1,0 +1,131 @@
+{
+  "total_lessons": 87,
+  "checks": {},
+  "field_details": {
+    "id": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "part": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "chapter": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "lesson": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "slug": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "title": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "subtitle": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "topic": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "locked": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "explanation": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "quiz": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "what_outputs": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "find_bug": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "mission": {
+      "coverage": "87/87",
+      "passed": true,
+      "missing": null
+    },
+    "story_placement": {
+      "coverage": "87/87",
+      "type": "str",
+      "passed": true,
+      "missing": null,
+      "sample": "Новичок мир Python встречает Маленького героя. Первая команда — первое знакомств"
+    },
+    "pre_topic_dialogue": {
+      "coverage": "87/87",
+      "type": "list",
+      "passed": true,
+      "missing": null,
+      "sample": "[{'character': 'ksyu', 'text': 'Новичок, добро пожаловать в Python Quest! В конц"
+    },
+    "post_error_dialogue": {
+      "coverage": "87/87",
+      "type": "list",
+      "passed": true,
+      "missing": null,
+      "sample": "[{'character': 'novice', 'text': 'А, понял! Я тут не то написал. Надо было по-др"
+    },
+    "mini_summary": {
+      "coverage": "87/87",
+      "type": "str",
+      "passed": true,
+      "missing": null,
+      "sample": "print() выводит текст на экран. Это голос твоей программы."
+    },
+    "connection_to_game": {
+      "coverage": "87/87",
+      "type": "str",
+      "passed": true,
+      "missing": null,
+      "sample": "В финальной игре print() будет выводить всё: от приветствия до описания комнат и"
+    },
+    "game_relevance": {
+      "coverage": "87/87",
+      "type": "str",
+      "passed": true,
+      "missing": null,
+      "sample": "Для финальной игры: `print()` — это голос твоей игры. С его помощью игра будет в"
+    },
+    "syntax_reminder": {
+      "coverage": "36/87",
+      "type": "dict",
+      "passed": true,
+      "missing": null
+    }
+  },
+  "ts_build": {
+    "passed": true,
+    "output": null
+  },
+  "required_reminders_present": true,
+  "missing_reminders": null,
+  "verdict": "ready_for_review"
+}
