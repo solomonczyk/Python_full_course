@@ -26,6 +26,10 @@ export default function LessonPage({ lessons }: Props) {
   const { lesson, loading, error } = useLesson(id ?? '')
   const { progress, markComplete } = useProgressContext()
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [id])
+
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -49,10 +53,6 @@ export default function LessonPage({ lessons }: Props) {
   }
 
   const isDone = progress[lesson.id]?.completed
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [id])
 
   return (
     <div className="w-full max-w-[800px] flex flex-col gap-12">
