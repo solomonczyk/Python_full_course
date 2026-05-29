@@ -40,6 +40,10 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
   return (
     <section className="bg-white rounded-3xl shadow-xl border-t-8 border-action-da overflow-hidden">
       <div className="p-8">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="material-symbols-outlined text-sm text-action-da" style={{ fontVariationSettings: "'FILL' 0" }}>code</span>
+          <span className="font-sans text-[13px] font-bold text-action-da tracking-wider">ПРАКТИЧЕСКАЯ ЗАДАЧА</span>
+        </div>
         <div className="flex items-center gap-4 mb-6">
           <div className="w-12 h-12 bg-action-da rounded-2xl flex items-center justify-center text-white shadow-lg shrink-0">
             <span className="material-symbols-outlined text-3xl" style={{ fontVariationSettings: "'FILL' 1" }}>task_alt</span>

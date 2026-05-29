@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Lesson, LessonSummary, Progress } from '../types'
+import type { Lesson, LessonSummary, Progress, ReviewBlock, ReviewSummary } from '../types'
 
 const BASE = '/api'
 
@@ -109,4 +109,52 @@ export async function checkWhatOutputs(lesson_id: string, answer_id: string) {
   })
   if (!res.ok) throw new Error('Failed to check what-outputs')
   return res.json()
+}
+
+// ── Review hooks ──────────────────────────────────────────────────────────
+
+export function useReviews() {
+  const [reviews, setReviews] = useState<ReviewSummary[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`${BASE}/reviews`)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load reviews')
+        return r.json()
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          console.warn('Reviews data is not an array:', data)
+          setReviews([])
+          return
+        }
+        setReviews(data)
+      })
+      .catch((e) => console.error('Error loading reviews:', e))
+      .finally(() => setLoading(false))
+  }, [])
+
+  return { reviews, loading }
+}
+
+export function useReview(id: string) {
+  const [review, setReview] = useState<ReviewBlock | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+    fetch(`${BASE}/reviews/${id}`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Review ${id} not found`)
+        return r.json()
+      })
+      .then(setReview)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  return { review, loading, error }
 }

@@ -1,0 +1,53 @@
+{
+  "task": "PYTHON-QUEST-LESSON-FLOW-UI-VERIFY-001",
+  "timestamp": "2026-05-29",
+  "verdict": "PASSED",
+  "required_flow": true,
+  "lesson_flow_blocks": [
+    { "order": 1,  "block": "Lesson header",              "component": "inline JSX",               "conditional": false, "present": true },
+    { "order": 2,  "block": "Scene illustration",         "component": "inline JSX",               "conditional": true,  "present": true },
+    { "order": 3,  "block": "Story placement",            "component": "StoryPlacementBlock",      "conditional": true,  "present": true },
+    { "order": 4,  "block": "Pre-topic dialogue",         "component": "DialogueScene",            "conditional": true,  "present": true },
+    { "order": 5,  "block": "Explanation dialogue",       "component": "DialogueBubble",           "conditional": false, "present": true },
+    { "order": 6,  "block": "Code example",               "component": "CodeBlock",                "conditional": false, "present": true },
+    { "order": 7,  "block": "Syntax reminder",            "component": "SyntaxReminderBlock",      "conditional": true,  "present": true },
+    { "order": 8,  "block": "Game relevance",             "component": "GameRelevanceBlock",       "conditional": true,  "present": true },
+    { "order": 9,  "block": "Predict output (what_outputs)", "component": "PredictOutputBlock",    "conditional": true,  "present": true },
+    { "order": 10, "block": "Quiz",                       "component": "QuizSection (quiz-only)",  "conditional": false, "present": true },
+    { "order": 11, "block": "Find bug",                   "component": "FindBugBlock",             "conditional": true,  "present": true },
+    { "order": 12, "block": "Post-error dialogue",        "component": "DialogueScene",            "conditional": true,  "present": true },
+    { "order": 13, "block": "Mini summary",               "component": "MiniSummaryBlock",         "conditional": true,  "present": true },
+    { "order": 14, "block": "Practice task / Mission",    "component": "MissionCard",              "conditional": false, "present": true },
+    { "order": 15, "block": "Connection to the final game","component": "ConnectionToGameBlock",   "conditional": true,  "present": true },
+    { "order": 16, "block": "Navigation",                 "component": "inline JSX",               "conditional": false, "present": true }
+  ],
+  "structural_integrity": {
+    "story_placement_block_maps_to_story_placement_field": true,
+    "dialogue_scene_used_for_pre_topic_and_post_error": true,
+    "syntax_reminder_block_inserted_after_code_example": true,
+    "predict_output_block_is_separate_from_quiz": true,
+    "find_bug_block_is_separate_from_quiz": true,
+    "quiz_section_contains_only_quiz": true,
+    "mission_card_has_practice_task_header": true,
+    "scenario_fields_not_in_quiz_section": true,
+    "all_lesson_fields_displayed": true
+  },
+  "verification_results": {
+    "typescript_build": "passed (0 errors)",
+    "coverage_100%": true,
+    "required_reminders_all_present": true,
+    "quality_audit_0_issues": true,
+    "production_build": "passed (52 modules, 1.95s)"
+  },
+  "component_file_mapping": {
+    "StoryPlacementBlock":     "src/components/StoryPlacementBlock.tsx",
+    "DialogueScene":           "src/components/DialogueScene.tsx",
+    "GameRelevanceBlock":      "src/components/GameRelevanceBlock.tsx",
+    "MiniSummaryBlock":        "src/components/MiniSummaryBlock.tsx",
+    "ConnectionToGameBlock":   "src/components/ConnectionToGameBlock.tsx",
+    "PredictOutputBlock":      "src/components/PredictOutputBlock.tsx",
+    "FindBugBlock":            "src/components/FindBugBlock.tsx",
+    "SyntaxReminderBlock":     "src/components/SyntaxReminderBlock.tsx",
+    "LessonPage":              "src/pages/LessonPage.tsx"
+  }
+}

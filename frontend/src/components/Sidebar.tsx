@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import type { LessonSummary, Progress } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
 
@@ -10,7 +10,10 @@ interface Props {
 }
 
 export default function Sidebar({ lessons, progress, open, onClose }: Props) {
-  const { id } = useParams()
+  const location = useLocation()
+  // Extract lesson/review ID from URL like /lesson/1-1 or /review/r-1
+  const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
+  const activeId = match ? match[1] : undefined
 
   const parts = Array.from(new Set(lessons.map((l) => l.part))).sort()
 
@@ -51,7 +54,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                 </p>
                 <div className="space-y-1">
                   {partLessons.map((lesson) => {
-                    const isActive = lesson.id === id
+                    const isActive = lesson.id === activeId
                     const isDone = progress[lesson.id]?.completed
                     return (
                       <Link

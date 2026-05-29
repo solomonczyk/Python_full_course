@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
-from app.routers import lessons, progress, quiz
+from app.routers import lessons, progress, quiz, reviews
 
 app = FastAPI(
     title="Python Quest API",
@@ -30,6 +30,7 @@ app.add_middleware(
 app.include_router(lessons.router)
 app.include_router(progress.router)
 app.include_router(quiz.router)
+app.include_router(reviews.router)
 
 
 @app.on_event("startup")

@@ -1,0 +1,3327 @@
+{
+  "total_reviews": 40,
+  "max_gap_without_review": 3,
+  "type_counts": {
+    "quick_recall": 19,
+    "chapter_review": 14,
+    "boss_review": 3,
+    "part_review": 4
+  },
+  "reviews": [
+    {
+      "id": "r-1",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "1-3",
+      "part": 1,
+      "chapter": 1,
+      "topics": [
+        "print()",
+        "Строки и кавычки",
+        "Переменные"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Как создать переменную в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "name = 'Python'",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "var name = 'Python'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "let name = 'Python'",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает функция print()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Выводит текст или значение на экран",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Удаляет файл",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Запрашивает ввод от пользователя",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(\"Python\")\nprint(\"Quest\")",
+        "options": [
+          "Python",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "Python"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "coins = 10\nprint(\"coins\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Объявление переменных",
+        "description": "Создай переменную и выведи её значение.",
+        "expected_output": "42"
+      }
+    },
+    {
+      "id": "r-2",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "1-5",
+      "part": 1,
+      "chapter": 1,
+      "topics": [
+        "input()",
+        "int(input())"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Какой тип данных возвращает input()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "str (строка)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "int (число)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "bool (True/False)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Какой тип данных возвращает input()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "str (строка)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "int (число)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "bool (True/False)",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "name = input()\nprint(\"Привет\")\nprint(name)",
+        "options": [],
+        "correct": "print(name)"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "name = input\nprint(name)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Ввод данных",
+        "description": "Напиши программу, которая запрашивает имя и выводит приветствие.",
+        "expected_output": "Привет, Алекс"
+      }
+    },
+    {
+      "id": "r-3",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "1-8",
+      "part": 1,
+      "chapter": 2,
+      "topics": [
+        "Арифметика",
+        "Сравнения",
+        "if"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Когда выполняется код внутри if?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда условие истинно (True)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда условие ложно (False)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Всегда",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает оператор + в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Складывает числа",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Умножает числа",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Делит числа",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "x = 10\nif x > 5:\n    print(\"Да\")",
+        "options": [
+          "Да",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "Да"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "x = int(input())\nif x > 0:\nprint(\"Плюс\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Условный оператор",
+        "description": "Напиши проверку числа на положительность.",
+        "expected_output": "Число положительное"
+      }
+    },
+    {
+      "id": "r-4",
+      "type": "boss_review",
+      "title": "Проверка перед мини-игрой",
+      "subtitle": "Готов ли ты к испытанию?",
+      "position_after": "1-9",
+      "part": 1,
+      "chapter": 2,
+      "topics": [
+        "Сравнения",
+        "if",
+        "if else"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Скоро мини-игра! Но сначала проверим, готов ли ты. Это будет небольшая разминка перед финалом части."
+        },
+        {
+          "character": "va",
+          "text": "Вопросы будут по всей части. Не переживай, если что-то забыл — это часть процесса."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает оператор + в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Складывает числа",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Умножает числа",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Делит числа",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Когда выполняется код внутри if?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда условие истинно (True)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда условие ложно (False)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Всегда",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "name = input()\nprint(\"Привет\")\nprint(name)",
+        "options": [],
+        "correct": "print(name)"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = int(input())\nb = int(input())\nprint(a = b)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Условный оператор",
+        "description": "Напиши проверку числа на положительность.",
+        "expected_output": "Число положительное"
+      }
+    },
+    {
+      "id": "r-5",
+      "type": "part_review",
+      "title": "Финальное повторение части",
+      "subtitle": "Поздравляем с завершением части!",
+      "position_after": "1-9",
+      "part": 1,
+      "chapter": 2,
+      "topics": [
+        "Сравнения",
+        "if",
+        "if else"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Часть завершена! Ты прошёл большой путь. Давай закрепим всё, что ты узнал."
+        },
+        {
+          "character": "ksyu",
+          "text": "Финальное повторение части — это не экзамен, а способ увидеть, как далеко ты продвинулся."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает операция сравнения?",
+          "options": [
+            {
+              "id": "a",
+              "text": "True или False",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Строку",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Когда выполняется код внутри if?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда условие истинно (True)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда условие ложно (False)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Всегда",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(\"Python\")\nprint(\"Quest\")",
+        "options": [
+          "Python",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "Python"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "print(Привет)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Условный оператор",
+        "description": "Напиши проверку числа на положительность.",
+        "expected_output": "Число положительное"
+      }
+    },
+    {
+      "id": "r-6",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "2-2",
+      "part": 2,
+      "chapter": 3,
+      "topics": [
+        "elif",
+        "Логические цепочки"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Сколько условий можно проверить с помощью elif?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Сколько угодно",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Только одно",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Максимум два",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что такое логическая цепочка?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Несколько условий, проверяемых по порядку",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Одно условие",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Математическая формула",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "x = 80\nif x >= 90:\n    print(\"A\")\nelif x >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
+        "options": [
+          "B",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "B"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "mark = int(input())\nif mark == 5:\n    print(\"Отлично\")\nif mark == 4:\n    print(\"Хорошо\")\nelse:\n    print(\"Повторить\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-7",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "2-4",
+      "part": 2,
+      "chapter": 4,
+      "topics": [
+        "random.randint",
+        "Простая игра с random"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "import random\nprint(\"Кубик брошен\")",
+        "options": [
+          "Кубик брошен",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "Кубик брошен"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "x = random.randint(1, 6)\nprint(x)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-8",
+      "type": "boss_review",
+      "title": "Проверка перед мини-игрой",
+      "subtitle": "Готов ли ты к испытанию?",
+      "position_after": "2-6",
+      "part": 2,
+      "chapter": 5,
+      "topics": [
+        "Простая игра с random",
+        "Первое знакомство с for",
+        "range"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Скоро мини-игра! Но сначала проверим, готов ли ты. Это будет небольшая разминка перед финалом части."
+        },
+        {
+          "character": "va",
+          "text": "Вопросы будут по всей части. Не переживай, если что-то забыл — это часть процесса."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Сколько условий можно проверить с помощью elif?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Сколько угодно",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Только одно",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Максимум два",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for i in range(2, 5):\n    print(i)",
+        "options": [
+          "2",
+          "3",
+          "1"
+        ],
+        "correct": "2"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "for i in range(1, 4):\n    print(i)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-9",
+      "type": "part_review",
+      "title": "Финальное повторение части",
+      "subtitle": "Поздравляем с завершением части!",
+      "position_after": "2-6",
+      "part": 2,
+      "chapter": 5,
+      "topics": [
+        "Простая игра с random",
+        "Первое знакомство с for",
+        "range"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Часть завершена! Ты прошёл большой путь. Давай закрепим всё, что ты узнал."
+        },
+        {
+          "character": "ksyu",
+          "text": "Финальное повторение части — это не экзамен, а способ увидеть, как далеко ты продвинулся."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Сколько раз выполнится цикл for i in range(5)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "5 раз",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "4 раза",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "6 раз",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for i in range(2, 5):\n    print(i)",
+        "options": [
+          "2",
+          "3",
+          "1"
+        ],
+        "correct": "2"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "import random\nsecret = random.randint(1, 10)\nif guess == secret:\n    print(\"Победа\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-10",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-3",
+      "part": 3,
+      "chapter": 6,
+      "topics": [
+        "Float и типы данных",
+        "Обычное деление /",
+        "Целочисленное деление //"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Какой тип у числа 3.14 в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "float (вещественное число)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "int (целое число)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "str (строка)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что вернёт выражение 7 / 2?",
+          "options": [
+            {
+              "id": "a",
+              "text": "3.5 (вещественное число)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "3 (целое число)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Ошибку",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "x = 2.5\nprint(x * 2)",
+        "options": [
+          "5.0",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "5.0"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = int(input())\nb = int(input())\nprint(a // b)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-11",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-5",
+      "part": 3,
+      "chapter": 6,
+      "topics": [
+        "Остаток от деления %",
+        "Определение на чётность"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что вернёт выражение 7 / 2?",
+          "options": [
+            {
+              "id": "a",
+              "text": "3.5 (вещественное число)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "3 (целое число)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Ошибку",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что вернёт выражение 7 % 2?",
+          "options": [
+            {
+              "id": "a",
+              "text": "1 (остаток от деления)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "3",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "0",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(17 % 5)",
+        "options": [
+          "2",
+          "3",
+          "1"
+        ],
+        "correct": "2"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "n = int(input())\nif n / 2 == 0:\n    print(\"yes\")\nelse:\n    print(\"no\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-12",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-8",
+      "part": 3,
+      "chapter": 7,
+      "topics": [
+        "Bool",
+        "Состояния объектов",
+        "Короткая запись условий"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «Короткая запись условий»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Короткая",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Сколько значений у типа bool?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Два: True и False",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Одно: True",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Три: True, False и None",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "is_ready = False\nif is_ready:\n    print(\"go\")\nelse:\n    print(\"wait\")",
+        "options": [
+          "wait",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "wait"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "flag = true\nprint(flag)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-13",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-11",
+      "part": 3,
+      "chapter": 7,
+      "topics": [
+        "and",
+        "or",
+        "not"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает оператор not?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Инвертирует значение (True → False)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Удваивает значение",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Проверяет наличие значения",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Когда условие с or истинно?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда хотя бы одна часть истинна",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда обе части истинны",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Когда обе части ложны",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(not True)\nprint(not False)",
+        "options": [
+          "False",
+          "True",
+          "None"
+        ],
+        "correct": "False"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "word = input()\nif not \"a\" in word:\nprint(\"no a\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-14",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-13",
+      "part": 3,
+      "chapter": 7,
+      "topics": [
+        "Оптимизация if",
+        "Вложенные if"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Когда выполняется код внутри if?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда условие истинно (True)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда условие ложно (False)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Всегда",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Когда выполняется код внутри if?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Когда условие истинно (True)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Когда условие ложно (False)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Всегда",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "name = \"\"\nphone = \"123\"\nif name and phone:\n    print(\"ok\")\nelse:\n    print(\"bad\")",
+        "options": [
+          "bad",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "bad"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "name = input()\nservice = input()\nif name or service:\n    print(\"accepted\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-15",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-16",
+      "part": 3,
+      "chapter": 8,
+      "topics": [
+        "For и range база",
+        "Диапазон range(start, stop)",
+        "Шаг range"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что создаёт функция range(3)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Последовательность 0, 1, 2",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Последовательность 1, 2, 3",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Число 3",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Сколько раз выполнится цикл for i in range(5)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "5 раз",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "4 раза",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "6 раз",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for i in range(3, 6):\n    print(i)",
+        "options": [
+          "3",
+          "4",
+          "2"
+        ],
+        "correct": "3"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "for i range(4):\n    print(\"go\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-16",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-18",
+      "part": 3,
+      "chapter": 8,
+      "topics": [
+        "Обратный ход",
+        "Переменные в циклах"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Как перебрать числа от 5 до 1?",
+          "options": [
+            {
+              "id": "a",
+              "text": "range(5, 0, -1)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "range(1, 5)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "range(5, 1)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Как создать переменную в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "name = 'Python'",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "var name = 'Python'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "let name = 'Python'",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "s = 0\nfor i in range(1, 4):\n    s += i\nprint(s)",
+        "options": [
+          "6",
+          "7",
+          "5"
+        ],
+        "correct": "6"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "total = 0\nfor i in range(1, 4):\n    total = i\nprint(total)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Объявление переменных",
+        "description": "Создай переменную и выведи её значение.",
+        "expected_output": "42"
+      }
+    },
+    {
+      "id": "r-17",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-21",
+      "part": 3,
+      "chapter": 9,
+      "topics": [
+        "Строки база",
+        "Оператор in для строк",
+        "len"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что такое строка в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Текст в кавычках",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Специальный символ",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает функция len()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Количество элементов в объекте",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Длину самого длинного элемента",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Сумму всех элементов",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "word = \"cat\"\nprint(word)",
+        "options": [
+          "cat",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "cat"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "text = input()\nif @ in text:\n    print(\"email\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-18",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-24",
+      "part": 3,
+      "chapter": 9,
+      "topics": [
+        "F-строка",
+        "Методы строк",
+        "Индексы"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что такое строка в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Текст в кавычках",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Специальный символ",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что такое строка в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Текст в кавычках",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Специальный символ",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "word = \"cat\"\nprint(word[2])",
+        "options": [
+          "t",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "t"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "answer = input()\nanswer.lower()\nprint(answer)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-19",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-25",
+      "part": 3,
+      "chapter": 9,
+      "topics": [
+        "Срезы"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что вернёт 'Python'[0:3]?",
+          "options": [
+            {
+              "id": "a",
+              "text": "'Pyt'",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "'Pyth'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "'ython'",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "word = \"python\"\nprint(word[1:4])",
+        "options": [
+          "yth",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "yth"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "word = input()\nprint(word[0:3])  # если слово короткое, что будет?",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-20",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-28",
+      "part": 3,
+      "chapter": 10,
+      "topics": [
+        "Перебор строки",
+        "Списки база",
+        "Замена элемента списка"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что такое строка в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Текст в кавычках",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Специальный символ",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Какой индекс у первого элемента списка?",
+          "options": [
+            {
+              "id": "a",
+              "text": "0",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "1",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "-1",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "items = [1, 2, 3]\nprint(items[0])",
+        "options": [
+          "1",
+          "2",
+          "3"
+        ],
+        "correct": "1"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "items = [\"меч\", \"щит\"\nprint(items)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-21",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-31",
+      "part": 3,
+      "chapter": 10,
+      "topics": [
+        "pop",
+        "remove",
+        "append"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает метод append()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Добавляет элемент в конец списка",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Добавляет элемент в начало списка",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Удаляет последний элемент",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает метод pop()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Удаляет и возвращает элемент по индексу",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Удаляет элемент по значению",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Добавляет элемент в конец",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = []\na.append(5)\na.append(7)\nprint(a)",
+        "options": [
+          "[5, 7]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[5, 7]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [\"a\", \"b\"]\na.remove(\"c\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-22",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-34",
+      "part": 3,
+      "chapter": 10,
+      "topics": [
+        "index",
+        "Сумма элементов списка",
+        "count"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает метод list.index(x)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Индекс первого вхождения элемента x",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Значение элемента по индексу x",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Количество вхождений элемента x",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает метод count()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Количество вхождений элемента",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Индекс элемента",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Сумму элементов",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = [\"x\", \"y\"]\nprint(a.index(\"y\"))",
+        "options": [
+          "1",
+          "2",
+          "3"
+        ],
+        "correct": "1"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "numbers = [1, 2, 3]\nfor n in numbers:\n    total += n\nprint(total)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-23",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-35",
+      "part": 3,
+      "chapter": 10,
+      "topics": [
+        "Фильтрация списка"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Как оставить в списке только чётные числа?",
+          "options": [
+            {
+              "id": "a",
+              "text": "[x for x in nums if x % 2 == 0]",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "nums.filter(even)",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "filter(nums, even)",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for n in [1, 2, 3]:\n    if n > 1:\n        print(n)",
+        "options": [
+          "2",
+          "3",
+          "1"
+        ],
+        "correct": "2"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "numbers = [1, 2]\nif n > 0:\n    print(n)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-24",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "3-38",
+      "part": 3,
+      "chapter": 11,
+      "topics": [
+        "insert",
+        "extend",
+        "Срезы списков"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает spisok.insert(0, x)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Вставляет x на позицию 0",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Удаляет элемент на позиции 0",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Заменяет элемент на позиции 0",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает метод extend()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Добавляет все элементы другого списка в конец",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Добавляет один элемент в конец",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Удаляет все элементы",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = [1, 3]\na.insert(1, 2)\nprint(a)",
+        "options": [
+          "[1, 2, 3]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[1, 2, 3]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [1, 2, 3]\nprint(a[3])",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-25",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "3-40",
+      "part": 3,
+      "chapter": 11,
+      "topics": [
+        "random.choice",
+        "random.shuffle"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает random.randint(a, b)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Случайное целое число от a до b",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Случайное вещественное число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Случайную строку",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "import random\na = [1]\nrandom.shuffle(a)\nprint(a)",
+        "options": [
+          "[1]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[1]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "items = [1,2,3]\nprint(random.choice(items))",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-26",
+      "type": "boss_review",
+      "title": "Проверка перед мини-игрой",
+      "subtitle": "Готов ли ты к испытанию?",
+      "position_after": "3-41",
+      "part": 3,
+      "chapter": 18,
+      "topics": [
+        "random.choice",
+        "random.shuffle",
+        "Лестница отступов Багуса"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Скоро мини-игра! Но сначала проверим, готов ли ты. Это будет небольшая разминка перед финалом части."
+        },
+        {
+          "character": "va",
+          "text": "Вопросы будут по всей части. Не переживай, если что-то забыл — это часть процесса."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Сколько раз выполнится цикл for i in range(5)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "5 раз",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "4 раза",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "6 раз",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Сколько значений у типа bool?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Два: True и False",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Одно: True",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Три: True, False и None",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "age = 17\nif age >= 18:\n    print(\"adult\")\nelse:\n    print(\"young\")",
+        "options": [
+          "young",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "young"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "numbers = [1, 2, 3]\nfor n in numbers:\n    total += n\nprint(total)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-27",
+      "type": "part_review",
+      "title": "Финальное повторение части",
+      "subtitle": "Поздравляем с завершением части!",
+      "position_after": "3-41",
+      "part": 3,
+      "chapter": 18,
+      "topics": [
+        "random.choice",
+        "random.shuffle",
+        "Лестница отступов Багуса"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Часть завершена! Ты прошёл большой путь. Давай закрепим всё, что ты узнал."
+        },
+        {
+          "character": "ksyu",
+          "text": "Финальное повторение части — это не экзамен, а способ увидеть, как далеко ты продвинулся."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает метод list.index(x)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Индекс первого вхождения элемента x",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Значение элемента по индексу x",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Количество вхождений элемента x",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Сколько раз выполнится цикл for i in range(5)?",
+          "options": [
+            {
+              "id": "a",
+              "text": "5 раз",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "4 раза",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "6 раз",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for n in [1, 2, 3]:\n    if n > 1:\n        print(n)",
+        "options": [
+          "2",
+          "3",
+          "1"
+        ],
+        "correct": "2"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "word = input()\nprint(word[0:3])  # если слово короткое, что будет?",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-28",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-3",
+      "part": 4,
+      "chapter": 12,
+      "topics": [
+        "Флаги",
+        "break",
+        "Поиск максимума"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Как найти максимальное число в списке?",
+          "options": [
+            {
+              "id": "a",
+              "text": "max(spisok)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "spisok.max()",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "maximum(spisok)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает оператор break?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Немедленно завершает цикл",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Пропускает текущую итерацию",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Завершает программу",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "for x in [1, 2, 3]:\n    print(x)\n    if x == 2:\n        break",
+        "options": [
+          "1",
+          "2",
+          "3"
+        ],
+        "correct": "1"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "for x in [1, 2]:\n    if x == 2:\n        found = True\nprint(found)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-29",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "4-5",
+      "part": 4,
+      "chapter": 12,
+      "topics": [
+        "Поиск минимума",
+        "Максимальная длина"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Как найти минимальное число в списке?",
+          "options": [
+            {
+              "id": "a",
+              "text": "min(spisok)",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "spisok.min()",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "minimum(spisok)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что изучается в уроке «Максимальная длина»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Максимальная",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "nums = [3, 1, 5]\nmn = nums[0]\nfor n in nums:\n    if n < mn:\n        mn = n\nprint(mn)",
+        "options": [
+          "1",
+          "2",
+          "3"
+        ],
+        "correct": "1"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "numbers = [-5, -2]\nmn = 0\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-30",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "4-7",
+      "part": 4,
+      "chapter": 13,
+      "topics": [
+        "Первый с конца",
+        "None"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «Первый с конца»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Первый",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что означает None в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Отсутствие значения",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Ноль",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пустую строку",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = [10, 20]\nfor i in range(len(a)-1, -1, -1):\n    print(a[i])",
+        "options": [
+          "20",
+          "21",
+          "19"
+        ],
+        "correct": "20"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "result = none\nprint(result)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-31",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-10",
+      "part": 4,
+      "chapter": 14,
+      "topics": [
+        "Алгоритмическое мышление",
+        "join",
+        "Перенос строки \\n"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что такое строка в Python?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Текст в кавычках",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Число",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Специальный символ",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что такое алгоритмическое мышление?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Умение разбивать задачу на шаги",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Знание всех функций Python",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Скорость написания кода",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(\"-\".join([\"a\",\"b\",\"c\"]))",
+        "options": [
+          "a-b-c",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "a-b-c"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "items = [1,2,3]\nprint(\" \".join(items))",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-32",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-13",
+      "part": 4,
+      "chapter": 14,
+      "topics": [
+        "Распаковка",
+        "split",
+        "split по разделителю"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает 'a b c'.split()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "['a', 'b', 'c']",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "'a', 'b', 'c'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "['a b c']",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что возвращает 'a b c'.split()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "['a', 'b', 'c']",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "'a', 'b', 'c'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "['a b c']",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "print(\"1,2\".split(\",\"))",
+        "options": [
+          "['1', '2']",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "['1', '2']"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "text = input()\nprint(split(text))",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-33",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "4-15",
+      "part": 4,
+      "chapter": 14,
+      "topics": [
+        "map",
+        "sort"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает функция map()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Применяет функцию к каждому элементу последовательности",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Создаёт карту маршрутов",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Преобразует тип данных",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что делает метод list.sort()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Сортирует список на месте",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Возвращает отсортированную копию",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Переворачивает список",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = [2,1]\na.sort()\nprint(a)",
+        "options": [
+          "[1, 2]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[1, 2]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [2,1]\nb = a.sort()\nprint(b)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-34",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-18",
+      "part": 4,
+      "chapter": 15,
+      "topics": [
+        "sorted",
+        "key",
+        "Вложенные списки"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что делает функция sorted()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Возвращает отсортированную копию последовательности",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Сортирует список на месте",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Проверяет, отсортирован ли список",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что изучается в уроке «key»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "key",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "names = [\"aaa\",\"b\"]\nprint(sorted(names, key=len))",
+        "options": [
+          "['b', 'aaa']",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "['b', 'aaa']"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [3,1]\nsorted(a)\nprint(a)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-35",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-21",
+      "part": 4,
+      "chapter": 15,
+      "topics": [
+        "Изменение вложенных списков",
+        "Перебор вложенного списка",
+        "Ссылки"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «Перебор вложенного списка»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Перебор",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Как изменить элемент списка?",
+          "options": [
+            {
+              "id": "a",
+              "text": "spisok[0] = новое_значение",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "spisok[0] == новое_значение",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "spisok[0] = новое_значение()",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "a = [1]\nb = a\nb.append(2)\nprint(a)",
+        "options": [
+          "[1, 2]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[1, 2]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [1]\nb = a\nb = b.append(2)\nprint(a)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-36",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "4-22",
+      "part": 4,
+      "chapter": 15,
+      "topics": [
+        "Изменяемые и неизменяемые типы"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «Изменяемые и неизменяемые типы»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Изменяемые",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "s = \"hi\"\ns = \"bye\"\nprint(s)",
+        "options": [
+          "bye",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "bye"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "s = \"hi\"\ns[0] = \"b\"",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-37",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-25",
+      "part": 4,
+      "chapter": 16,
+      "topics": [
+        "is",
+        "copy",
+        "deepcopy"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «deepcopy»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "deepcopy",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что изучается в уроке «copy»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "copy",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0][0] = 9\nprint(a)",
+        "options": [
+          "[[1]]",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "[[1]]"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "a = [[1]]\nb = copy.deepcopy(a)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-38",
+      "type": "chapter_review",
+      "title": "Повторение главы",
+      "subtitle": "Закрепление пройденного материала",
+      "position_after": "4-27",
+      "part": 4,
+      "chapter": 16,
+      "topics": [
+        "while",
+        "while True"
+      ],
+      "dialogue": [
+        {
+          "character": "va",
+          "text": "Глава пройдена. Перед тем как идти дальше, проверим, всё ли усвоено."
+        },
+        {
+          "character": "ksyu",
+          "text": "Повторение — ключ к уверенности. Даже если всё кажется простым, пара вопросов не помешает."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Когда выполняется цикл while?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Пока условие истинно",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Пока условие ложно",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Только один раз",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Когда выполняется цикл while?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Пока условие истинно",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Пока условие ложно",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Только один раз",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "i = 0\nwhile True:\n    print(i)\n    break",
+        "options": [
+          "0",
+          "1",
+          "2"
+        ],
+        "correct": "0"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "x = 1\nwhile x <= 3:\n    print(x)",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Цикл while",
+        "description": "Выведи числа от 1 до 5, используя while.",
+        "expected_output": "1 2 3 4 5"
+      }
+    },
+    {
+      "id": "r-39",
+      "type": "quick_recall",
+      "title": "Быстрое повторение",
+      "subtitle": "Проверь, что ты помнишь",
+      "position_after": "4-30",
+      "part": 4,
+      "chapter": 17,
+      "topics": [
+        "До правильного ввода",
+        "Чат-бот",
+        "Таск-менеджер"
+      ],
+      "dialogue": [
+        {
+          "character": "ksyu",
+          "text": "Давай быстро проверим, что ты запомнил из последних уроков. Это поможет закрепить материал."
+        },
+        {
+          "character": "va",
+          "text": "Не спеши, читай вопрос внимательно. Ошибки на повторении — это нормально."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что изучается в уроке «Таск-менеджер»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Таск-менеджер",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что изучается в уроке «До правильного ввода»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "До",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "tasks=[]\ntasks.append(\"learn\")\nprint(tasks)",
+        "options": [
+          "['learn']",
+          "Ошибка",
+          "None"
+        ],
+        "correct": "['learn']"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "while True:\nmsg = input()",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    },
+    {
+      "id": "r-40",
+      "type": "part_review",
+      "title": "Финальное повторение части",
+      "subtitle": "Поздравляем с завершением части!",
+      "position_after": "4-31",
+      "part": 4,
+      "chapter": 17,
+      "topics": [
+        "Чат-бот",
+        "Таск-менеджер",
+        "random + while игра"
+      ],
+      "dialogue": [
+        {
+          "character": "da",
+          "text": "Часть завершена! Ты прошёл большой путь. Давай закрепим всё, что ты узнал."
+        },
+        {
+          "character": "ksyu",
+          "text": "Финальное повторение части — это не экзамен, а способ увидеть, как далеко ты продвинулся."
+        }
+      ],
+      "questions": [
+        {
+          "question": "Что возвращает 'a b c'.split()?",
+          "options": [
+            {
+              "id": "a",
+              "text": "['a', 'b', 'c']",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "'a', 'b', 'c'",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "['a b c']",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "question": "Что изучается в уроке «Чат-бот»?",
+          "options": [
+            {
+              "id": "a",
+              "text": "Чат-бот",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "Другая тема",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Пока не знаю",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "what_outputs": {
+        "code": "found = False\nfor x in [1, 2]:\n    if x == 3:\n        found = True\nprint(found)",
+        "options": [
+          "False",
+          "True",
+          "None"
+        ],
+        "correct": "False"
+      },
+      "find_bug": {
+        "description": "В этом коде есть ошибка. Найди и исправь её.",
+        "code": "while True:\n    print(\"hi\")",
+        "hint": "Найди ошибку и объясни, почему код работает неправильно."
+      },
+      "task": {
+        "title": "Мини-задача",
+        "description": "Напиши программу по теме пройденного урока.",
+        "expected_output": "Готово!"
+      }
+    }
+  ]
+}

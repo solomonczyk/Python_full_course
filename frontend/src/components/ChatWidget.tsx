@@ -56,17 +56,27 @@ export default function ChatWidget() {
   return (
     <>
       {/* Floating button */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden border-2 border-white ring-2 ring-primary/30"
-        aria-label={open ? 'Закрыть чат' : 'Открыть чат'}
-      >
-        <img
-          src={CHARACTER_AVATARS.va}
-          alt="Python Expert"
-          className="w-full h-full object-cover"
-        />
-      </button>
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+        {!open && (
+          <div className="bg-white rounded-xl shadow-lg border border-outline-variant px-4 py-3 max-w-[250px] relative animate-fade-in">
+            <p className="font-sans text-[13px] leading-[18px] text-on-surface">
+              <span className="font-bold text-primary">Ва:</span> Нажимай, только если сам не можешь решить задание 😉
+            </p>
+            <div className="absolute -bottom-2 right-6 w-3 h-3 bg-white border-r border-b border-outline-variant rotate-45" />
+          </div>
+        )}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          className="w-14 h-14 rounded-full bg-primary shadow-xl hover:scale-105 active:scale-95 transition-all overflow-hidden border-2 border-white ring-2 ring-primary/30 relative"
+          aria-label={open ? 'Закрыть чат' : 'Открыть чат'}
+        >
+          <img
+            src={CHARACTER_AVATARS.va}
+            alt="Python Expert"
+            className="w-full h-full object-cover"
+          />
+        </button>
+      </div>
 
       {/* Chat panel */}
       {open && (

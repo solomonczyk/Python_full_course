@@ -6,6 +6,14 @@ import DialogueBubble from '../components/DialogueBubble'
 import CodeBlock from '../components/CodeBlock'
 import QuizSection from '../components/QuizSection'
 import MissionCard from '../components/MissionCard'
+import StoryPlacementBlock from '../components/StoryPlacementBlock'
+import DialogueScene from '../components/DialogueScene'
+import GameRelevanceBlock from '../components/GameRelevanceBlock'
+import MiniSummaryBlock from '../components/MiniSummaryBlock'
+import ConnectionToGameBlock from '../components/ConnectionToGameBlock'
+import PredictOutputBlock from '../components/PredictOutputBlock'
+import FindBugBlock from '../components/FindBugBlock'
+import SyntaxReminderBlock from '../components/SyntaxReminderBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -73,6 +81,16 @@ export default function LessonPage({ lessons }: Props) {
         </section>
       )}
 
+      {/* Story placement */}
+      {lesson.story_placement && (
+        <StoryPlacementBlock text={lesson.story_placement} />
+      )}
+
+      {/* Pre-topic dialogue */}
+      {lesson.pre_topic_dialogue && lesson.pre_topic_dialogue.length > 0 && (
+        <DialogueScene lines={lesson.pre_topic_dialogue} />
+      )}
+
       {/* Explanation dialogue */}
       <DialogueBubble
         character={lesson.explanation.character}
@@ -85,11 +103,41 @@ export default function LessonPage({ lessons }: Props) {
         output={lesson.explanation.output}
       />
 
-      {/* Quiz + What outputs + Find bug */}
+      {/* Syntax reminder */}
+      {lesson.syntax_reminder && (
+        <SyntaxReminderBlock reminder={lesson.syntax_reminder} />
+      )}
+
+      {/* Game relevance */}
+      {lesson.game_relevance && (
+        <GameRelevanceBlock text={lesson.game_relevance} />
+      )}
+
+      {/* Predict output */}
+      {lesson.what_outputs && (
+        <PredictOutputBlock whatOutputs={lesson.what_outputs} />
+      )}
+
+      {/* Quiz */}
       <QuizSection
         lesson={lesson}
         onScore={(score) => markComplete(lesson.id, score)}
       />
+
+      {/* Find bug */}
+      {lesson.find_bug && (
+        <FindBugBlock findBug={lesson.find_bug} />
+      )}
+
+      {/* Post-error dialogue */}
+      {lesson.post_error_dialogue && lesson.post_error_dialogue.length > 0 && (
+        <DialogueScene lines={lesson.post_error_dialogue} />
+      )}
+
+      {/* Mini summary */}
+      {lesson.mini_summary && (
+        <MiniSummaryBlock text={lesson.mini_summary} />
+      )}
 
       {/* Mission */}
       <MissionCard
@@ -97,6 +145,11 @@ export default function LessonPage({ lessons }: Props) {
         lessonId={lesson.id}
         onComplete={(score) => markComplete(lesson.id, score)}
       />
+
+      {/* Connection to the final game */}
+      {lesson.connection_to_game && (
+        <ConnectionToGameBlock text={lesson.connection_to_game} />
+      )}
 
       {/* Navigation */}
       {(() => {
