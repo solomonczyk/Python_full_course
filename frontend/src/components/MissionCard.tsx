@@ -106,9 +106,15 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
                 <textarea
                   value={code}
                   onChange={(e) => { setCode(e.target.value); setResult('idle'); setBagusVisible(false); setErrorMessage(null) }}
-                  className="bg-transparent border-none p-0 focus:ring-0 text-white w-full outline-none resize-none font-mono text-[14px] leading-5 min-h-[80px]"
+                  className="bg-transparent border-none p-0 focus:ring-0 text-white w-full outline-none resize-none font-mono text-[14px] leading-5"
+                  style={{ minHeight: '120px', maxHeight: '50vh' }}
                   spellCheck={false}
                   autoFocus
+                  onInput={(e) => {
+                    const el = e.currentTarget
+                    el.style.height = 'auto'
+                    el.style.height = Math.min(el.scrollHeight, window.innerHeight * 0.5) + 'px'
+                  }}
                 />
               </div>
             </div>

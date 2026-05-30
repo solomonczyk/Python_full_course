@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react'
 import type { Lesson } from '../types'
+import { CHARACTER_AVATARS } from '../constants'
 
 interface Props {
   findBug: Lesson['find_bug']
@@ -45,10 +46,14 @@ export default function FindBugBlock({ findBug }: Props) {
       {/* Header */}
       <div className="flex items-center gap-2.5 mb-3">
         <div
-          className="w-9 h-9 rounded-lg flex items-center justify-center text-sm shrink-0"
-          style={{ background: '#ff6b6b', color: '#0f0e17' }}
+          className="w-9 h-9 rounded-full overflow-hidden shrink-0"
+          style={{ border: '2px solid #ff6b6b' }}
         >
-          🐛
+          <img
+            src={CHARACTER_AVATARS.bagus}
+            alt="Bagus"
+            className="w-full h-full object-cover"
+          />
         </div>
         <div>
           <h3 className="text-xs font-bold" style={{ color: '#ff6b6b' }}>Glitch's Trap!</h3>
