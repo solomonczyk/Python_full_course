@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import type { Lesson } from '../types'
 
 interface Props {
@@ -8,6 +8,8 @@ interface Props {
 export default function FindBugBlock({ findBug }: Props) {
   const [code, setCode] = useState(findBug?.code ?? '')
   const [status, setStatus] = useState<'idle' | 'correct' | 'wrong' | 'hint'>('idle')
+  const [expanded, setExpanded] = useState(false)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   if (!findBug) return null
 
@@ -16,7 +18,6 @@ export default function FindBugBlock({ findBug }: Props) {
       setStatus('hint')
       return
     }
-    // Normalize: trim, collapse spaces, unify quotes (both ' and " are valid Python)
     const normalize = (s: string) =>
       s.trim().replace(/\s+/g, ' ').replace(/'/g, '"')
     const normalizedCode = normalize(code)
@@ -29,83 +30,168 @@ export default function FindBugBlock({ findBug }: Props) {
     setStatus('idle')
   }
 
+  const lineCount = code.split('\n').length
+  const collapsedHeight = Math.min(lineCount * 28 + 40, 180)
+  const expandedHeight = Math.max(collapsedHeight, 400)
+
   return (
-    <section className="bg-error-container/20 rounded-2xl p-6 border border-error-bagus/30 relative overflow-hidden">
-      <div className="flex items-center gap-3 mb-5">
-        <div className="w-10 h-10 bg-error/10 rounded-xl flex items-center justify-center text-error">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>bug_report</span>
+    <div
+      className="rounded-xl p-4 relative overflow-hidden"
+      style={{
+        background: 'rgba(255,107,107,0.05)',
+        border: '1px solid rgba(255,107,107,0.25)',
+      }}
+    >
+      {/* Header */}
+      <div className="flex items-center gap-2.5 mb-3">
+        <div
+          className="w-9 h-9 rounded-lg flex items-center justify-center text-sm shrink-0"
+          style={{ background: '#ff6b6b', color: '#0f0e17' }}
+        >
+          🐛
         </div>
-        <h3 className="font-display text-[20px] leading-7 font-bold text-on-surface">Найди ошибку</h3>
+        <div>
+          <h3 className="text-xs font-bold" style={{ color: '#ff6b6b' }}>Glitch's Trap!</h3>
+          <p className="text-[10px]" style={{ color: '#9b98a8' }}>A chaotic error has appeared...</p>
+        </div>
       </div>
 
-      <p className="text-[15px] leading-[22px] text-on-surface-variant mb-4">{findBug.description}</p>
+      <p className="text-xs leading-relaxed mb-3" style={{ color: '#9b98a8' }}>
+        {findBug.description}
+      </p>
 
-      {/* Editable code field */}
-      <div className="relative">
-        <textarea
-          value={code}
-          onChange={(e) => { setCode(e.target.value); setStatus('idle') }}
-          className={`w-full p-5 rounded-xl font-mono text-[14px] leading-6 border-2 bg-white resize-y min-h-[80px]
-            ${status === 'correct'
-              ? 'border-action-da bg-green-50'
-              : status === 'wrong'
-                ? 'border-error bg-red-50'
-                : 'border-outline-variant focus:border-secondary focus:bg-blue-50/30'
-            }
-            transition-colors outline-none`}
-          spellCheck={false}
-          placeholder="Исправь код здесь..."
-        />
-        <span className="absolute top-2 right-2 text-[11px] text-outline font-sans flex items-center gap-1 pointer-events-none">
-          <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 0" }}>edit</span>
-          редактируй
-        </span>
+      {/* Code terminal */}
+      <div
+        className="rounded-lg overflow-hidden"
+        style={{
+          background: '#0d0c14',
+          border: `1px solid ${status === 'correct' ? '#00d4aa' : status === 'wrong' ? '#ff6b6b' : 'rgba(255,107,107,0.2)'}`,
+        }}
+      >
+        {/* Terminal header */}
+        <div
+          className="flex items-center justify-between px-3 py-1.5"
+          style={{
+            background: 'rgba(255,107,107,0.08)',
+            borderBottom: '1px solid rgba(255,107,107,0.15)',
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <div className="flex gap-1">
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ff5f56' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#ffbd2e' }} />
+              <div className="w-2.5 h-2.5 rounded-full" style={{ background: '#27c93f' }} />
+            </div>
+            <span className="text-[10px]" style={{ color: '#9b98a8' }}>bug_report.py — /tmp</span>
+          </div>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className="flex items-center gap-1 text-[10px] cursor-pointer transition-all hover:opacity-80"
+            style={{ color: '#9b98a8', background: 'none', border: 'none' }}
+            title={expanded ? 'Свернуть' : 'Развернуть'}
+          >
+            <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 0" }}>
+              {expanded ? 'fullscreen_exit' : 'fullscreen'}
+            </span>
+            {expanded ? 'Свернуть' : 'На весь экран'}
+          </button>
+        </div>
+
+        {/* Code area */}
+        <div className="relative">
+          <textarea
+            ref={textareaRef}
+            value={code}
+            onChange={(e) => { setCode(e.target.value); setStatus('idle') }}
+            className="w-full p-3 font-mono text-xs leading-7 resize-none outline-none"
+            style={{
+              minHeight: expanded ? '400px' : `${collapsedHeight}px`,
+              background: '#0d0c14',
+              color: '#e8e6f0',
+              border: 'none',
+            }}
+            spellCheck={false}
+            placeholder="Fix the code here..."
+          />
+
+          {/* Scroll indicator (only visible when not expanded and content overflows) */}
+          {!expanded && lineCount > 6 && (
+            <div
+              className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none flex items-end justify-center pb-1"
+              style={{
+                background: 'linear-gradient(transparent, rgba(13,12,20,0.9))',
+              }}
+            >
+              <span className="text-[10px] animate-pulse" style={{ color: '#9b98a8' }}>
+                ⋮ ещё {lineCount - 5} строк · скроль или разверни
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-3 mt-4">
+      <div className="flex gap-2 mt-3">
         <button
           onClick={handleCheck}
           disabled={status === 'correct'}
-          className="flex-1 py-3 bg-error-bagus text-white font-sans text-[13px] font-bold rounded-xl
-                     hover:opacity-90 active:scale-[0.98] transition-all
-                     disabled:opacity-50 disabled:cursor-default"
+          className="flex-1 py-2.5 rounded-lg text-xs font-bold cursor-pointer transition-all hover:opacity-90 border-none disabled:opacity-50 disabled:cursor-default"
+          style={{
+            background: '#ff6b6b',
+            color: '#0f0e17',
+          }}
         >
-          {findBug.correct ? 'Проверить' : 'Показать подсказку'}
+          {findBug.correct ? '🔍 Проверить' : '💡 Подсказка'}
         </button>
         <button
           onClick={handleReset}
-          className="py-3 px-5 bg-white text-on-surface-variant font-sans text-[13px] font-bold rounded-xl
-                     border-2 border-outline-variant hover:border-secondary active:scale-[0.98] transition-all"
+          className="py-2.5 px-4 rounded-lg text-xs font-bold cursor-pointer transition-all hover:opacity-80"
+          style={{
+            background: 'transparent',
+            border: '1px solid rgba(255,107,107,0.3)',
+            color: '#ff6b6b',
+          }}
         >
-          Сбросить
+          ↻ Сбросить
         </button>
       </div>
 
       {/* Feedback */}
       {status === 'correct' && (
-        <div className="mt-4 p-4 bg-green-50 rounded-xl border border-action-da">
-          <p className="font-sans text-[14px] font-bold text-action-da">✅ Верно! Ошибка исправлена.</p>
+        <div className="mt-3 p-3 rounded-lg text-xs font-bold" style={{ background: 'rgba(0,212,170,0.15)', border: '1px solid #00d4aa', color: '#00d4aa' }}>
+          ✅ Верно! Ошибка исправлена.
         </div>
       )}
       {status === 'wrong' && (
-        <div className="mt-4 p-4 bg-red-50 rounded-xl border border-error">
-          <p className="font-sans text-[14px] font-bold text-error mb-2">❌ Ещё не так. Попробуй ещё раз.</p>
+        <div className="mt-3 p-3 rounded-lg" style={{ background: 'rgba(255,107,107,0.1)', border: '1px solid #ff6b6b' }}>
+          <p className="text-xs font-bold mb-1" style={{ color: '#ff6b6b' }}>❌ Ещё не так. Попробуй ещё раз.</p>
           {findBug.hint && (
-            <p className="text-sm text-on-surface"><span className="font-bold">💡 Подсказка:</span> {findBug.hint}</p>
+            <p className="text-[11px] leading-relaxed" style={{ color: '#e8e6f0' }}>
+              <span className="font-bold" style={{ color: '#ffd700' }}>💡 Подсказка:</span> {findBug.hint}
+            </p>
           )}
         </div>
       )}
       {status === 'hint' && findBug.hint && (
-        <div className="mt-4 p-4 bg-white/80 rounded-xl border border-error-bagus/30">
-          <p className="text-sm text-on-surface"><span className="font-bold">💡 Подсказка:</span> {findBug.hint}</p>
+        <div className="mt-3 p-3 rounded-lg" style={{ background: 'rgba(201,162,39,0.1)', border: '1px solid rgba(201,162,39,0.3)' }}>
+          <p className="text-[11px] leading-relaxed" style={{ color: '#e8e6f0' }}>
+            <span className="font-bold" style={{ color: '#ffd700' }}>💡 Подсказка:</span> {findBug.hint}
+          </p>
         </div>
       )}
 
-      {/* Decorative icon */}
-      <div className="absolute -right-4 -bottom-4 w-20 h-20 opacity-[0.06] pointer-events-none">
-        <span className="material-symbols-outlined text-7xl text-error">dangerous</span>
-      </div>
-    </section>
+      {/* Scrollable indicator in footer */}
+      {!expanded && lineCount > 6 && (
+        <div className="flex justify-center mt-2">
+          <button
+            onClick={() => setExpanded(true)}
+            className="text-[10px] cursor-pointer transition-all hover:opacity-80"
+            style={{ color: '#ff6b6b', background: 'none', border: 'none', textDecoration: 'underline dotted' }}
+          >
+            ⬇ Показать все {lineCount} строк
+          </button>
+        </div>
+      )}
+    </div>
   )
 }
