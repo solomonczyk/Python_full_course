@@ -846,13 +846,13 @@
       ]
     },
     "what_outputs": {
-      "code": "print(10 == 10)\nprint(2 > 5)",
+      "code": "x = 10 == 10\ny = 2 > 5\nprint(x, y)",
       "options": [
-        "True",
-        "False",
-        "None"
+        "True False",
+        "False True",
+        "Ошибка"
       ],
-      "correct": "True"
+      "correct": "True False"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -1595,13 +1595,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(3):\n    print(i)",
+      "code": "print(list(range(3)))",
       "options": [
-        "0",
-        "1",
-        "2"
+        "[0, 1, 2]",
+        "[1, 2, 3]",
+        "Ошибка"
       ],
-      "correct": "0"
+      "correct": "[0, 1, 2]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -1705,13 +1705,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(2, 5):\n    print(i)",
+      "code": "print(list(range(2, 5)))",
       "options": [
-        "2",
-        "3",
-        "1"
+        "[2, 3, 4]",
+        "[2, 3, 4, 5]",
+        "Ошибка"
       ],
-      "correct": "2"
+      "correct": "[2, 3, 4]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -2326,11 +2326,11 @@
       ]
     },
     "what_outputs": {
-      "code": "print(5 > 2)\nprint(5 < 2)",
+      "code": "print(5 > 2)",
       "options": [
         "True",
         "False",
-        "None"
+        "Ошибка"
       ],
       "correct": "True"
     },
@@ -2647,11 +2647,11 @@
       ]
     },
     "what_outputs": {
-      "code": "print(True and False)\nprint(True and True)",
+      "code": "print(True and False)",
       "options": [
         "False",
         "True",
-        "None"
+        "Ошибка"
       ],
       "correct": "False"
     },
@@ -2754,11 +2754,11 @@
       ]
     },
     "what_outputs": {
-      "code": "print(False or True)\nprint(False or False)",
+      "code": "print(False or True)",
       "options": [
         "True",
         "False",
-        "None"
+        "Ошибка"
       ],
       "correct": "True"
     },
@@ -2861,11 +2861,11 @@
       ]
     },
     "what_outputs": {
-      "code": "print(not True)\nprint(not False)",
+      "code": "print(not True)",
       "options": [
         "False",
         "True",
-        "None"
+        "Ошибка"
       ],
       "correct": "False"
     },
@@ -3187,13 +3187,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(2):\n    print(i)",
+      "code": "print(list(range(2)))",
       "options": [
-        "0",
-        "1",
-        "2"
+        "[0, 1]",
+        "[1, 2]",
+        "Ошибка"
       ],
-      "correct": "0"
+      "correct": "[0, 1]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -3293,13 +3293,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(3, 6):\n    print(i)",
+      "code": "print(list(range(3, 6)))",
       "options": [
-        "3",
-        "4",
-        "2"
+        "[3, 4, 5]",
+        "[3, 4, 5, 6]",
+        "Ошибка"
       ],
-      "correct": "3"
+      "correct": "[3, 4, 5]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -3399,13 +3399,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(1, 6, 2):\n    print(i)",
+      "code": "print(list(range(1, 6, 2)))",
       "options": [
-        "1",
-        "2",
-        "3"
+        "[1, 3, 5]",
+        "[1, 2, 3, 4, 5]",
+        "Ошибка"
       ],
-      "correct": "1"
+      "correct": "[1, 3, 5]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -3505,13 +3505,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for i in range(3, 0, -1):\n    print(i)",
+      "code": "print(list(range(3, 0, -1)))",
       "options": [
-        "3",
-        "4",
-        "2"
+        "[3, 2, 1]",
+        "[3, 2, 1, 0]",
+        "Ошибка"
       ],
-      "correct": "3"
+      "correct": "[3, 2, 1]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -4507,13 +4507,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for ch in \"hi\":\n    print(ch)",
+      "code": "print(list('hi'))",
       "options": [
-        "h",
-        "Ошибка",
-        "None"
+        "['h', 'i']",
+        "['hi']",
+        "Ошибка"
       ],
-      "correct": "h"
+      "correct": "['h', 'i']"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -4819,13 +4819,13 @@
       ]
     },
     "what_outputs": {
-      "code": "a = [1, 2, 3]\nprint(a.pop())\nprint(a)",
+      "code": "a = [1, 2, 3]\nprint(a.pop(), a)",
       "options": [
-        "3",
-        "4",
-        "2"
+        "3 [1, 2]",
+        "3 [1, 2, 3]",
+        "Ошибка"
       ],
-      "correct": "3"
+      "correct": "3 [1, 2]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -5446,13 +5446,13 @@
       ]
     },
     "what_outputs": {
-      "code": "for n in [1, 2, 3]:\n    if n > 1:\n        print(n)",
+      "code": "print([n for n in [1, 2, 3] if n > 1])",
       "options": [
-        "2",
-        "3",
-        "1"
+        "[2, 3]",
+        "[1, 2, 3]",
+        "Ошибка"
       ],
-      "correct": "2"
+      "correct": "[2, 3]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -6190,11 +6190,11 @@
       ]
     },
     "what_outputs": {
-      "code": "for x in [1, 2, 3]:\n    print(x)\n    if x == 2:\n        break",
+      "code": "for x in [1, 2, 3]:\n    print(x)\n    break",
       "options": [
         "1",
-        "2",
-        "3"
+        "1\n2",
+        "1\n2\n3"
       ],
       "correct": "1"
     },
@@ -6618,11 +6618,11 @@
       ]
     },
     "what_outputs": {
-      "code": "a = [10, 20]\nfor i in range(len(a)-1, -1, -1):\n    print(a[i])",
+      "code": "a = [10, 20]\nprint(a[-1])",
       "options": [
         "20",
-        "21",
-        "19"
+        "10",
+        "Ошибка"
       ],
       "correct": "20"
     },
@@ -7040,11 +7040,11 @@
     "what_outputs": {
       "code": "print(\"a\\nb\")",
       "options": [
-        "a",
-        "Ошибка",
-        "None"
+        "a\nb",
+        "ab",
+        "a\\nb"
       ],
-      "correct": "a"
+      "correct": "a\nb"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -7667,13 +7667,13 @@
       ]
     },
     "what_outputs": {
-      "code": "a = [2,1]\nprint(sorted(a))\nprint(a)",
+      "code": "a = [2, 1]\nb = sorted(a)\nprint(a, b)",
       "options": [
-        "[1, 2]",
-        "Ошибка",
-        "None"
+        "[2, 1] [1, 2]",
+        "[1, 2] [2, 1]",
+        "Ошибка"
       ],
-      "correct": "[1, 2]"
+      "correct": "[2, 1] [1, 2]"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -8416,13 +8416,13 @@
       ]
     },
     "what_outputs": {
-      "code": "a = [1]\nb = [1]\nprint(a == b)\nprint(a is b)",
+      "code": "a = [1]\nb = [1]\nprint(a == b, a is b)",
       "options": [
-        "True",
-        "False",
-        "None"
+        "True False",
+        "False True",
+        "Ошибка"
       ],
-      "correct": "True"
+      "correct": "True False"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -8734,11 +8734,11 @@
       ]
     },
     "what_outputs": {
-      "code": "x = 1\nwhile x < 3:\n    print(x)\n    x += 1",
+      "code": "x = 1\nwhile x < 2:\n    print(x)\n    x += 1",
       "options": [
         "1",
-        "2",
-        "3"
+        "1\n2",
+        "0"
       ],
       "correct": "1"
     },
@@ -9255,11 +9255,11 @@
       ]
     },
     "what_outputs": {
-      "code": "attempts = 2\nwhile attempts > 0:\n    print(attempts)\n    attempts -= 1",
+      "code": "x = 2\nwhile x > 1:\n    print(x)\n    x -= 1",
       "options": [
         "2",
-        "3",
-        "1"
+        "2\n1",
+        "Ошибка"
       ],
       "correct": "2"
     },
