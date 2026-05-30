@@ -98,15 +98,15 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
             const partLessons = lessons.filter(l => l.part === part)
 
             return (
-              <div key={part}>
+             <div key={part}>
                 {/* Part header — clickable to toggle */}
                 <button
                   onClick={() => togglePart(part)}
                   className="w-full flex items-center gap-2.5 px-4 py-2.5 text-xs font-semibold transition-all cursor-pointer border-none text-left"
                   style={{
-                    background: isActive ? 'rgba(0,212,170,0.08)' : 'transparent',
-                    borderLeft: `2px solid ${isActive ? '#00d4aa' : 'transparent'}`,
-                    color: isActive ? '#00d4aa' : '#9b98a8',
+                    background: done === total ? 'rgba(0,212,170,0.08)' : 'transparent',
+                    borderLeft: `2px solid ${done === total ? '#00d4aa' : 'transparent'}`,
+                    color: done === total ? '#00d4aa' : '#9b98a8',
                   }}
                 >
                   <span
@@ -114,16 +114,18 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                     style={{
                       width: '22px', height: '22px',
                       borderRadius: '6px',
-                      background: isActive ? '#00d4aa' : 'rgba(201,162,39,0.15)',
-                      color: isActive ? '#0f0e17' : '#c9a227',
+                      background: done === total ? '#00d4aa' : 'rgba(201,162,39,0.15)',
+                      color: done === total ? '#0f0e17' : '#c9a227',
                     }}
                   >
-                    {part}
+                    {done === total ? '✓' : part}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[12px] font-semibold truncate">Part {part}: {PART_LABELS[part] ?? ''}</div>
+                    <div className="text-[12px] font-semibold truncate" style={{ color: done === total ? '#00d4aa' : '#e8e6f0' }}>
+                      {done === total ? '✓ ' : ''}Part {part}: {PART_LABELS[part] ?? ''}
+                    </div>
                     <div className="text-[10px] opacity-70 mt-0.5" style={{ color: '#9b98a8' }}>
-                      {done}/{total} artifacts
+                      {done === total ? 'COMPLETED' : `${done}/${total} artifacts`}
                       {isExpanded ? ' ▾' : ' ▸'}
                     </div>
                   </div>
