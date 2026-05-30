@@ -106,6 +106,12 @@ export interface LessonSummary {
 export interface Lesson extends LessonSummary {
   scene_image?: string
   game_relevance?: string
+  analogy?: {
+    title: string
+    story_metaphor: string
+    python_mapping: string
+    key_rule: string
+  }
   pre_topic_dialogue?: DialogueLine[]
   post_error_dialogue?: DialogueLine[]
   mini_summary?: string

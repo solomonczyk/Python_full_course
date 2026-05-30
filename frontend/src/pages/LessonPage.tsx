@@ -17,6 +17,7 @@ import PredictOutputBlock from '../components/PredictOutputBlock'
 import FindBugBlock from '../components/FindBugBlock'
 import SyntaxReminderBlock from '../components/SyntaxReminderBlock'
 import VariableBoxBlock from '../components/VariableBoxBlock'
+import AnalogyBlock from '../components/AnalogyBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -148,6 +149,16 @@ export default function LessonPage({ lessons }: Props) {
       {lesson.pre_topic_dialogue && lesson.pre_topic_dialogue.length > 0 && (
         <SteampunkCard>
           <DialogueScene lines={lesson.pre_topic_dialogue} />
+        </SteampunkCard>
+      )}
+
+      {/* Analogy block — bridges dialogue to explanation */}
+      {lesson.analogy && (
+        <SteampunkCard accentColor="rgba(201,162,39,0.2)">
+          <AnalogyBlock
+            analogy={lesson.analogy}
+            character={lesson.explanation.character}
+          />
         </SteampunkCard>
       )}
 
