@@ -56,6 +56,34 @@ export default function LessonPage({ lessons }: Props) {
 
   const isDone = progress[lesson.id]?.completed
 
+  // Check if lesson is locked (not unlocked by progress)
+  const { isLessonUnlocked } = useProgressContext()
+  const unlocked = isLessonUnlocked(lesson.id, lessons)
+  if (!unlocked) {
+    const idx = lessons.findIndex(l => l.id === lesson.id)
+    const prev = idx > 0 ? lessons[idx - 1] : null
+    return (
+      <div className="w-full max-w-[800px]">
+        <section className="bg-yellow-50 border-l-8 border-yellow-400 rounded-2xl p-8 text-center">
+          <span className="material-symbols-outlined text-5xl text-yellow-500" style={{ fontVariationSettings: "'FILL' 1" }}>lock</span>
+          <h2 className="font-display text-[28px] font-bold text-on-surface mt-4">Урок заблокирован</h2>
+          <p className="text-on-surface-variant mt-2 max-w-md mx-auto">
+            Завершите предыдущий урок, чтобы открыть этот.
+          </p>
+          {prev && (
+            <button
+              onClick={() => navigate(`/lesson/${prev.id}`)}
+              className="mt-6 px-8 py-3 bg-yellow-500 text-white font-bold rounded-2xl hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_back</span>
+              К уроку {prev.id}: {prev.title}
+            </button>
+          )}
+        </section>
+      </div>
+    )
+  }
+
   return (
     <div className="w-full max-w-[800px] flex flex-col gap-12">
       {/* Lesson header */}

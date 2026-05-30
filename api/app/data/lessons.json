@@ -1198,7 +1198,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/2-2.png",
     "topic": "логические",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок цепочки условий. Программа проверяет несколько сценариев подряд.",
     "pre_topic_dialogue": [
       {
@@ -1301,7 +1301,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/2-3.png",
     "topic": "random.randint",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в игре появляется случайность. Кубик судьбы решает исход.",
     "pre_topic_dialogue": [
       {
@@ -1408,7 +1408,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/2-4.png",
     "topic": "простая",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в игре появляется случайность. Кубик судьбы решает исход.",
     "pre_topic_dialogue": [
       {
@@ -1519,7 +1519,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/2-5.png",
     "topic": "первое",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок циклы входят в игру. Повторение — мать учения, а в программировании — мать автоматизации.",
     "pre_topic_dialogue": [
       {
@@ -1629,7 +1629,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/2-6.png",
     "topic": "range",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок счётчики и повторения. Range задаёт количество попыток и ходов.",
     "pre_topic_dialogue": [
       {
@@ -1739,7 +1739,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-1.png",
     "topic": "float",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок вещественные числа. Точные расчёты здоровья и рейтинга.",
     "pre_topic_dialogue": [
       {
@@ -1845,7 +1845,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-2.png",
     "topic": "обычное",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок деление и остаток от деления. Важно для расчёта характеристик.",
     "pre_topic_dialogue": [
       {
@@ -1948,7 +1948,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-3.png",
     "topic": "целочисленное",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок деление и остаток от деления. Важно для расчёта характеристик.",
     "pre_topic_dialogue": [
       {
@@ -2051,7 +2051,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-4.png",
     "topic": "остаток",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -2154,7 +2154,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-5.png",
     "topic": "определение",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок деление и остаток от деления. Важно для расчёта характеристик.",
     "pre_topic_dialogue": [
       {
@@ -2257,7 +2257,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-6.png",
     "topic": "bool",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок правда или ложь. Флаги состояния — основа игровой логики.",
     "pre_topic_dialogue": [
       {
@@ -2360,7 +2360,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-7.png",
     "topic": "состояния",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -2467,7 +2467,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-8.png",
     "topic": "короткая",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -2574,7 +2574,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-9.png",
     "topic": "and",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок сложные условия. Когда нужно проверить несколько условий сразу.",
     "pre_topic_dialogue": [
       {
@@ -2681,7 +2681,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-10.png",
     "topic": "or",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок логический выбор. Достаточно одного истинного условия.",
     "pre_topic_dialogue": [
       {
@@ -2788,7 +2788,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-11.png",
     "topic": "not",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок отрицание в логике. Иногда проще проверить, чего НЕТ.",
     "pre_topic_dialogue": [
       {
@@ -2895,7 +2895,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-12.png",
     "topic": "оптимизация",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -3005,7 +3005,7 @@
     "estimated_time_min": 40,
     "scene_image": "/scenes/3-13.png",
     "topic": "вложенные",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок условие внутри условия. Многоступенчатые проверки в игре.",
     "pre_topic_dialogue": [
       {
@@ -3111,7 +3111,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-14.png",
     "topic": "for",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок счётчики и повторения. Range задаёт количество попыток и ходов.",
     "pre_topic_dialogue": [
       {
@@ -3221,7 +3221,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-15.png",
     "topic": "диапазон",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок счётчики и повторения. Range задаёт количество попыток и ходов.",
     "pre_topic_dialogue": [
       {
@@ -3327,7 +3327,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-16.png",
     "topic": "шаг",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок счётчики и повторения. Range задаёт количество попыток и ходов.",
     "pre_topic_dialogue": [
       {
@@ -3433,7 +3433,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-17.png",
     "topic": "обратный",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -3539,7 +3539,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-18.png",
     "topic": "переменные",
-    "locked": false,
+    "locked": true,
     "story_placement": "Цикл может менять переменную на каждом шаге. Новичок учится накапливать результат.",
     "pre_topic_dialogue": [
       {
@@ -3699,7 +3699,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-19.png",
     "topic": "строки",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок первые шаги в мире текста. Ксю объясняет, как программа видит слова.",
     "pre_topic_dialogue": [
       {
@@ -3802,7 +3802,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-20.png",
     "topic": "оператор",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок поиск в данных. Есть ли ключ в инвентаре?",
     "pre_topic_dialogue": [
       {
@@ -3905,7 +3905,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-21.png",
     "topic": "len",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -4008,7 +4008,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-22.png",
     "topic": "f-строка",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -4115,7 +4115,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-23.png",
     "topic": "методы",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок библиотека Строк. Герой учится обрабатывать команды игрока.",
     "pre_topic_dialogue": [
       {
@@ -4226,7 +4226,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-24.png",
     "topic": "индексы",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок доступ к элементам. Каждый символ и каждый предмет имеет свой номер.",
     "pre_topic_dialogue": [
       {
@@ -4332,7 +4332,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-25.png",
     "topic": "срезы",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок извлечение части данных. Герой учится брать то, что нужно.",
     "pre_topic_dialogue": [
       {
@@ -4438,7 +4438,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-26.png",
     "topic": "перебор",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -4541,7 +4541,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-27.png",
     "topic": "списки",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -4644,7 +4644,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-28.png",
     "topic": "замена",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -4747,7 +4747,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-29.png",
     "topic": "pop",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок забрать последний элемент. Удобно для стопки событий.",
     "pre_topic_dialogue": [
       {
@@ -4853,7 +4853,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-30.png",
     "topic": "remove",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок удаление из инвентаря. Использовал предмет — убери из списка.",
     "pre_topic_dialogue": [
       {
@@ -4959,7 +4959,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-31.png",
     "topic": "append",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок добавление в инвентарь. Нашёл предмет — положи в список.",
     "pre_topic_dialogue": [
       {
@@ -5065,7 +5065,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-32.png",
     "topic": "index",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -5171,7 +5171,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-33.png",
     "topic": "сумма",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -5274,7 +5274,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-34.png",
     "topic": "count",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -5377,7 +5377,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-35.png",
     "topic": "фильтрация",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -5480,7 +5480,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-36.png",
     "topic": "insert",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок вставка на конкретное место. Порядок предметов имеет значение.",
     "pre_topic_dialogue": [
       {
@@ -5586,7 +5586,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-37.png",
     "topic": "extend",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в городе КсюВаДа. В каждом районе он находит инструмент, который станет частью финальной игры.",
     "pre_topic_dialogue": [
       {
@@ -5692,7 +5692,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/3-38.png",
     "topic": "срезы",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -5798,7 +5798,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-39.png",
     "topic": "random.choice",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в игре появляется случайность. Кубик судьбы решает исход.",
     "pre_topic_dialogue": [
       {
@@ -5905,7 +5905,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/3-40.png",
     "topic": "random.shuffle",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок перемешивание. Каждый проход — уникальный.",
     "pre_topic_dialogue": [
       {
@@ -6012,7 +6012,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-1.png",
     "topic": "флаги",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок флаги состояния. Найден ключ или нет — всего один бит информации.",
     "pre_topic_dialogue": [
       {
@@ -6118,7 +6118,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-2.png",
     "topic": "break",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок прерывание цикла. Выход из игры по команде или условию.",
     "pre_topic_dialogue": [
       {
@@ -6224,7 +6224,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-3.png",
     "topic": "поиск",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -6327,7 +6327,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-4.png",
     "topic": "поиск",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -6430,7 +6430,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-5.png",
     "topic": "максимальная",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -6541,7 +6541,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-6.png",
     "topic": "первый",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -6652,7 +6652,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/4-7.png",
     "topic": "none",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок пустота. В комнате нет предмета — None.",
     "pre_topic_dialogue": [
       {
@@ -6755,7 +6755,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-8.png",
     "topic": "алгоритмическое",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок финальный этап. Алгоритмическое мышление — ключ к финальной игре.",
     "pre_topic_dialogue": [
       {
@@ -6866,7 +6866,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-9.png",
     "topic": "join",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок красивый вывод инвентаря. Список предметов через запятую.",
     "pre_topic_dialogue": [
       {
@@ -6969,7 +6969,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/4-10.png",
     "topic": "перенос",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -7072,7 +7072,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-11.png",
     "topic": "распаковка",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -7175,7 +7175,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-12.png",
     "topic": "split",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок разбор команды игрока. «взять ключ» → [«взять», «ключ»].",
     "pre_topic_dialogue": [
       {
@@ -7278,7 +7278,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-13.png",
     "topic": "split",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок разбор команды игрока. «взять ключ» → [«взять», «ключ»].",
     "pre_topic_dialogue": [
       {
@@ -7381,7 +7381,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-14.png",
     "topic": "map",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок преобразование данных. Подготовка числовых данных для расчётов.",
     "pre_topic_dialogue": [
       {
@@ -7484,7 +7484,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/4-15.png",
     "topic": "sort",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок упорядочивание данных. Рейтинг игроков, статистика, порядок.",
     "pre_topic_dialogue": [
       {
@@ -7594,7 +7594,7 @@
     "estimated_time_min": 15,
     "scene_image": "/scenes/4-16.png",
     "topic": "sorted",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок упорядочивание данных. Рейтинг игроков, статистика, порядок.",
     "pre_topic_dialogue": [
       {
@@ -7701,7 +7701,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-17.png",
     "topic": "key",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -7804,7 +7804,7 @@
     "estimated_time_min": 40,
     "scene_image": "/scenes/4-18.png",
     "topic": "вложенные",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -7910,7 +7910,7 @@
     "estimated_time_min": 40,
     "scene_image": "/scenes/4-19.png",
     "topic": "изменение",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -8016,7 +8016,7 @@
     "estimated_time_min": 40,
     "scene_image": "/scenes/4-20.png",
     "topic": "перебор",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок склад Списков. Инвентарь, комнаты, события — всё хранится в списках.",
     "pre_topic_dialogue": [
       {
@@ -8122,7 +8122,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-21.png",
     "topic": "ссылки",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8233,7 +8233,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-22.png",
     "topic": "изменяемые",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8344,7 +8344,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-23.png",
     "topic": "is",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8450,7 +8450,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-24.png",
     "topic": "copy",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8556,7 +8556,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-25.png",
     "topic": "deepcopy",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8662,7 +8662,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-26.png",
     "topic": "while",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок главный игровой цикл. Игра работает, пока игрок не победит или не выйдет.",
     "pre_topic_dialogue": [
       {
@@ -8768,7 +8768,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-27.png",
     "topic": "while",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок главный игровой цикл. Игра работает, пока игрок не победит или не выйдет.",
     "pre_topic_dialogue": [
       {
@@ -8874,7 +8874,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-28.png",
     "topic": "до",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -8977,7 +8977,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-29.png",
     "topic": "чат-бот",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -9080,7 +9080,7 @@
     "estimated_time_min": 25,
     "scene_image": "/scenes/4-30.png",
     "topic": "таск-менеджер",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус запер Новичка в Башне Алгоритмов. Чтобы выбраться, нужно применить всё, что было изучено.",
     "pre_topic_dialogue": [
       {
@@ -9183,7 +9183,7 @@
     "estimated_time_min": 50,
     "scene_image": "/scenes/4-31.png",
     "topic": "random",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок в игре появляется случайность. Кубик судьбы решает исход.",
     "pre_topic_dialogue": [
       {
@@ -9289,7 +9289,7 @@
     "difficulty": "boss",
     "estimated_time_min": 50,
     "scene_image": "/scenes/3-41.png",
-    "locked": false,
+    "locked": true,
     "story_placement": "Новичок багус построил лестницу из неправильных отступов. Чтобы пройти дальше, нужно понять, как работают блоки и отступы в Python.",
     "pre_topic_dialogue": [
       {
