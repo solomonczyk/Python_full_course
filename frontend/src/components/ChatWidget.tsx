@@ -6,7 +6,11 @@ interface Message {
   content: string
 }
 
-export default function ChatWidget() {
+interface Props {
+  lessonId?: string
+}
+
+export default function ChatWidget({ lessonId }: Props = {}) {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: 'Привет! Я — Python-эксперт из Python Quest. Спрашивай по темам курса: синтаксис, ошибки, примеры. Отвечаю коротко и по делу.' },
@@ -46,7 +50,7 @@ export default function ChatWidget() {
       const res = await fetch('/api/ai/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ message: text, lesson_id: lessonId ?? null }),
       })
       const data = await res.json()
       setMessages((prev) => [...prev, { role: 'assistant', content: data.reply }])

@@ -29,6 +29,7 @@ class QuizAnswer(BaseModel):
 
 class ChatMessage(BaseModel):
     message: str
+    lesson_id: str | None = None
 
 class MissionSubmit(BaseModel):
     lesson_id: str
@@ -334,14 +335,27 @@ def _fallback_reply(message: str) -> str:
             "как работает функция, как исправить ошибку, что значит этот код. "
             "Постараюсь помочь! Если вопрос сложный — попроси Ксю подключить API-ключ для доступа к полной версии.")
 
+GUARD_PROMPT = "You are a Python expert tutor in the Python Quest interactive course. Answer clearly and concisely in Russian. Provide code examples where helpful."
+
 @app.post("/ai/chat")
 def ai_chat(body: ChatMessage) -> dict[str, str]:
+    system_prompt = GUARD_PROMPT
+    if body.lesson_id:
+        lesson = next((l for l in _lessons() if l["id"] == body.lesson_id), None)
+        if lesson:
+            lesson_ctx = (
+                f"\nCurrent lesson: {lesson['title']} — {lesson.get('topic', '')}. "
+                f"Explanation: {lesson['explanation']['text']} "
+                f"Example: {lesson['explanation']['code_example']}"
+            )
+            system_prompt += lesson_ctx
+
     if _AI_KEY:
         try:
             payload = json.dumps({
                 "model": "deepseek-chat",
                 "messages": [
-                    {"role": "system", "content": "You are a Python expert tutor in the Python Quest interactive course. Answer clearly and concisely in Russian. Provide code examples where helpful."},
+                    {"role": "system", "content": system_prompt},
                     {"role": "user", "content": body.message},
                 ],
                 "max_tokens": 1024,

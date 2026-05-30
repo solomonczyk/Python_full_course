@@ -42,7 +42,7 @@ function Layout() {
           <Route path="/review/:id" element={<ReviewPage />} />
         </Routes>
       </main>
-      <ChatWidget />
+      <ChatWidget lessonId={currentLessonId} />
     </div>
   )
 }
