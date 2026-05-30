@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Quest — Steampunk Mockups</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-deep: #0f0e17;
+  --bg-card: #1a1924;
+  --bg-card-hover: #222130;
+  --border-bronze: #c9a227;
+  --border-bronze-dim: rgba(201,162,39,0.3);
+  --cyan: #00d4aa;
+  --cyan-dim: rgba(0,212,170,0.15);
+  --text-primary: #e8e6f0;
+  --text-secondary: #9b98a8;
+  --text-accent: #ffd700;
+  --error: #ff6b6b;
+  --error-bg: rgba(255,107,107,0.1);
+  --sidebar-bg: #16151f;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #0a0910;
+  padding: 40px;
+  color: var(--text-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.mockup-frame {
+  background: var(--bg-deep);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-bronze-dim);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.mockup-header {
+  background: linear-gradient(90deg, var(--border-bronze) 0%, #8b7355 100%);
+  color: #1a1a2e;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ========== LAYOUT SYSTEM ========== */
+.page { display: flex; min-height: 680px; }
+
+.sidebar {
+  width: 220px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid rgba(201,162,39,0.15);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+  margin-bottom: 16px;
+}
+
+.sidebar-logo h2 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-logo .python-icon {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--cyan), #00a884);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800;
+}
+
+.nav-item {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(0,212,170,0.08);
+  color: var(--cyan);
+  border-left-color: var(--cyan);
+}
+
+.nav-item .num {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  background: rgba(201,162,39,0.15);
+  color: var(--border-bronze);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+}
+
+.nav-item.active .num {
+  background: var(--cyan);
+  color: var(--bg-deep);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 16px 20px;
+  border-top: 1px solid rgba(201,162,39,0.15);
+}
+
+.sidebar-footer .btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, var(--border-bronze), #8b7355);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Top Bar */
+.topbar {
+  height: 56px;
+  background: var(--bg-card);
+  border-bottom: 1px solid rgba(201,162,39,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.topbar-nav { display: flex; gap: 24px; }
+.topbar-nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.topbar-nav a.active { color: var(--cyan); border-bottom: 2px solid var(--cyan); padding-bottom: 4px; }
+
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.search-box {
+  width: 200px;
+  padding: 8px 14px;
+  background: var(--bg-deep);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--border-bronze), #8b7355);
+  border: 2px solid var(--border-bronze);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 700;
+  color: #1a1a2e;
+}
+
+/* Main Content */
+.main { flex: 1; overflow-y: auto; padding: 24px; }
+
+/* Hero Banner */
+.hero-banner {
+  height: 220px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1a2a3a 0%, #2a1a3a 50%, #1a1a2e 100%);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--border-bronze-dim);
+}
+
+.hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+    radial-gradient(circle at 80% 50%, rgba(0,212,170,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(201,162,39,0.08) 0%, transparent 40%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 28px 32px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(0,212,170,0.15);
+  border: 1px solid var(--cyan);
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.hero-btn {
+  margin-top: 16px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--border-bronze), #8b7355);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(201,162,39,0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  border: 2px solid var(--border-bronze);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-accent);
+}
+
+.card-subtitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.card-body {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card-body code {
+  background: rgba(0,212,170,0.1);
+  color: var(--cyan);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+/* Code Panel */
+.code-panel {
+  background: #0d0c14;
+  border-radius: 12px;
+  border: 1px solid rgba(0,212,170,0.2);
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.code-panel-header {
+  padding: 8px 14px;
+  background: rgba(0,212,170,0.05);
+  border-bottom: 1px solid rgba(0,212,170,0.1);
+  font-size: 11px;
+  color: var(--cyan);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.code-panel-header .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--border-bronze);
+}
+
+.code-panel-body {
+  padding: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #e8e6f0;
+  line-height: 1.7;
+}
+
+.code-panel-body .comment { color: #6b7280; }
+.code-panel-body .keyword { color: #c084fc; }
+.code-panel-body .string { color: #4ade80; }
+.code-panel-body .func { color: #60a5fa; }
+
+/* Mission Card */
+.mission-card {
+  background: linear-gradient(135deg, var(--bg-card), #1f1e2e);
+  border: 1px solid var(--border-bronze-dim);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.mission-card .mission-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--border-bronze), #8b7355);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.mission-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-accent);
+  margin-bottom: 8px;
+}
+
+.mission-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.mission-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg-deep);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.mission-btn {
+  padding: 10px 20px;
+  background: var(--cyan);
+  color: var(--bg-deep);
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Trap Card */
+.trap-card {
+  background: var(--error-bg);
+  border: 1px solid rgba(255,107,107,0.3);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.trap-card .trap-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: var(--error);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.trap-card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--error);
+  margin-bottom: 8px;
+}
+
+.trap-card .trap-code {
+  background: rgba(255,107,107,0.08);
+  border: 1px solid rgba(255,107,107,0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--error);
+  margin: 10px 0;
+}
+
+.trap-btn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Progress Ring */
+.progress-ring {
+  width: 100px; height: 100px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.progress-ring svg {
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: none;
+  stroke: rgba(0,212,170,0.1);
+  stroke-width: 6;
+}
+
+.progress-ring-fill {
+  fill: none;
+  stroke: var(--cyan);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 165;
+}
+
+.progress-ring-text {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--cyan);
+}
+
+.progress-ring-label {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Stats Panel */
+.stats-panel {
+  background: var(--bg-card);
+  border: 1px solid rgba(201,162,39,0.15);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.stats-panel h4 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(201,162,39,0.1);
+}
+
+.stat-row:last-child { border-bottom: none; }
+
+.stat-label { font-size: 12px; color: var(--text-secondary); }
+.stat-value { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+
+/* Chapter Cards */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.chapter-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  border: 1px solid rgba(201,162,39,0.15);
+  overflow: hidden;
+  position: relative;
+}
+
+.chapter-card .chapter-img {
+  height: 100px;
+  background: linear-gradient(135deg, #2a1a3a, #1a2a3a);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+}
+
+.chapter-card .chapter-body {
+  padding: 12px;
+}
+
+.chapter-card h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.chapter-card p {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.chapter-card.active {
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,212,170,0.15);
+}
+
+.chapter-card.active .chapter-img {
+  background: linear-gradient(135deg, rgba(0,212,170,0.2), rgba(201,162,39,0.1));
+}
+
+.chapter-card.locked { opacity: 0.5; }
+
+/* Quest History */
+.quest-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(201,162,39,0.1);
+}
+
+.quest-icon {
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  background: rgba(0,212,170,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--cyan);
+  font-size: 14px;
+}
+
+.quest-info h5 {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.quest-info p {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.quest-xp {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--border-bronze);
+}
+
+/* Bottom Nav */
+.bottom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(201,162,39,0.15);
+  margin-top: auto;
+}
+
+.btn-back {
+  padding: 10px 20px;
+  background: transparent;
+  border: 1px solid rgba(201,162,39,0.3);
+  color: var(--text-secondary);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-next {
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--border-bronze), #8b7355);
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Tooltip */
+.tip-box {
+  background: rgba(0,212,170,0.08);
+  border: 1px solid rgba(0,212,170,0.2);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.tip-box .tip-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: var(--bg-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tip-box p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Game Canvas */
+.game-canvas {
+  height: 280px;
+  background: linear-gradient(135deg, #1a1a2e, #2a1a3a);
+  border-radius: 16px;
+  border: 2px dashed var(--border-bronze-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.game-canvas .game-icon { font-size: 48px; }
+.game-canvas p { font-size: 14px; color: var(--text-secondary); }
+
+/* Compact mode for single column */
+.compact .cards-grid { grid-template-columns: 1fr; }
+.compact .chapter-grid { grid-template-columns: repeat(2, 1fr); }
+
+@media (max-width: 1400px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center; margin-bottom:40px; font-size:28px; font-weight:800; color:var(--text-accent);">
+  Python Quest — Steampunk Mockups (9 шаблонов)
+</h1>
+
+<div class="grid">
+
+<!-- ========== 01 HOMEPAGE ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">01 HomePage — Grand Interactive Hub</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <h2><span class="python-icon">Py</span> Python Quest</h2>
+      </div>
+      <div class="nav-item active"><span class="num">1</span> Hello Python</div>
+      <div class="nav-item"><span class="num">2</span> Data Magic</div>
+      <div class="nav-item"><span class="num">3</span> The Logic Gate</div>
+      <div class="nav-item"><span class="num">4</span> Loop Labyrinth</div>
+      <div class="nav-item"><span class="num">5</span> Final Mission</div>
+      <div class="sidebar-footer">
+        <button class="btn">⚡ Continue Learning</button>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav">
+          <a href="#" class="active">Curriculum</a>
+          <a href="#">Leaderboard</a>
+          <a href="#">Sandbox</a>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">Search the Archives...</div>
+          <div class="avatar">A</div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="hero-banner">
+          <div class="hero-content">
+            <div style="display:flex; gap:20px; align-items:flex-start;">
+              <div style="flex:1;">
+                <div class="hero-badge">SYSTEM STATUS: RESONANT</div>
+                <h2 class="hero-title" style="font-size:28px;">Welcome Back, Adept</h2>
+                <p class="hero-subtitle">The Tower hums with a new frequency today. Your mastery of Variable crystals has stabilized the lower wards. Part 3 awaits with its branching paths of logic.</p>
+                <div style="display:flex; gap:10px; margin-top:16px;">
+                  <button class="hero-btn" style="background:var(--cyan); color:var(--bg-deep);">Continue Quest</button>
+                  <button class="hero-btn" style="background:transparent; border:1px solid var(--border-bronze); color:var(--text-accent);">Consult Lexicon</button>
+                </div>
+              </div>
+              <div style="width:200px; flex-shrink:0;">
+                <div class="stats-panel">
+                  <h4>AETHER</h4>
+                  <div class="stat-row"><span class="stat-label">RESONANCE</span><span class="stat-value">1,240 / 2,000 XP</span></div>
+                  <div style="height:6px; background:rgba(0,212,170,0.1); border-radius:3px; margin:8px 0;"><div style="width:62%; height:100%; background:var(--cyan); border-radius:3px;"></div></div>
+                  <div class="stat-row"><span class="stat-label">RANK</span><span class="stat-value">Script-Weaver</span></div>
+                  <div class="stat-row"><span class="stat-label">STREAKS</span><span class="stat-value">14 Days</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:16px; font-weight:700; margin-bottom:12px; color:var(--text-primary);">The Path of the Python</h3>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:16px;">Master the four realms of foundational wizardry.</p>
+        
+        <div class="chapter-grid">
+          <div class="chapter-card">
+            <div class="chapter-img">🔮</div>
+            <div class="chapter-body">
+              <h4>Part 1: Rituals</h4>
+              <p>COMPLETED • 10/10 Artifacts</p>
+            </div>
+          </div>
+          <div class="chapter-card active">
+            <div class="chapter-img">⚗️</div>
+            <div class="chapter-body">
+              <h4>Part 2: Alchemy</h4>
+              <p style="color:var(--cyan);">CURRENT • 4/12 Artifacts</p>
+            </div>
+          </div>
+          <div class="chapter-card locked">
+            <div class="chapter-img">🔒</div>
+            <div class="chapter-body">
+              <h4>Part 3: Logic</h4>
+              <p>Locked • Part 2 Required</p>
+            </div>
+          </div>
+          <div class="chapter-card locked">
+            <div class="chapter-img">🔒</div>
+            <div class="chapter-body">
+              <h4>Part 4: Mastery</h4>
+              <p>Locked • Part 3 Required</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size:16px; font-weight:700; margin:24px 0 12px;">Quest History</h3>
+        <div class="quest-item">
+          <div class="quest-icon">✓</div>
+          <div class="quest-info">
+            <h5>Mastered: Integer Crystallization</h5>
+            <p>Completed the ritual in 12 minutes</p>
+          </div>
+          <div class="quest-xp">+150 XP</div>
+        </div>
+        <div class="quest-item">
+          <div class="quest-icon">🔍</div>
+          <div class="quest-info">
+            <h5>Discovery: List Labyrinths</h5>
+            <p>Unlocked a new secret path in Chapter 2</p>
+          </div>
+          <div class="quest-xp">+50 XP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 02 LESSONPAGE ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">02 LessonPage — The Spark of Output: print()</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo">
+        <h2 style="font-size:14px; color:var(--text-secondary);"><span class="python-icon">Py</span> Chapter 2: Variables</h2>
+      </div>
+      <div class="nav-item"><span class="num">1</span> Hello Python</div>
+      <div class="nav-item"><span class="num">2</span> Data Magic</div>
+      <div class="nav-item"><span class="num">3</span> The Logic Gate</div>
+      <div class="nav-item"><span class="num">4</span> Loop Labyrinth</div>
+      <div class="nav-item"><span class="num">5</span> Final Mission</div>
+      <div class="sidebar-footer">
+        <button class="btn">▶ Continue Learning</button>
+      </div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav">
+          <a href="#" class="active">Curriculum</a>
+          <a href="#">Leaderboard</a>
+          <a href="#">Sandbox</a>
+        </div>
+        <div class="topbar-right">
+          <div class="search-box">Search the Archives...</div>
+          <div class="avatar">A</div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="hero-banner" style="height:180px;">
+          <div class="hero-content">
+            <div class="hero-badge">LESSON 1.1</div>
+            <h2 class="hero-title">The Spark of Output: print()</h2>
+            <p class="hero-subtitle">In the ancient labs of Pythonia, every machine must first learn to speak. To output energy — or text — from the core engine, we use the <code style="background:rgba(0,212,170,0.15); color:var(--cyan); padding:2px 6px; border-radius:4px;">print()</code> command.</p>
+            <button class="hero-btn">Begin Calibration →</button>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-avatar" style="background:linear-gradient(135deg, #ec4899, #be185d);">K</div>
+              <div>
+                <div class="card-title">Lexa's Instruction</div>
+                <div class="card-subtitle">Arch-Mage of Logic</div>
+              </div>
+            </div>
+            <div class="card-body">
+              "Listen closely, apprentice. The <code>print()</code> function is like opening a steam valve. Whatever you place inside the parentheses, enclosed in magic seals (quotes), will be projected onto the world. Try to ignite the engine with your first greeting."
+            </div>
+            <div style="display:flex; gap:8px; margin-top:12px;">
+              <span style="padding:4px 10px; background:rgba(201,162,39,0.1); border-radius:20px; font-size:11px; color:var(--border-bronze);">Subject: Output Control</span>
+              <span style="padding:4px 10px; background:rgba(0,212,170,0.1); border-radius:20px; font-size:11px; color:var(--cyan);">Complexity: 1/10</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="code-panel">
+              <div class="code-panel-header"><span class="dot"></span>Engraving Plate</div>
+              <div class="code-panel-body">
+                <span class="comment"># Level 1 Initiation</span><br>
+                <span class="func">print</span>(<span class="string">"Hello World"</span>)<br>
+                <span class="func">print</span>(<span class="string">"Ignition sequence start..."</span>)
+              </div>
+            </div>
+            <div style="padding:10px 14px; background:var(--bg-card); border-radius:10px; border:1px solid rgba(201,162,39,0.15); margin-top:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:11px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px;">Status</span>
+                <span style="font-size:11px; color:var(--cyan); font-weight:700;">READY TO CAST</span>
+              </div>
+              <div style="height:4px; background:rgba(0,212,170,0.1); border-radius:2px; margin-top:8px;">
+                <div style="width:85%; height:100%; background:var(--cyan); border-radius:2px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top:16px;">
+          <div class="mission-card">
+            <div class="mission-icon">🎯</div>
+            <h3>Dash's Mission</h3>
+            <p>"Swiftly now! We need to record your path in the archives. Your first task is to cast the following into the console: print your name."</p>
+            <div class="mission-input">I am starting my path</div>
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:11px; color:var(--border-bronze);">Reward: 50 XP + Brass Compass</span>
+              <button class="mission-btn">Accept Mission</button>
+            </div>
+          </div>
+
+          <div class="trap-card">
+            <div class="trap-icon">⚠️</div>
+            <h3>Glitch's Trap!</h3>
+            <p>A chaotic error has appeared in the console... Can you defuse it?</p>
+            <div class="trap-code">SyntaxError: EOL while scanning string literal<br>print("I am missing quotes)</div>
+            <button class="trap-btn">Defuse Trap</button>
+          </div>
+
+          <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center;">
+            <div class="progress-ring">
+              <svg width="100" height="100" viewBox="0 0 100 100">
+                <circle class="progress-ring-bg" cx="50" cy="50" r="35"/>
+                <circle class="progress-ring-fill" cx="50" cy="50" r="35"/>
+              </svg>
+              <div class="progress-ring-text">25%</div>
+            </div>
+            <div class="progress-ring-label">AETHER SATURATION</div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Previous Core</button>
+          <div style="display:flex; gap:4px;">
+            <div style="width:8px; height:8px; border-radius:50%; background:var(--cyan);"></div>
+            <div style="width:8px; height:8px; border-radius:50%; background:rgba(201,162,39,0.3);"></div>
+            <div style="width:8px; height:8px; border-radius:50%; background:rgba(201,162,39,0.3);"></div>
+            <div style="width:8px; height:8px; border-radius:50%; background:rgba(201,162,39,0.3);"></div>
+          </div>
+          <button class="btn-next">Next: Data Magic →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 03 REVIEWPAGE ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">03 ReviewPage — The Loop Labyrinth Review</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Review Blocks</h2></div>
+      <div class="nav-item"><span class="num">R</span> Basics Review</div>
+      <div class="nav-item active"><span class="num">R</span> Loop Labyrinth</div>
+      <div class="nav-item"><span class="num">R</span> Logic Gates</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#" class="active">Curriculum</a><a href="#">Leaderboard</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="search-box">Search...</div><div class="avatar">A</div></div>
+      </div>
+      <div class="main">
+        <div class="hero-banner" style="height:140px;">
+          <div class="hero-content">
+            <div class="hero-badge">REVIEW BLOCK</div>
+            <h2 class="hero-title">The Loop Labyrinth Review</h2>
+            <p class="hero-subtitle">Before you enter deeper chambers, consolidate your mastery of iteration patterns.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <div class="card-avatar" style="background:linear-gradient(135deg, #f59e0b, #d97706);">⚡</div>
+            <div>
+              <div class="card-title">Topics Covered</div>
+              <div class="card-subtitle">5 key concepts to master</div>
+            </div>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+            <span style="padding:6px 12px; background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.2); border-radius:20px; font-size:12px; color:var(--cyan);">for loops</span>
+            <span style="padding:6px 12px; background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.2); border-radius:20px; font-size:12px; color:var(--cyan);">while loops</span>
+            <span style="padding:6px 12px; background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.2); border-radius:20px; font-size:12px; color:var(--cyan);">range()</span>
+            <span style="padding:6px 12px; background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.2); border-radius:20px; font-size:12px; color:var(--cyan);">break/continue</span>
+            <span style="padding:6px 12px; background:rgba(0,212,170,0.1); border:1px solid rgba(0,212,170,0.2); border-radius:20px; font-size:12px; color:var(--cyan);">nested loops</span>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <div class="mission-card">
+            <div class="mission-icon">🧩</div>
+            <h3>Knowledge Check</h3>
+            <p>5 rapid-fire questions to test your recall. No time limit, but precision matters.</p>
+            <div style="margin:12px 0; padding:12px; background:var(--bg-deep); border-radius:10px;">
+              <p style="font-size:13px; color:var(--text-primary); margin-bottom:10px;">Q1: What does <code>range(5)</code> produce?</p>
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <label style="display:flex; align-items:center; gap:10px; padding:10px; background:var(--bg-card); border-radius:8px; cursor:pointer;">
+                  <div style="width:18px; height:18px; border-radius:50%; border:2px solid var(--border-bronze);"></div>
+                  <span style="font-size:13px;">[0, 1, 2, 3, 4, 5]</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:10px; padding:10px; background:var(--bg-card); border-radius:8px; cursor:pointer;">
+                  <div style="width:18px; height:18px; border-radius:50%; border:2px solid var(--border-bronze);"></div>
+                  <span style="font-size:13px;">[0, 1, 2, 3, 4]</span>
+                </label>
+              </div>
+            </div>
+            <button class="mission-btn">Submit Answer</button>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-avatar" style="background:linear-gradient(135deg, #6366f1, #4338ca);">📊</div>
+              <div>
+                <div class="card-title">Mastery Progress</div>
+                <div class="card-subtitle">Your crystallization status</div>
+              </div>
+            </div>
+            <div style="margin-top:12px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span style="font-size:12px;">for loops</span><span style="font-size:12px; color:var(--cyan);">90%</span></div>
+              <div style="height:6px; background:var(--bg-deep); border-radius:3px;"><div style="width:90%; height:100%; background:var(--cyan); border-radius:3px;"></div></div>
+            </div>
+            <div style="margin-top:10px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span style="font-size:12px;">while loops</span><span style="font-size:12px; color:var(--border-bronze);">45%</span></div>
+              <div style="height:6px; background:var(--bg-deep); border-radius:3px;"><div style="width:45%; height:100%; background:var(--border-bronze); border-radius:3px;"></div></div>
+            </div>
+            <div style="margin-top:10px;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:6px;"><span style="font-size:12px;">break/continue</span><span style="font-size:12px; color:var(--error);">20%</span></div>
+              <div style="height:6px; background:var(--bg-deep); border-radius:3px;"><div style="width:20%; height:100%; background:var(--error); border-radius:3px;"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Back to Lesson</button>
+          <button class="btn-next">Continue →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 04 PART TRANSITION ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">04 PartTransition — End of Part 2: Alchemy</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Python Quest</h2></div>
+      <div class="nav-item"><span class="num">✓</span> Part 1 Complete</div>
+      <div class="nav-item active"><span class="num">✓</span> Part 2 Complete</div>
+      <div class="nav-item"><span class="num">🔒</span> Part 3 Locked</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#">Curriculum</a><a href="#">Leaderboard</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="avatar">A</div></div>
+      </div>
+      <div class="main" style="display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 60px;">
+        <div style="padding:6px 16px; background:rgba(0,212,170,0.1); border:1px solid var(--cyan); border-radius:20px; font-size:11px; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:1px; margin-bottom:20px;">Achievement Unlocked</div>
+        
+        <h1 style="font-size:32px; font-weight:800; color:var(--text-accent); margin-bottom:12px;">End of Part 2: Alchemy</h1>
+        <p style="font-size:16px; color:var(--text-secondary); max-width:500px; line-height:1.6; margin-bottom:32px;">Your code now bends the very fabric of reality. Variables, strings, numbers — all crystallized in your memory. The Aether flows stronger through your veins.</p>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; width:100%; max-width:500px; margin-bottom:32px;">
+          <div class="card" style="text-align:left;">
+            <h4 style="font-size:13px; color:var(--text-secondary); margin-bottom:8px; text-transform:uppercase;">Artifacts Collected</h4>
+            <p style="font-size:24px; font-weight:800; color:var(--cyan);">12 / 12</p>
+          </div>
+          <div class="card" style="text-align:left;">
+            <h4 style="font-size:13px; color:var(--text-secondary); margin-bottom:8px; text-transform:uppercase;">Time Invested</h4>
+            <p style="font-size:24px; font-weight:800; color:var(--border-bronze);">4h 23m</p>
+          </div>
+        </div>
+
+        <div style="width:100%; max-width:500px; margin-bottom:32px;">
+          <div class="dialogue-bubble" style="margin-bottom:12px; text-align:left;">
+            <div class="card-avatar" style="background:linear-gradient(135deg, #ec4899, #be185d); width:36px; height:36px;">K</div>
+            <div class="card-body" style="background:var(--bg-card); padding:12px 16px; border-radius:16px; margin-left:48px; margin-top:-36px;">"Look at you, adept. You forged your first variables today. The Aether recognizes your potential."</div>
+          </div>
+          <div class="dialogue-bubble" style="text-align:left;">
+            <div class="card-avatar" style="background:linear-gradient(135deg, #6366f1, #4338ca); width:36px; height:36px;">V</div>
+            <div class="card-body" style="background:var(--bg-card); padding:12px 16px; border-radius:16px; margin-left:48px; margin-top:-36px;">"But don't get complacent. Part 3 — The Logic Gate — will test everything you've learned."</div>
+          </div>
+        </div>
+
+        <button class="hero-btn" style="padding:14px 40px; font-size:16px; margin-bottom:12px;">⚔️ Enter the Dice of Fate Challenge</button>
+        <a href="#" style="font-size:13px; color:var(--text-secondary);">Return to Hub →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 05 HERO CHECK GAME ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">05 HeroCheckGame — Part 1 Challenge</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Challenges</h2></div>
+      <div class="nav-item active"><span class="num">1</span> Hero Check</div>
+      <div class="nav-item"><span class="num">2</span> Dice of Fate</div>
+      <div class="nav-item"><span class="num">3</span> Inventory</div>
+      <div class="nav-item"><span class="num">4</span> Bagus Tower</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#">Curriculum</a><a href="#" class="active">Challenges</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="avatar">A</div></div>
+      </div>
+      <div class="main">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <div style="padding:6px 14px; background:rgba(0,212,170,0.1); border:1px solid var(--cyan); border-radius:20px; font-size:11px; font-weight:700; color:var(--cyan);">PART 1</div>
+          <h2 style="font-size:20px; font-weight:700;">The Hero's Calibration</h2>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">Before you venture deeper, the Arch-Mage requires proof of your basic abilities. Print your identity to the console.</p>
+        
+        <div class="game-canvas">
+          <div class="game-icon">⚔️</div>
+          <p>Interactive Game Canvas</p>
+          <p style="font-size:12px;">Your hero stands before the calibration gate...</p>
+        </div>
+
+        <div class="card">
+          <h3 style="font-size:14px; font-weight:700; margin-bottom:12px; color:var(--text-accent);">Mission: print() Your Name</h3>
+          <p style="font-size:13px; color:var(--text-secondary); margin-bottom:12px;">The gate demands your identity. Write a <code>print()</code> statement that outputs your hero name.</p>
+          <div class="code-panel">
+            <div class="code-panel-header"><span class="dot"></span>Incantation Input</div>
+            <div class="code-panel-body">
+              <span class="func">print</span>(<span class="string">"Your name here"</span>)
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px;">
+            <button class="mission-btn">⚡ Cast Spell (Run)</button>
+            <button class="btn-back" style="border-color:rgba(0,212,170,0.3); color:var(--cyan);">↻ Reset</button>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Abort Mission</button>
+          <button class="btn-next">Next Challenge →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 06 DICE OF FATE ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">06 DiceOfFateGame — Part 2 Challenge</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Challenges</h2></div>
+      <div class="nav-item"><span class="num">1</span> Hero Check</div>
+      <div class="nav-item active"><span class="num">2</span> Dice of Fate</div>
+      <div class="nav-item"><span class="num">3</span> Inventory</div>
+      <div class="nav-item"><span class="num">4</span> Bagus Tower</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#">Curriculum</a><a href="#" class="active">Challenges</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="avatar">A</div></div>
+      </div>
+      <div class="main">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <div style="padding:6px 14px; background:rgba(201,162,39,0.1); border:1px solid var(--border-bronze); border-radius:20px; font-size:11px; font-weight:700; color:var(--border-bronze);">PART 2</div>
+          <h2 style="font-size:20px; font-weight:700;">The Dice of Fate</h2>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">Randomness governs the universe. Master the <code>random</code> module to control probability itself.</p>
+        
+        <div class="game-canvas">
+          <div class="game-icon">🎲</div>
+          <p>The Aether Dice await your command</p>
+          <p style="font-size:12px;">Roll a number between 1 and 6 using random.randint()</p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="mission-card">
+            <div class="mission-icon">🎲</div>
+            <h3>Roll the Dice</h3>
+            <p>Import random and roll the cosmic dice. Your fate depends on the outcome.</p>
+            <div class="code-panel">
+              <div class="code-panel-header"><span class="dot"></span>Spell Editor</div>
+              <div class="code-panel-body">
+                <span class="keyword">import</span> random<br><br>
+                roll = random.<span class="func">randint</span>(<span class="string">1</span>, <span class="string">6</span>)<br>
+                <span class="func">print</span>(<span class="string">"You rolled:"</span>, roll)
+              </div>
+            </div>
+            <button class="mission-btn" style="margin-top:12px;">🎲 Roll Dice</button>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-avatar" style="background:linear-gradient(135deg, #8b5cf6, #6d28d9);">🎭</div>
+              <div>
+                <div class="card-title">Fate Tracker</div>
+                <div class="card-subtitle">Your roll history</div>
+              </div>
+            </div>
+            <div style="margin-top:12px; text-align:center; padding:20px; background:var(--bg-deep); border-radius:12px;">
+              <div style="font-size:48px; font-weight:800; color:var(--border-bronze);">?</div>
+              <p style="font-size:13px; color:var(--text-secondary); margin-top:8px;">Roll the dice to reveal your fate</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Previous</button>
+          <button class="btn-next">Next: Inventory →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 07 HERO INVENTORY ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">07 HeroInventoryGame — Part 3 Challenge</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Challenges</h2></div>
+      <div class="nav-item"><span class="num">1</span> Hero Check</div>
+      <div class="nav-item"><span class="num">2</span> Dice of Fate</div>
+      <div class="nav-item active"><span class="num">3</span> Inventory</div>
+      <div class="nav-item"><span class="num">4</span> Bagus Tower</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#">Curriculum</a><a href="#" class="active">Challenges</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="avatar">A</div></div>
+      </div>
+      <div class="main">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <div style="padding:6px 14px; background:rgba(236,72,153,0.1); border:1px solid #ec4899; border-radius:20px; font-size:11px; font-weight:700; color:#ec4899;">PART 3</div>
+          <h2 style="font-size:20px; font-weight:700;">The Hero's Inventory</h2>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">Lists are the backbone of every adventurer's journey. Manage your gear, potions, and artifacts.</p>
+        
+        <div class="game-canvas">
+          <div class="game-icon">🎒</div>
+          <p>Your inventory awaits organization</p>
+          <p style="font-size:12px;">Create, append, remove and inspect items in your list</p>
+        </div>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-avatar" style="background:linear-gradient(135deg, #10b981, #059669);">🎒</div>
+              <div>
+                <div class="card-title">Current Inventory</div>
+                <div class="card-subtitle">3 items stored</div>
+              </div>
+            </div>
+            <div class="code-panel" style="margin-top:12px;">
+              <div class="code-panel-header"><span class="dot"></span>Inventory List</div>
+              <div class="code-panel-body">
+                inventory = [<span class="string">"sword"</span>, <span class="string">"shield"</span>, <span class="string">"potion"</span>]
+              </div>
+            </div>
+            <div style="display:flex; gap:8px; margin-top:12px;">
+              <button class="mission-btn" style="flex:1; font-size:12px;">➕ Add Item</button>
+              <button class="trap-btn" style="flex:1; font-size:12px;">➖ Remove</button>
+              <button class="btn-back" style="flex:1; font-size:12px; color:var(--cyan); border-color:rgba(0,212,170,0.3);">🔍 Inspect</button>
+            </div>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">📜</div>
+            <h3>Mission: Sort & Filter</h3>
+            <p>Organize your inventory by type. Use list methods to arrange your gear efficiently.</p>
+            <div class="mission-input">inventory.sort()</div>
+            <button class="mission-btn">Execute Sort</button>
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Previous</button>
+          <button class="btn-next">Next: Bagus Tower →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 08 ESCAPE BAGUS TOWER ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">08 EscapeBagusTowerGame — Final Challenge</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Challenges</h2></div>
+      <div class="nav-item"><span class="num">1</span> Hero Check</div>
+      <div class="nav-item"><span class="num">2</span> Dice of Fate</div>
+      <div class="nav-item"><span class="num">3</span> Inventory</div>
+      <div class="nav-item active"><span class="num">4</span> Bagus Tower</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="topbar">
+        <div class="topbar-nav"><a href="#">Curriculum</a><a href="#" class="active">Challenges</a><a href="#">Sandbox</a></div>
+        <div class="topbar-right"><div class="avatar">A</div></div>
+      </div>
+      <div class="main">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <div style="padding:6px 14px; background:rgba(255,107,107,0.1); border:1px solid var(--error); border-radius:20px; font-size:11px; font-weight:700; color:var(--error);">FINAL</div>
+          <h2 style="font-size:20px; font-weight:700;">Escape the Tower of Bagus</h2>
+        </div>
+        <p style="font-size:13px; color:var(--text-secondary); margin-bottom:20px;">The ultimate test. Combine loops, conditions, and logic to navigate the treacherous Tower and escape with your knowledge intact.</p>
+        
+        <div class="game-canvas" style="height:240px;">
+          <div class="game-icon">🏰</div>
+          <p>The Tower of Bagus looms before you</p>
+          <p style="font-size:12px;">Use while loops to climb floor by floor. Beware the traps!</p>
+        </div>
+
+        <div class="card" style="margin-bottom:16px;">
+          <div class="card-header">
+            <div class="card-avatar" style="background:linear-gradient(135deg, var(--error), #dc2626);">🏰</div>
+            <div>
+              <div class="card-title">The Challenge</div>
+              <div class="card-subtitle">Floor 1 of 10</div>
+            </div>
+          </div>
+          <div class="code-panel" style="margin-top:12px;">
+            <div class="code-panel-header"><span class="dot"></span>Tower Logic</div>
+            <div class="code-panel-body">
+              <span class="keyword">while</span> floor < <span class="string">10</span>:<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> trap_detected():<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="func">break</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;floor += <span class="string">1</span><br>
+              <span class="func">print</span>(<span class="string">"Escaped!"</span>)
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; margin-top:14px;">
+            <button class="mission-btn">▶ Run Simulation</button>
+            <button class="btn-back" style="border-color:rgba(255,107,107,0.3); color:var(--error);">⚠️ Hint</button>
+          </div>
+        </div>
+
+        <div class="trap-card">
+          <div class="trap-icon">👹</div>
+          <h3>Bagus Lurks...</h3>
+          <p>"You think you can escape my Tower with mere loops? Prove it, apprentice!"</p>
+          <div style="margin-top:10px; padding:10px; background:rgba(255,107,107,0.05); border-radius:8px; font-size:12px; color:var(--error);">
+            ⚡ Tip: Remember to increment floor or you'll be trapped in an infinite loop forever!
+          </div>
+        </div>
+
+        <div class="bottom-nav">
+          <button class="btn-back">← Previous</button>
+          <button class="btn-next">Claim Victory →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 09 QUIZ OVERLAY ========== -->
+<div class="mockup-frame">
+  <div class="mockup-header">09 QuizOverlay — Knowledge Crystal</div>
+  <div class="page">
+    <div class="sidebar">
+      <div class="sidebar-logo"><h2 style="font-size:14px;"><span class="python-icon">Py</span> Lesson 3.2</h2></div>
+      <div class="nav-item active"><span class="num">Q</span> Knowledge Crystal</div>
+      <div class="nav-item"><span class="num">3</span> Continue Lesson</div>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column;">
+      <div class="main" style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px;">
+        <div style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg, var(--border-bronze), #8b7355); display:flex; align-items:center; justify-content:center; font-size:28px; margin-bottom:20px;">💎</div>
+        <h2 style="font-size:24px; font-weight:800; color:var(--text-accent); margin-bottom:8px;">Knowledge Crystal</h2>
+        <p style="font-size:14px; color:var(--text-secondary); margin-bottom:32px;">Test your understanding before proceeding</p>
+        
+        <div style="width:100%; max-width:480px;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
+            <span style="font-size:12px; color:var(--text-secondary);">Question 2 of 5</span>
+            <span style="font-size:12px; color:var(--cyan); font-weight:700;">40 XP</span>
+          </div>
+          
+          <div style="padding:20px; background:var(--bg-card); border-radius:16px; border:1px solid rgba(201,162,39,0.15); margin-bottom:16px;">
+            <p style="font-size:15px; color:var(--text-primary); line-height:1.5; margin-bottom:16px;">What will <code>len([1, 2, 3])</code> return?</p>
+            
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <label style="display:flex; align-items:center; gap:12px; padding:14px; background:var(--bg-deep); border-radius:12px; cursor:pointer; border:2px solid transparent;">
+                <div style="width:20px; height:20px; border-radius:50%; border:2px solid var(--border-bronze);"></div>
+                <span style="font-size:14px;">2</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:12px; padding:14px; background:var(--bg-deep); border-radius:12px; cursor:pointer; border:2px solid var(--cyan);">
+                <div style="width:20px; height:20px; border-radius:50%; border:2px solid var(--cyan); background:var(--cyan);"></div>
+                <span style="font-size:14px; color:var(--cyan); font-weight:600;">3</span>
+              </label>
+              <label style="display:flex; align-items:center; gap:12px; padding:14px; background:var(--bg-deep); border-radius:12px; cursor:pointer; border:2px solid transparent;">
+                <div style="width:20px; height:20px; border-radius:50%; border:2px solid var(--border-bronze);"></div>
+                <span style="font-size:14px;">4</span>
+              </label>
+            </div>
+          </div>
+          
+          <button class="mission-btn" style="width:100%;">Confirm Answer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

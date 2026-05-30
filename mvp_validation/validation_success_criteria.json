@@ -1,0 +1,410 @@
+{
+  "status": "READY_FOR_REAL_WORLD_TEST",
+  "version": "1.0",
+  "test_duration_days": 14,
+  "test_goal": "Validate market demand for Python Quest before building platform",
+
+  "signal_levels": {
+    "strong": {
+      "description": "Clear market demand, proceed with confidence",
+      "decision": "GO",
+      "metrics": {
+        "landing_page_views": {
+          "min": 300,
+          "description": "Unique page views across 14 days"
+        },
+        "email_signups": {
+          "min": 30,
+          "description": "Total email captures from landing"
+        },
+        "email_capture_rate": {
+          "min_percent": 15,
+          "description": "Signups / views * 100"
+        },
+        "demo_completion_reported": {
+          "min": 10,
+          "description": "Self-reported completion of 3 demo lessons"
+        },
+        "would_pay_at_39_eur": {
+          "min_percent": 30,
+          "description": "Survey respondents selecting 'yes' or 'probably'"
+        },
+        "price_inquiries": {
+          "min": 3,
+          "description": "Organic questions about pricing"
+        },
+        "community_engagement": {
+          "min_meaningful_comments": 20,
+          "description": "Thoughtful comments across all posts"
+        }
+      }
+    },
+
+    "soft": {
+      "description": "Some traction but needs refinement",
+      "decision": "SOFT_GO",
+      "metrics": {
+        "landing_page_views": {
+          "min": 100,
+          "max": 299,
+          "description": "Some interest but limited reach"
+        },
+        "email_signups": {
+          "min": 10,
+          "max": 29,
+          "description": "Core interest exists"
+        },
+        "email_capture_rate": {
+          "min_percent": 8,
+          "max_percent": 14,
+          "description": "Moderate conversion, room for improvement"
+        },
+        "demo_completion_reported": {
+          "min": 5,
+          "max": 9,
+          "description": "Some engagement with content"
+        },
+        "would_pay_at_39_eur": {
+          "min_percent": 15,
+          "max_percent": 29,
+          "description": "Price sensitivity or value perception issues"
+        },
+        "price_inquiries": {
+          "min": 1,
+          "max": 2,
+          "description": "Limited buying intent signals"
+        },
+        "community_engagement": {
+          "min_meaningful_comments": 10,
+          "max": 19,
+          "description": "Some community interest"
+        }
+      }
+    },
+
+    "pivot": {
+      "description": "Weak signals but something to work with",
+      "decision": "PIVOT",
+      "metrics": {
+        "landing_page_views": {
+          "min": 50,
+          "max": 99,
+          "description": "Limited interest, targeting or positioning issue"
+        },
+        "email_signups": {
+          "min": 5,
+          "max": 9,
+          "description": "Core audience unclear"
+        },
+        "email_capture_rate": {
+          "min_percent": 5,
+          "max_percent": 7,
+          "description": "Landing or offer needs major work"
+        },
+        "demo_completion_reported": {
+          "min": 2,
+          "max": 4,
+          "description": "Content may not engage"
+        },
+        "would_pay_at_39_eur": {
+          "min_percent": 5,
+          "max_percent": 14,
+          "description": "Value proposition unclear"
+        },
+        "price_inquiries": {
+          "min": 0,
+          "max": 0,
+          "description": "No buying intent"
+        },
+        "community_engagement": {
+          "min_meaningful_comments": 5,
+          "max": 9,
+          "description": "Limited community response"
+        }
+      }
+    },
+
+    "no_go": {
+      "description": "No market signal",
+      "decision": "NO_GO",
+      "metrics": {
+        "landing_page_views": {
+          "max": 49,
+          "description": "No interest in concept"
+        },
+        "email_signups": {
+          "max": 4,
+          "description": "Value proposition not resonating"
+        },
+        "email_capture_rate": {
+          "max_percent": 4,
+          "description": "Severe landing or offer issues"
+        },
+        "demo_completion_reported": {
+          "max": 1,
+          "description": "Content doesn't engage"
+        },
+        "would_pay_at_39_eur": {
+          "max_percent": 4,
+          "description": "No willingness to pay"
+        },
+        "price_inquiries": {
+          "max": 0,
+          "description": "No commercial interest"
+        },
+        "community_engagement": {
+          "max_meaningful_comments": 4,
+          "description": "Community rejection or indifference"
+        }
+      }
+    }
+  },
+
+  "qualitative_signals": {
+    "positive_indicators": [
+      {
+        "signal": "Где можно купить полную версию?",
+        "meaning": "Strong buying intent",
+        "weight": "high"
+      },
+      {
+        "signal": "Это то, что мне нужно было 3 года назад",
+        "meaning": "Pain point match",
+        "weight": "high"
+      },
+      {
+        "signal": "Поделюсь с другом, который бросал Python",
+        "meaning": "Viral potential",
+        "weight": "medium"
+      },
+      {
+        "signal": "Сколько стоит для ребёнка?",
+        "meaning": "Parent segment engaged",
+        "weight": "high"
+      },
+      {
+        "signal": "Наконец-то понятно, зачем print()",
+        "meaning": "Content value confirmed",
+        "weight": "medium"
+      }
+    ],
+    "negative_indicators": [
+      {
+        "signal": "Прикольно, но я не буду пробовать",
+        "meaning": "Interest ≠ commitment",
+        "weight": "high"
+      },
+      {
+        "signal": "Это для детей?",
+        "meaning": "Adult segment may reject",
+        "weight": "medium"
+      },
+      {
+        "signal": "Зачем платить, если есть бесплатное?",
+        "meaning": "Value differentiation weak",
+        "weight": "high"
+      },
+      {
+        "signal": "Не понял, для кого это",
+        "meaning": "Positioning unclear",
+        "weight": "high"
+      },
+      {
+        "signal": "Скучно, бросил на первом уроке",
+        "meaning": "Content engagement failed",
+        "weight": "critical"
+      }
+    ]
+  },
+
+  "segment_validation_criteria": {
+    "teenagers": {
+      "minimum_engagement_signals": 5,
+      "validation_indicators": [
+        "Sharing with friends",
+        "Questions about characters",
+        "Excitement about final game",
+        "Completing all 3 demo lessons"
+      ]
+    },
+    "parents": {
+      "minimum_engagement_signals": 3,
+      "validation_indicators": [
+        "Price inquiries",
+        "Questions about educational value",
+        "Concerns about age appropriateness",
+        "Asking about sibling/friend deals"
+      ]
+    },
+    "adult_beginners": {
+      "minimum_engagement_signals": 5,
+      "validation_indicators": [
+        "Questions about curriculum depth",
+        "Time commitment questions",
+        "Career relevance questions",
+        "Comparison to other courses"
+      ]
+    },
+    "dropped_before": {
+      "minimum_engagement_signals": 3,
+      "validation_indicators": [
+        "Sharing past struggles",
+        "This is what I needed responses",
+        "Completing all demos",
+        "Emotional engagement"
+      ]
+    }
+  },
+
+  "offer_performance_criteria": {
+    "offer_1_gaming": {
+      "expected_best_segment": "teenagers_parents",
+      "success_rate_threshold": 15,
+      "pivot_trigger": "too_childish_feedback_over_30_percent"
+    },
+    "offer_2_dropped": {
+      "expected_best_segment": "dropped_before",
+      "success_rate_threshold": 12,
+      "pivot_trigger": "negative_tone_feedback_over_20_percent"
+    },
+    "offer_3_adult": {
+      "expected_best_segment": "adult_beginners_ai",
+      "success_rate_threshold": 12,
+      "pivot_trigger": "not_serious_enough_feedback_over_25_percent"
+    }
+  },
+
+  "pricing_validation": {
+    "test_prices": [19, 29, 39, 49],
+    "acceptable_range": {
+      "min": 19,
+      "max": 49,
+      "target": 39
+    },
+    "signals": {
+      "strong": "40%+ willing at €39",
+      "acceptable": "25-40% willing at €39",
+      "concerning": "15-25% willing at €39",
+      "critical": "< 15% willing at €39"
+    }
+  },
+
+  "decision_framework": {
+    "go": {
+      "description": "Proceed with early access sales",
+      "next_actions": [
+        "Build simple payment page (Stripe)",
+        "Deliver content via email/Telegram",
+        "Set €19-29 early access price",
+        "Use revenue to fund platform",
+        "Timeline: 2 weeks to first sale"
+      ]
+    },
+    "soft_go": {
+      "description": "Extend validation, refine approach",
+      "next_actions": [
+        "Run 1 more week with refined positioning",
+        "Consider €9-19 early bird test",
+        "Focus on best performing segment",
+        "Address top 3 objections",
+        "Timeline: 3 weeks to decision"
+      ]
+    },
+    "pivot": {
+      "description": "Change hypothesis and retest",
+      "next_actions": [
+        "Define new positioning based on feedback",
+        "Create new landing variant",
+        "Run 1 week sprint with new angle",
+        "Re-evaluate with new criteria",
+        "Timeline: 1 week to new test"
+      ]
+    },
+    "no_go": {
+      "description": "Market not responding",
+      "next_actions": [
+        "Document all learnings",
+        "Open-source demo lessons",
+        "Thank community supporters",
+        "Archive project",
+        "Timeline: 2 days to close"
+      ]
+    }
+  },
+
+  "tracking_requirements": {
+    "quantitative_metrics": [
+      "landing_page_views",
+      "email_signups",
+      "email_capture_rate",
+      "demo_lessons_sent",
+      "demo_lesson_opens",
+      "demo_lesson_clicks",
+      "survey_responses",
+      "would_pay_yes",
+      "would_pay_maybe",
+      "would_pay_no",
+      "price_inquiries_organic",
+      "community_post_views",
+      "community_post_comments",
+      "community_post_upvotes"
+    ],
+    "qualitative_data": [
+      "objections_raised",
+      "positive_feedback_themes",
+      "segment_self_identification",
+      "feature_requests",
+      "pricing_feedback"
+    ]
+  },
+
+  "daily_checkpoints": {
+    "minimum_viable_day": {
+      "views": 10,
+      "engagement_actions": 2,
+      "time_invested": "2 hours"
+    },
+    "good_day": {
+      "views": 30,
+      "email_signups": 3,
+      "engagement_actions": 5,
+      "time_invested": "3 hours"
+    },
+    "excellent_day": {
+      "views": 50,
+      "email_signups": 5,
+      "meaningful_conversations": 3,
+      "time_invested": "4 hours"
+    }
+  },
+
+  "post_test_analysis_template": {
+    "executive_summary": "",
+    "final_decision": "",
+    "metrics_summary": {
+      "landing_views": 0,
+      "email_signups": 0,
+      "capture_rate": 0,
+      "demo_completions": 0,
+      "would_pay_percent": 0
+    },
+    "segment_breakdown": {
+      "teenagers": {"count": 0, "engagement": "", "feedback": ""},
+      "parents": {"count": 0, "engagement": "", "feedback": ""},
+      "adult_beginners": {"count": 0, "engagement": "", "feedback": ""},
+      "dropped_before": {"count": 0, "engagement": "", "feedback": ""},
+      "ai_beginners": {"count": 0, "engagement": "", "feedback": ""}
+    },
+    "offer_performance": {
+      "offer_1": {"impressions": 0, "clicks": 0, "signups": 0},
+      "offer_2": {"impressions": 0, "clicks": 0, "signups": 0},
+      "offer_3": {"impressions": 0, "clicks": 0, "signups": 0}
+    },
+    "top_objections": [],
+    "top_positive_signals": [],
+    "unexpected_findings": [],
+    "recommended_next_steps": []
+  },
+
+  "notes": "These criteria are hypotheses to be validated. Adjust based on early signals. The goal is to make a decision, not to hit arbitrary numbers."
+}

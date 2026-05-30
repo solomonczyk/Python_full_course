@@ -15,6 +15,7 @@ import ConnectionToGameBlock from '../components/ConnectionToGameBlock'
 import PredictOutputBlock from '../components/PredictOutputBlock'
 import FindBugBlock from '../components/FindBugBlock'
 import SyntaxReminderBlock from '../components/SyntaxReminderBlock'
+import VariableBoxBlock from '../components/VariableBoxBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -108,6 +109,11 @@ export default function LessonPage({ lessons }: Props) {
         code={lesson.explanation.code_example}
         output={lesson.explanation.output}
       />
+
+      {/* Variable demo — visual boxes */}
+      {lesson.variable_demo && (
+        <VariableBoxBlock boxes={lesson.variable_demo} title="Как это выглядит" />
+      )}
 
       {/* Syntax reminder */}
       {lesson.syntax_reminder && (

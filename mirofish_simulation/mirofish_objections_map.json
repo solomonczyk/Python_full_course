@@ -1,0 +1,259 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "description": "Objection mapping for Python Quest based on segment analysis and offer positioning. Contains anticipated objections and prepared responses.",
+  "objections_by_segment": {
+    "teenagers": {
+      "primary_objections": [
+        {
+          "objection": "Звучит как очередной скучный курс под видом игры",
+          "context": "Skepticism from previous 'gamified' education experiences",
+          "severity": "medium",
+          "response": "Show actual gameplay code early; demonstrate that game is real output of real code learning",
+          "prevention": "Lead with concrete code example, not story promise"
+        },
+        {
+          "objection": "Мне это не нужно, я не собираюсь быть программистом",
+          "context": "No career motivation, pure curiosity or parent pressure",
+          "severity": "medium",
+          "response": "Position as 'understand how games work' not career prep; appeal to curiosity",
+          "prevention": "Offer A emphasizes adventure, not career"
+        },
+        {
+          "objection": "Я уже пробовал Python и бросил",
+          "context": "Previous negative experience with coding",
+          "severity": "high",
+          "response": "Acknowledge and pivot to Offer D positioning",
+          "prevention": "Early funnel segmentation"
+        }
+      ],
+      "price_objections": [
+        {
+          "objection": "Родители не купят",
+          "context": "No purchasing power, dependent on parents",
+          "severity": "high",
+          "response": "Create parent-facing materials; offer parent trial",
+          "prevention": "Dual-track landing (teen vs parent version)"
+        }
+      ]
+    },
+    "parents": {
+      "primary_objections": [
+        {
+          "objection": "Это просто игра, а не настоящее обучение",
+          "context": "Perception that game = entertainment, not education",
+          "severity": "high",
+          "response": "Show curriculum alignment with Python fundamentals; display learning outcomes vs other courses",
+          "prevention": "Offer B explicitly mentions 'учится программировать'"
+        },
+        {
+          "objection": "Ребёнок и так много времени проводит за играми",
+          "context": "Concern about screen time and gaming addiction",
+          "severity": "medium",
+          "response": "Reframe as 'productive screen time'; emphasize active creation vs passive consumption",
+          "prevention": "Messaging: 'не играй — создавай'"
+        },
+        {
+          "objection": "А если ребёнок бросит на полпути как всегда?",
+          "context": "Past experience with abandoned courses/hobbies",
+          "severity": "high",
+          "response": "Highlight spaced repetition, character support, clear milestones; offer progress guarantee",
+          "prevention": "Emphasize completion support in materials"
+        },
+        {
+          "objection": "Почему этот курс лучше бесплатных на Stepik/YouTube?",
+          "context": "Comparison with free alternatives",
+          "severity": "high",
+          "response": "Guided journey vs self-study; character support vs solo learning; structured outcome vs scattered videos",
+          "prevention": "Clear differentiation messaging early"
+        }
+      ],
+      "price_objections": [
+        {
+          "objection": "49€ — это дорого для онлайн-курса",
+          "context": "Price sensitivity, comparison with cheaper alternatives",
+          "severity": "medium",
+          "response": "Break down to per-lesson cost; compare to tutor hourly rate; emphasize final project value",
+          "prevention": "Offer payment plan or分期付款 option"
+        },
+        {
+          "objection": "А если не понравится — деньги вернёте?",
+          "context": "Risk aversion, uncertainty about fit",
+          "severity": "medium",
+          "response": "Offer refund after first chapter if not engaged; free demo reduces this risk",
+          "prevention": "Prominent free demo lessons"
+        }
+      ]
+    },
+    "adult_beginners": {
+      "primary_objections": [
+        {
+          "objection": "Слишком детский формат с персонажами",
+          "context": "Perception that characters/story = for kids",
+          "severity": "CRITICAL",
+          "response": "Offer C.2 without 'игра'; emphasize 'no dry theory' and practical project; show adult testimonials",
+          "prevention": "Dual positioning strategy; adult landing page variant"
+        },
+        {
+          "objection": "Я лучше возьму 'серьёзный' курс на Coursera/Stepik",
+          "context": "Preference for 'professional' format despite being beginner",
+          "severity": "high",
+          "response": "Acknowledge then challenge: 'serious courses often fail beginners'; offer trial comparison",
+          "prevention": "Target messaging: 'for adults who struggled with serious courses'"
+        },
+        {
+          "objection": "Консольная игра — это не тот результат, который мне нужен",
+          "context": "Expected outcome is 'real' application, web, or data science",
+          "severity": "high",
+          "response": "Position as foundation; console game teaches transferable patterns; next course builds on this",
+          "prevention": "Clear learning path visualization: Quest → Web → Data/AI"
+        },
+        {
+          "objection": "У меня нет времени на длинный курс",
+          "context": "Time-constrained adults",
+          "severity": "medium",
+          "response": "Modular structure; 15-20 min lessons; mobile-friendly; 'one lesson per day' framing",
+          "prevention": "Emphasize bite-sized lessons in messaging"
+        }
+      ],
+      "price_objections": [
+        {
+          "objection": "За 49€ я лучше куплю книгу + найду бесплатные задачи",
+          "context": "Self-study confidence, price comparison",
+          "severity": "medium",
+          "response": "Value of guided path, error correction, spaced repetition; time savings vs self-study",
+          "prevention": "ROI framing: 'save weeks of confusion'"
+        },
+        {
+          "objection": "Если для работы — пусть работодатель платит",
+          "context": "Expecting employer-sponsored education",
+          "severity": "low",
+          "response": "Position as personal investment; career switching/transitions often self-funded",
+          "prevention": "Target independent learners not corporate training"
+        }
+      ]
+    },
+    "dropped_before": {
+      "primary_objections": [
+        {
+          "objection": "Я уже пробовал 5 курсов и все бросил — почему этот будет другим?",
+          "context": "Deep skepticism from repeated failure",
+          "severity": "CRITICAL",
+          "response": "Offer D acknowledges pain directly; different format (story vs lecture); try free demo to prove",
+          "prevention": "Lead with empathy and difference, not features"
+        },
+        {
+          "objection": "Ошибки и отступы всё равно будут меня сбивать с толку",
+          "context": "Fear of technical frustrations",
+          "severity": "high",
+          "response": "Bugus character normalizes errors; visual reminders; support system",
+          "prevention": "Show error-handling approach in demo"
+        },
+        {
+          "objection": "Я не уверен что смогу дойти до конца",
+          "context": "Low self-efficacy from past failures",
+          "severity": "high",
+          "response": "Small wins design; chapter milestones; visible progress; community support",
+          "prevention": "Emphasize completion support and bite-sized goals"
+        }
+      ],
+      "price_objections": [
+        {
+          "objection": "Я уже потратил деньги на курсы которые не закончил",
+          "context": "Financial loss aversion from past purchases",
+          "severity": "high",
+          "response": "Free demo reduces risk; satisfaction guarantee; 'this one works different'",
+          "prevention": "Prominent free tier; pay-after-completion option"
+        }
+      ]
+    },
+    "ai_beginners": {
+      "primary_objections": [
+        {
+          "objection": "Мне нужен Python для AI — зачем мне консольная игра?",
+          "context": "Mismatch between learning method and end goal",
+          "severity": "high",
+          "response": "Foundation first; game teaches logic, data structures, control flow — all needed for AI; stepping stone framing",
+          "prevention": "Clear learning path: Quest → Data Basics → ML Intro"
+        },
+        {
+          "objection": "Я хочу сразу нейросети, а не базовый Python",
+          "context": "Impatience, hype-driven expectations",
+          "severity": "medium",
+          "response": "Reality check: all AI/ML courses assume basic Python; skipping foundation = failure; faster path is solid foundation",
+          "prevention": "Honest messaging: 'no shortcuts, but faster than failing'"
+        },
+        {
+          "objection": "Почему не взять курс который сразу Python + AI?",
+          "context": "Bundled course preference",
+          "severity": "medium",
+          "response": "Those courses rush basics; you'll struggle later; solid foundation = faster AI learning",
+          "prevention": "Testimonial: 'I tried combined courses and was lost'"
+        }
+      ],
+      "price_objections": [
+        {
+          "objection": "AI-курсы стоят дороже — значит этот слишком простой?",
+          "context": "Price-quality inference",
+          "severity": "medium",
+          "response": "Price reflects scope, not quality; foundation courses should cost less than advanced AI courses",
+          "prevention": "Clear scope communication"
+        }
+      ]
+    },
+    "skeptics": {
+      "primary_objections": [
+        {
+          "objection": "Персонажи и сюжет — это несерьёзно для программирования",
+          "context": "Fundamental rejection of narrative learning",
+          "severity": "high",
+          "response": "Cognitive science supports story-based learning; engagement = retention; results speak",
+          "prevention": "Not a target segment — use for positioning refinement"
+        },
+        {
+          "objection": "Настоящее программирование не про игры и персонажей",
+          "context": "Professional identity resistance",
+          "severity": "medium",
+          "response": "Agree: real programming is problem-solving; this teaches those skills in accessible way",
+          "prevention": "Acknowledge then reframe"
+        },
+        {
+          "objection": "Это звучит как очередной образовательный стартап который закроется через год",
+          "context": "Skepticism about sustainability",
+          "severity": "low",
+          "response": "Open-source materials; community-driven; content quality independent of company",
+          "prevention": "Community-based sustainability messaging"
+        }
+      ]
+    }
+  },
+  "universal_objections": [
+    {
+      "objection": "У меня нет времени",
+      "response": "15-20 min lessons; mobile-friendly; one lesson per day = completion in 2 months",
+      "prevention": "Bite-sized messaging throughout"
+    },
+    {
+      "objection": "Слишком сложно/не для меня",
+      "response": "Zero prerequisites; designed for complete beginners; support system",
+      "prevention": "Explicit 'no experience needed' messaging"
+    },
+    {
+      "objection": "Английский термины — сложно",
+      "response": "Russian explanations; terms introduced gradually; visual references",
+      "prevention": "Show sample lesson with Russian explanations"
+    }
+  ],
+  "objection_handling_priority": [
+    "adult_beginners.too_childish",
+    "dropped_before.already_failed",
+    "parents.just_a_game",
+    "ai_beginners.why_console_game",
+    "universal.no_time"
+  ],
+  "testing_recommendations": {
+    "objection_discovery": "Run open-ended interviews with 5-10 people from each segment before finalizing responses",
+    "response_validation": "A/B test objection responses on landing page",
+    "pricing_objection": "Test payment plan vs discount vs guarantee",
+    "format_objection": "Test adult landing with/without character images"
+  }
+}

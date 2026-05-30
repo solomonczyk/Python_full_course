@@ -1,0 +1,210 @@
+{
+  "status": "PREPARED_NOT_EXECUTED",
+  "description": "This file contains the offer testing framework and expected test scenarios. No actual test results are present as no simulation or real-world testing has been executed.",
+  "offer_variants": {
+    "A": {
+      "name": "Gaming Angle",
+      "text": "Изучи Python с нуля через сюжетное приключение и собери свою первую консольную игру — 'Побег из Башни Багуса'.",
+      "positioning": "Adventure → Skill → Game",
+      "target_segments": ["teenagers", "parents", "dropped_before"],
+      "test_metrics": {
+        "ctr_ad": null,
+        "email_capture_rate": null,
+        "willingness_to_pay": null,
+        "objections_raised": []
+      },
+      "expected_results": {
+        "teenagers": {
+          "predicted_reception": "strong",
+          "predicted_ctr": "high",
+          "key_appeal": "game creation, characters, adventure format"
+        },
+        "parents": {
+          "predicted_reception": "medium_strong",
+          "predicted_ctr": "medium_high",
+          "key_appeal": "engagement mechanism, visible result (game)",
+          "concern": "educational value perception"
+        },
+        "dropped_before": {
+          "predicted_reception": "medium",
+          "predicted_ctr": "medium",
+          "key_appeal": "different approach from failed courses"
+        }
+      }
+    },
+    "B": {
+      "name": "For Parents",
+      "text": "Python-курс для подростков, где ребёнок учится программировать через персонажей, миссии, ошибки и финальный игровой проект.",
+      "positioning": "Education that doesn't feel like education",
+      "target_segments": ["parents", "teenagers"],
+      "test_metrics": {
+        "ctr_ad": null,
+        "email_capture_rate": null,
+        "willingness_to_pay": null,
+        "objections_raised": []
+      },
+      "expected_results": {
+        "parents": {
+          "predicted_reception": "strong",
+          "predicted_ctr": "high",
+          "key_appeal": "structured learning through engagement",
+          "concern": "price vs other courses"
+        },
+        "teenagers": {
+          "predicted_reception": "strong",
+          "predicted_ctr": "high",
+          "key_appeal": "characters, missions, not boring"
+        }
+      }
+    },
+    "C": {
+      "name": "Adult Beginners",
+      "text": "Python с нуля без сухой теории: понятные объяснения, практика, повторение и финальный проект — собственная консольная игра.",
+      "positioning": "No dry theory + practical project",
+      "target_segments": ["adult_beginners", "ai_beginners"],
+      "variants_to_test": [
+        "C.1_original_with_игра",
+        "C.2_no_игра_word",
+        "C.3_project_focused"
+      ],
+      "test_metrics": {
+        "ctr_ad": null,
+        "email_capture_rate": null,
+        "willingness_to_pay": null,
+        "objections_raised": []
+      },
+      "expected_results": {
+        "adult_beginners": {
+          "predicted_reception": "split",
+          "predicted_ctr": "medium",
+          "key_appeal": "no dry theory, practical project",
+          "major_risk": "игра word triggers 'childish' perception",
+          "variant_c.2_prediction": "higher conversion without 'игра'"
+        },
+        "ai_beginners": {
+          "predicted_reception": "medium",
+          "predicted_ctr": "medium",
+          "key_appeal": "foundation for AI/automation",
+          "concern": "may prefer 'serious' course despite needing basics"
+        }
+      }
+    },
+    "D": {
+      "name": "Through Pain of Errors",
+      "text": "Если ты уже бросал Python из-за ошибок, отступов и непонятных задач — этот курс ведёт шаг за шагом: объяснение, практика, повторение и поддержка.",
+      "positioning": "For people who 'failed' before",
+      "target_segments": ["dropped_before", "adult_beginners"],
+      "test_metrics": {
+        "ctr_ad": null,
+        "email_capture_rate": null,
+        "willingness_to_pay": null,
+        "objections_raised": []
+      },
+      "expected_results": {
+        "dropped_before": {
+          "predicted_reception": "very_strong",
+          "predicted_ctr": "very_high",
+          "key_appeal": "acknowledges their pain, promises different approach",
+          "conversion_driver": "recognition of past struggle"
+        },
+        "adult_beginners": {
+          "predicted_reception": "medium_strong",
+          "predicted_ctr": "medium_high",
+          "key_appeal": "fear of failure addressed proactively"
+        }
+      }
+    },
+    "E": {
+      "name": "AI Direction",
+      "text": "Освой базовый Python, чтобы увереннее двигаться в AI, автоматизации, API и работе с кодом — через понятный сюжетный курс с практикой.",
+      "positioning": "Stepping stone to AI career",
+      "target_segments": ["ai_beginners", "adult_beginners"],
+      "test_metrics": {
+        "ctr_ad": null,
+        "email_capture_rate": null,
+        "willingness_to_pay": null,
+        "objections_raised": []
+      },
+      "expected_results": {
+        "ai_beginners": {
+          "predicted_reception": "medium_strong",
+          "predicted_ctr": "medium_high",
+          "key_appeal": "clear career outcome justifies learning method",
+          "concern": "may want 'professional' course despite needing basics"
+        },
+        "adult_beginners": {
+          "predicted_reception": "medium",
+          "predicted_ctr": "medium",
+          "key_appeal": "AI motivation",
+          "concern": "AI goal may be too ambitious vs course level"
+        }
+      }
+    }
+  },
+  "test_scenarios": [
+    {
+      "scenario": "A_vs_B_for_parents",
+      "question": "Which offer converts parents better?",
+      "method": "A/B test on parent community ads",
+      "expected_winner": "B",
+      "rationale": "Explicitly addresses parent concerns and outcomes"
+    },
+    {
+      "scenario": "A_vs_C_for_adults",
+      "question": "Does игра word hurt adult conversion?",
+      "method": "A/B test with C.1 vs C.2",
+      "expected_winner": "C.2 (without игра)",
+      "rationale": "Adult beginners may perceive 'game' as childish despite project value"
+    },
+    {
+      "scenario": "D_vs_all_for_dropped",
+      "question": "Does acknowledging pain outperform generic positioning?",
+      "method": "Test D against A/B/C in 'struggled with Python' communities",
+      "expected_winner": "D",
+      "rationale": "Recognition of shared experience creates trust"
+    },
+    {
+      "scenario": "E_vs_C_for_ai",
+      "question": "Does career framing outperform 'no dry theory'?",
+      "method": "Test E vs C in AI/prompt communities",
+      "expected_winner": "E",
+      "rationale": "Career-motivated learners need outcome justification"
+    }
+  ],
+  "offer_segment_matrix": {
+    "teenagers": {
+      "best_fit": "A",
+      "secondary": "B",
+      "avoid": "E"
+    },
+    "parents": {
+      "best_fit": "B",
+      "secondary": "A",
+      "avoid": "D"
+    },
+    "adult_beginners": {
+      "best_fit": "C.2 (no игра)",
+      "secondary": "D",
+      "test": "E"
+    },
+    "dropped_before": {
+      "best_fit": "D",
+      "secondary": "A",
+      "avoid": "B"
+    },
+    "ai_beginners": {
+      "best_fit": "E",
+      "secondary": "C",
+      "test": "Dual positioning"
+    }
+  },
+  "metrics_to_collect": [
+    "Click-through rate (CTR) on ad/landing",
+    "Email capture rate",
+    "Stated willingness to pay (survey)",
+    "Time-to-conversion (discovery to signup)",
+    "Objections raised (qualitative)",
+    "Segment self-identification (if applicable)",
+    "Price point acceptance rate"
+  ]
+}

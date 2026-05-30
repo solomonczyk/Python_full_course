@@ -112,6 +112,7 @@ export interface Lesson extends LessonSummary {
   connection_to_game?: string
   story_placement?: string
   syntax_reminder?: SyntaxReminder
+  variable_demo?: import('../components/VariableBoxBlock').VariableBox[][]
   explanation: {
     text: string
     character: Character
