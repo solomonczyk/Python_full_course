@@ -32,9 +32,9 @@ export default function MiniGamePage() {
         return <EscapeBagusTowerGame onComplete={handleGameComplete} />
       default:
         return (
-          <div className="text-center text-error p-6 bg-white rounded-2xl border border-outline-variant">
+          <div className="text-center p-6 rounded-xl" style={{ background: '#1a1924', border: '1px solid rgba(255,107,107,0.3)', color: '#ff6b6b' }}>
             <span className="material-symbols-outlined text-5xl mb-2">error</span>
-            <p>Испытание не найдено</p>
+            <p>Challenge not found</p>
           </div>
         )
     }
@@ -43,17 +43,18 @@ export default function MiniGamePage() {
   return (
     <div className="w-full max-w-[800px] flex flex-col gap-6 animate-fade-in">
       {/* Header bar */}
-      <section className="flex items-center justify-between py-2 border-b border-outline-variant/30">
+      <section className="flex items-center justify-between py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.15)' }}>
         <button
           onClick={() => navigate('/')}
-          className="flex items-center gap-1.5 text-on-surface-variant hover:text-secondary font-sans text-[14px] font-bold transition-colors"
+          className="flex items-center gap-1.5 text-xs font-bold transition-all hover:scale-105"
+          style={{ color: '#9b98a8' }}
         >
-          <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-          <span>На карту курса</span>
+          <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_back</span>
+          <span>Back to Course</span>
         </button>
-        <div className="flex items-center gap-1.5 font-sans text-[13px] font-bold text-secondary uppercase tracking-wider">
+        <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider" style={{ color: '#00d4aa' }}>
           <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>stadia_controller</span>
-          <span>Часть {part} · Мини-игра</span>
+          <span>Part {part} · Mini-Game</span>
         </div>
       </section>
 
