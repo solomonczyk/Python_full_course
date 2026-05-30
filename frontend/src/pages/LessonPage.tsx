@@ -255,18 +255,7 @@ export default function LessonPage({ lessons }: Props) {
       {/* Find Bug */}
       {lesson.find_bug && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <SteampunkCard accentColor="rgba(255,107,107,0.2)">
-            <div className="flex items-center gap-2.5 mb-3">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-sm" style={{ background: '#ff6b6b', color: '#0f0e17' }}>
-                ⚠️
-              </div>
-              <div>
-                <div className="text-xs font-bold" style={{ color: '#ff6b6b' }}>Glitch's Trap!</div>
-                <div className="text-[10px]" style={{ color: '#9b98a8' }}>A chaotic error has appeared...</div>
-              </div>
-            </div>
-            <FindBugBlock findBug={lesson.find_bug} />
-          </SteampunkCard>
+          <FindBugBlock findBug={lesson.find_bug} />
 
           {/* Connection to game or mini-summary */}
           {lesson.connection_to_game && (
