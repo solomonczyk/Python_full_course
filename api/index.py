@@ -251,6 +251,40 @@ def check_mission(body: MissionSubmit) -> dict[str, Any]:
         except Exception:
             pass
 
+# ── routes: reviews ─────────────────────────────────────────────────────
+_REVIEWS_FILE = _HERE / "app" / "data" / "review_schedule.json"
+
+def _load_reviews() -> dict:
+    if not _REVIEWS_FILE.exists():
+        return {"total_reviews": 0, "reviews": []}
+    with open(_REVIEWS_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+@app.get("/reviews")
+def list_reviews() -> list[dict[str, Any]]:
+    data = _load_reviews()
+    results = []
+    for r in data.get("reviews", []):
+        results.append({
+            "id": r["id"],
+            "type": r["type"],
+            "title": r["title"],
+            "subtitle": r["subtitle"],
+            "position_after": r["position_after"],
+            "part": r["part"],
+            "chapter": r["chapter"],
+            "topics": r["topics"],
+        })
+    return results
+
+@app.get("/reviews/{review_id}")
+def get_review(review_id: str) -> dict[str, Any]:
+    data = _load_reviews()
+    for r in data.get("reviews", []):
+        if r["id"] == review_id:
+            return r
+    raise HTTPException(status_code=404, detail=f"Review {review_id} not found")
+
 # ── AI chat ────────────────────────────────────────────────────────────────
 _AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")
 _AI_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
