@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
+import { useProgressContext } from '../hooks/ProgressContext'
 
 interface Props {
   lessons: LessonSummary[]
@@ -20,6 +21,7 @@ const PART_LABELS: Record<number, string> = {
 export default function Sidebar({ lessons, progress, open, onClose }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
+  const { isLessonUnlocked } = useProgressContext()
   const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
   const activeId = match ? match[1] : undefined
   const activeLesson = activeId ? lessons.find(l => l.id === activeId) : null
@@ -50,7 +52,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
   }
 
   const goToContinue = () => {
-    const firstIncomplete = lessons.find(l => !progress[l.id]?.completed && !l.locked)
+    const firstIncomplete = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons))
     if (firstIncomplete) {
       onClose()
       navigate(`/lesson/${firstIncomplete.id}`)

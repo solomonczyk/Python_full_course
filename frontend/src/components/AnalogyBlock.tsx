@@ -1,30 +1,5 @@
 import type { Character } from '../types'
-
-interface Props {
-  analogy: {
-    title: string
-    story_metaphor: string
-    python_mapping: string
-    key_rule: string
-  }
-  character: Character
-}
-
-const CHAR_COLORS: Record<string, string> = {
-  ksyu: '#74B9FF',
-  va: '#A29BFE',
-  da: '#28A745',
-  bagus: '#FF7675',
-  novice: '#9b98a8',
-}
-
-const CHAR_NAMES: Record<string, string> = {
-  ksyu: 'Ксю',
-  va: 'Ва',
-  da: 'Да',
-  bagus: 'Багус',
-  novice: 'Новичок',
-}
+import CharacterAvatar from './CharacterAvatar'
 
 /** Renders text with backtick-delimited code highlighted in a different color/size */
 function renderCode(text: string, codeColor: string, baseColor: string, codeSize?: string): React.ReactNode[] {
@@ -51,8 +26,6 @@ function renderCode(text: string, codeColor: string, baseColor: string, codeSize
 }
 
 export default function AnalogyBlock({ analogy, character }: Props) {
-  const color = CHAR_COLORS[character] ?? '#74B9FF'
-
   return (
     <div className="space-y-3">
       {/* Title */}
@@ -63,12 +36,7 @@ export default function AnalogyBlock({ analogy, character }: Props) {
 
       {/* Story metaphor — character delivers the analogy */}
       <div className="flex gap-3 items-start">
-        <div
-          className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5"
-          style={{ background: color, color: '#0f0e17' }}
-        >
-          {CHAR_NAMES[character]?.[0] ?? '?'}
-        </div>
+        <CharacterAvatar character={character} size="sm" />
         <p className="text-xs leading-relaxed">
           {renderCode(analogy.story_metaphor, '#00d4aa', '#e8e6f0')}
         </p>

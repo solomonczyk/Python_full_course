@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress, ReviewSummary } from '../types'
 import CharacterAvatar from '../components/CharacterAvatar'
 import CharacterIntroSection from '../components/CharacterIntroSection'
+import { useProgressContext } from '../hooks/ProgressContext'
 
 const BASE = '/api'
 
@@ -20,6 +21,7 @@ const PART_LABELS: Record<number, { label: string; icon: string }> = {
 
 export default function HomePage({ lessons, progress }: Props) {
   const navigate = useNavigate()
+  const { isLessonUnlocked } = useProgressContext()
   const total = lessons.length
   const done = Object.values(progress).filter((p) => p.completed).length
   const [reviews, setReviews] = useState<ReviewSummary[]>([])
@@ -70,7 +72,7 @@ export default function HomePage({ lessons, progress }: Props) {
                 The Tower hums with a new frequency today. Your mastery of Variable crystals has stabilized the lower wards. Part 3 awaits with its branching paths of logic.
               </p>
               <div className="flex gap-3 mt-4">
-                <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && !l.locked); if (next) navigate(`/lesson/${next.id}`) }}
+                <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
                   className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none" style={{ background: '#00d4aa', color: '#0f0e17' }}>
                   Continue Quest
                 </button>
@@ -128,7 +130,7 @@ export default function HomePage({ lessons, progress }: Props) {
                   boxShadow: isCurrent ? '0 0 20px rgba(0,212,170,0.15)' : 'none',
                   opacity: isLocked ? 0.5 : 1,
                 }}
-                onClick={() => { if (!isLocked) { const first = lessons.find(l => l.part === part && !l.locked); if (first) navigate(`/lesson/${first.id}`) } }}
+                onClick={() => { if (!isLocked) { const first = lessons.find(l => l.part === part && isLessonUnlocked(l.id, lessons)); if (first) navigate(`/lesson/${first.id}`) } }}
               >
                 <div className="h-[100px] flex items-center justify-center text-3xl" style={{
                   background: isCurrent ? 'linear-gradient(135deg, rgba(0,212,170,0.2), rgba(201,162,39,0.1))' : 'linear-gradient(135deg, #2a1a3a, #1a2a3a)',
