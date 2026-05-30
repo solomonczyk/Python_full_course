@@ -4,12 +4,20 @@ interface Props {
 
 export default function GameRelevanceBlock({ text }: Props) {
   return (
-    <section className="bg-primary-container rounded-2xl p-6 border-l-8 border-action-da shadow-sm">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="material-symbols-outlined text-primary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>stadia_controller</span>
-        <h3 className="font-display text-[20px] font-bold text-on-primary-container">Связь с финальной игрой</h3>
+    <div
+      className="rounded-xl p-4"
+      style={{
+        background: 'rgba(0,212,170,0.08)',
+        border: '1px solid rgba(0,212,170,0.2)',
+      }}
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <span className="material-symbols-outlined text-sm" style={{ color: '#00d4aa', fontVariationSettings: "'FILL' 1" }}>stadia_controller</span>
+        <h3 className="text-xs font-bold" style={{ color: '#00d4aa' }}>Связь с финальной игрой</h3>
       </div>
-      <p className="font-sans text-[15px] leading-[22px] text-on-primary-container text-opacity-85">{text}</p>
-    </section>
+      <p className="text-xs leading-relaxed font-medium" style={{ color: '#e8e6f0' }}>
+        {text}
+      </p>
+    </div>
   )
 }

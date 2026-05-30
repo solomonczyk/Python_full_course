@@ -4,12 +4,20 @@ interface Props {
 
 export default function ConnectionToGameBlock({ text }: Props) {
   return (
-    <section className="bg-secondary-container rounded-2xl p-6 border-l-8 border-secondary shadow-sm">
-      <div className="flex items-center gap-3 mb-3">
-        <span className="material-symbols-outlined text-secondary text-2xl" style={{ fontVariationSettings: "'FILL' 1" }}>flag</span>
-        <h3 className="font-display text-[20px] font-bold text-on-secondary-container">🚀 В финальной игре</h3>
+    <div
+      className="rounded-xl p-4"
+      style={{
+        background: 'rgba(0,212,170,0.08)',
+        border: '1px solid rgba(0,212,170,0.2)',
+      }}
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <span className="material-symbols-outlined text-sm" style={{ color: '#00d4aa', fontVariationSettings: "'FILL' 1" }}>flag</span>
+        <h3 className="text-xs font-bold" style={{ color: '#00d4aa' }}>В финальной игре</h3>
       </div>
-      <p className="font-sans text-[15px] leading-[22px] text-on-secondary-container text-opacity-85">{text}</p>
-    </section>
+      <p className="text-xs leading-relaxed font-medium" style={{ color: '#e8e6f0' }}>
+        {text}
+      </p>
+    </div>
   )
 }
