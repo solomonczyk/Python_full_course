@@ -67,6 +67,20 @@ npm run dev
 
 Фронтенд на `http://localhost:5173` — запросы к API проксируются через Vite на порт 8000.
 
+## Переменные окружения
+
+| Переменная | Где используется | Описание |
+|---|---|---|
+| `DB_PATH` | api/index.py, backend | Путь к SQLite файлу (по умолчанию `/tmp/progress.db`) |
+| `ALLOWED_ORIGIN` | api/index.py | Дополнительный разрешённый origin для CORS |
+| `PRODUCTION_ORIGIN` | api/index.py | Production домен для CORS в Vercel |
+| `DEEPSEEK_API_KEY` | api/index.py | Ключ DeepSeek API для AI-чата (опционально) |
+| `DEEPSEEK_API_ENDPOINT` | api/index.py | URL DeepSeek API (по умолчанию — официальный) |
+
+### Примечание по хранению прогресса
+
+На Vercel SQLite хранится в `/tmp` и сбрасывается при cold start. Прогресс сохраняется в localStorage браузера как резервная копия. Для production рекомендуется подключить Vercel KV (Upstash Redis) через переменную `DATABASE_URL`.
+
 ## API эндпоинты
 
 | Метод | Путь | Описание |

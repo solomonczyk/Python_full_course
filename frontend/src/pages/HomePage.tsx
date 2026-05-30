@@ -147,8 +147,24 @@ export default function HomePage({ lessons, progress }: Props) {
                     <p className="font-sans text-[15px] leading-[22px] text-on-surface-variant">
                       {lesson.subtitle}
                     </p>
-                    <div className="mt-3 inline-block bg-surface-container px-2 py-0.5 rounded-full font-mono text-[12px] text-on-surface-variant">
-                      {lesson.topic}
+                    <div className="mt-3 flex items-center gap-2 flex-wrap">
+                      <span className="inline-block bg-surface-container px-2 py-0.5 rounded-full font-mono text-[12px] text-on-surface-variant">
+                        {lesson.topic}
+                      </span>
+                      <span className={`inline-block px-2 py-0.5 rounded-full font-mono text-[11px]
+                        ${lesson.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
+                          lesson.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                          lesson.difficulty === 'hard' ? 'bg-red-100 text-red-800' :
+                          'bg-purple-100 text-purple-800'}`}>
+                        {lesson.difficulty === 'easy' ? 'лёгкий' :
+                         lesson.difficulty === 'medium' ? 'средний' :
+                         lesson.difficulty === 'hard' ? 'сложный' : 'босс'}
+                      </span>
+                      {lesson.estimated_time_min && (
+                        <span className="text-[12px] text-on-surface-variant">
+                          ~{lesson.estimated_time_min} мин
+                        </span>
+                      )}
                     </div>
                   </button>
                 )

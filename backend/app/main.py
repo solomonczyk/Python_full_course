@@ -1,4 +1,5 @@
 import os
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -6,10 +7,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database import init_db
 from app.routers import lessons, progress, quiz, mission
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+    yield
+
+
 app = FastAPI(
     title="Python Quest API",
     description="Backend for the Python Quest interactive learning course",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 _extra_origin = os.environ.get("ALLOWED_ORIGIN", "")
@@ -31,11 +40,6 @@ app.include_router(lessons.router)
 app.include_router(progress.router)
 app.include_router(quiz.router)
 app.include_router(mission.router)
-
-
-@app.on_event("startup")
-def on_startup() -> None:
-    init_db()
 
 
 @app.get("/")

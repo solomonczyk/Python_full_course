@@ -74,10 +74,18 @@ def _lessons() -> list[dict[str, Any]]:
 app = FastAPI(title="Python Quest API", version="1.0.0")
 
 _extra = os.environ.get("ALLOWED_ORIGIN", "")
+_production_origin = os.environ.get("PRODUCTION_ORIGIN", "")
+_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    *([_extra] if _extra else []),
+    *([_production_origin] if _production_origin else []),
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173", *([_extra] if _extra else [])],
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origins=_origins,
+    allow_origin_regex=r"https://python-full-course.*\.vercel\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )

@@ -54,42 +54,59 @@ export default function CodeBlock({ code, output, filename = 'python-quest.py' }
 }
 
 function highlightLine(line: string): React.ReactNode {
-  const keywordRe = /\b(print|input|if|else|elif|for|while|def|return|in|range|True|False|None|and|or|not|import|from)\b/g
-  const stringRe = /(["'])(?:(?!\1)[^\\]|\\.)*\1/g
+  type Token = { start: number; end: number; color: string }
+  const tokens: Token[] = []
+
+  // 1. Comments (highest priority — match first, prevent other matches inside)
   const commentRe = /#.*/g
-  const numRe = /\b\d+(\.\d+)?\b/g
-
-  type Segment = { text: string; color: string }
-  const segments: Segment[] = []
-  let pos = 0
-
-  const ranges: { start: number; end: number; color: string }[] = []
-
   let m: RegExpExecArray | null
-  const re = new RegExp(`${stringRe.source}|${commentRe.source}|${keywordRe.source}|${numRe.source}`, 'g')
-  while ((m = re.exec(line)) !== null) {
-    const token = m[0]
-    const start = m.index
-    const end = start + token.length
-    let color = 'text-white'
-    if (/^["']/.test(token)) color = 'text-[#ce9178]'
-    else if (/^#/.test(token)) color = 'text-[#6A9955]'
-    else if (/^\d/.test(token)) color = 'text-[#b5cea8]'
-    else color = 'text-[#c586c0]'
-    ranges.push({ start, end, color })
+  while ((m = commentRe.exec(line)) !== null) {
+    // Check the # is not inside a string — handled by ordering (strings matched first below)
+    tokens.push({ start: m.index, end: m.index + m[0].length, color: '#6A9955' })
   }
 
-  for (const range of ranges) {
-    if (pos < range.start) {
-      segments.push({ text: line.slice(pos, range.start), color: 'text-white' })
+  // 2. Strings — triple quotes first, then single/double
+  const strRe = /"""[\s\S]*?"""|'''[\s\S]*?'''|"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/g
+  while ((m = strRe.exec(line)) !== null) {
+    if (!tokens.some(t => m!.index >= t.start && m!.index < t.end)) {
+      tokens.push({ start: m.index, end: m.index + m[0].length, color: '#ce9178' })
     }
-    segments.push({ text: line.slice(range.start, range.end), color: range.color })
-    pos = range.end
-  }
-  if (pos < line.length) {
-    segments.push({ text: line.slice(pos), color: 'text-white' })
   }
 
-  if (segments.length === 0) return <span className="text-white">{line}</span>
-  return segments.map((s, i) => <span key={i} className={s.color}>{s.text}</span>)
+  // 3. Numbers
+  const numRe = /\b\d+(\.\d+)?\b/g
+  while ((m = numRe.exec(line)) !== null) {
+    if (!tokens.some(t => m!.index >= t.start && m!.index < t.end)) {
+      tokens.push({ start: m.index, end: m.index + m[0].length, color: '#b5cea8' })
+    }
+  }
+
+  // 4. Keywords (only outside strings and comments)
+  const kwRe = /\b(print|input|if|else|elif|for|while|def|return|in|range|True|False|None|and|or|not|import|from|class|pass|break|continue|lambda|with|as|try|except|finally|raise|yield|global|nonlocal|del|assert|is)\b/g
+  while ((m = kwRe.exec(line)) !== null) {
+    if (!tokens.some(t => m!.index >= t.start && m!.index < t.end)) {
+      tokens.push({ start: m.index, end: m.index + m[0].length, color: '#c586c0' })
+    }
+  }
+
+  // 5. Function calls (identifier before parenthesis)
+  const funcRe = /\b([a-zA-Z_]\w*)\s*(?=\()/g
+  while ((m = funcRe.exec(line)) !== null) {
+    if (!tokens.some(t => m!.index >= t.start && m!.index < t.end)) {
+      tokens.push({ start: m.index, end: m.index + m[1].length, color: '#dcdcaa' })
+    }
+  }
+
+  // Sort tokens by position
+  tokens.sort((a, b) => a.start - b.start)
+  const segments: { text: string; color: string }[] = []
+  let pos = 0
+  for (const tok of tokens) {
+    if (tok.start > pos) segments.push({ text: line.slice(pos, tok.start), color: '#9cdcfe' })
+    segments.push({ text: line.slice(tok.start, tok.end), color: tok.color })
+    pos = tok.end
+  }
+  if (pos < line.length) segments.push({ text: line.slice(pos), color: '#9cdcfe' })
+  if (segments.length === 0) return <span style={{ color: '#9cdcfe' }}>{line}</span>
+  return segments.map((s, i) => <span key={i} style={{ color: s.color }}>{s.text}</span>)
 }
