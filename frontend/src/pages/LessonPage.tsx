@@ -17,6 +17,7 @@ import PredictOutputBlock from '../components/PredictOutputBlock'
 import FindBugBlock from '../components/FindBugBlock'
 import SyntaxReminderBlock from '../components/SyntaxReminderBlock'
 import VariableBoxBlock from '../components/VariableBoxBlock'
+import CharacterAvatar from '../components/CharacterAvatar'
 import AnalogyBlock from '../components/AnalogyBlock'
 
 interface Props {
@@ -167,12 +168,7 @@ export default function LessonPage({ lessons }: Props) {
         {/* Character explanation card */}
         <SteampunkCard accentColor={`${charColor}33`}>
           <div className="flex items-center gap-2.5 mb-3">
-            <div
-              className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-              style={{ background: `linear-gradient(135deg, ${charColor}, ${charColor}88)`, color: '#0f0e17' }}
-            >
-              {lesson.explanation.character === 'ksyu' ? 'K' : lesson.explanation.character === 'va' ? 'V' : lesson.explanation.character === 'da' ? 'D' : '?'}
-            </div>
+            <CharacterAvatar character={lesson.explanation.character} size="md" />
             <div>
               <div className="text-xs font-bold" style={{ color: charColor }}>
                 {lesson.explanation.character === 'ksyu' ? "Ksyu's Instruction" : lesson.explanation.character === 'va' ? "Va's Logic" : lesson.explanation.character === 'da' ? "Da's Mission" : 'Guide'}
