@@ -125,15 +125,16 @@ export default function PredictOutputBlock({ whatOutputs, onAnswer }: Props) {
           </div>
           <button
             onClick={handleRetry}
-            className="text-xs font-semibold cursor-pointer transition-all hover:opacity-80"
+            className="text-xs font-bold cursor-pointer transition-all hover:scale-105 active:scale-95"
             style={{
-              color: '#c9a227',
-              background: 'none',
+              color: '#0f0e17',
+              background: '#c9a227',
               border: 'none',
-              textDecoration: 'underline dotted',
+              borderRadius: '8px',
+              padding: '6px 14px',
             }}
           >
-            ↻ Попробовать ещё (варианты перемешаны)
+            ↻ Ещё попытка
           </button>
         </div>
       )}
