@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress, ReviewSummary } from '../types'
 import CharacterAvatar from '../components/CharacterAvatar'
-import CharacterIntroSection from '../components/CharacterIntroSection'
 
 const BASE = '/api'
 
@@ -11,11 +10,18 @@ interface Props {
   progress: Record<string, Progress>
 }
 
-const PART_LABELS: Record<number, string> = {
-  1: 'Вход в Python',
-  2: 'Условия и циклы',
-  3: 'Уверенная база Python',
-  4: 'Башня алгоритмов',
+const PART_LABELS: Record<number, { label: string; icon: string }> = {
+  1: { label: 'Rituals', icon: '🔮' },
+  2: { label: 'Alchemy', icon: '⚗️' },
+  3: { label: 'Logic', icon: '⚙️' },
+  4: { label: 'Mastery', icon: '🏰' },
+}
+
+const PART_THEMES: Record<number, string> = {
+  1: 'from-[#1a2a3a] to-[#0f1a2e]',
+  2: 'from-[#2a1a3a] to-[#1a0f2e]',
+  3: 'from-[#1a2a1a] to-[#0f2e1a]',
+  4: 'from-[#2a2a1a] to-[#2e1a0f]',
 }
 
 export default function HomePage({ lessons, progress }: Props) {
@@ -35,144 +41,282 @@ export default function HomePage({ lessons, progress }: Props) {
 
   const parts = Array.from(new Set(lessons.map((l) => l.part))).sort()
 
+  const completedCount = (part: number) =>
+    lessons.filter(l => l.part === part && progress[l.id]?.completed).length
+
+  const totalCount = (part: number) =>
+    lessons.filter(l => l.part === part).length
+
+  // Latest completed lessons for quest history
+  const completedLessons = lessons
+    .filter(l => progress[l.id]?.completed)
+    .slice(-3)
+    .reverse()
+
   return (
-    <div className="w-full max-w-[800px]">
-      {/* Hero */}
-      <section className="mb-12">
-        <div className="flex items-center gap-4 mb-6">
-          <CharacterAvatar character="ksyu" size="lg" />
-          <div>
-            <div className="flex items-center gap-2 text-secondary mb-1 font-sans text-[13px] font-bold">
-              <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>auto_awesome</span>
-              <span>ИНТЕРАКТИВНЫЙ КУРС</span>
+    <div className="space-y-6">
+      {/* Hero Banner */}
+      <section
+        className="rounded-[20px] overflow-hidden relative"
+        style={{
+          background: 'linear-gradient(135deg, #1a2a3a 0%, #2a1a3a 50%, #1a1a2e 100%)',
+          border: '1px solid rgba(201,162,39,0.3)',
+        }}
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            background: `
+              radial-gradient(circle at 80% 50%, rgba(0,212,170,0.1) 0%, transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(201,162,39,0.08) 0%, transparent 40%)
+            `,
+          }}
+        />
+        <div className="relative z-10 p-7">
+          <div className="flex gap-6 items-start">
+            <div className="flex-1 min-w-0">
+              <div
+                className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3"
+                style={{
+                  background: 'rgba(0,212,170,0.15)',
+                  border: '1px solid #00d4aa',
+                  color: '#00d4aa',
+                }}
+              >
+                SYSTEM STATUS: RESONANT
+              </div>
+              <h1
+                className="text-2xl font-extrabold mb-2"
+                style={{ color: '#e8e6f0' }}
+              >
+                Welcome Back, Adept
+              </h1>
+              <p
+                className="text-sm leading-relaxed max-w-[500px]"
+                style={{ color: '#9b98a8' }}
+              >
+                The Tower hums with a new frequency today. Your mastery of Variable crystals has stabilized the lower wards. Part 3 awaits with its branching paths of logic.
+              </p>
+              <div className="flex gap-3 mt-4">
+                <button
+                  onClick={() => {
+                    const next = lessons.find(l => !progress[l.id]?.completed && !l.locked)
+                    if (next) navigate(`/lesson/${next.id}`)
+                  }}
+                  className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none"
+                  style={{
+                    background: '#00d4aa',
+                    color: '#0f0e17',
+                  }}
+                >
+                  Continue Quest
+                </button>
+                <button
+                  className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer"
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid #c9a227',
+                    color: '#ffd700',
+                  }}
+                >
+                  Consult Lexicon
+                </button>
+              </div>
             </div>
-            <h1 className="font-display font-extrabold text-[36px] leading-[44px] tracking-tight text-on-surface">
-              Python Quest
-            </h1>
+
+            {/* Stats Panel */}
+            <div
+              className="w-[200px] shrink-0 rounded-xl p-4 hidden lg:block"
+              style={{
+                background: '#1a1924',
+                border: '1px solid rgba(201,162,39,0.15)',
+              }}
+            >
+              <h4
+                className="text-[11px] font-bold uppercase tracking-wider mb-3"
+                style={{ color: '#9b98a8' }}
+              >
+                AETHER
+              </h4>
+              <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>RESONANCE</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total} XP</span>
+              </div>
+              <div className="h-1.5 rounded-full my-2" style={{ background: 'rgba(0,212,170,0.1)' }}>
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{
+                    width: total > 0 ? `${(done / total) * 100}%` : '0%',
+                    background: '#00d4aa',
+                  }}
+                />
+              </div>
+              <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>RANK</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
+                  {done >= 80 ? 'Arch-Mage' : done >= 50 ? 'Script-Weaver' : done >= 20 ? 'Code-Adept' : 'Novice'}
+                </span>
+              </div>
+              <div className="flex justify-between items-center py-2">
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>STREAKS</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
+                  {Math.floor(done / 3)} Days
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-        <p className="font-sans text-[16px] leading-6 text-on-surface-variant max-w-[600px]">
-          Начни путь в Python как <strong>Новичок</strong>: сначала ты разберёшься с первыми командами, ошибками и условиями, а затем шаг за шагом соберёшь свою первую консольную игру — <strong>«Побег из Башни Багуса»</strong>.
-        </p>
-        <p className="font-sans text-[14px] leading-5 text-on-surface-variant mt-3 max-w-[600px]">
-          Ксю, Ва и Да будут объяснять, поддерживать и тренировать тебя, а Багус — ломать код, прятать ошибки и проверять, действительно ли ты понял тему.
-        </p>
-
-        {/* Progress bar */}
-        <div className="mt-6 bg-surface-container-high rounded-full h-3 overflow-hidden">
-          <div
-            className="bg-action-da h-full rounded-full transition-all duration-700"
-            style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%' }}
-          />
-        </div>
-        <p className="mt-2 text-[13px] text-on-surface-variant font-sans">
-          {done} / {total} уроков завершено
-        </p>
       </section>
 
-      {/* Character intro */}
-      <CharacterIntroSection />
-
-      {/* Reviews section — after intro, before lessons */}
+      {/* Reviews section */}
       {reviews.length > 0 && (
-        <section className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
-              <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>repeat</span>
-            </div>
-            <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface">Повторение</h2>
-            <span className="bg-purple-100 text-purple-600 text-[12px] font-bold px-2 py-0.5 rounded-full">{reviews.length}</span>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <section>
+          <h3 className="text-sm font-bold mb-3 uppercase tracking-wider" style={{ color: '#9b98a8' }}>
+            Review Blocks
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {reviews.map((r) => (
               <button
                 key={r.id}
                 onClick={() => navigate(`/review/${r.id}`)}
-                className="text-left p-5 rounded-2xl border-2 border-purple-200 bg-purple-50/50 hover:shadow-md hover:border-purple-400 transition-all active:scale-[0.99]"
+                className="rounded-xl p-4 text-left cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: '#1a1924',
+                  border: '1px solid rgba(201,162,39,0.15)',
+                }}
               >
-                <div className="flex items-center gap-2 text-purple-600 mb-2 font-sans text-[13px] font-bold">
-                  <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>repeat</span>
-                  <span>{r.type === 'quick_recall' ? 'Быстрое' : r.type === 'chapter_review' ? 'Глава' : r.type === 'boss_review' ? 'Мини-игра' : 'Часть'}</span>
-                  <span className="mx-1">·</span>
-                  <span className="text-on-surface-variant">{r.part}.{r.chapter}</span>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#00d4aa' }}>
+                    {r.type === 'quick_recall' ? 'Quick Recall' : r.type === 'chapter_review' ? 'Chapter' : r.type === 'boss_review' ? 'Boss' : 'Part'}
+                  </span>
+                  <span className="text-[10px]" style={{ color: '#c9a227' }}>· {r.part}.{r.chapter}</span>
                 </div>
-                <h3 className="font-display text-[20px] leading-7 font-semibold text-on-surface">{r.title}</h3>
-                <p className="font-sans text-[15px] text-on-surface-variant mt-1">{r.subtitle}</p>
+                <h4 className="text-sm font-bold" style={{ color: '#ffd700' }}>{r.title}</h4>
+                <p className="text-xs mt-1" style={{ color: '#9b98a8' }}>{r.subtitle}</p>
               </button>
             ))}
           </div>
         </section>
       )}
 
-      {/* Lessons by part */}
-      {parts.map((part) => {
-        const partLessons = lessons.filter((l) => l.part === part)
-        return (
-          <section key={part} className="mb-10">
-            <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface mb-4">
-              Часть {part}: {PART_LABELS[part] ?? ''}
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {partLessons.map((lesson) => {
-                const isDone = progress[lesson.id]?.completed
-                return (
-                  <button
-                    key={lesson.id}
-                    onClick={() => !lesson.locked && navigate(`/lesson/${lesson.id}`)}
-                    disabled={lesson.locked}
-                    className={`text-left p-5 rounded-2xl border-2 transition-all group
-                      ${lesson.locked
-                        ? 'opacity-50 cursor-not-allowed border-outline-variant bg-surface-container-low'
-                        : isDone
-                          ? 'border-action-da bg-green-50 hover:shadow-md'
-                          : 'border-outline-variant bg-white hover:border-secondary hover:shadow-md active:scale-[0.99]'
-                      }`}
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <span className={`font-sans text-[13px] font-bold ${isDone ? 'text-action-da' : 'text-on-surface-variant'}`}>
-                        УРОК {lesson.id}
-                      </span>
-                      <span
-                        className={`material-symbols-outlined text-[20px]
-                          ${lesson.locked ? 'text-outline' :
-                            isDone ? 'text-action-da' : 'text-outline group-hover:text-secondary'}`}
-                        style={{ fontVariationSettings: `'FILL' ${isDone ? '1' : '0'}` }}
-                      >
-                        {lesson.locked ? 'lock' : isDone ? 'check_circle' : 'radio_button_unchecked'}
-                      </span>
+      {/* The Path of the Python */}
+      <section>
+        <h3 className="text-sm font-bold mb-1" style={{ color: '#e8e6f0' }}>
+          The Path of the Python
+        </h3>
+        <p className="text-xs mb-4" style={{ color: '#9b98a8' }}>
+          Master the four realms of foundational wizardry.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {parts.map((part) => {
+            const done = completedCount(part)
+            const total = totalCount(part)
+            const info = PART_LABELS[part] ?? { label: `Part ${part}`, icon: '📚' }
+            const allDone = done === total
+            const isCurrent = done > 0 && done < total
+            const isLocked = done === 0 && part > 1
+
+            return (
+              <div
+                key={part}
+                className="rounded-xl overflow-hidden transition-all cursor-pointer"
+                style={{
+                  background: '#1a1924',
+                  border: isCurrent ? '1px solid #00d4aa' : '1px solid rgba(201,162,39,0.15)',
+                  boxShadow: isCurrent ? '0 0 20px rgba(0,212,170,0.15)' : 'none',
+                  opacity: isLocked ? 0.5 : 1,
+                }}
+                onClick={() => {
+                  if (!isLocked) {
+                    const first = lessons.find(l => l.part === part && !l.locked)
+                    if (first) navigate(`/lesson/${first.id}`)
+                  }
+                }}
+              >
+                {/* Image area */}
+                <div
+                  className="h-[100px] flex items-center justify-center text-3xl"
+                  style={{
+                    background: isCurrent
+                      ? 'linear-gradient(135deg, rgba(0,212,170,0.2), rgba(201,162,39,0.1))'
+                      : 'linear-gradient(135deg, #2a1a3a, #1a2a3a)',
+                  }}
+                >
+                  {isLocked ? '🔒' : info.icon}
+                </div>
+                {/* Body */}
+                <div className="p-3">
+                  <h4 className="text-xs font-bold mb-1" style={{ color: '#e8e6f0' }}>
+                    Part {part}: {info.label}
+                  </h4>
+                  <p className="text-[10px]" style={{ color: '#9b98a8' }}>
+                    {allDone
+                      ? `COMPLETED • ${done}/${total} Artifacts`
+                      : isCurrent
+                        ? `CURRENT • ${done}/${total} Artifacts`
+                        : `Locked • Part ${part - 1} Required`
+                    }
+                  </p>
+                  {isCurrent && (
+                    <div className="mt-2 h-1 rounded-full" style={{ background: 'rgba(0,212,170,0.1)' }}>
+                      <div
+                        className="h-full rounded-full"
+                        style={{
+                          width: `${(done / total) * 100}%`,
+                          background: '#00d4aa',
+                        }}
+                      />
                     </div>
-                    <h3 className="font-display text-[20px] leading-7 font-semibold text-on-surface mb-1">
-                      {lesson.title}
-                    </h3>
-                    <p className="font-sans text-[15px] leading-[22px] text-on-surface-variant">
-                      {lesson.subtitle}
-                    </p>
-                    <div className="mt-3 flex items-center gap-2 flex-wrap">
-                      <span className="inline-block bg-surface-container px-2 py-0.5 rounded-full font-mono text-[12px] text-on-surface-variant">
-                        {lesson.topic}
-                      </span>
-                      <span className={`inline-block px-2 py-0.5 rounded-full font-mono text-[11px]
-                        ${lesson.difficulty === 'easy' ? 'bg-green-100 text-green-800' :
-                          lesson.difficulty === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                          lesson.difficulty === 'hard' ? 'bg-red-100 text-red-800' :
-                          'bg-purple-100 text-purple-800'}`}>
-                        {lesson.difficulty === 'easy' ? 'лёгкий' :
-                         lesson.difficulty === 'medium' ? 'средний' :
-                         lesson.difficulty === 'hard' ? 'сложный' : 'босс'}
-                      </span>
-                      {lesson.estimated_time_min && (
-                        <span className="text-[12px] text-on-surface-variant">
-                          ~{lesson.estimated_time_min} мин
-                        </span>
-                      )}
-                    </div>
-                  </button>
-                )
-              })}
-            </div>
-          </section>
-        )
-      })}
+                  )}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Quest History */}
+      {completedLessons.length > 0 && (
+        <section>
+          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>
+            Quest History
+          </h3>
+          <div className="space-y-2">
+            {completedLessons.map((lesson) => (
+              <div
+                key={lesson.id}
+                className="flex items-center gap-3 p-3 rounded-xl cursor-pointer hover:scale-[1.01] transition-all"
+                style={{
+                  background: '#1a1924',
+                  border: '1px solid rgba(201,162,39,0.1)',
+                }}
+                onClick={() => navigate(`/lesson/${lesson.id}`)}
+              >
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center text-xs shrink-0"
+                  style={{
+                    background: 'rgba(0,212,170,0.1)',
+                    color: '#00d4aa',
+                  }}
+                >
+                  ✓
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h5 className="text-xs font-semibold" style={{ color: '#e8e6f0' }}>
+                    Mastered: {lesson.title}
+                  </h5>
+                  <p className="text-[10px]" style={{ color: '#9b98a8' }}>
+                    {lesson.subtitle}
+                  </p>
+                </div>
+                <div className="text-[11px] font-bold shrink-0" style={{ color: '#c9a227' }}>
+                  +50 XP
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   )
 }

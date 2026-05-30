@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Legacy (kept for compatibility)
         'primary': '#006e25',
         'on-primary': '#ffffff',
         'primary-container': '#28a745',
@@ -48,6 +49,21 @@ export default {
         'action-da': '#28A745',
         'error-bagus': '#FF7675',
         'dialogue-bg': '#FFFFFF',
+        // Steampunk theme
+        'steam-bg': '#0f0e17',
+        'steam-bg-deep': '#0a0910',
+        'steam-card': '#1a1924',
+        'steam-card-hover': '#222130',
+        'steam-sidebar': '#16151f',
+        'steam-bronze': '#c9a227',
+        'steam-bronze-dim': 'rgba(201,162,39,0.3)',
+        'steam-cyan': '#00d4aa',
+        'steam-cyan-dim': 'rgba(0,212,170,0.15)',
+        'steam-text': '#e8e6f0',
+        'steam-text-secondary': '#9b98a8',
+        'steam-text-accent': '#ffd700',
+        'steam-error': '#ff6b6b',
+        'steam-error-bg': 'rgba(255,107,107,0.1)',
       },
       fontFamily: {
         'sans': ['Inter', 'sans-serif'],
@@ -78,11 +94,16 @@ export default {
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-out',
+        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(8px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.7' },
         },
       },
     },

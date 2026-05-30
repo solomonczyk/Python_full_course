@@ -37,9 +37,9 @@ export default function ReviewPage() {
   if (loading) {
     return (
       <div className="w-full max-w-[800px] flex items-center justify-center h-64">
-        <div className="flex flex-col items-center gap-4 text-on-surface-variant">
+        <div className="flex flex-col items-center gap-4" style={{ color: '#9b98a8' }}>
           <span className="material-symbols-outlined text-5xl animate-spin" style={{ fontVariationSettings: "'FILL' 0" }}>progress_activity</span>
-          <p className="font-sans text-[15px]">Загружаем повторение...</p>
+          <p className="text-sm">Loading review...</p>
         </div>
       </div>
     )
@@ -48,9 +48,9 @@ export default function ReviewPage() {
   if (error || !review) {
     return (
       <div className="w-full max-w-[800px] flex items-center justify-center h-64">
-        <div className="text-center text-error">
+        <div className="text-center" style={{ color: '#ff6b6b' }}>
           <span className="material-symbols-outlined text-5xl block mb-2" style={{ fontVariationSettings: "'FILL' 0" }}>error</span>
-          <p>{error ?? 'Повторение не найдено'}</p>
+          <p>{error ?? 'Review not found'}</p>
         </div>
       </div>
     )
@@ -90,22 +90,36 @@ export default function ReviewPage() {
   }
 
   return (
-    <div className="w-full max-w-[800px] flex flex-col gap-10">
+    <div className="w-full max-w-[800px] flex flex-col gap-6">
       {/* Header */}
-      <section className={`${colors.bg} ${colors.border} border-l-8 rounded-2xl p-6`}>
-        <div className="flex items-center gap-2 text-on-surface-variant mb-1 font-sans text-[13px] font-bold">
+      <section
+        className="rounded-xl p-6"
+        style={{
+          background: '#1a1924',
+          borderLeft: '8px solid',
+          borderLeftColor: review.type === 'quick_recall' ? '#00d4aa' : review.type === 'chapter_review' ? '#c9a227' : review.type === 'boss_review' ? '#ff6b6b' : '#ffd700',
+          border: '1px solid rgba(201,162,39,0.15)',
+        }}
+      >
+        <div className="flex items-center gap-2 mb-1" style={{ color: '#00d4aa' }}>
           <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>repeat</span>
-          <span>{colors.label}</span>
-          <span className="mx-1">·</span>
-          <span>Часть {review.part} · Глава {review.chapter}</span>
+          <span className="text-[11px] font-bold uppercase tracking-wider">{colors.label}</span>
+          <span className="mx-1 text-[11px]" style={{ color: '#c9a227' }}>·</span>
+          <span className="text-[11px]" style={{ color: '#9b98a8' }}>Part {review.part} · Chapter {review.chapter}</span>
         </div>
-        <h1 className="font-display font-extrabold text-[36px] leading-[44px] tracking-tight text-on-surface mt-2">
-          {review.title}
-        </h1>
-        <p className="font-sans text-[16px] leading-6 text-on-surface-variant mt-2">{review.subtitle}</p>
-        <div className="mt-4 flex gap-2 flex-wrap">
+        <h1 className="text-xl font-extrabold mt-2" style={{ color: '#ffd700' }}>{review.title}</h1>
+        <p className="text-xs mt-2" style={{ color: '#9b98a8' }}>{review.subtitle}</p>
+        <div className="flex gap-2 flex-wrap mt-3">
           {review.topics.map((topic) => (
-            <span key={topic} className="bg-white/70 px-3 py-1 rounded-full font-mono text-[12px] text-on-surface-variant border border-outline-variant">
+            <span
+              key={topic}
+              className="px-2.5 py-1 rounded-full text-[10px]"
+              style={{
+                background: 'rgba(0,212,170,0.1)',
+                border: '1px solid rgba(0,212,170,0.2)',
+                color: '#00d4aa',
+              }}
+            >
               {topic}
             </span>
           ))}
@@ -123,12 +137,19 @@ export default function ReviewPage() {
 
       {/* Quick questions */}
       {review.questions.length > 0 && (
-        <section className="flex flex-col gap-6">
-          <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface">Вопросы для проверки</h2>
+        <section className="flex flex-col gap-4">
+          <h2 className="text-sm font-bold" style={{ color: '#e8e6f0' }}>Knowledge Check</h2>
           {review.questions.map((q, qi) => (
-            <div key={qi} className="bg-white rounded-2xl p-6 shadow-sm border border-outline-variant">
-              <p className="text-[15px] leading-[22px] font-bold text-on-surface mb-4">{q.question}</p>
-              <div className="space-y-3">
+            <div
+              key={qi}
+              className="rounded-xl p-4"
+              style={{
+                background: '#1a1924',
+                border: '1px solid rgba(201,162,39,0.15)',
+              }}
+            >
+              <p className="text-xs font-bold mb-3" style={{ color: '#e8e6f0' }}>{q.question}</p>
+              <div className="space-y-2">
                 {q.options.map((opt) => {
                   const selected = quizAnswers[q.question] === opt.id
                   const result = quizResults[q.question]
@@ -139,21 +160,29 @@ export default function ReviewPage() {
                       key={opt.id}
                       onClick={() => !result && handleQuiz(q.question, opt.id, q.options.find((o) => o.correct)?.id ?? '')}
                       disabled={!!result}
-                      className={`w-full flex items-center p-4 border-2 rounded-xl text-left transition-all active:scale-[0.99]
-                        ${isCorrect ? 'border-action-da bg-green-50' :
-                          isWrong ? 'border-error bg-red-50' :
-                          selected ? 'border-secondary bg-secondary/5' :
-                          'border-surface-container hover:border-secondary'}`}
+                      className="w-full flex items-center p-3 rounded-lg text-left transition-all active:scale-[0.99] text-xs"
+                      style={{
+                        background: isCorrect ? 'rgba(0,212,170,0.15)' : isWrong ? 'rgba(255,107,107,0.15)' : selected ? 'rgba(0,212,170,0.08)' : '#0f0e17',
+                        border: `2px solid ${
+                          isCorrect ? '#00d4aa' : isWrong ? '#ff6b6b' : selected ? '#00d4aa' : 'rgba(201,162,39,0.2)'
+                        }`,
+                        color: isCorrect ? '#00d4aa' : isWrong ? '#ff6b6b' : '#e8e6f0',
+                      }}
                     >
-                      <div className={`w-5 h-5 border-2 rounded-full mr-4 shrink-0 flex items-center justify-center
-                        ${isCorrect ? 'border-action-da bg-action-da' :
-                          isWrong ? 'border-error bg-error' :
-                          selected ? 'border-secondary bg-secondary' : 'border-outline'}`}>
-                        {selected && <div className="w-2 h-2 bg-white rounded-full" />}
+                      <div
+                        className="w-4 h-4 rounded-full mr-3 shrink-0 flex items-center justify-center"
+                        style={{
+                          border: `2px solid ${
+                            isCorrect ? '#00d4aa' : isWrong ? '#ff6b6b' : selected ? '#00d4aa' : 'rgba(201,162,39,0.3)'
+                          }`,
+                          background: isCorrect ? '#00d4aa' : isWrong ? '#ff6b6b' : selected ? '#00d4aa' : 'transparent',
+                        }}
+                      >
+                        {selected && <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#0f0e17' }} />}
                       </div>
-                      <span className={`text-body-main ${selected || isCorrect ? 'font-bold' : ''}`}>{opt.text}</span>
-                      {isCorrect && <span className="ml-auto material-symbols-outlined text-action-da" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
-                      {isWrong && <span className="ml-auto material-symbols-outlined text-error" style={{ fontVariationSettings: "'FILL' 1" }}>cancel</span>}
+                      <span style={{ fontWeight: selected || isCorrect ? 700 : 400 }}>{opt.text}</span>
+                      {isCorrect && <span className="ml-auto material-symbols-outlined text-sm" style={{ color: '#00d4aa', fontVariationSettings: "'FILL' 1" }}>check_circle</span>}
+                      {isWrong && <span className="ml-auto material-symbols-outlined text-sm" style={{ color: '#ff6b6b', fontVariationSettings: "'FILL' 1" }}>cancel</span>}
                     </button>
                   )
                 })}
@@ -175,10 +204,23 @@ export default function ReviewPage() {
 
       {/* Task */}
       {review.task && (
-        <section className="bg-white rounded-2xl p-6 shadow-sm border border-outline-variant">
-          <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface mb-4">Практическая задача</h2>
-          <p className="text-on-surface-variant mb-2">{review.task.description}</p>
-          <div className="bg-surface-container p-4 rounded-xl font-mono text-sm border border-outline-variant">
+        <section
+          className="rounded-xl p-4"
+          style={{
+            background: '#1a1924',
+            border: '1px solid rgba(201,162,39,0.15)',
+          }}
+        >
+          <h2 className="text-sm font-bold mb-3" style={{ color: '#ffd700' }}>Practical Task</h2>
+          <p className="text-xs mb-2" style={{ color: '#9b98a8' }}>{review.task.description}</p>
+          <div
+            className="p-3 rounded-lg font-mono text-xs"
+            style={{
+              background: '#0d0c14',
+              border: '1px solid rgba(0,212,170,0.2)',
+              color: '#00d4aa',
+            }}
+          >
             {review.task.expected_output}
           </div>
         </section>
@@ -188,23 +230,38 @@ export default function ReviewPage() {
       {allDone && !completed && (
         <button
           onClick={handleComplete}
-          className="w-full py-4 bg-action-da text-white font-display text-[22px] font-bold rounded-2xl shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
+          className="w-full py-4 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02]"
+          style={{
+            background: 'linear-gradient(135deg, #c9a227, #8b7355)',
+            color: '#1a1a2e',
+          }}
         >
-          ✅ Повторение завершено!
+          ✅ Review Complete!
         </button>
       )}
 
       {completed && (
-        <section className="bg-green-50 border-l-8 border-action-da rounded-2xl p-6 text-center">
-          <span className="material-symbols-outlined text-5xl text-action-da" style={{ fontVariationSettings: "'FILL' 1" }}>celebration</span>
-          <h2 className="font-display text-[24px] font-bold text-on-surface mt-2">Отлично!</h2>
-          <p className="text-on-surface-variant mt-1">Материал закреплён. Можно двигаться дальше.</p>
+        <section
+          className="rounded-xl p-6 text-center"
+          style={{
+            background: 'rgba(0,212,170,0.1)',
+            border: '1px solid #00d4aa',
+          }}
+        >
+          <span className="material-symbols-outlined text-4xl" style={{ color: '#00d4aa', fontVariationSettings: "'FILL' 1" }}>celebration</span>
+          <h2 className="text-lg font-bold mt-2" style={{ color: '#00d4aa' }}>Excellent!</h2>
+          <p className="text-xs mt-1" style={{ color: '#9b98a8' }}>Material consolidated. You may proceed.</p>
           <div className="mt-4 flex gap-4 justify-center">
             <button
               onClick={() => navigate('/')}
-              className="px-6 py-3 bg-surface-container-highest rounded-xl font-bold hover:bg-surface-container transition-all"
+              className="px-6 py-2.5 rounded-lg text-xs font-bold cursor-pointer transition-all"
+              style={{
+                background: '#1a1924',
+                border: '1px solid rgba(201,162,39,0.3)',
+                color: '#9b98a8',
+              }}
             >
-              На главную
+              Return to Hub
             </button>
           </div>
         </section>

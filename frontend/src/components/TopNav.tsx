@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import type { LessonSummary } from '../types'
 import { USER_AVATAR } from '../constants'
 
@@ -8,44 +8,75 @@ interface Props {
   onMenuClick: () => void
 }
 
-export default function TopNav({ lessons, currentId, onMenuClick }: Props) {
+export default function TopNav({ onMenuClick }: Props) {
+  const location = useLocation()
   const navigate = useNavigate()
 
-  const idx = lessons.findIndex((l) => l.id === currentId)
-  const prev = idx > 0 ? lessons[idx - 1] : null
-  const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : null
+  const currentPath = location.pathname
+  const isActive = (path: string) => {
+    if (path === '/') return currentPath === '/' || currentPath.startsWith('/lesson') || currentPath.startsWith('/review')
+    return currentPath.startsWith(path)
+  }
 
   return (
-    <header className="bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-6 h-16 z-40 fixed top-0">
-      <div className="flex items-center gap-3">
-        <button onClick={onMenuClick} className="md:hidden mr-2 text-on-surface-variant">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
+    <header
+      className="h-14 flex items-center justify-between px-6 shrink-0 z-30"
+      style={{
+        background: '#1a1924',
+        borderBottom: '1px solid rgba(201,162,39,0.15)',
+      }}
+    >
+      {/* Left: Hamburger + Nav tabs */}
+      <div className="flex items-center gap-6">
+        <button
+          onClick={onMenuClick}
+          className="md:hidden text-steam-text-secondary hover:text-steam-text transition-colors"
+          aria-label="Toggle sidebar"
+        >
+          <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
         </button>
-        <Link to="/" className="flex items-center gap-3">
-          <span className="material-symbols-outlined text-primary text-3xl" style={{ fontVariationSettings: "'FILL' 0" }}>terminal</span>
-          <h1 className="font-display text-[24px] leading-8 font-bold text-primary hover:underline underline-offset-4">Python Quest</h1>
-        </Link>
+        <nav className="flex items-center gap-6">
+          {[
+            { label: 'Curriculum', path: '/' },
+            { label: 'Leaderboard', path: '/leaderboard' },
+            { label: 'Sandbox', path: '/sandbox' },
+          ].map((tab) => (
+            <button
+              key={tab.label}
+              onClick={() => navigate(tab.path)}
+              className="text-xs font-semibold transition-all pb-1 bg-transparent border-none cursor-pointer"
+              style={{
+                color: isActive(tab.path) ? '#00d4aa' : '#9b98a8',
+                borderBottom: isActive(tab.path) ? '2px solid #00d4aa' : '2px solid transparent',
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </nav>
       </div>
 
+      {/* Right: Search + Avatar */}
       <div className="flex items-center gap-3">
-        {prev && (
-          <button
-            onClick={() => navigate(`/lesson/${prev.id}`)}
-            className="font-display text-[20px] leading-7 font-semibold text-on-surface-variant hover:bg-surface-container px-4 py-2 rounded-lg active:scale-95 transition-all"
-          >
-            ← Назад
-          </button>
-        )}
-        {next && !next.locked && (
-          <button
-            onClick={() => navigate(`/lesson/${next.id}`)}
-            className="bg-primary text-on-primary font-display text-[20px] leading-7 font-semibold px-6 py-2 rounded-lg shadow-sm hover:opacity-90 active:scale-95 transition-all"
-          >
-            Далее →
-          </button>
-        )}
-        <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container shrink-0">
-          <img src={USER_AVATAR} alt="User" className="w-full h-full object-cover" />
+        <div
+          className="rounded-full px-3 py-1.5 text-xs text-steam-text-secondary hidden sm:block"
+          style={{
+            background: '#0f0e17',
+            border: '1px solid rgba(201,162,39,0.2)',
+          }}
+        >
+          <span className="material-symbols-outlined text-[14px] align-middle mr-1" style={{ fontVariationSettings: "'FILL' 0" }}>search</span>
+          Search the Archives...
+        </div>
+        <div
+          className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center text-[10px] font-bold shrink-0"
+          style={{
+            background: 'linear-gradient(135deg, #c9a227, #8b7355)',
+            border: '2px solid #c9a227',
+            color: '#1a1a2e',
+          }}
+        >
+          A
         </div>
       </div>
     </header>
