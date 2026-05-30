@@ -8,6 +8,7 @@ import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
 import QuizSection from '../components/QuizSection'
 import MissionCard from '../components/MissionCard'
+import PracticeSubtasks from '../components/PracticeSubtasks'
 import StoryPlacementBlock from '../components/StoryPlacementBlock'
 import DialogueScene from '../components/DialogueScene'
 import GameRelevanceBlock from '../components/GameRelevanceBlock'
@@ -287,6 +288,11 @@ export default function LessonPage({ lessons }: Props) {
         lessonId={lesson.id}
         onComplete={(score) => markComplete(lesson.id, score)}
       />
+
+      {/* Practice subtasks */}
+      {lesson.practice_subtasks && lesson.practice_subtasks.length > 0 && (
+        <PracticeSubtasks subtasks={lesson.practice_subtasks} />
+      )}
 
       {/* Bottom navigation */}
       <div

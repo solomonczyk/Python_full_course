@@ -116,6 +116,7 @@ export interface Lesson extends LessonSummary {
   post_error_dialogue?: DialogueLine[]
   mini_summary?: string
   connection_to_game?: string
+  practice_subtasks?: PracticeSubtask[]
   story_placement?: string
   syntax_reminder?: SyntaxReminder
   variable_demo?: import('../components/VariableBoxBlock').VariableBox[][]
@@ -154,6 +155,13 @@ export interface Progress {
   completed: boolean
   score: number | null
   updated_at: string
+}
+
+export interface PracticeSubtask {
+  title: string
+  task: string
+  expected_output: string
+  hint?: string
 }
 
 export interface MissionResult {
