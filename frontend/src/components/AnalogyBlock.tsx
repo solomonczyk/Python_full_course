@@ -26,6 +26,30 @@ const CHAR_NAMES: Record<string, string> = {
   novice: 'Новичок',
 }
 
+/** Renders text with backtick-delimited code highlighted in a different color/size */
+function renderCode(text: string, codeColor: string, baseColor: string, codeSize?: string): React.ReactNode[] {
+  const parts = text.split(/(`[^`]+`)/)
+  return parts.map((part, i) => {
+    if (part.startsWith('`') && part.endsWith('`')) {
+      const code = part.slice(1, -1)
+      return (
+        <code
+          key={i}
+          style={{
+            color: codeColor,
+            fontSize: codeSize ?? 'inherit',
+            fontWeight: 700,
+            fontFamily: "'JetBrains Mono', monospace",
+          }}
+        >
+          {code}
+        </code>
+      )
+    }
+    return <span key={i} style={{ color: baseColor }}>{part}</span>
+  })
+}
+
 export default function AnalogyBlock({ analogy, character }: Props) {
   const color = CHAR_COLORS[character] ?? '#74B9FF'
 
@@ -45,8 +69,8 @@ export default function AnalogyBlock({ analogy, character }: Props) {
         >
           {CHAR_NAMES[character]?.[0] ?? '?'}
         </div>
-        <p className="text-xs leading-relaxed" style={{ color: '#e8e6f0' }}>
-          {analogy.story_metaphor}
+        <p className="text-xs leading-relaxed">
+          {renderCode(analogy.story_metaphor, '#00d4aa', '#e8e6f0')}
         </p>
       </div>
 
@@ -60,19 +84,21 @@ export default function AnalogyBlock({ analogy, character }: Props) {
         }}
       >
         <span className="font-bold">🐍 В Python: </span>
-        {analogy.python_mapping}
+        {renderCode(analogy.python_mapping, '#c084fc', '#00d4aa')}
       </div>
 
-      {/* Key rule — highlight box */}
+      {/* Key rule — highlight box with emphasized keywords */}
       <div
-        className="rounded-lg p-3 text-xs leading-relaxed font-semibold text-center"
+        className="rounded-lg p-3 leading-relaxed text-center"
         style={{
           background: 'rgba(201,162,39,0.1)',
           border: '1px solid rgba(201,162,39,0.3)',
-          color: '#ffd700',
         }}
       >
-        ⚡ {analogy.key_rule}
+        <span className="text-xs font-semibold" style={{ color: '#ffd700' }}>
+          ⚡{' '}
+          {renderCode(analogy.key_rule, '#ff6b6b', '#ffd700', '13px')}
+        </span>
       </div>
     </div>
   )
