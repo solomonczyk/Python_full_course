@@ -149,3 +149,10 @@ export interface Progress {
   score: number | null
   updated_at: string
 }
+
+export interface MissionResult {
+  correct: boolean
+  actual_output: string | null
+  expected_output: string
+  error: string | null
+}
