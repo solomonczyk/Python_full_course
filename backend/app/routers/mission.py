@@ -60,12 +60,19 @@ def check_mission(body: MissionSubmit) -> dict[str, Any]:
             f.write(body.code)
             tmp_path = f.name
 
+        # Try python first, fall back to python3
+        py_cmd = "python3"
+        try:
+            subprocess.run(["python", "--version"], capture_output=True, timeout=2)
+            py_cmd = "python"
+        except Exception:
+            pass
+
         result = subprocess.run(
-            ["python3", tmp_path],
+            [py_cmd, tmp_path],
             capture_output=True,
             text=True,
             timeout=5,
-            env={"PATH": "/usr/bin:/bin"},
         )
 
         actual = result.stdout.strip()
