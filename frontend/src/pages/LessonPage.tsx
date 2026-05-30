@@ -328,7 +328,7 @@ export default function LessonPage({ lessons }: Props) {
           ))}
         </div>
 
-        {next && !next.locked ? (
+        {next && isLessonUnlocked(next.id, lessons) ? (
           <button
             onClick={() => navigate(`/lesson/${next.id}`)}
             className="flex items-center gap-2 px-5 py-2 rounded-lg text-xs font-bold cursor-pointer transition-all hover:scale-105 border-none"
@@ -340,7 +340,7 @@ export default function LessonPage({ lessons }: Props) {
             Next
             <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 0" }}>arrow_forward</span>
           </button>
-        ) : next?.locked ? (
+        ) : next ? (
           <div className="flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold opacity-60"
             style={{
               border: '1px solid rgba(201,162,39,0.3)',
