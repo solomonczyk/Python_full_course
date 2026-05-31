@@ -95,7 +95,7 @@ export default function HomePage({ lessons, progress }: Props) {
         </div>
       </section>
 
-      {/* Кнопки ПІД хиро-секцією */}
+      {/* Кнопки ПІД хиро-секцією — 3 в одному стилі */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <button
           onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
@@ -112,6 +112,14 @@ export default function HomePage({ lessons, progress }: Props) {
         >
           <img src="/buttons/nachat_s_nachala.webp" alt="" className="w-8 h-8 object-contain" />
           <span>Начать с начала</span>
+        </button>
+        <button
+          onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+          className="flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+          style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#e8e6f0' }}
+        >
+          <img src="/buttons/continue_learning.webp" alt="" className="w-8 h-8 object-contain" />
+          <span>Continue Learning</span>
         </button>
       </div>
 

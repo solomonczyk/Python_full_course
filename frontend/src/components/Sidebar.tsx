@@ -162,13 +162,15 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
         <div className="px-4 py-4 shrink-0" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
           <button
             onClick={goToContinue}
-            className="w-full py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none transition-all hover:opacity-90"
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none transition-all hover:opacity-90"
             style={{
-              background: 'linear-gradient(135deg, #c9a227, #8b7355)',
-              color: '#1a1a2e',
+              background: 'rgba(15,14,23,0.8)',
+              border: '1px solid #c9a227',
+              color: '#e8e6f0',
             }}
           >
-            ⚡ Continue Learning
+            <img src="/buttons/continue_learning.webp" alt="" className="w-6 h-6 object-contain" />
+            Continue Learning
           </button>
         </div>
       </aside>
