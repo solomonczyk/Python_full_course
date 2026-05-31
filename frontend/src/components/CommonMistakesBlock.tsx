@@ -1,5 +1,5 @@
 import type { CommonMistake } from '../types'
-import CodePanel from './CodePanel'
+import CharacterAvatar from './CharacterAvatar'
 
 interface Props {
   mistakes: CommonMistake[]
@@ -9,11 +9,13 @@ export default function CommonMistakesBlock({ mistakes }: Props) {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 pb-2" style={{ borderBottom: '1px solid rgba(255,107,107,0.2)' }}>
-        <span className="material-symbols-outlined text-sm" style={{ color: '#ff6b6b', fontVariationSettings: "'FILL' 1" }}>warning</span>
-        <h3 className="text-xs font-bold" style={{ color: '#ff6b6b' }}>Частые ошибки</h3>
-        <span className="text-[10px]" style={{ color: '#9b98a8' }}>
-          В этом разделе — ошибки, которые чаще всего допускают новички.
-        </span>
+        <CharacterAvatar character="bagus" size="sm" />
+        <div>
+          <h3 className="text-xs font-bold" style={{ color: '#ff6b6b' }}>Багус предупреждает</h3>
+          <p className="text-[10px]" style={{ color: '#9b98a8' }}>
+            Типичные ошибки новичков — учись на чужих шишках!
+          </p>
+        </div>
       </div>
 
       <div className="space-y-3">
