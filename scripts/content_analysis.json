@@ -1,0 +1,1070 @@
+{
+  "lesson_table": [
+    {
+      "id": "1-1",
+      "title": "print()",
+      "topics_covered": [
+        "print()"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-2",
+      "title": "Строки и кавычки",
+      "topics_covered": [
+        "строки"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-3",
+      "title": "Переменные",
+      "topics_covered": [
+        "переменные"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "1-4",
+      "title": "input()",
+      "topics_covered": [
+        "input()"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-5",
+      "title": "int(input())",
+      "topics_covered": [
+        "int(input())"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-6",
+      "title": "Арифметика",
+      "topics_covered": [
+        "арифметика"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-7",
+      "title": "Сравнения",
+      "topics_covered": [
+        "сравнения"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "1-8",
+      "title": "if",
+      "topics_covered": [
+        "if"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "1-9",
+      "title": "if else",
+      "topics_covered": [
+        "if"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "2-1",
+      "title": "elif",
+      "topics_covered": [
+        "elif"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "2-2",
+      "title": "Логические цепочки",
+      "topics_covered": [
+        "логические"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "2-3",
+      "title": "random.randint",
+      "topics_covered": [
+        "random.randint"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "2-4",
+      "title": "Простая игра с random",
+      "topics_covered": [
+        "простая"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "2-5",
+      "title": "Первое знакомство с for",
+      "topics_covered": [
+        "первое"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "2-6",
+      "title": "range",
+      "topics_covered": [
+        "range"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-1",
+      "title": "Float и типы данных",
+      "topics_covered": [
+        "float"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-2",
+      "title": "Обычное деление /",
+      "topics_covered": [
+        "обычное"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-3",
+      "title": "Целочисленное деление //",
+      "topics_covered": [
+        "целочисленное"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-4",
+      "title": "Остаток от деления %",
+      "topics_covered": [
+        "остаток"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-5",
+      "title": "Определение на чётность",
+      "topics_covered": [
+        "определение"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-6",
+      "title": "Bool",
+      "topics_covered": [
+        "bool"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-7",
+      "title": "Состояния объектов",
+      "topics_covered": [
+        "состояния"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-8",
+      "title": "Короткая запись условий",
+      "topics_covered": [
+        "короткая"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-9",
+      "title": "and",
+      "topics_covered": [
+        "and"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-10",
+      "title": "or",
+      "topics_covered": [
+        "or"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-11",
+      "title": "not",
+      "topics_covered": [
+        "not"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-12",
+      "title": "Оптимизация if",
+      "topics_covered": [
+        "оптимизация"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-13",
+      "title": "Вложенные if",
+      "topics_covered": [
+        "вложенные"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "3-14",
+      "title": "For и range база",
+      "topics_covered": [
+        "for"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-15",
+      "title": "Диапазон range(start, stop)",
+      "topics_covered": [
+        "диапазон"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-16",
+      "title": "Шаг range",
+      "topics_covered": [
+        "шаг"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-17",
+      "title": "Обратный ход",
+      "topics_covered": [
+        "обратный"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-18",
+      "title": "Переменные в циклах",
+      "topics_covered": [
+        "переменные"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "3-19",
+      "title": "Строки база",
+      "topics_covered": [
+        "строки"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-20",
+      "title": "Оператор in для строк",
+      "topics_covered": [
+        "оператор"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-21",
+      "title": "len",
+      "topics_covered": [
+        "len"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-22",
+      "title": "F-строка",
+      "topics_covered": [
+        "f-строка"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-23",
+      "title": "Методы строк",
+      "topics_covered": [
+        "методы"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-24",
+      "title": "Индексы",
+      "topics_covered": [
+        "индексы"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-25",
+      "title": "Срезы",
+      "topics_covered": [
+        "срезы"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-26",
+      "title": "Перебор строки",
+      "topics_covered": [
+        "перебор"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-27",
+      "title": "Списки база",
+      "topics_covered": [
+        "списки"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-28",
+      "title": "Замена элемента списка",
+      "topics_covered": [
+        "замена"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-29",
+      "title": "pop",
+      "topics_covered": [
+        "pop"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-30",
+      "title": "remove",
+      "topics_covered": [
+        "remove"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-31",
+      "title": "append",
+      "topics_covered": [
+        "append"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-32",
+      "title": "index",
+      "topics_covered": [
+        "index"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-33",
+      "title": "Сумма элементов списка",
+      "topics_covered": [
+        "сумма"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "3-34",
+      "title": "count",
+      "topics_covered": [
+        "count"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-35",
+      "title": "Фильтрация списка",
+      "topics_covered": [
+        "фильтрация"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-36",
+      "title": "insert",
+      "topics_covered": [
+        "insert"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-37",
+      "title": "extend",
+      "topics_covered": [
+        "extend"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-38",
+      "title": "Срезы списков",
+      "topics_covered": [
+        "срезы"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "3-39",
+      "title": "random.choice",
+      "topics_covered": [
+        "random.choice"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "3-40",
+      "title": "random.shuffle",
+      "topics_covered": [
+        "random.shuffle"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "4-1",
+      "title": "Флаги",
+      "topics_covered": [
+        "флаги"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-2",
+      "title": "break",
+      "topics_covered": [
+        "break"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-3",
+      "title": "Поиск максимума",
+      "topics_covered": [
+        "поиск"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-4",
+      "title": "Поиск минимума",
+      "topics_covered": [
+        "поиск"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-5",
+      "title": "Максимальная длина",
+      "topics_covered": [
+        "максимальная"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-6",
+      "title": "Первый с конца",
+      "topics_covered": [
+        "первый"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-7",
+      "title": "None",
+      "topics_covered": [
+        "none"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "4-8",
+      "title": "Алгоритмическое мышление",
+      "topics_covered": [
+        "алгоритмическое"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-9",
+      "title": "join",
+      "topics_covered": [
+        "join"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-10",
+      "title": "Перенос строки \\n",
+      "topics_covered": [
+        "перенос"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "4-11",
+      "title": "Распаковка",
+      "topics_covered": [
+        "распаковка"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-12",
+      "title": "split",
+      "topics_covered": [
+        "split"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-13",
+      "title": "split по разделителю",
+      "topics_covered": [
+        "split"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-14",
+      "title": "map",
+      "topics_covered": [
+        "map"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-15",
+      "title": "sort",
+      "topics_covered": [
+        "sort"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "4-16",
+      "title": "sorted",
+      "topics_covered": [
+        "sorted"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "superficial"
+    },
+    {
+      "id": "4-17",
+      "title": "key",
+      "topics_covered": [
+        "key"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-18",
+      "title": "Вложенные списки",
+      "topics_covered": [
+        "вложенные"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "4-19",
+      "title": "Изменение вложенных списков",
+      "topics_covered": [
+        "изменение"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "4-20",
+      "title": "Перебор вложенного списка",
+      "topics_covered": [
+        "перебор"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "4-21",
+      "title": "Ссылки",
+      "topics_covered": [
+        "ссылки"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-22",
+      "title": "Изменяемые и неизменяемые типы",
+      "topics_covered": [
+        "изменяемые"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-23",
+      "title": "is",
+      "topics_covered": [
+        "is"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-24",
+      "title": "copy",
+      "topics_covered": [
+        "copy"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-25",
+      "title": "deepcopy",
+      "topics_covered": [
+        "deepcopy"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-26",
+      "title": "while",
+      "topics_covered": [
+        "while"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-27",
+      "title": "while True",
+      "topics_covered": [
+        "while"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "4-28",
+      "title": "До правильного ввода",
+      "topics_covered": [
+        "до"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-29",
+      "title": "Чат-бот",
+      "topics_covered": [
+        "чат-бот"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-30",
+      "title": "Таск-менеджер",
+      "topics_covered": [
+        "таск-менеджер"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "sufficient"
+    },
+    {
+      "id": "4-31",
+      "title": "random + while игра",
+      "topics_covered": [
+        "random"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "3-41",
+      "title": "Лестница отступов Багуса",
+      "topics_covered": [
+        "indentation"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "5-1",
+      "title": "Кнопка на пульте",
+      "topics_covered": [
+        "def"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "5-2",
+      "title": "Кофемашина с настройками",
+      "topics_covered": [
+        "параметры"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "5-3",
+      "title": "Завод с конвейером",
+      "topics_covered": [
+        "return"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "5-4",
+      "title": "Телефонная книга",
+      "topics_covered": [
+        "dict"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    },
+    {
+      "id": "5-7",
+      "title": "Страховка альпиниста",
+      "topics_covered": [
+        "try/except"
+      ],
+      "has_code": "yes",
+      "has_quiz": "yes",
+      "has_mission": "yes",
+      "depth": "deep"
+    }
+  ],
+  "coverage_matrix": {
+    "Block A (Basics)": {
+      "install": "❌ absent",
+      "types": "✅ present",
+      "int": "✅ present",
+      "float": "✅ present",
+      "str": "✅ present",
+      "bool": "✅ present",
+      "variables": "✅ present",
+      "arithmetic": "✅ present",
+      "input()": "✅ present",
+      "print()": "✅ present",
+      "if/elif/else": "✅ present",
+      "for/range": "✅ present",
+      "while": "✅ present",
+      "break/continue": "✅ present",
+      "functions(def/parameters/return)": "✅ present",
+      "scope": "❌ absent",
+      "string methods/slices": "✅ present"
+    },
+    "Block B (Data Structures)": {
+      "list": "✅ present",
+      "tuple": "⚠️ mentioned briefly",
+      "dict": "✅ present",
+      "set": "❌ absent",
+      "nested structures": "✅ present",
+      "list comprehension": "⚠️ mentioned briefly",
+      "dict comprehension": "❌ absent"
+    },
+    "Block C (OOP & Modules)": {
+      "classes": "❌ absent",
+      "inheritance": "❌ absent",
+      "magic methods": "❌ absent",
+      "exceptions": "✅ present",
+      "file I/O": "❌ absent",
+      "import": "✅ present",
+      "std library": "⚠️ mentioned briefly",
+      "pip": "❌ absent"
+    },
+    "Block D (Advanced)": {
+      "decorators": "❌ absent",
+      "generators": "❌ absent",
+      "lambda": "⚠️ mentioned briefly",
+      "map/filter/zip": "✅ present",
+      "*args/**kwargs": "❌ absent",
+      "context managers": "❌ absent",
+      "type hints": "❌ absent",
+      "async": "❌ absent"
+    }
+  },
+  "quality_checklist": {
+    "pass": 92,
+    "fail": {}
+  }
+}
