@@ -59,7 +59,7 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner */}
+      {/* 1. Hero Banner — История мира */}
       <section
         className="rounded-[20px] overflow-hidden relative"
         style={{
@@ -73,41 +73,65 @@ export default function HomePage({ lessons, progress }: Props) {
         <div className="relative z-10 p-7">
           <div className="flex gap-6 items-start">
             <div className="flex-1 min-w-0">
-              <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3" style={{ background: 'rgba(0,212,170,0.15)', border: '1px solid #00d4aa', color: '#00d4aa' }}>
-                SYSTEM STATUS: RESONANT
+              <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3" style={{ background: 'rgba(255,107,107,0.15)', border: '1px solid #ff6b6b', color: '#ff6b6b' }}>
+                ⚔️ Python Quest
               </div>
-              <h1 className="text-2xl font-extrabold mb-2" style={{ color: '#e8e6f0' }}>Welcome Back, Adept</h1>
-              <p className="text-sm leading-relaxed max-w-[500px]" style={{ color: '#9b98a8' }}>
-                The Tower hums with a new frequency today. Your mastery of Variable crystals has stabilized the lower wards. Part 3 awaits with its branching paths of logic.
-              </p>
-              <div className="flex gap-3 mt-4">
+              <h1 className="text-2xl font-extrabold mb-3" style={{ color: '#e8e6f0' }}>Добро пожаловать, герой!</h1>
+
+              <div className="space-y-3 text-xs leading-relaxed max-w-[550px]" style={{ color: '#9b98a8' }}>
+                <p>
+                  <strong style={{ color: '#c9a227' }}>Башня Алгоритмов</strong> — древнее сооружение,
+                  в котором переплелись магия и логика. На каждом этаже — свои загадки:
+                  от простейших заклинаний вывода до сложных конструкций, меняющих реальность.
+                </p>
+                <p>
+                  Ты — <strong style={{ color: '#e8e6f0' }}>Новичок</strong>, наследник древнего дара
+                  программирования. Твоя цель — подняться на самый верх, освоить все 5 ярусов
+                  и одолеть <strong style={{ color: '#ff6b6b' }}>Багуса</strong> — хитрого духа ошибок,
+                  что прячет баги в отступах и путает индексы.
+                </p>
+                <p>
+                  На пути тебя ждут: мудрая <strong style={{ color: '#74B9FF' }}>Ксю</strong>
+                  с её аналогиями, строгий <strong style={{ color: '#A29BFE' }}>Ва</strong>,
+                  проверяющий логику, и <strong style={{ color: '#28A745' }}>Да</strong>,
+                  дающий боевые миссии. А попасть в плен к Багусу — лучший способ научиться!
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-3 mt-5">
                 <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-                  className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none" style={{ background: '#00d4aa', color: '#0f0e17' }}>
-                  Continue Quest
+                  className="px-6 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none" style={{ background: '#00d4aa', color: '#0f0e17' }}>
+                  🎮 Продолжить квест
                 </button>
-                <button className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer" style={{ background: 'transparent', border: '1px solid #c9a227', color: '#ffd700' }}>
-                  Consult Lexicon
+                <button onClick={() => navigate('/lesson/1-1')}
+                  className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer" style={{ background: 'transparent', border: '1px solid #c9a227', color: '#ffd700' }}>
+                  📜 Начать с начала
                 </button>
+              </div>
+
+              <div className="mt-4 flex flex-col gap-1 text-[10px]" style={{ color: '#6b7280' }}>
+                <span>💡 <strong>Совет:</strong> проходи уроки по порядку — каждый следующий опирается на предыдущий</span>
+                <span>❓ <strong>Застрял?</strong> Перечитай диалоги, открой «Частые ошибки» или нажми «Подсказка» в задании</span>
               </div>
             </div>
             <div className="w-[200px] shrink-0 rounded-xl p-4 hidden lg:block" style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.15)' }}>
-              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: '#9b98a8' }}>AETHER</h4>
+              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: '#9b98a8' }}>ПРОГРЕСС</h4>
               <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>RESONANCE</span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total} XP</span>
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>ПРОЙДЕНО</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
               </div>
               <div className="h-1.5 rounded-full my-2" style={{ background: 'rgba(0,212,170,0.1)' }}>
                 <div className="h-full rounded-full transition-all duration-700" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
               </div>
               <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>RANK</span>
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>РАНГ</span>
                 <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
-                  {done >= 80 ? 'Arch-Mage' : done >= 50 ? 'Script-Weaver' : done >= 20 ? 'Code-Adept' : 'Novice'}
+                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
                 </span>
               </div>
               <div className="flex justify-between items-center py-2">
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>STREAKS</span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{Math.floor(done / 3)} Days</span>
+                <span className="text-[11px]" style={{ color: '#9b98a8' }}>ДНИ</span>
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{Math.floor(done / 3)}</span>
               </div>
             </div>
           </div>
