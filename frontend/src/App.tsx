@@ -1,5 +1,5 @@
 import { useState, useLayoutEffect } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useLessons } from './hooks/useApi'
 import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
 import TopNav from './components/TopNav'
@@ -8,6 +8,8 @@ import ChatWidget from './components/ChatWidget'
 import HomePage from './pages/HomePage'
 import LessonPage from './pages/LessonPage'
 import ReviewPage from './pages/ReviewPage'
+import OnboardingPage from './pages/OnboardingPage'
+import CompletionPage from './pages/CompletionPage'
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -58,16 +60,27 @@ function Layout() {
   )
 }
 
+const ONBOARDING_KEY = 'pq_onboarding_done'
+
 export default function App() {
   if (typeof window !== 'undefined') {
     window.history.scrollRestoration = 'manual'
   }
 
+  const onboardingDone = typeof window !== 'undefined' ? localStorage.getItem(ONBOARDING_KEY) : null
+
   return (
     <BrowserRouter>
       <ProgressProvider>
         <Routes>
-          <Route path="/*" element={<Layout />} />
+          {/* Full-screen pages (no sidebar) */}
+          <Route path="/onboarding" element={<OnboardingPage />} />
+          <Route path="/completion" element={<CompletionPage />} />
+
+          {/* Layout pages (with sidebar/nav) — catch-all */}
+          <Route path="/*" element={
+            onboardingDone ? <Layout /> : <Navigate to="/onboarding" replace />
+          } />
         </Routes>
       </ProgressProvider>
     </BrowserRouter>

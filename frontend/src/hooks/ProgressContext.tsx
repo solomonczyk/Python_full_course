@@ -1,9 +1,9 @@
 import { createContext, useContext, type ReactNode } from 'react'
-import { useProgress } from './useApi'
-import type { LessonSummary, Progress } from '../types'
+import { useProgress, type ProgressRecord } from './useApi'
+import type { LessonSummary } from '../types'
 
 interface ProgressContextValue {
-  progress: Record<string, Progress>
+  progress: Record<string, ProgressRecord>
   markComplete: (lesson_id: string, score?: number) => Promise<void>
   isLessonUnlocked: (lessonId: string, lessons: LessonSummary[]) => boolean
 }
@@ -13,7 +13,7 @@ const ProgressContext = createContext<ProgressContextValue | null>(null)
 export function isLessonUnlocked(
   lessonId: string,
   lessons: LessonSummary[],
-  progress: Record<string, Progress>
+  progress: Record<string, ProgressRecord>
 ): boolean {
   const idx = lessons.findIndex(l => l.id === lessonId)
   if (idx <= 0) return true  // first lesson always open

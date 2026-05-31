@@ -4,7 +4,9 @@ from typing import Optional
 
 class ProgressUpdate(BaseModel):
     lesson_id: str
-    completed: bool
+    completed: bool = False
+    quiz_passed: bool = False
+    mission_done: bool = False
     score: Optional[int] = None
 
 
