@@ -38,6 +38,7 @@ function Layout() {
         <TopNav
           lessons={lessons}
           currentId={currentLessonId}
+          progress={progress}
           onMenuClick={() => setSidebarOpen((v) => !v)}
         />
 
@@ -67,8 +68,6 @@ export default function App() {
     window.history.scrollRestoration = 'manual'
   }
 
-  const onboardingDone = typeof window !== 'undefined' ? localStorage.getItem(ONBOARDING_KEY) : null
-
   return (
     <BrowserRouter>
       <ProgressProvider>
@@ -79,7 +78,7 @@ export default function App() {
 
           {/* Layout pages (with sidebar/nav) — catch-all */}
           <Route path="/*" element={
-            onboardingDone ? <Layout /> : <Navigate to="/onboarding" replace />
+            localStorage.getItem(ONBOARDING_KEY) ? <Layout /> : <Navigate to="/onboarding" replace />
           } />
         </Routes>
       </ProgressProvider>

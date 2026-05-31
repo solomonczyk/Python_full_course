@@ -8,7 +8,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -20,7 +20,9 @@ _DB_PATH = Path(os.environ.get("DB_PATH", "/tmp/progress.db"))
 # ── models ─────────────────────────────────────────────────────────────────
 class ProgressUpdate(BaseModel):
     lesson_id: str
-    completed: bool
+    completed: bool = False
+    quiz_passed: bool = False
+    mission_done: bool = False
     score: Optional[int] = None
 
 class QuizAnswer(BaseModel):
@@ -38,33 +40,69 @@ class MissionSubmit(BaseModel):
 # ── db ─────────────────────────────────────────────────────────────────────
 _db_ready = False
 
+TURSO_DATABASE_URL = os.environ.get("TURSO_DATABASE_URL", "")
+TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN", "")
+
+
+def get_connection() -> sqlite3.Connection:
+    """Turso (libsql) if env vars are set, otherwise local SQLite."""
+    _ensure_db()
+    if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
+        try:
+            import libsql_experimental as libsql  # type: ignore
+            conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
+            conn.row_factory = sqlite3.Row
+            return conn
+        except ImportError:
+            pass  # Fall through to local SQLite
+    conn = sqlite3.connect(str(_DB_PATH))
+    conn.row_factory = sqlite3.Row
+    return conn
+
+
 def _ensure_db() -> None:
     global _db_ready
     if _db_ready:
         return
     _DB_PATH.parent.mkdir(parents=True, exist_ok=True)
-    conn = sqlite3.connect(str(_DB_PATH))
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS progress (
-            lesson_id TEXT PRIMARY KEY,
-            completed INTEGER NOT NULL DEFAULT 0,
-            score INTEGER,
-            updated_at TEXT DEFAULT (datetime('now'))
-        )
-    """)
-    conn.commit()
-    conn.close()
-    _db_ready = True
 
-@contextmanager
-def _db() -> sqlite3.Connection:
-    _ensure_db()
-    conn = sqlite3.connect(str(_DB_PATH))
-    conn.row_factory = sqlite3.Row
-    try:
-        yield conn
-    finally:
+    schema = """
+        CREATE TABLE IF NOT EXISTS progress (
+            user_id TEXT NOT NULL,
+            lesson_id TEXT NOT NULL,
+            completed INTEGER NOT NULL DEFAULT 0,
+            quiz_passed INTEGER NOT NULL DEFAULT 0,
+            mission_done INTEGER NOT NULL DEFAULT 0,
+            score INTEGER,
+            updated_at TEXT DEFAULT (datetime('now')),
+            PRIMARY KEY (user_id, lesson_id)
+        )
+    """
+
+    if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
+        try:
+            import libsql_experimental as libsql  # type: ignore
+            conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
+            conn.execute(schema)
+            conn.commit()
+        except ImportError:
+            pass  # Fall through to local SQLite
+            conn = sqlite3.connect(str(_DB_PATH))
+            conn.execute(schema)
+            conn.commit()
+            conn.close()
+    else:
+        conn = sqlite3.connect(str(_DB_PATH))
+        conn.execute(schema)
+        try:
+            conn.execute("SELECT user_id FROM progress LIMIT 1")
+        except sqlite3.OperationalError:
+            conn.execute("DROP TABLE IF EXISTS progress")
+            conn.execute(schema)
+        conn.commit()
         conn.close()
+
+    _db_ready = True
 
 # ── lessons ────────────────────────────────────────────────────────────────
 def _lessons() -> list[dict[str, Any]]:
@@ -86,7 +124,7 @@ _origins = [
 app.add_middleware(
     CORSMiddleware,
     allow_origins=_origins,
-    allow_origin_regex=r"https://python-full-course.*\.vercel\.app",
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -131,33 +169,54 @@ def get_lesson(lesson_id: str) -> dict[str, Any]:
     raise HTTPException(status_code=404, detail=f"Lesson '{lesson_id}' not found")
 
 # ── routes: progress ───────────────────────────────────────────────────────
+def _get_user_id(request: Request) -> str:
+    user_id = request.headers.get("X-User-Id")
+    if not user_id:
+        raise HTTPException(status_code=400, detail="X-User-Id header required")
+    return user_id
+
 @app.get("/progress")
-def get_progress() -> list[dict[str, Any]]:
-    with _db() as conn:
-        rows = conn.execute("SELECT * FROM progress").fetchall()
+def get_progress(request: Request) -> list[dict[str, Any]]:
+    user_id = _get_user_id(request)
+    conn = get_connection()
+    rows = conn.execute(
+        "SELECT * FROM progress WHERE user_id = ? ORDER BY lesson_id", (user_id,)
+    ).fetchall()
+    conn.close()
     return [dict(r) for r in rows]
 
 @app.post("/progress")
-def update_progress(body: ProgressUpdate) -> dict[str, Any]:
-    with _db() as conn:
-        conn.execute(
-            """INSERT INTO progress (lesson_id, completed, score)
-               VALUES (?, ?, ?)
-               ON CONFLICT(lesson_id) DO UPDATE SET
-                 completed=excluded.completed,
-                 score=excluded.score,
-                 updated_at=datetime('now')""",
-            (body.lesson_id, int(body.completed), body.score),
-        )
-        conn.commit()
-        row = conn.execute("SELECT * FROM progress WHERE lesson_id=?", (body.lesson_id,)).fetchone()
+def update_progress(request: Request, body: ProgressUpdate) -> dict[str, Any]:
+    user_id = _get_user_id(request)
+    conn = get_connection()
+    conn.execute(
+        """INSERT INTO progress (user_id, lesson_id, completed, quiz_passed, mission_done, score)
+           VALUES (?, ?, ?, ?, ?, ?)
+           ON CONFLICT(user_id, lesson_id) DO UPDATE SET
+             completed=excluded.completed,
+             quiz_passed=excluded.quiz_passed,
+             mission_done=excluded.mission_done,
+             score=excluded.score,
+             updated_at=datetime('now')""",
+        (user_id, body.lesson_id, int(body.completed), int(body.quiz_passed),
+         int(body.mission_done), body.score),
+    )
+    conn.commit()
+    row = conn.execute(
+        "SELECT * FROM progress WHERE user_id=? AND lesson_id=?", (user_id, body.lesson_id)
+    ).fetchone()
+    conn.close()
     return dict(row)
 
 @app.delete("/progress/{lesson_id}")
-def reset_progress(lesson_id: str) -> dict[str, str]:
-    with _db() as conn:
-        conn.execute("DELETE FROM progress WHERE lesson_id=?", (lesson_id,))
-        conn.commit()
+def reset_progress(lesson_id: str, request: Request) -> dict[str, str]:
+    user_id = _get_user_id(request)
+    conn = get_connection()
+    conn.execute(
+        "DELETE FROM progress WHERE user_id=? AND lesson_id=?", (user_id, lesson_id)
+    )
+    conn.commit()
+    conn.close()
     return {"status": "reset", "lesson_id": lesson_id}
 
 # ── routes: quiz ───────────────────────────────────────────────────────────
@@ -172,7 +231,6 @@ def check_quiz(body: QuizAnswer) -> dict[str, Any]:
     correct = next((o for o in quiz["options"] if o["correct"]), None)
     return {
         "correct": bool(correct and correct["id"] == body.answer_id),
-        "correct_id": correct["id"] if correct else None,
         "explanation": correct["text"] if correct else None,
     }
 
@@ -186,7 +244,6 @@ def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
         raise HTTPException(status_code=400, detail="No what_outputs in this lesson")
     return {
         "correct": wo["correct"] == body.answer_id,
-        "correct_answer": wo["correct"],
     }
 
 # ── routes: mission check ───────────────────────────────────────────────

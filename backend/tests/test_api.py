@@ -56,7 +56,7 @@ def test_quiz_check():
     assert r.status_code == 200
     result = r.json()
     assert "correct" in result
-    assert "correct_id" in result
+    assert "explanation" in result
 
 
 def test_mission_check():
@@ -190,11 +190,11 @@ def test_locked_lessons():
 
 
 def test_progress_endpoint():
-    """GET /progress returns progress data."""
+    """GET /progress without X-User-Id returns 400."""
     r = client.get("/progress")
-    assert r.status_code == 200
+    assert r.status_code == 400
     data = r.json()
-    assert isinstance(data, list)
+    assert "X-User-Id" in data.get("detail", "")
 
 
 def test_health():

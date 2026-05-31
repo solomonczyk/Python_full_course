@@ -16,6 +16,10 @@ jobs:
           if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
       - name: Lint Python
         run: ruff check backend/app/ --ignore E501
+      - name: Run tests
+        run: |
+          pip install pytest httpx
+          cd backend && python -m pytest tests/ -v
 
   frontend:
     runs-on: ubuntu-latest
