@@ -135,7 +135,8 @@
         "expected_output": "8\n8\n5.0",
         "hint": "print(5 + 3) — Python сам посчитает."
       }
-    ]
+    ],
+    "runnable_code": "print(\"Привет, Python!\")"
   },
   {
     "id": "1-2",
@@ -273,7 +274,8 @@
         "expected_output": "Привет, 'Python'!",
         "hint": "print(text)"
       }
-    ]
+    ],
+    "runnable_code": "word = \"Ксю\"\nprint(word)"
   },
   {
     "id": "1-3",
@@ -449,7 +451,8 @@
         "expected_output": "Да\n25",
         "hint": "print(name); print(age)"
       }
-    ]
+    ],
+    "runnable_code": "# создали переменную hero_name и положили туда 'Новичок'\nhero_name = 'Новичок'\n\n# вывели то, что внутри переменной\nprint(hero_name)\n\n# а так — ошибка! кавычки вокруг имени\nprint('hero_name')"
   },
   {
     "id": "1-4",
@@ -587,7 +590,8 @@
         "expected_output": "42",
         "hint": "number = input(); print(number)"
       }
-    ]
+    ],
+    "runnable_code": "name = \"Ксю\"\nprint(name)"
   },
   {
     "id": "1-5",
@@ -725,7 +729,8 @@
         "expected_output": "10",
         "hint": "print(int(a) + int(b))"
       }
-    ]
+    ],
+    "runnable_code": "number = int(\"5\")\nprint(number + 1)"
   },
   {
     "id": "1-6",
@@ -863,7 +868,8 @@
         "expected_output": "27",
         "hint": "print((10 + 5) * 2 - 3)"
       }
-    ]
+    ],
+    "runnable_code": "a = 10\nb = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)"
   },
   {
     "id": "1-7",
@@ -1001,7 +1007,8 @@
         "expected_output": "True\nFalse",
         "hint": "print(x == y); print(x != y)"
       }
-    ]
+    ],
+    "runnable_code": "print(5 > 3)\nprint(5 == 3)"
   },
   {
     "id": "1-8",
@@ -1197,7 +1204,8 @@
         "expected_output": "Доступ разрешён",
         "hint": "if age >= 18: print('Доступ разрешён')"
       }
-    ]
+    ],
+    "runnable_code": "age = 20\nif age >= 18:\n    print(\"Можно\")"
   },
   {
     "id": "1-9",
@@ -1382,7 +1390,8 @@
           "code": "x = int(input())\nif x > 0:\n    result = \"положительное\"\nelse:\n    result = \"не положительное\"\nprint(result)"
         }
       ]
-    }
+    },
+    "runnable_code": "age = 15\nif age >= 18:\n    print(\"Можно\")\nelse:\n    print(\"Нельзя\")"
   },
   {
     "id": "2-1",
@@ -1562,7 +1571,8 @@
         "expected_output": "день",
         "hint": "Цепочка if/elif/else"
       }
-    ]
+    ],
+    "runnable_code": "temp = 15\nif temp < 0:\n    print(\"Мороз\")\nelif temp < 20:\n    print(\"Прохладно\")\nelse:\n    print(\"Тепло\")"
   },
   {
     "id": "2-2",
@@ -1696,7 +1706,8 @@
         "expected_output": "ср",
         "hint": "elif day == 3:"
       }
-    ]
+    ],
+    "runnable_code": "score = 80\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")"
   },
   {
     "id": "2-3",
@@ -1830,7 +1841,8 @@
         "expected_output": "(три случайных числа)",
         "hint": "print(random.randint(1, 6)); print(random.randint(1, 6)); print(random.randint(1, 6))"
       }
-    ]
+    ],
+    "runnable_code": "import random\nx = random.randint(1, 6)\nprint(x)"
   },
   {
     "id": "2-4",
@@ -1958,7 +1970,8 @@
         "expected_output": "Победа!",
         "hint": "secret = random.randint(1, 10); guess = int(input()); if guess == secret: print('Победа!')"
       }
-    ]
+    ],
+    "runnable_code": "import random\nsecret = random.randint(1, 3)\nguess = 2\nif guess == secret:\n    print(\"Победа\")\nelse:\n    print(\"Промах\")"
   },
   {
     "id": "2-5",
@@ -2092,7 +2105,8 @@
         "expected_output": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9",
         "hint": "for i in range(10): print(i)"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(3):\n    print(\"Привет\")"
   },
   {
     "id": "2-6",
@@ -2226,7 +2240,8 @@
         "expected_output": "[0, 1, 2, 3, 4]",
         "hint": "print(list(range(5)))"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(1, 6):\n    print(i)"
   },
   {
     "id": "3-1",
@@ -2360,7 +2375,8 @@
         "expected_output": "5.0",
         "hint": "print(float(n))"
       }
-    ]
+    ],
+    "runnable_code": "length = 4.5\nwidth = 2\nprint(length * width)"
   },
   {
     "id": "3-2",
@@ -2488,7 +2504,8 @@
         "expected_output": "3.3333333333333335\n4.5\n1.75",
         "hint": "print(10/3); print(9/2); print(7/4)"
       }
-    ]
+    ],
+    "runnable_code": "print(10 / 4)"
   },
   {
     "id": "3-3",
@@ -2622,7 +2639,8 @@
         "expected_output": "3.3333333333333335\n3",
         "hint": "print(10/3); print(10//3)"
       }
-    ]
+    ],
+    "runnable_code": "print(10 // 3)"
   },
   {
     "id": "3-4",
@@ -2756,7 +2774,8 @@
         "expected_output": "нечётное",
         "hint": "if n % 2 == 0: ... else: ..."
       }
-    ]
+    ],
+    "runnable_code": "print(10 % 3)"
   },
   {
     "id": "3-5",
@@ -2890,7 +2909,8 @@
         "expected_output": "0\n2\n3",
         "hint": "print(8%2); print(8%3); print(8%5)"
       }
-    ]
+    ],
+    "runnable_code": "n = 7\nif n % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")"
   },
   {
     "id": "3-6",
@@ -3024,7 +3044,8 @@
         "expected_output": "<class 'bool'>\n<class 'bool'>",
         "hint": "print(type(True)); print(type(False))"
       }
-    ]
+    ],
+    "runnable_code": "is_open = True\nif is_open:\n    print(\"open\")"
   },
   {
     "id": "3-7",
@@ -3158,7 +3179,8 @@
         "expected_output": "дверь заперта",
         "hint": "if has_key: ... else: ..."
       }
-    ]
+    ],
+    "runnable_code": "door_is_open = False\nif door_is_open:\n    print(\"Проходи\")\nelse:\n    print(\"Закрыто\")"
   },
   {
     "id": "3-8",
@@ -3292,7 +3314,8 @@
         "expected_output": "мёртв",
         "hint": "status = \"жив\" if health > 0 else \"мёртв\""
       }
-    ]
+    ],
+    "runnable_code": "is_ready = True\nif is_ready:\n    print(\"Готово\")"
   },
   {
     "id": "3-9",
@@ -3426,7 +3449,8 @@
         "expected_output": "мокро",
         "hint": "if is_rainy and not have_umbrella:"
       }
-    ]
+    ],
+    "runnable_code": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"Можно\")"
   },
   {
     "id": "3-10",
@@ -3560,7 +3584,8 @@
         "expected_output": "сундук открыт",
         "hint": "if has_key or knows_riddle:"
       }
-    ]
+    ],
+    "runnable_code": "day = \"суббота\"\nif day == \"суббота\" or day == \"воскресенье\":\n    print(\"Выходной\")"
   },
   {
     "id": "3-11",
@@ -3694,7 +3719,8 @@
         "expected_output": "нужен ключ",
         "hint": "if not is_locked: ... else: ..."
       }
-    ]
+    ],
+    "runnable_code": "is_closed = False\nif not is_closed:\n    print(\"Открыто\")"
   },
   {
     "id": "3-12",
@@ -3812,7 +3838,7 @@
     "analogy": {
       "title": "Уборка в комнате",
       "story_metaphor": "Твоя комната завалена игрушками, вещами и бумажками. Чтобы найти мяч, приходится перебрать кучу мусора. Но если всё разложить по полкам, убрать лишнее и объединить похожие вещи — найти нужное становится легко и быстро.",
-      "python_mapping": "Оптимизация условий — это когда ты убираешь лишние проверки. Вместо `if x == True` можно просто `if x`. Вместо `if a and b and a` — `if a and b`. А вложенные `if` внутри `if` часто можно объединить одним `and`. Чем проще код — тем меньше ошибок.",
+      "python_mapping": "Оптимизация условий — это когда ты убираешь лишние проверки. Вместо `if x == True` можно просто `if x`. Вместо `if a and b and a` — `if a and b`. А вложенные `if` внутри `if` часто можно объединить одним `and`. Чем проще код — тем меньше ошибок.\n\n# Было (плохо):\nif x == True:\n    print('да')\n\n# Стало (хорошо):\nif x:\n    print('да')",
       "key_rule": "Упрощай условия: убирай лишние проверки, объединяй повторяющееся, не пиши == `True`."
     },
     "practice_subtasks": [
@@ -3828,7 +3854,8 @@
         "expected_output": "чего-то нет",
         "hint": "if a and b: ... else: ..."
       }
-    ]
+    ],
+    "runnable_code": "name = \"Ксю\"\nphone = \"123\"\nif name and phone:\n    print(\"ok\")"
   },
   {
     "id": "3-13",
@@ -3962,7 +3989,8 @@
         "expected_output": "нужно оружие",
         "hint": "if level >= 5:\n    if has_sword:"
       }
-    ]
+    ],
+    "runnable_code": "age = 20\nticket = \"да\"\nif age >= 18:\n    if ticket == \"да\":\n        print(\"Вход\")\n    else:\n        print(\"Нужен билет\")\nelse:\n    print(\"Рано\")"
   },
   {
     "id": "3-14",
@@ -4096,7 +4124,8 @@
         "expected_output": "0\n1\n4\n9",
         "hint": "for i in range(4): print(i ** 2)"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(3):\n    print(\"step\")"
   },
   {
     "id": "3-15",
@@ -4230,7 +4259,8 @@
         "expected_output": "1\n2\n3\n4",
         "hint": "for i in range(1, 5): print(i)"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(1, 5):\n    print(i)"
   },
   {
     "id": "3-16",
@@ -4364,7 +4394,8 @@
         "expected_output": "1\n4\n7\n10",
         "hint": "for i in range(1, 11, 3): print(i)"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(0, 10, 2):\n    print(i)"
   },
   {
     "id": "3-17",
@@ -4498,7 +4529,8 @@
         "expected_output": "8\n6\n4\n2",
         "hint": "for i in range(8, 1, -2): print(i)"
       }
-    ]
+    ],
+    "runnable_code": "for i in range(5, 0, -1):\n    print(i)"
   },
   {
     "id": "3-18",
@@ -4685,7 +4717,8 @@
         "expected_output": "12",
         "hint": "total = 0\nfor i in range(2, 7):\n    if i % 2 == 0:\n        total += i\nprint(total)"
       }
-    ]
+    ],
+    "runnable_code": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)"
   },
   {
     "id": "3-19",
@@ -4819,7 +4852,8 @@
         "expected_output": "Python",
         "hint": "result = a + b\nprint(result)"
       }
-    ]
+    ],
+    "runnable_code": "word = \"python\"\nprint(word)"
   },
   {
     "id": "3-20",
@@ -4953,7 +4987,8 @@
         "expected_output": "email",
         "hint": "if \"@\" in email:"
       }
-    ]
+    ],
+    "runnable_code": "text = \"hello python\"\nprint(\"python\" in text)"
   },
   {
     "id": "3-21",
@@ -5087,7 +5122,8 @@
         "expected_output": "короткий пароль",
         "hint": "if len(password) < 8:"
       }
-    ]
+    ],
+    "runnable_code": "word = \"python\"\nprint(len(word))"
   },
   {
     "id": "3-22",
@@ -5221,7 +5257,8 @@
         "expected_output": "Герой Воин, уровень 7",
         "hint": "print(f\"Герой {hero}, уровень {level}\")"
       }
-    ]
+    ],
+    "runnable_code": "name = \"Ксю\"\nlevel = 3\nprint(f\"{name}: {level}\")"
   },
   {
     "id": "3-23",
@@ -5355,7 +5392,8 @@
         "expected_output": "привет",
         "hint": "print(text.strip().lower())"
       }
-    ]
+    ],
+    "runnable_code": "text = \"  PyThOn  \"\nprint(text.lower().strip())"
   },
   {
     "id": "3-24",
@@ -5489,7 +5527,8 @@
         "expected_output": "n",
         "hint": "print(word[-1])"
       }
-    ]
+    ],
+    "runnable_code": "word = \"python\"\nprint(word[0])"
   },
   {
     "id": "3-25",
@@ -5623,7 +5662,8 @@
         "expected_output": "yth",
         "hint": "print(word[1:4])"
       }
-    ]
+    ],
+    "runnable_code": "word = \"python\"\nprint(word[0:2])"
   },
   {
     "id": "3-26",
@@ -5757,7 +5797,8 @@
         "expected_output": "a",
         "hint": "for ch in text:\n    if ch == \"a\":\n        print(ch)"
       }
-    ]
+    ],
+    "runnable_code": "word = \"abc\"\nfor letter in word:\n    print(letter)"
   },
   {
     "id": "3-27",
@@ -5891,7 +5932,8 @@
         "expected_output": "4",
         "hint": "print(len(fruits))"
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"щит\"]\nprint(items)"
   },
   {
     "id": "3-28",
@@ -6025,7 +6067,8 @@
         "expected_output": "['алмаз', 'палка', 'трава']",
         "hint": "inventory[0] = \"алмаз\"\nprint(inventory)"
       }
-    ]
+    ],
+    "runnable_code": "items = [\"старый щит\", \"меч\"]\nitems[0] = \"новый щит\"\nprint(items)"
   },
   {
     "id": "3-29",
@@ -6159,7 +6202,8 @@
         "expected_output": "[\"б\", \"в\"]",
         "hint": "queue.pop(0) удаляет и возвращает элемент с индексом 0."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"щит\"]\ndeleted = items.pop()\nprint(deleted)\nprint(items)"
   },
   {
     "id": "3-30",
@@ -6293,7 +6337,8 @@
         "expected_output": "[1, 3, 2, 4]",
         "hint": "Сначала проверь if 2 in nums:, потом nums.remove(2)."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"щит\"]\nitems.remove(\"щит\")\nprint(items)"
   },
   {
     "id": "3-31",
@@ -6427,7 +6472,8 @@
         "expected_output": "[10, 20, 30]",
         "hint": "coins = []; coins.append(10); coins.append(20); coins.append(30); print(coins)"
       }
-    ]
+    ],
+    "runnable_code": "items = []\nitems.append(\"ключ\")\nprint(items)"
   },
   {
     "id": "3-32",
@@ -6557,7 +6603,8 @@
         "expected_output": "0",
         "hint": "Сначала if \"р\" in word:, потом word.index(\"р\")."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"ключ\"]\nprint(items.index(\"ключ\"))"
   },
   {
     "id": "3-33",
@@ -6691,7 +6738,8 @@
         "expected_output": "647",
         "hint": "sum(prices) вернёт сумму всех цен."
       }
-    ]
+    ],
+    "runnable_code": "numbers = [1, 2, 3]\nprint(sum(numbers))"
   },
   {
     "id": "3-34",
@@ -6825,7 +6873,8 @@
         "expected_output": "3",
         "hint": "text.count(\"а\") считает вхождения подстроки в строке."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"зелье\", \"меч\", \"зелье\"]\nprint(items.count(\"зелье\"))"
   },
   {
     "id": "3-35",
@@ -6959,7 +7008,8 @@
         "expected_output": "[\"кот\", \"дом\", \"лес\"]",
         "hint": "[w for w in words if len(w) == 3] — проверка длины слова."
       }
-    ]
+    ],
+    "runnable_code": "numbers = [1, 2, 3, 4]\nfor n in numbers:\n    if n % 2 == 0:\n        print(n)"
   },
   {
     "id": "3-36",
@@ -7093,7 +7143,8 @@
         "expected_output": "[\"завтрак\", \"зарядка\", \"обед\"]",
         "hint": "tasks.insert(0, \"завтрак\") — вставка на нулевой индекс добавляет в начало."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"зелье\"]\nitems.insert(1, \"щит\")\nprint(items)"
   },
   {
     "id": "3-37",
@@ -7227,7 +7278,8 @@
         "expected_output": "[\"молоко\", \"хлеб\", \"масло\"]",
         "hint": "cart.extend([\"хлеб\", \"масло\"]) — добавляет несколько элементов за раз."
       }
-    ]
+    ],
+    "runnable_code": "a = [1, 2]\nb = [3, 4]\na.extend(b)\nprint(a)"
   },
   {
     "id": "3-38",
@@ -7361,7 +7413,8 @@
         "expected_output": "[10, 20, 30]",
         "hint": "nums[:3] — если не указывать start, срез начинается с 0."
       }
-    ]
+    ],
+    "runnable_code": "a = [10, 20, 30, 40]\nprint(a[1:3])"
   },
   {
     "id": "3-39",
@@ -7495,7 +7548,8 @@
         "expected_output": "банан",
         "hint": "random.choice() возвращает один элемент из списка."
       }
-    ]
+    ],
+    "runnable_code": "import random\nitems = [\"меч\", \"щит\"]\nprint(random.choice(items))"
   },
   {
     "id": "3-40",
@@ -7629,7 +7683,8 @@
         "expected_output": "[\"дама\", \"туз\", \"валет\", \"король\"]",
         "hint": "shuffle() изменяет список на месте и возвращает None. Выводи сам список, а не результат shuffle()."
       }
-    ]
+    ],
+    "runnable_code": "import random\ncards = [1, 2, 3]\nrandom.shuffle(cards)\nprint(cards)"
   },
   {
     "id": "4-1",
@@ -7763,7 +7818,8 @@
         "expected_output": "True",
         "hint": "found = False; for door in doors: if door == 'открыто': found = True; break; print(found)"
       }
-    ]
+    ],
+    "runnable_code": "found = False\nfor x in [1, 2, 3]:\n    if x == 2:\n        found = True\nprint(found)"
   },
   {
     "id": "4-2",
@@ -7897,7 +7953,8 @@
         "expected_output": "start\nwork\nend",
         "hint": "Выведи 'start', потом в while True выведи 'work' и сделай break, затем после цикла выведи 'end'."
       }
-    ]
+    ],
+    "runnable_code": "for x in [1, 2, 3]:\n    if x == 2:\n        break\n    print(x)"
   },
   {
     "id": "4-3",
@@ -8031,7 +8088,8 @@
         "expected_output": "-1",
         "hint": "-1 больше, чем -5. Условие if n > mx сработает правильно."
       }
-    ]
+    ],
+    "runnable_code": "numbers = [4, 9, 2]\nmx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)"
   },
   {
     "id": "4-4",
@@ -8165,7 +8223,8 @@
         "expected_output": "-5",
         "hint": "-5 меньше, чем 2. Условие if n < mn найдет самое маленькое число."
       }
-    ]
+    ],
+    "runnable_code": "numbers = [4, 9, 2]\nmn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)"
   },
   {
     "id": "4-5",
@@ -8299,12 +8358,13 @@
         "expected_output": "3",
         "hint": "После нахождения самой длинной строки выведи len(longest)."
       }
-    ]
+    ],
+    "runnable_code": "names = [\"Ксю\", \"Архивариус\"]\nlongest = names[0]\nfor name in names:\n    if len(name) > len(longest):\n        longest = name\nprint(longest)"
   },
   {
     "id": "4-6",
     "part": 4,
-    "chapter": 13,
+    "chapter": 12,
     "lesson": 6,
     "slug": "pervyy-s-kontsa",
     "title": "Первый с конца",
@@ -8433,7 +8493,8 @@
         "expected_output": "30\n40",
         "hint": "-2 — предпоследний, -1 — последний элемент."
       }
-    ]
+    ],
+    "runnable_code": "items = [1, 2, 3]\nfor i in range(len(items)-1, -1, -1):\n    print(items[i])"
   },
   {
     "id": "4-7",
@@ -8567,12 +8628,13 @@
         "expected_output": "not found",
         "hint": "После цикла проверь if result is None: print('not found')."
       }
-    ]
+    ],
+    "runnable_code": "result = None\nfor x in [2, 4, 5]:\n    if x % 2 != 0:\n        result = x\n        break\nprint(result)"
   },
   {
     "id": "4-8",
     "part": 4,
-    "chapter": 14,
+    "chapter": 13,
     "lesson": 8,
     "slug": "algoritmicheskoe-myshlenie",
     "title": "Алгоритмическое мышление",
@@ -8701,12 +8763,13 @@
         "expected_output": "12",
         "hint": "Если n % 2 == 0, то добавляй n к total."
       }
-    ]
+    ],
+    "runnable_code": "numbers = [1, -2, 3]\ntotal = 0\nfor n in numbers:\n    if n > 0:\n        total += n\nprint(total)"
   },
   {
     "id": "4-9",
     "part": 4,
-    "chapter": 14,
+    "chapter": 13,
     "lesson": 9,
     "slug": "join",
     "title": "join",
@@ -8835,12 +8898,13 @@
         "expected_output": "Python",
         "hint": "''.join(symbols) склеит все элементы без разделителя."
       }
-    ]
+    ],
+    "runnable_code": "words = [\"я\", \"учу\", \"python\"]\nprint(\" \".join(words))"
   },
   {
     "id": "4-10",
     "part": 4,
-    "chapter": 14,
+    "chapter": 13,
     "lesson": 10,
     "slug": "perenos-stroki-n",
     "title": "Перенос строки \\n",
@@ -8969,12 +9033,13 @@
         "expected_output": "line1\nline2\nline3",
         "hint": "print('\\n'.join(lines))."
       }
-    ]
+    ],
+    "runnable_code": "lines = [\"a\", \"b\"]\nprint(\"\\n\".join(lines))"
   },
   {
     "id": "4-11",
     "part": 4,
-    "chapter": 14,
+    "chapter": 13,
     "lesson": 11,
     "slug": "raspakovka",
     "title": "Распаковка",
@@ -9103,12 +9168,13 @@
         "expected_output": "1 2 3",
         "hint": "print(*items) распакует все элементы в аргументы print."
       }
-    ]
+    ],
+    "runnable_code": "items = [\"меч\", \"щит\"]\nprint(*items)"
   },
   {
     "id": "4-12",
     "part": 4,
-    "chapter": 14,
+    "chapter": 13,
     "lesson": 12,
     "slug": "split",
     "title": "split",
@@ -9237,7 +9303,8 @@
         "expected_output": "4",
         "hint": "len(text.split()) даст количество слов."
       }
-    ]
+    ],
+    "runnable_code": "text = \"меч щит ключ\"\nprint(text.split())"
   },
   {
     "id": "4-13",
@@ -9371,7 +9438,8 @@
         "expected_output": "192\n168\n1\n1",
         "hint": "Сначала parts = ip.split('.'), затем перебери циклом."
       }
-    ]
+    ],
+    "runnable_code": "text = \"a,b,c\"\nprint(text.split(\",\"))"
   },
   {
     "id": "4-14",
@@ -9505,7 +9573,8 @@
         "expected_output": "1,2,3",
         "hint": "list(map(str, numbers)) даст список строк. Затем ','.join()."
       }
-    ]
+    ],
+    "runnable_code": "numbers = list(map(int, [\"1\", \"2\"]))\nprint(numbers)"
   },
   {
     "id": "4-15",
@@ -9639,12 +9708,13 @@
         "expected_output": "['apple', 'banana', 'cherry']",
         "hint": "sort() без аргументов сортирует строки по алфавиту."
       }
-    ]
+    ],
+    "runnable_code": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)"
   },
   {
     "id": "4-16",
     "part": 4,
-    "chapter": 15,
+    "chapter": 14,
     "lesson": 16,
     "slug": "sorted",
     "title": "sorted",
@@ -9773,12 +9843,13 @@
         "expected_output": "['b', 'cc', 'aaa']",
         "hint": "sorted(words, key=len) — key указывает правило сортировки."
       }
-    ]
+    ],
+    "runnable_code": "nums = [3, 1, 2]\nnew_nums = sorted(nums)\nprint(new_nums)\nprint(nums)"
   },
   {
     "id": "4-17",
     "part": 4,
-    "chapter": 15,
+    "chapter": 14,
     "lesson": 17,
     "slug": "key",
     "title": "key",
@@ -9907,7 +9978,8 @@
         "expected_output": "[1, -2, -3, 4]",
         "hint": "sorted(nums, key=abs) отсортирует по модулю числа."
       }
-    ]
+    ],
+    "runnable_code": "names = [\"Ксю\", \"Архивариус\", \"Да\"]\nnames.sort(key=len)\nprint(names)"
   },
   {
     "id": "4-18",
@@ -10041,7 +10113,8 @@
         "expected_output": "6",
         "hint": "matrix[1][2] — вторая строка (индекс 1), третий столбец (индекс 2)."
       }
-    ]
+    ],
+    "runnable_code": "table = [[\"Ксю\", 10], [\"Да\", 12]]\nprint(table[0][0])"
   },
   {
     "id": "4-19",
@@ -10175,7 +10248,8 @@
         "expected_output": "[['x', 'x'], ['o', 'x']]",
         "hint": "matrix[0][1] = 'x' — первая строка (0), второй столбец (1)."
       }
-    ]
+    ],
+    "runnable_code": "table = [[\"Ксю\", 10]]\ntable[0][1] = 20\nprint(table)"
   },
   {
     "id": "4-20",
@@ -10309,7 +10383,8 @@
         "expected_output": "1\n2\n3\n4",
         "hint": "for row in matrix: for elem in row: print(elem)."
       }
-    ]
+    ],
+    "runnable_code": "orders = [[\"Анна\", 100], [\"Иван\", 200]]\nfor order in orders:\n    print(order[0], order[1])"
   },
   {
     "id": "4-21",
@@ -10427,7 +10502,7 @@
     "analogy": {
       "title": "Два пульта, один телевизор",
       "story_metaphor": "У вас дома два пульта от одного телевизора. Ты берёшь один пульт и делаешь громче. Папа берёт второй пульт и видит, что громкость уже изменилась. Это один и тот же телевизор, просто управлять им можно с двух пультов.",
-      "python_mapping": "Две переменные могут ссылаться на один и тот же список: `a = [1, 2, 3]` и `b = a`. Теперь `a` и `b` — два пульта к одному телевизору. Изменишь через `a.append(4)` — и через `b` тоже увидишь изменение. Это одна и та же коробка в памяти.",
+      "python_mapping": "Две переменные могут ссылаться на один и тот же список: `a = [1, 2, 3]` и `b = a`. Теперь `a` и `b` — два пульта к одному телевизору. Изменишь через `a.append(4)` — и через `b` тоже увидишь изменение. Это одна и та же коробка в памяти.\n\n# Попробуй сам:\na = [1, 2, 3]\nb = a\na.append(4)\nprint(b)  # [1, 2, 3, 4] — b тоже изменился!",
       "key_rule": "Две переменные могут указывать на один объект — меняешь через одну, видишь через другую."
     },
     "practice_subtasks": [
@@ -10443,7 +10518,8 @@
         "expected_output": "[99, 20]",
         "hint": "b = a — обе переменные указывают на один список. Изменения через b видны в a."
       }
-    ]
+    ],
+    "runnable_code": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)"
   },
   {
     "id": "4-22",
@@ -10577,12 +10653,13 @@
         "expected_output": "Ошибка",
         "hint": "Строки — неизменяемый тип. text[0] = 'z' вызовет TypeError. Используй try-except."
       }
-    ]
+    ],
+    "runnable_code": "a = [1]\na.append(2)\nprint(a)\nx = 5\nx = 6\nprint(x)"
   },
   {
     "id": "4-23",
     "part": 4,
-    "chapter": 16,
+    "chapter": 15,
     "lesson": 23,
     "slug": "is",
     "title": "is",
@@ -10711,12 +10788,13 @@
         "expected_output": "False",
         "hint": "Даже если содержимое одинаковое, это разные объекты в памяти, поэтому is вернёт False."
       }
-    ]
+    ],
+    "runnable_code": "a = [1]\nb = a\nprint(a is b)"
   },
   {
     "id": "4-24",
     "part": 4,
-    "chapter": 16,
+    "chapter": 15,
     "lesson": 24,
     "slug": "copy",
     "title": "copy",
@@ -10830,7 +10908,7 @@
       "title": "Ксерокопия обложки",
       "story_metaphor": "У тебя есть толстая книга с главами. Ты делаешь ксерокопию только обложки. Теперь у тебя две обложки — оригинальная и копия. Но страницы внутри у обеих книг общие. Если кто-то порвёт страницу в одной книге, во второй она тоже порвётся.",
       "python_mapping": "Метод `copy()` создаёт новый список, но только на первом уровне. Если внутри были вложенные списки (как страницы книги), копия будет ссылаться на те же самые внутренние списки. Меняя элемент в копии на верхнем уровне, оригинал не трогаешь. Но меняя вложенный — трогаешь оба.",
-      "key_rule": "`copy` копирует только верхний слой — внутренние коробки остаются общими."
+      "key_rule": "copy() — новая коробка, но те же внутренние коробочки. Меняй верхний уровень смело, вложенные объекты — осторожно."
     },
     "practice_subtasks": [
       {
@@ -10845,12 +10923,13 @@
         "expected_output": "[[9, 2], [3, 4]]",
         "hint": "copy() создаёт поверхностную копию — внутренние списки остаются ссылками."
       }
-    ]
+    ],
+    "runnable_code": "a = [1, 2]\nb = a.copy()\nb.append(3)\nprint(a)\nprint(b)"
   },
   {
     "id": "4-25",
     "part": 4,
-    "chapter": 16,
+    "chapter": 15,
     "lesson": 25,
     "slug": "deepcopy",
     "title": "deepcopy",
@@ -10979,7 +11058,8 @@
         "expected_output": "[[1, 2], [3, 4]]",
         "hint": "После deepcopy изменения в b не затрагивают a даже на вложенном уровне."
       }
-    ]
+    ],
+    "runnable_code": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0].append(2)\nprint(a)\nprint(b)"
   },
   {
     "id": "4-26",
@@ -11113,7 +11193,8 @@
         "expected_output": "Угадал!",
         "hint": "while guess != secret: guess = int(input()); break если угадал"
       }
-    ]
+    ],
+    "runnable_code": "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1"
   },
   {
     "id": "4-27",
@@ -11247,12 +11328,13 @@
         "expected_output": "Step 1\nStep 2\nStep 3",
         "hint": "Используй переменную-счётчик или просто break после третьего print."
       }
-    ]
+    ],
+    "runnable_code": "command = \"\"\nwhile command != \"exit\":\n    command = \"exit\"\nprint(\"done\")"
   },
   {
     "id": "4-28",
     "part": 4,
-    "chapter": 17,
+    "chapter": 16,
     "lesson": 28,
     "slug": "do-pravilnogo-vvoda",
     "title": "До правильного ввода",
@@ -11381,7 +11463,8 @@
         "expected_output": "Готово",
         "hint": "while num <= 0: num = 5 — внутри цикла меняем значение, чтобы выйти."
       }
-    ]
+    ],
+    "runnable_code": "password = \"\"\nwhile password != \"1234\":\n    password = \"1234\"\nprint(\"ok\")"
   },
   {
     "id": "4-29",
@@ -11515,7 +11598,8 @@
         "expected_output": "Справка: доступные команды",
         "hint": "if cmd == 'help': print(...) elif cmd == 'about': print(...)."
       }
-    ]
+    ],
+    "runnable_code": "msg = \"привет\"\nif msg.lower() == \"привет\":\n    print(\"Привет\")\nelif msg.lower() == \"выход\":\n    print(\"Пока\")"
   },
   {
     "id": "4-30",
@@ -11649,7 +11733,8 @@
         "expected_output": "['a', 'c']",
         "hint": "tasks.remove('b') удалит первый элемент с таким значением."
       }
-    ]
+    ],
+    "runnable_code": "tasks = []\ncommand = \"add\"\nif command == \"add\":\n    task = \"learn\"\n    tasks.append(task)\nprint(tasks)"
   },
   {
     "id": "4-31",
@@ -11783,7 +11868,8 @@
         "expected_output": "win",
         "hint": "random.randint(1, 5) даёт случайное число от 1 до 5."
       }
-    ]
+    ],
+    "runnable_code": "secret = 2\nattempts = 3\nguess = 2\nwhile attempts > 0:\n    if guess == secret:\n        print(\"win\")\n        break\n    attempts -= 1"
   },
   {
     "id": "3-41",
@@ -11914,7 +12000,8 @@
         "expected_output": "0\n0\n1\n2\n2\n4",
         "hint": "Обе строки print() внутри цикла должны быть с одинаковым отступом (4 пробела)."
       }
-    ]
+    ],
+    "runnable_code": "health = 10\nif health > 0:\n    print('Герой жив!')\n    print('Можно продолжать')\nprint('Это вне блока if')"
   },
   {
     "id": "5-1",
@@ -12048,7 +12135,8 @@
         "expected_output": "Дзынь!\nДзынь!\nДзынь!",
         "hint": "Вызови bell() три раза — каждый на новой строке."
       }
-    ]
+    ],
+    "runnable_code": "def greet():\n    print('Hello!')\n\ngreet()"
   },
   {
     "id": "5-2",
@@ -12182,7 +12270,8 @@
         "expected_output": "Мой возраст: 16",
         "hint": "Число age можно вывести через запятую: print('Мой возраст:', age)."
       }
-    ]
+    ],
+    "runnable_code": "def square(x):\n    print(x * x)\n\nsquare(4)"
   },
   {
     "id": "5-3",
@@ -12316,7 +12405,8 @@
         "expected_output": "Привет, Ксю!",
         "hint": "return 'Привет, ' + name + '!' — возвращает строку. Вызови: print(make_greeting('Ксю'))."
       }
-    ]
+    ],
+    "runnable_code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)"
   },
   {
     "id": "5-4",
@@ -12450,7 +12540,8 @@
         "expected_output": "{'score': 10}",
         "hint": "scores['score'] = 10 — так добавляется новая пара ключ-значение."
       }
-    ]
+    ],
+    "runnable_code": "hero = {'name': 'Новичок', 'hp': 100}\nprint(hero['name'])\nprint(hero['hp'])"
   },
   {
     "id": "5-7",
@@ -12584,6 +12675,7 @@
         "expected_output": "На ноль делить нельзя",
         "hint": "try: print(10 / 0) except: print('На ноль делить нельзя')"
       }
-    ]
+    ],
+    "runnable_code": "try:\n    number = 10\n    print('Число:', number)\nexcept:\n    print('Это не число!')"
   }
 ]

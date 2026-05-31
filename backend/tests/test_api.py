@@ -214,3 +214,9 @@ def test_review_find_bug_has_correct():
         fb = data.get("find_bug", {})
         if fb and not fb.get("correct"):
             assert False, f"Review {data['id']} find_bug missing correct field"
+
+
+def test_progress_with_user_id():
+    """GET /progress with X-User-Id returns 200."""
+    r = client.get("/progress", headers={"X-User-Id": "test-user"})
+    assert r.status_code == 200

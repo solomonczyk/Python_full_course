@@ -1,13 +1,19 @@
 import { useState } from 'react'
+import CodePlayground from './CodePlayground'
 
 interface Props {
   code: string
   output?: string
   filename?: string
+  runnable?: boolean
 }
 
-export default function CodeBlock({ code, output, filename = 'python-quest.py' }: Props) {
+export default function CodeBlock({ code, output, filename = 'python-quest.py', runnable = false }: Props) {
   const [copied, setCopied] = useState(false)
+
+  if (runnable) {
+    return <CodePlayground initialCode={code} fileName={filename} />
+  }
 
   const copy = () => {
     navigator.clipboard.writeText(code)
