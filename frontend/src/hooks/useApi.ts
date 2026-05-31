@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
-import type { Lesson, LessonSummary, Progress, ReviewBlock, ReviewSummary } from '../types'
+import type { Lesson, LessonSummary, ReviewBlock, ReviewSummary } from '../types'
+import { getUserId } from '../utils/userId'
 
 const BASE = '/api'
+
+function authHeaders(): Record<string, string> {
+  return {
+    'Content-Type': 'application/json',
+    'X-User-Id': getUserId(),
+  }
+}
 
 export function useLessons() {
   const [lessons, setLessons] = useState<LessonSummary[]>([])
@@ -52,17 +60,26 @@ export function useLesson(id: string) {
 
 const STORAGE_KEY = 'python-quest-progress'
 
+export interface ProgressRecord {
+  lesson_id: string
+  completed: boolean
+  quiz_passed: boolean
+  mission_done: boolean
+  score: number | null
+  updated_at: string
+}
+
 export function useProgress() {
-  const [progress, setProgress] = useState<Record<string, Progress>>({})
+  const [progress, setProgress] = useState<Record<string, ProgressRecord>>({})
 
   useEffect(() => {
-    fetch(`${BASE}/progress`)
+    fetch(`${BASE}/progress`, { headers: authHeaders() })
       .then((r) => {
         if (!r.ok) throw new Error('Failed to load progress')
         return r.json()
       })
-      .then((data: Progress[] | null) => {
-        const map: Record<string, Progress> = {}
+      .then((data: ProgressRecord[] | null) => {
+        const map: Record<string, ProgressRecord> = {}
         if (Array.isArray(data)) {
           data.forEach((p) => {
             if (p && p.lesson_id) map[p.lesson_id] = p
@@ -72,7 +89,7 @@ export function useProgress() {
         const saved = localStorage.getItem(STORAGE_KEY)
         if (saved) {
           try {
-            const local: Record<string, Progress> = JSON.parse(saved)
+            const local: Record<string, ProgressRecord> = JSON.parse(saved)
             Object.assign(map, local)
           } catch { /* ignore corrupt localStorage */ }
         }
@@ -94,7 +111,7 @@ export function useProgress() {
       })
   }, [])
 
-  const persist = (map: Record<string, Progress>) => {
+  const persist = (map: Record<string, ProgressRecord>) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(map))
   }
 
@@ -102,10 +119,10 @@ export function useProgress() {
     try {
       const res = await fetch(`${BASE}/progress`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: authHeaders(),
         body: JSON.stringify({ lesson_id, completed: true, score }),
       })
-      const updated: Progress = await res.json()
+      const updated: ProgressRecord = await res.json()
       setProgress((prev) => {
         const next = { ...prev, [lesson_id]: updated }
         persist(next)
@@ -113,7 +130,14 @@ export function useProgress() {
       })
     } catch (e) {
       // If API fails (Vercel ephemeral), save to localStorage only
-      const updated: Progress = { lesson_id, completed: true, score: score ?? null, updated_at: new Date().toISOString() }
+      const updated: ProgressRecord = {
+        lesson_id,
+        completed: true,
+        quiz_passed: false,
+        mission_done: false,
+        score: score ?? null,
+        updated_at: new Date().toISOString(),
+      }
       setProgress((prev) => {
         const next = { ...prev, [lesson_id]: updated }
         persist(next)
@@ -128,7 +152,7 @@ export function useProgress() {
 export async function checkQuizAnswer(lesson_id: string, answer_id: string) {
   const res = await fetch(`${BASE}/quiz/check`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: authHeaders(),
     body: JSON.stringify({ lesson_id, answer_id }),
   })
   if (!res.ok) throw new Error('Failed to check quiz answer')
@@ -138,7 +162,7 @@ export async function checkQuizAnswer(lesson_id: string, answer_id: string) {
 export async function checkWhatOutputs(lesson_id: string, answer_id: string) {
   const res = await fetch(`${BASE}/quiz/what-outputs`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: authHeaders(),
     body: JSON.stringify({ lesson_id, answer_id }),
   })
   if (!res.ok) throw new Error('Failed to check what-outputs')

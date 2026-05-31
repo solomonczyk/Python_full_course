@@ -34,3 +34,12 @@ Thumbs.db
 
 # Stitch source files (mockups only, not part of app)
 stitch_python_interactive_mastery_course/
+
+# Audit temp files (generated, not needed in repo)
+scripts/audit_batch_*.json
+scripts/audit_compact.json
+scripts/audit_report.json
+scripts/audit_comprehensive_report.json
+scripts/audit_dialogues_report.json
+scripts/fix_lessons.py
+scripts/run_fix.cmd

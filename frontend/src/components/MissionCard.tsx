@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import type { Lesson, MissionResult } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
+import { getUserId } from '../utils/userId'
 
 interface Props {
   mission: Lesson['mission']
@@ -39,7 +40,10 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
     try {
       const res = await fetch(`${BASE}/mission/check`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'X-User-Id': getUserId(),
+        },
         body: JSON.stringify({ lesson_id: lessonId, code: trimmed }),
       })
       const data: MissionResult = await res.json()
