@@ -78,15 +78,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
         {/* Logo */}
         <div className="px-5 py-5 shrink-0" style={{ borderBottom: '1px solid rgba(201,162,39,0.15)' }}>
           <Link to="/" onClick={onClose} className="flex items-center gap-2 no-underline">
-            <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-extrabold shrink-0"
-              style={{
-                background: 'linear-gradient(135deg, #00d4aa, #00a884)',
-                color: '#0f0e17',
-              }}
-            >
-              Py
-            </div>
-            <span className="font-display text-sm font-extrabold" style={{ color: '#ffd700' }}>Python Quest</span>
+            <img src="/logo/logo.webp" alt="Python Quest" className="w-full max-w-[180px] h-auto object-contain" />
           </Link>
         </div>
 
@@ -170,13 +162,15 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
         <div className="px-4 py-4 shrink-0" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
           <button
             onClick={goToContinue}
-            className="w-full py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none transition-all hover:opacity-90"
+            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none transition-all hover:opacity-90"
             style={{
-              background: 'linear-gradient(135deg, #c9a227, #8b7355)',
-              color: '#1a1a2e',
+              background: 'rgba(15,14,23,0.8)',
+              border: '1px solid #c9a227',
+              color: '#e8e6f0',
             }}
           >
-            ⚡ Continue Learning
+            <img src="/buttons/continue_learning.webp" alt="" className="w-6 h-6 object-contain" />
+            Continue Learning
           </button>
         </div>
       </aside>
