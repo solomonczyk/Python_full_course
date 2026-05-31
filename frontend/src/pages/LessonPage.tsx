@@ -21,6 +21,7 @@ import CharacterAvatar from '../components/CharacterAvatar'
 import AnalogyBlock from '../components/AnalogyBlock'
 import CodeWatchBlock from '../components/CodeWatchBlock'
 import TaskPresentationBlock from '../components/TaskPresentationBlock'
+import CommonMistakesBlock from '../components/CommonMistakesBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -287,6 +288,13 @@ export default function LessonPage({ lessons }: Props) {
       {lesson.post_error_dialogue && lesson.post_error_dialogue.length > 0 && (
         <SteampunkCard accentColor="rgba(255,107,107,0.15)">
           <DialogueScene lines={lesson.post_error_dialogue} />
+        </SteampunkCard>
+      )}
+
+      {/* Common mistakes */}
+      {lesson.common_mistakes && lesson.common_mistakes.length > 0 && (
+        <SteampunkCard accentColor="rgba(255,107,107,0.15)">
+          <CommonMistakesBlock mistakes={lesson.common_mistakes} />
         </SteampunkCard>
       )}
 

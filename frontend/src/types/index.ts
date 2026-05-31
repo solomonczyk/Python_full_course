@@ -114,6 +114,7 @@ export interface Lesson extends LessonSummary {
   }
   pre_topic_dialogue?: DialogueLine[]
   post_error_dialogue?: DialogueLine[]
+  common_mistakes?: CommonMistake[]
   code_watch?: CodeWalkthrough
   task_presentation?: TaskPresentation
   mini_summary?: string
@@ -171,6 +172,15 @@ export interface MissionResult {
   actual_output: string | null
   expected_output: string
   error: string | null
+}
+
+// ── Common Mistakes types ──────────────────────────────────────────────
+
+export interface CommonMistake {
+  title: string
+  wrong: string
+  right: string
+  note: string
 }
 
 // ── Code Walkthrough types ──────────────────────────────────────────────
