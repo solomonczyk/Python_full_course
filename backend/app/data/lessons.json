@@ -95,13 +95,13 @@
       ]
     },
     "what_outputs": {
-      "code": "print(\"Python\")\nprint(\"Quest\")",
+      "code": "print(\"Python\")",
       "options": [
-        "Python\nQuest",
+        "Python",
         "Ошибка",
         "None"
       ],
-      "correct": "Python\nQuest"
+      "correct": "Python"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",

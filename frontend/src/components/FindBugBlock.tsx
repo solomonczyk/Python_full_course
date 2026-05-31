@@ -20,7 +20,12 @@ export default function FindBugBlock({ findBug }: Props) {
       return
     }
     const normalize = (s: string) =>
-      s.trim().replace(/\s+/g, ' ').replace(/'/g, '"')
+      s.trim()
+        .replace(/\s+/g, ' ')
+        .replace(/'/g, '"')
+        .replace(/\s*=\s*/g, ' = ')
+        .replace(/\s*\(\s*/g, '(')
+        .replace(/\s*\)\s*/g, ')')
     const normalizedCode = normalize(code)
     const normalizedCorrect = normalize(findBug.correct)
     setStatus(normalizedCode === normalizedCorrect ? 'correct' : 'wrong')
