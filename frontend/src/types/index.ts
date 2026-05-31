@@ -114,6 +114,8 @@ export interface Lesson extends LessonSummary {
   }
   pre_topic_dialogue?: DialogueLine[]
   post_error_dialogue?: DialogueLine[]
+  code_watch?: CodeWalkthrough
+  task_presentation?: TaskPresentation
   mini_summary?: string
   connection_to_game?: string
   practice_subtasks?: PracticeSubtask[]
@@ -169,4 +171,45 @@ export interface MissionResult {
   actual_output: string | null
   expected_output: string
   error: string | null
+}
+
+// ── Code Walkthrough types ──────────────────────────────────────────────
+
+export interface WalkthroughStep {
+  speaker: Character
+  text: string
+  code?: string
+  output?: string
+  caption?: string
+}
+
+export interface WhatIfScenario {
+  description: string
+  input: string
+  code: string
+  output: string
+}
+
+export interface WalkthroughSolution {
+  title: string
+  description: string
+  code: string
+  output?: string
+}
+
+export interface CodeWalkthrough {
+  title: string
+  main_code: string
+  dialogue: WalkthroughStep[]
+  what_if?: WhatIfScenario[]
+  solutions?: WalkthroughSolution[]
+}
+
+export interface TaskPresentation {
+  title: string
+  description: string
+  initial_code: string
+  expected_output: string
+  what_if?: WhatIfScenario[]
+  solutions?: WalkthroughSolution[]
 }

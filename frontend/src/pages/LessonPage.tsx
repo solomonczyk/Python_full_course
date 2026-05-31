@@ -20,6 +20,8 @@ import SyntaxReminderBlock from '../components/SyntaxReminderBlock'
 import VariableBoxBlock from '../components/VariableBoxBlock'
 import CharacterAvatar from '../components/CharacterAvatar'
 import AnalogyBlock from '../components/AnalogyBlock'
+import CodeWatchBlock from '../components/CodeWatchBlock'
+import TaskPresentationBlock from '../components/TaskPresentationBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -212,6 +214,20 @@ export default function LessonPage({ lessons }: Props) {
           </div>
         </div>
       </div>
+
+      {/* Code walkthrough — deep dive with what-if scenarios */}
+      {lesson.code_watch && (
+        <SteampunkCard accentColor="rgba(162,155,254,0.2)">
+          <CodeWatchBlock walkthrough={lesson.code_watch} />
+        </SteampunkCard>
+      )}
+
+      {/* Task presentation — challenge with conditions */}
+      {lesson.task_presentation && (
+        <SteampunkCard accentColor="rgba(255,118,117,0.15)">
+          <TaskPresentationBlock presentation={lesson.task_presentation} />
+        </SteampunkCard>
+      )}
 
       {/* Syntax reminder */}
       {lesson.syntax_reminder && (
