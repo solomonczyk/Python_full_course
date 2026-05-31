@@ -29,9 +29,9 @@ def list_lessons() -> list[dict[str, Any]]:
     SUMMARY_FIELDS = ("id","part","chapter","lesson","slug","title","subtitle",
                       "topic","locked","difficulty","estimated_time_min")
     return [
-        {k: l[k] for k in SUMMARY_FIELDS if k in l}
-        | ({"scene_image": l["scene_image"]} if "scene_image" in l and l.get("scene_image") else {})
-        for l in lessons
+        {k: lesson[k] for k in SUMMARY_FIELDS if k in lesson}
+        | ({"scene_image": lesson["scene_image"]} if "scene_image" in lesson and lesson.get("scene_image") else {})
+        for lesson in lessons
     ]
 
 

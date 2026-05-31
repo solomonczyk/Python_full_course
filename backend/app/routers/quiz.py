@@ -19,7 +19,7 @@ def _load_lessons() -> list[dict[str, Any]]:
 @router.post("/check")
 def check_quiz_answer(body: QuizAnswer) -> dict[str, Any]:
     lessons = _load_lessons()
-    lesson = next((l for l in lessons if l["id"] == body.lesson_id), None)
+    lesson = next((x for x in lessons if x["id"] == body.lesson_id), None)
     if not lesson:
         raise HTTPException(status_code=404, detail="Lesson not found")
 
@@ -44,7 +44,7 @@ def check_quiz_answer(body: QuizAnswer) -> dict[str, Any]:
 @router.post("/what-outputs")
 def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
     lessons = _load_lessons()
-    lesson = next((l for l in lessons if l["id"] == body.lesson_id), None)
+    lesson = next((x for x in lessons if x["id"] == body.lesson_id), None)
     if not lesson:
         raise HTTPException(status_code=404, detail="Lesson not found")
 

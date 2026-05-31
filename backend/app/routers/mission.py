@@ -33,7 +33,7 @@ _FORBIDDEN_IMPORTS = [
 @router.post("/check")
 def check_mission(body: MissionSubmit) -> dict[str, Any]:
     lessons = _load_lessons()
-    lesson = next((l for l in lessons if l["id"] == body.lesson_id), None)
+    lesson = next((x for x in lessons if x["id"] == body.lesson_id), None)
     if not lesson:
         raise HTTPException(status_code=404, detail="Lesson not found")
 

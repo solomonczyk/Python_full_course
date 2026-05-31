@@ -25,6 +25,16 @@ function renderCode(text: string, codeColor: string, baseColor: string, codeSize
   })
 }
 
+interface Props {
+  analogy: {
+    title: string
+    story_metaphor: string
+    python_mapping: string
+    key_rule: string
+  }
+  character: Character
+}
+
 export default function AnalogyBlock({ analogy, character }: Props) {
   return (
     <div className="space-y-3">
