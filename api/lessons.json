@@ -95,13 +95,13 @@
       ]
     },
     "what_outputs": {
-      "code": "print(\"Python\")",
+      "code": "print(\"Python\")\nprint(\"Quest\")",
       "options": [
-        "Python",
+        "Python\nQuest",
         "Ошибка",
         "None"
       ],
-      "correct": "Python"
+      "correct": "Python\nQuest"
     },
     "find_bug": {
       "description": "В этом коде есть ошибка. Найди и исправь её.",
@@ -136,21 +136,7 @@
         "hint": "print(5 + 3) — Python сам посчитает."
       }
     ],
-    "runnable_code": "print(\"Привет, Python!\")",
-    "common_mistakes": [
-      {
-        "title": "Забыл кавычки для текста",
-        "wrong": "print(Привет, мир!)",
-        "right": "print(\"Привет, мир!\")",
-        "note": "Текст в print() всегда должен быть в кавычках — иначе Python ищет переменную."
-      },
-      {
-        "title": "Знак = после print",
-        "wrong": "print = (\"Привет\")",
-        "right": "print(\"Привет\")",
-        "note": "print = ... не вызовет функцию, а перезапишет её. Просто пиши print(\"...\")"
-      }
-    ]
+    "runnable_code": "print(\"Привет, Python!\")"
   },
   {
     "id": "1-2",
@@ -289,21 +275,7 @@
         "hint": "print(text)"
       }
     ],
-    "runnable_code": "word = \"Ксю\"\nprint(word)",
-    "common_mistakes": [
-      {
-        "title": "Смешиваю кавычки",
-        "wrong": "print('Привет\")",
-        "right": "print('Привет') или print(\"Привет\")",
-        "note": "Нельзя начать с ' и закрыть \". Кавычки должны быть одинаковыми с обеих сторон."
-      },
-      {
-        "title": "Забыл закрыть кавычки",
-        "wrong": "text = \"Привет",
-        "right": "text = \"Привет\"",
-        "note": "Незакрытая кавычка — SyntaxError. Проверяй, что каждая кавычка имеет пару."
-      }
-    ]
+    "runnable_code": "word = \"Ксю\"\nprint(word)"
   },
   {
     "id": "1-3",
@@ -480,21 +452,7 @@
         "hint": "print(name); print(age)"
       }
     ],
-    "runnable_code": "# создали переменную hero_name и положили туда 'Новичок'\nhero_name = 'Новичок'\n\n# вывели то, что внутри переменной\nprint(hero_name)\n\n# а так — ошибка! кавычки вокруг имени\nprint('hero_name')",
-    "common_mistakes": [
-      {
-        "title": "Имя переменной с цифры",
-        "wrong": "1player = \"Ксю\"",
-        "right": "player1 = \"Ксю\"",
-        "note": "Имя переменной не может начинаться с цифры. Можно использовать буквы, цифры и _."
-      },
-      {
-        "title": "Пробел в имени",
-        "wrong": "my name = \"Ксю\"",
-        "right": "my_name = \"Ксю\"",
-        "note": "Пробелы в имени переменной запрещены. Используй знак подчёркивания."
-      }
-    ]
+    "runnable_code": "# создали переменную hero_name и положили туда 'Новичок'\nhero_name = 'Новичок'\n\n# вывели то, что внутри переменной\nprint(hero_name)\n\n# а так — ошибка! кавычки вокруг имени\nprint('hero_name')"
   },
   {
     "id": "1-4",
@@ -633,15 +591,7 @@
         "hint": "number = input(); print(number)"
       }
     ],
-    "runnable_code": "name = \"Ксю\"\nprint(name)",
-    "common_mistakes": [
-      {
-        "title": "Забыл преобразовать input",
-        "wrong": "age = input()\nprint(age + 1)",
-        "right": "age = int(input())\nprint(age + 1)",
-        "note": "input() возвращает строку. Чтобы считать число — оберни в int()."
-      }
-    ]
+    "runnable_code": "name = \"Ксю\"\nprint(name)"
   },
   {
     "id": "1-5",
@@ -780,21 +730,7 @@
         "hint": "print(int(a) + int(b))"
       }
     ],
-    "runnable_code": "number = int(\"5\")\nprint(number + 1)",
-    "common_mistakes": [
-      {
-        "title": "Забыл int() для input",
-        "wrong": "age = input(\"Сколько лет? \")\nprint(age + 1)",
-        "right": "age = int(input(\"Сколько лет? \"))\nprint(age + 1)",
-        "note": "input() всегда возвращает строку. Чтобы считать число — оберни в int()."
-      },
-      {
-        "title": "Конкатенация строки и числа",
-        "wrong": "print(\"Мне \" + 10 + \" лет\")",
-        "right": "print(\"Мне \" + str(10) + \" лет\")",
-        "note": "Нельзя сложить строку и число. Преобразуй число в строку через str()."
-      }
-    ]
+    "runnable_code": "number = int(\"5\")\nprint(number + 1)"
   },
   {
     "id": "1-6",
@@ -933,21 +869,7 @@
         "hint": "print((10 + 5) * 2 - 3)"
       }
     ],
-    "runnable_code": "a = 10\nb = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)",
-    "common_mistakes": [
-      {
-        "title": "Путаю = и ==",
-        "wrong": "if x = 5:",
-        "right": "if x == 5:",
-        "note": "= это присваивание. == это сравнение. В if всегда используй ==."
-      },
-      {
-        "title": "Порядок операций",
-        "wrong": "print(3 + 2 * 2)  # думаю будет 10",
-        "right": "print(3 + 2 * 2)  # будет 7",
-        "note": "Умножение выполняется раньше сложения. Используй скобки: (3 + 2) * 2"
-      }
-    ]
+    "runnable_code": "a = 10\nb = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)"
   },
   {
     "id": "1-7",
@@ -1086,15 +1008,7 @@
         "hint": "print(x == y); print(x != y)"
       }
     ],
-    "runnable_code": "print(5 > 3)\nprint(5 == 3)",
-    "common_mistakes": [
-      {
-        "title": "Путаю = и ==",
-        "wrong": "if x = 5:",
-        "right": "if x == 5:",
-        "note": "= присваивает. == проверяет равенство. В условиях — всегда =="
-      }
-    ]
+    "runnable_code": "print(5 > 3)\nprint(5 == 3)"
   },
   {
     "id": "1-8",
@@ -1291,21 +1205,7 @@
         "hint": "if age >= 18: print('Доступ разрешён')"
       }
     ],
-    "runnable_code": "age = 20\nif age >= 18:\n    print(\"Можно\")",
-    "common_mistakes": [
-      {
-        "title": "Двоеточие после if",
-        "wrong": "if x > 5\n    print(\"x большой\")",
-        "right": "if x > 5:\n    print(\"x большой\")",
-        "note": "После if обязательно двоеточие (:). Без него Python выдаст SyntaxError."
-      },
-      {
-        "title": "Отступы",
-        "wrong": "if x > 5:\nprint(\"x большой\")",
-        "right": "if x > 5:\n    print(\"x большой\")",
-        "note": "Код внутри if должен быть с отступом (4 пробела). Иначе Python не поймёт, что это часть условия."
-      }
-    ]
+    "runnable_code": "age = 20\nif age >= 18:\n    print(\"Можно\")"
   },
   {
     "id": "1-9",
@@ -1491,15 +1391,7 @@
         }
       ]
     },
-    "runnable_code": "age = 15\nif age >= 18:\n    print(\"Можно\")\nelse:\n    print(\"Нельзя\")",
-    "common_mistakes": [
-      {
-        "title": "else без отступа",
-        "wrong": "if x > 0:\n    print(\"Плюс\")\n    else:\n    print(\"Минус\")",
-        "right": "if x > 0:\n    print(\"Плюс\")\nelse:\n    print(\"Минус\")",
-        "note": "else должен быть на том же уровне отступа, что и if. Не внутри блока if."
-      }
-    ]
+    "runnable_code": "age = 15\nif age >= 18:\n    print(\"Можно\")\nelse:\n    print(\"Нельзя\")"
   },
   {
     "id": "2-1",
@@ -1680,15 +1572,7 @@
         "hint": "Цепочка if/elif/else"
       }
     ],
-    "runnable_code": "temp = 15\nif temp < 0:\n    print(\"Мороз\")\nelif temp < 20:\n    print(\"Прохладно\")\nelse:\n    print(\"Тепло\")",
-    "common_mistakes": [
-      {
-        "title": "elif без if",
-        "wrong": "elif x > 0:",
-        "right": "if x > 0:\n    ...\nelif x > 5:",
-        "note": "elif нельзя использовать без if. elif — это продолжение, а не начало."
-      }
-    ]
+    "runnable_code": "temp = 15\nif temp < 0:\n    print(\"Мороз\")\nelif temp < 20:\n    print(\"Прохладно\")\nelse:\n    print(\"Тепло\")"
   },
   {
     "id": "2-2",
@@ -1823,27 +1707,7 @@
         "hint": "elif day == 3:"
       }
     ],
-    "runnable_code": "score = 80\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")",
-    "common_mistakes": [
-      {
-        "title": "Неправильный порядок условий",
-        "wrong": "if age < 18:\n    print(\"teen\")\nelif age < 13:\n    print(\"child\")",
-        "right": "if age < 13:\n    print(\"child\")\nelif age < 18:\n    print(\"teen\")",
-        "note": "Первое истинное условие прерывает цепочку. Проверяй от самого строгого (самого маленького возраста) к самому мягкому."
-      },
-      {
-        "title": "elif без if",
-        "wrong": "elif x > 5:\n    print(\">5\")",
-        "right": "if x > 5:\n    print(\">5\")",
-        "note": "elif может быть только после if. Без предшествующего if Python выдаст SyntaxError."
-      },
-      {
-        "title": "Несколько if вместо elif",
-        "wrong": "if x >= 0:\n    print(\"+\")\nif x < 0:\n    print(\"-\")",
-        "right": "if x >= 0:\n    print(\"+\")\nelse:\n    print(\"-\")",
-        "note": "Два if подряд сработают оба, если оба истинны. elif или else гарантирует, что выполнится только один вариант."
-      }
-    ]
+    "runnable_code": "score = 80\nif score >= 90:\n    print(\"A\")\nelif score >= 70:\n    print(\"B\")\nelse:\n    print(\"C\")"
   },
   {
     "id": "2-3",
@@ -1978,15 +1842,7 @@
         "hint": "print(random.randint(1, 6)); print(random.randint(1, 6)); print(random.randint(1, 6))"
       }
     ],
-    "runnable_code": "import random\nx = random.randint(1, 6)\nprint(x)",
-    "common_mistakes": [
-      {
-        "title": "Забыл import random",
-        "wrong": "print(random.randint(1, 6))  # NameError",
-        "right": "import random\nprint(random.randint(1, 6))",
-        "note": "Перед использованием random нужно написать import random в начале программы."
-      }
-    ]
+    "runnable_code": "import random\nx = random.randint(1, 6)\nprint(x)"
   },
   {
     "id": "2-4",
@@ -2115,27 +1971,7 @@
         "hint": "secret = random.randint(1, 10); guess = int(input()); if guess == secret: print('Победа!')"
       }
     ],
-    "runnable_code": "import random\nsecret = random.randint(1, 3)\nguess = 2\nif guess == secret:\n    print(\"Победа\")\nelse:\n    print(\"Промах\")",
-    "common_mistakes": [
-      {
-        "title": "Забыл int() для input()",
-        "wrong": "guess = input()\nif guess == secret:\n    print(\"Угадал\")",
-        "right": "guess = int(input())\nif guess == secret:\n    print(\"Угадал\")",
-        "note": "input() возвращает строку. Сравнение строки с числом всегда False, даже если число совпадает."
-      },
-      {
-        "title": "= вместо ==",
-        "wrong": "if guess = secret:",
-        "right": "if guess == secret:",
-        "note": "= это присваивание, а не сравнение. В условии if нужно == (два знака равно)."
-      },
-      {
-        "title": "Забыл import random",
-        "wrong": "secret = random.randint(1, 10)\nprint(secret)",
-        "right": "import random\nsecret = random.randint(1, 10)\nprint(secret)",
-        "note": "Без import random Python не знает модуль random. Будет NameError: name 'random' is not defined."
-      }
-    ]
+    "runnable_code": "import random\nsecret = random.randint(1, 3)\nguess = 2\nif guess == secret:\n    print(\"Победа\")\nelse:\n    print(\"Промах\")"
   },
   {
     "id": "2-5",
@@ -2270,27 +2106,7 @@
         "hint": "for i in range(10): print(i)"
       }
     ],
-    "runnable_code": "for i in range(3):\n    print(\"Привет\")",
-    "common_mistakes": [
-      {
-        "title": "Забыл двоеточие",
-        "wrong": "for i in range(3)\n    print(\"Привет\")",
-        "right": "for i in range(3):\n    print(\"Привет\")",
-        "note": "Двоеточие в конце строки for обязательно. Без него Python выдаст SyntaxError."
-      },
-      {
-        "title": "Забыл отступ в теле цикла",
-        "wrong": "for i in range(3):\nprint(\"Привет\")",
-        "right": "for i in range(3):\n    print(\"Привет\")",
-        "note": "Тело цикла должно быть с отступом в 4 пробела. Без отступа Python не поймёт, что повторять."
-      },
-      {
-        "title": "Думает, что range(5) — это 1..5",
-        "wrong": "for i in range(5):\n    print(i)   # ожидает 1,2,3,4,5",
-        "right": "for i in range(1, 6):\n    print(i)   # получит 1,2,3,4,5",
-        "note": "range(n) начинается с 0 и заканчивается на n-1. Для чисел от 1 до 5 используй range(1, 6)."
-      }
-    ]
+    "runnable_code": "for i in range(3):\n    print(\"Привет\")"
   },
   {
     "id": "2-6",
@@ -2425,27 +2241,7 @@
         "hint": "print(list(range(5)))"
       }
     ],
-    "runnable_code": "for i in range(1, 6):\n    print(i)",
-    "common_mistakes": [
-      {
-        "title": "Забыл, что верхняя граница не включается",
-        "wrong": "list(range(1, 4))  # ожидает [1, 2, 3, 4]",
-        "right": "list(range(1, 5))  # [1, 2, 3, 4]",
-        "note": "В range(start, stop) число stop не включается. Если нужно до 4 включительно — пиши range(1, 5)."
-      },
-      {
-        "title": "Думает, что range(5) начинается с 1",
-        "wrong": "list(range(5))  # ожидает [1, 2, 3, 4, 5]",
-        "right": "list(range(5))  # [0, 1, 2, 3, 4]",
-        "note": "range(n) всегда начинается с 0. Отсчёт ведётся от нуля, как и многое в Python."
-      },
-      {
-        "title": "Перепутал аргументы для убывания",
-        "wrong": "list(range(10, 0))  # пустой список",
-        "right": "list(range(10, 0, -1))  # [10, 9, 8, ..., 1]",
-        "note": "range(start, stop) идёт по возрастанию. Для обратного отсчёта нужен третий аргумент — шаг -1."
-      }
-    ]
+    "runnable_code": "for i in range(1, 6):\n    print(i)"
   },
   {
     "id": "3-1",
@@ -2580,26 +2376,6 @@
         "hint": "print(float(n))"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Забыл точку — пишу целое число вместо float",
-        "wrong": "x = 3  # хочу 3.5",
-        "right": "x = 3.5  # с точкой это float",
-        "note": "В Python дробная часть отделяется точкой. 3 — это int, а 3.0 или 3.5 — это float."
-      },
-      {
-        "title": "Думает, что type(3) вернёт float",
-        "wrong": "type(3) == float  # ожидает True",
-        "right": "type(3) == int  # на самом деле int",
-        "note": "Число без точки — это int. Чтобы получить float, нужна точка: 3.0."
-      },
-      {
-        "title": "Думает, что int / int = int",
-        "wrong": "print(type(10 / 2))  # ожидает <class 'int'>",
-        "right": "print(type(10 / 2))  # <class 'float'>",
-        "note": "В Python 3 деление / всегда возвращает float, даже если числа делятся нацело."
-      }
-    ],
     "runnable_code": "length = 4.5\nwidth = 2\nprint(length * width)"
   },
   {
@@ -2727,20 +2503,6 @@
         "task": "Выведи результат 10 / 3, 9 / 2, 7 / 4 каждый на новой строке.",
         "expected_output": "3.3333333333333335\n4.5\n1.75",
         "hint": "print(10/3); print(9/2); print(7/4)"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что 10 / 4 = 2 (ждёт целое число)",
-        "wrong": "print(10 / 4)  # ожидает 2",
-        "right": "print(10 / 4)  # 2.5",
-        "note": "Оператор / всегда возвращает float. Даже 8 / 4 вернёт 2.0, а не 2."
-      },
-      {
-        "title": "Путает / и //",
-        "wrong": "print(10 / 3)  # хочу целую часть 3",
-        "right": "print(10 // 3)  # целочисленное деление",
-        "note": "/ — обычное деление (результат с дробной частью), // — целочисленное (отбрасывает дробную часть)."
       }
     ],
     "runnable_code": "print(10 / 4)"
@@ -2878,26 +2640,6 @@
         "hint": "print(10/3); print(10//3)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что // округляет, а не отбрасывает дробную часть",
-        "wrong": "print(10 // 3)  # ожидает 3.333",
-        "right": "print(10 // 3)  # 3",
-        "note": "// отбрасывает дробную часть, не округляя. 10 // 3 = 3, а 10 / 3 = 3.333..."
-      },
-      {
-        "title": "Путает // с %",
-        "wrong": "print(10 // 3)  # хочу остаток 1",
-        "right": "print(10 % 3)  # оператор % даёт остаток",
-        "note": "// — это целая часть от деления, % — остаток. Вместе: 10 // 3 = 3, 10 % 3 = 1."
-      },
-      {
-        "title": "Думает, что с отрицательными числами // работает как /",
-        "wrong": "print(-10 // 3)  # ожидает -3",
-        "right": "print(-10 // 3)  # -4",
-        "note": "// округляет вниз (floor), а не к нулю. -10 / 3 = -3.333, а -10 // 3 = -4."
-      }
-    ],
     "runnable_code": "print(10 // 3)"
   },
   {
@@ -3031,26 +2773,6 @@
         "task": "Дано n = 7. Если n % 2 == 0 — выведи 'чётное', иначе 'нечётное'.",
         "expected_output": "нечётное",
         "hint": "if n % 2 == 0: ... else: ..."
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Путает % с //",
-        "wrong": "print(10 % 3)  # ожидает 3 (частное)",
-        "right": "print(10 % 3)  # 1 — это остаток",
-        "note": "% возвращает остаток от деления, а не частное. 10 // 3 = 3, а 10 % 3 = 1."
-      },
-      {
-        "title": "Думает, что % всегда возвращает 0 или 1",
-        "wrong": "print(10 % 6)  # ожидает 0 или 1",
-        "right": "print(10 % 6)  # 4",
-        "note": "Остаток может быть любым от 0 до делителя минус 1. 10 % 6 = 4, потому что 6 помещается в 10 только один раз."
-      },
-      {
-        "title": "Думает, что % — это процент",
-        "wrong": "print(10 % 50)  # ожидает 5 (10% от 50)",
-        "right": "print(10 % 50)  # 10 (остаток от деления 10 на 50)",
-        "note": "В Python % — это не процент, а остаток от деления. Для процента пиши: 10 / 100 * 50."
       }
     ],
     "runnable_code": "print(10 % 3)"
@@ -3188,26 +2910,6 @@
         "hint": "print(8%2); print(8%3); print(8%5)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Путает = и == в условии",
-        "wrong": "if n % 2 = 0:  # SyntaxError",
-        "right": "if n % 2 == 0:  # сравнение",
-        "note": "= — это присваивание, == — сравнение. В if всегда нужно писать ==."
-      },
-      {
-        "title": "Думает, что if n % 2: означает «если чётное»",
-        "wrong": "if n % 2:  # думает, True = чётное",
-        "right": "if n % 2 == 0:  # True — чётное, False — нечётное",
-        "note": "n % 2 == 0 — True для чётных. А n % 2 сам по себе True для нечётных (остаток 1)."
-      },
-      {
-        "title": "Использует сложное условие вместо простого",
-        "wrong": "if n % 2 == 0:\n    print('чётное')\nelif n % 2 == 1:\n    print('нечётное')",
-        "right": "if n % 2 == 0:\n    print('чётное')\nelse:\n    print('нечётное')",
-        "note": "Число либо чётное, либо нечётное — третьего не дано. else покрывает все нечётные случаи."
-      }
-    ],
     "runnable_code": "n = 7\nif n % 2 == 0:\n    print(\"even\")\nelse:\n    print(\"odd\")"
   },
   {
@@ -3341,26 +3043,6 @@
         "task": "Выведи тип True и тип False через type().",
         "expected_output": "<class 'bool'>\n<class 'bool'>",
         "hint": "print(type(True)); print(type(False))"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что True и False — это строки",
-        "wrong": "print(True + False)  # ожидает 'TrueFalse'",
-        "right": "print(True + False)  # 1 (True = 1, False = 0)",
-        "note": "True и False — это булевы значения, а не строки. В Python bool — подтип int: True = 1, False = 0."
-      },
-      {
-        "title": "Путает bool() с int()",
-        "wrong": "print(bool('False'))  # ожидает False",
-        "right": "print(bool('False'))  # True (непустая строка)",
-        "note": "Любая непустая строка — это True, даже если в ней написано 'False'. Пустая строка '' — это False."
-      },
-      {
-        "title": "Пишет true и false с маленькой буквы",
-        "wrong": "x = true  # NameError",
-        "right": "x = True  # bool с большой буквы",
-        "note": "В Python True и False пишутся с большой буквы. С маленькой — это обычные переменные, которых нет."
       }
     ],
     "runnable_code": "is_open = True\nif is_open:\n    print(\"open\")"
@@ -3498,26 +3180,6 @@
         "hint": "if has_key: ... else: ..."
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Использует is вместо == для сравнения чисел",
-        "wrong": "if age is 18:  # может сработать случайно",
-        "right": "if age == 18:  # правильное сравнение",
-        "note": "is сравнивает, один и тот же это объект в памяти, а == — равны ли значения. Для чисел всегда используй ==."
-      },
-      {
-        "title": "Думает, что переменная хранит «состояние» сама по себе",
-        "wrong": "x = 10\nif x:  # думает, 'хранится ли в x значение 10?'",
-        "right": "if x == 10:  # явное сравнение",
-        "note": "if x: проверяет, является ли x «правдивым» (truthy), а не равно ли оно конкретному значению. 0, None, '' — falsy."
-      },
-      {
-        "title": "Путает = и == при проверке состояния",
-        "wrong": "if door_open = True:  # SyntaxError",
-        "right": "if door_open == True:  # или просто if door_open:",
-        "note": "= присваивает значение, == сравнивает. При проверке булевых переменных можно писать просто if door_open:."
-      }
-    ],
     "runnable_code": "door_is_open = False\nif door_is_open:\n    print(\"Проходи\")\nelse:\n    print(\"Закрыто\")"
   },
   {
@@ -3651,26 +3313,6 @@
         "task": "Дана переменная health = 0. Используя тернарный оператор, присвой status значение «жив» если health > 0, иначе — «мёртв». Выведи status.",
         "expected_output": "мёртв",
         "hint": "status = \"жив\" if health > 0 else \"мёртв\""
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Путает порядок частей тернарного оператора",
-        "wrong": "health > 0 ? \"жив\" : \"мёртв\"  # синтаксис C/JS",
-        "right": "\"жив\" if health > 0 else \"мёртв\"",
-        "note": "В Python тернарник пишется иначе: значение_True if условие else значение_False. Сначала то, что возвращаем при True."
-      },
-      {
-        "title": "Забывает else — тернарник без else не работает",
-        "wrong": "status = \"жив\" if health > 0  # SyntaxError",
-        "right": "status = \"жив\" if health > 0 else \"мёртв\"",
-        "note": "Тернарный оператор всегда требует else. Если else нет — используй обычный if."
-      },
-      {
-        "title": "Пытается вложить слишком сложную логику в тернарник",
-        "wrong": "status = \"отлично\" if score >= 90 else \"хорошо\" if score >= 70 else \"норм\" if score >= 50 else \"плохо\"",
-        "right": "if score >= 90:\n    status = \"отлично\"\nelif score >= 70:\n    status = \"хорошо\"\nelif score >= 50:\n    status = \"норм\"\nelse:\n    status = \"плохо\"",
-        "note": "Тернарник хорош для простых условий «или-или». Для сложных цепочек используй обычный if-elif-else — код понятнее."
       }
     ],
     "runnable_code": "health = 5\nstatus = \"жив\" if health > 0 else \"мёртв\"\nprint(status)"
@@ -3808,21 +3450,7 @@
         "hint": "if is_rainy and not have_umbrella:"
       }
     ],
-    "runnable_code": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"Можно\")",
-    "common_mistakes": [
-      {
-        "title": "Путает and с or",
-        "wrong": "age = 20\nhas_ticket = False\nif age >= 18 or has_ticket:\n    print('Вход разрешён')",
-        "right": "age = 20\nhas_ticket = False\nif age >= 18 and has_ticket:\n    print('Вход разрешён')",
-        "note": "and требует, чтобы ОБА условия были True. or — хотя бы ОДНО."
-      },
-      {
-        "title": "Слишком много and",
-        "wrong": "if x > 0 and x != 0:",
-        "right": "if x > 0:",
-        "note": "x > 0 уже подразумевает x != 0. Не усложняй."
-      }
-    ]
+    "runnable_code": "age = 20\nhas_ticket = True\nif age >= 18 and has_ticket:\n    print(\"Можно\")"
   },
   {
     "id": "3-10",
@@ -3955,26 +3583,6 @@
         "task": "Даны переменные has_key = False и knows_riddle = True. Если есть ключ ИЛИ знаешь загадку — выведи «сундук открыт», иначе — «доступ закрыт».",
         "expected_output": "сундук открыт",
         "hint": "if has_key or knows_riddle:"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что or работает как исключающее ИЛИ (только одно)",
-        "wrong": "if age < 10 or age > 65:  # боится, что оба True сломают условие",
-        "right": "if age < 10 or age > 65:  # всё верно — достаточно одного True",
-        "note": "or возвращает True, если хотя бы одно условие True. Неважно, сколько условий истинно."
-      },
-      {
-        "title": "Путает or и and",
-        "wrong": "if day == \"суббота\" or day == \"воскресенье\":  # но хочет проверить, что оба сразу?",
-        "right": "if day == \"суббота\" and day == \"воскресенье\":  # проверка обоих условий",
-        "note": "Используй or когда нужно хотя бы одно условие, and — когда нужны оба одновременно."
-      },
-      {
-        "title": "Пишет лишние повторы вместо or",
-        "wrong": "if x == 1 or x == 2 or x == 3:",
-        "right": "if x in (1, 2, 3):  # короче и понятнее",
-        "note": "Когда проверяешь одно значение против нескольких — используй оператор in вместо цепочки or."
       }
     ],
     "runnable_code": "day = \"суббота\"\nif day == \"суббота\" or day == \"воскресенье\":\n    print(\"Выходной\")"
@@ -4112,26 +3720,6 @@
         "hint": "if not is_locked: ... else: ..."
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Пишет if not a == b: вместо if a != b:",
-        "wrong": "if not name == \"\":  # работает, но громоздко",
-        "right": "if name != \"\":  # лаконичнее",
-        "note": "not x == y и x != y — одно и то же, но != читается легче. Используй != для сравнения «не равно»."
-      },
-      {
-        "title": "Пытается использовать ! как в других языках",
-        "wrong": "if !is_ready:  # SyntaxError",
-        "right": "if not is_ready:  # Python-стиль",
-        "note": "В Python отрицание пишется через not, а не через ! как в C, Java или JavaScript."
-      },
-      {
-        "title": "Думает, что not меняет переменную навсегда",
-        "wrong": "is_open = False\nif not is_open:\n    print(is_open)  # ожидает True",
-        "right": "is_open = False\nif not is_open:\n    print(is_open)  # всё ещё False",
-        "note": "not не меняет переменную, а просто проверяет обратное значение. Чтобы изменить — пиши is_open = not is_open."
-      }
-    ],
     "runnable_code": "is_closed = False\nif not is_closed:\n    print(\"Открыто\")"
   },
   {
@@ -4265,26 +3853,6 @@
         "task": "Даны переменные a = «ключ» и b = «» (пустая строка). Если обе переменные не пусты — выведи «всё есть», иначе — «чего-то нет».",
         "expected_output": "чего-то нет",
         "hint": "if a and b: ... else: ..."
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Пишет if условие: return True else: return False",
-        "wrong": "def is_even(n):\n    if n % 2 == 0:\n        return True\n    else:\n        return False",
-        "right": "def is_even(n):\n    return n % 2 == 0",
-        "note": "Если условие уже даёт True/False — возвращай его напрямую, без лишнего if."
-      },
-      {
-        "title": "Проверяет bool через == True",
-        "wrong": "if is_ready == True:  # избыточно",
-        "right": "if is_ready:  # достаточно",
-        "note": "Булева переменная сама по себе уже True или False. Писать == True — лишнее."
-      },
-      {
-        "title": "Излишне вложенные if вместо and",
-        "wrong": "if a:\n    if b:\n        print('оба True')",
-        "right": "if a and b:\n    print('оба True')",
-        "note": "Когда нужно проверить несколько условий — объединяй их через and вместо вложенных if."
       }
     ],
     "runnable_code": "name = \"Ксю\"\nphone = \"123\"\nif name and phone:\n    print(\"ok\")"
@@ -4422,26 +3990,6 @@
         "hint": "if level >= 5:\n    if has_sword:"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Забывает, к какому if относится else",
-        "wrong": "if a:\n    if b:\n        print('оба')\nelse:\n    print('не a')  # else к ближайшему if?",
-        "right": "if a:\n    if b:\n        print('оба')\n    else:\n        print('a но не b')",
-        "note": "else относится к ближайшему if. В примере else относится к if b:. Для else к if a: нужен правильный отступ."
-      },
-      {
-        "title": "Излишне глубокое вложение вместо and/elif",
-        "wrong": "if a:\n    if b:\n        if c:\n            print('все три')",
-        "right": "if a and b and c:\n    print('все три')",
-        "note": "Глубокие вложения сложно читать. Если условия независимы — объединяй их через and."
-      },
-      {
-        "title": "Путает отступы при вложении",
-        "wrong": "if a:\n    print('a')\n  if b:  # неправильный отступ",
-        "right": "if a:\n    print('a')\n    if b:\n        print('a и b')",
-        "note": "Внутренний if должен иметь отступ относительно внешнего. Обычно 4 пробела на уровень."
-      }
-    ],
     "runnable_code": "age = 20\nticket = \"да\"\nif age >= 18:\n    if ticket == \"да\":\n        print(\"Вход\")\n    else:\n        print(\"Нужен билет\")\nelse:\n    print(\"Рано\")"
   },
   {
@@ -4575,26 +4123,6 @@
         "task": "Напиши цикл, который выводит квадраты чисел от 0 до 3 (0, 1, 4, 9) каждый на новой строке.",
         "expected_output": "0\n1\n4\n9",
         "hint": "for i in range(4): print(i ** 2)"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Забывает двоеточие после for",
-        "wrong": "for i in range(3)\n    print(i)  # SyntaxError",
-        "right": "for i in range(3):\n    print(i)",
-        "note": "После заголовка for обязательно ставится двоеточие. Без него Python выдаст ошибку."
-      },
-      {
-        "title": "Забывает отступ в теле цикла",
-        "wrong": "for i in range(3):\nprint(i)  # IndentationError",
-        "right": "for i in range(3):\n    print(i)",
-        "note": "Тело цикла должно быть с отступом (4 пробела). Python использует отступы для определения блока кода."
-      },
-      {
-        "title": "Думает, что range(3) = [1, 2, 3]",
-        "wrong": "for i in range(3):\n    print(i)  # ожидает 1, 2, 3",
-        "right": "# получится 0, 1, 2",
-        "note": "range(n) начинается с 0 и идёт до n-1. range(3) даёт 0, 1, 2, а не 1, 2, 3."
       }
     ],
     "runnable_code": "for i in range(3):\n    print(\"step\")"
@@ -4732,26 +4260,6 @@
         "hint": "for i in range(1, 5): print(i)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Путает порядок аргументов start и stop",
-        "wrong": "range(10, 1)  # пустой список, а хотел 1..10",
-        "right": "range(1, 10)  # start=1, stop=10",
-        "note": "range(start, stop): первый аргумент — начало, второй — конец (не включается). Запомни: «откуда, докуда»."
-      },
-      {
-        "title": "Думает, что stop включается",
-        "wrong": "list(range(1, 5))  # ожидает [1, 2, 3, 4, 5]",
-        "right": "list(range(1, 5))  # [1, 2, 3, 4]",
-        "note": "range(start, stop) НЕ включает stop. Если нужно до 5 — пиши range(1, 6)."
-      },
-      {
-        "title": "Думает, что start обязательно должен быть меньше stop",
-        "wrong": "range(5, 1)  # пустой список — не ошибка, а пусто",
-        "right": "range(5, 1, -1)  # с шагом -1",
-        "note": "range(5, 1) пуст, потому что по умолчанию шаг +1. Для обратного хода нужен шаг -1."
-      }
-    ],
     "runnable_code": "for i in range(1, 5):\n    print(i)"
   },
   {
@@ -4887,26 +4395,6 @@
         "hint": "for i in range(1, 11, 3): print(i)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Забывает, что шаг — третий аргумент",
-        "wrong": "range(10, 2)  # думает, что 2 — это шаг",
-        "right": "range(10, 2, -1)  # третий аргумент — шаг",
-        "note": "range(start, stop, step). Если нужен шаг, это третий аргумент. range(10, 2) — это start=10, stop=2."
-      },
-      {
-        "title": "Путает знак шага",
-        "wrong": "range(1, 10, -1)  # пустой список",
-        "right": "range(10, 1, -1)  # start > stop при шаге -1",
-        "note": "При отрицательном шаге start должен быть больше stop. Иначе range пуст."
-      },
-      {
-        "title": "Думает, что шаг — обязательный аргумент",
-        "wrong": "range(1, 5, )  # лишняя запятая",
-        "right": "range(1, 5)  # шаг по умолчанию 1",
-        "note": "Шаг — необязательный аргумент. Если не указан, по умолчанию равен 1."
-      }
-    ],
     "runnable_code": "for i in range(0, 10, 2):\n    print(i)"
   },
   {
@@ -5040,26 +4528,6 @@
         "task": "Напиши цикл, который выводит чётные числа от 8 до 2 включительно в обратном порядке. Каждое на новой строке.",
         "expected_output": "8\n6\n4\n2",
         "hint": "for i in range(8, 1, -2): print(i)"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Пишет range(5, 0) без шага -1 и получает пустой список",
-        "wrong": "list(range(5, 0))  # []",
-        "right": "list(range(5, 0, -1))  # [5, 4, 3, 2, 1]",
-        "note": "По умолчанию шаг +1. Если start > stop, без отрицательного шага range будет пустым."
-      },
-      {
-        "title": "Забывает, что stop не включается при обратном ходе",
-        "wrong": "list(range(5, 0, -1))  # ожидает 5, 4, 3, 2, 1, 0",
-        "right": "list(range(5, -1, -1))  # если нужен 0",
-        "note": "stop=0 не включается, как и при обычном range. Чтобы включить 0, пиши stop=-1."
-      },
-      {
-        "title": "Путает порядок аргументов в обратном range",
-        "wrong": "list(range(0, 5, -1))  # пустой список",
-        "right": "list(range(5, 0, -1))  # [5, 4, 3, 2, 1]",
-        "note": "При шаге -1 start должен быть больше stop. range(0, 5, -1) пуст, потому что от 0 до 5 нельзя дойти шагом -1."
       }
     ],
     "runnable_code": "for i in range(5, 0, -1):\n    print(i)"
@@ -5250,26 +4718,6 @@
         "hint": "total = 0\nfor i in range(2, 7):\n    if i % 2 == 0:\n        total += i\nprint(total)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Меняет переменную цикла внутри цикла",
-        "wrong": "for i in range(5):\n    i = i + 2  # сбивает счёт",
-        "right": "for i in range(5):\n    print(i)  # не меняй i вручную",
-        "note": "Изменение переменной цикла внутри тела не влияет на следующую итерацию — range уже задан. Это только запутывает."
-      },
-      {
-        "title": "Пытается использовать i после цикла",
-        "wrong": "for i in range(3):\n    pass\nprint(i)  # 2, но полагаться не стоит",
-        "right": "# задай переменную до цикла, если нужна после",
-        "note": "Переменная цикла живёт и после цикла, но лучше не полагаться на её значение вне цикла."
-      },
-      {
-        "title": "Путает += с =+",
-        "wrong": "total =+ 5  # присваивает +5, а не прибавляет",
-        "right": "total += 5  # прибавляет 5 к total",
-        "note": "+= — это «прибавить к текущему». =+ это просто присваивание положительного числа. Поменяй местами + и =."
-      }
-    ],
     "runnable_code": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)"
   },
   {
@@ -5403,26 +4851,6 @@
         "task": "Даны переменные a = «Py» и b = «thon». Склей их в одну строку и выведи результат.",
         "expected_output": "Python",
         "hint": "result = a + b\nprint(result)"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Пытается сложить строку с числом без преобразования",
-        "wrong": "print(\"Возраст: \" + 25)  # TypeError",
-        "right": "print(\"Возраст: \" + str(25))  # str(25) = \"25\"",
-        "note": "Строку можно сложить только со строкой. Число нужно преобразовать в str() или использовать f-строку."
-      },
-      {
-        "title": "Думает, что строку можно изменить по индексу",
-        "wrong": "word = \"python\"\nword[0] = \"P\"  # TypeError",
-        "right": "word = \"P\" + word[1:]  # создай новую строку",
-        "note": "Строки в Python неизменяемы (immutable). Нельзя заменить символ по индексу — нужно создать новую строку."
-      },
-      {
-        "title": "Путает кавычки: начинает с одних, заканчивает другими",
-        "wrong": "\"Привет'  # SyntaxError",
-        "right": "\"Привет\"  # или 'Привет'",
-        "note": "Кавычки открывающие и закрывающие должны быть одинаковыми. Нельзя смешивать \" и '."
       }
     ],
     "runnable_code": "word = \"python\"\nprint(word)"
@@ -5560,26 +4988,6 @@
         "hint": "if \"@\" in email:"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Путает регистр: 'Python' in 'python' — False",
-        "wrong": "if \"Питон\" in \"питон\":  # False из-за регистра",
-        "right": "if \"питон\" in \"питон\".lower():  # приведи к одному регистру",
-        "note": "in чувствителен к регистру. 'Python' in 'python' вернёт False. Если регистр не важен — приведи к lower()."
-      },
-      {
-        "title": "Думает, что in проверяет целые слова, а не подстроки",
-        "wrong": "if \"пи\" in \"питон\":  # True — но думал, что False (проверяет слово целиком)",
-        "right": "if \"пи\" in \"питон\":  # на самом деле True, это подстрока",
-        "note": "in ищет подстроку в любом месте строки. 'пи' есть внутри 'питон', значит True."
-      },
-      {
-        "title": "Пишет in() как функцию",
-        "wrong": "in(\"a\", \"abc\")  # ожидает True, но это SyntaxError",
-        "right": "\"a\" in \"abc\"  # оператор, а не функция",
-        "note": "in — это оператор, не функция. Пиши: строка in другая_строка."
-      }
-    ],
     "runnable_code": "text = \"hello python\"\nprint(\"python\" in text)"
   },
   {
@@ -5713,26 +5121,6 @@
         "task": "Дана переменная password = «secret». Если длина пароля меньше 8 — выведи «короткий пароль», иначе — «надёжный».",
         "expected_output": "короткий пароль",
         "hint": "if len(password) < 8:"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что len считает с 1, а не количество элементов",
-        "wrong": "len(\"abc\")  # думает, что 2 (считает с 1)",
-        "right": "len(\"abc\")  # 3 — количество символов",
-        "note": "len возвращает количество элементов, а не последний индекс. Для строки из 3 символов len = 3."
-      },
-      {
-        "title": "Путает len() с последним индексом",
-        "wrong": "word = \"python\"\nprint(word[len(word)])  # IndexError",
-        "right": "print(word[len(word) - 1])  # последний символ",
-        "note": "Индексы начинаются с 0, поэтому последний индекс = len - 1. len('abc') = 3, а последний индекс = 2."
-      },
-      {
-        "title": "Пытается применить len() к числу",
-        "wrong": "len(12345)  # TypeError",
-        "right": "len(str(12345))  # 5 — сначала преобразуй в строку",
-        "note": "len() работает только с коллекциями (строки, списки). Чтобы узнать количество цифр — преобразуй число в строку сначала."
       }
     ],
     "runnable_code": "word = \"python\"\nprint(len(word))"
@@ -5870,26 +5258,6 @@
         "hint": "print(f\"Герой {hero}, уровень {level}\")"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Забывает букву f перед строкой",
-        "wrong": "print(\"{name}: {level}\")  # выведет буквально {name}: {level}",
-        "right": "print(f\"{name}: {level}\")  # подставит значения",
-        "note": "Без f перед строкой Python не подставляет значения в {}. Он выведет текст как есть."
-      },
-      {
-        "title": "Думает, что {} работают в обычных строках",
-        "wrong": "name = \"Ксю\"\nprint(\"Привет, {name}\")  # выведет {name}",
-        "right": "print(f\"Привет, {name}\")  # выведет Привет, Ксю",
-        "note": "{} подставляют значения ТОЛЬКО внутри f-строк. Для обычных строк это просто текст."
-      },
-      {
-        "title": "Пытается использовать сложные выражения в {} без f",
-        "wrong": "print(\"{2 + 2}\")  # выведет {2 + 2}",
-        "right": "print(f\"{2 + 2}\")  # выведет 4",
-        "note": "Внутри {} f-строки можно писать выражения: {2 + 2}, {name.upper()}. Но не забывай про f перед строкой."
-      }
-    ],
     "runnable_code": "name = \"Ксю\"\nlevel = 3\nprint(f\"{name}: {level}\")"
   },
   {
@@ -6023,26 +5391,6 @@
         "task": "Дана переменная text = «  привет  ». Убери пробелы по краям и приведи к нижнему регистру. Выведи результат.",
         "expected_output": "привет",
         "hint": "print(text.strip().lower())"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Забывает скобки у метода — пишет без ()",
-        "wrong": "text.lower  # не вызывает метод, а ссылается на него",
-        "right": "text.lower()  # вызывает метод",
-        "note": "Без скобок ты не вызываешь метод, а просто ссылаешься на него. Всегда ставь () для вызова."
-      },
-      {
-        "title": "Думает, что методы меняют исходную строку",
-        "wrong": "text = \"Python\"\ntext.lower()\nprint(text)  # ожидает \"python\"",
-        "right": "text = \"Python\"\ntext = text.lower()\nprint(text)  # нужно сохранить результат",
-        "note": "Методы строк не меняют оригинал, а возвращают новую строку. Нужно сохранить результат в переменную."
-      },
-      {
-        "title": "Путает .strip() и .split()",
-        "wrong": "text.strip()  # ожидает список, а получит строку",
-        "right": "text.split()  # разбивает на список",
-        "note": ".strip() убирает пробелы по краям и возвращает строку. .split() разбивает строку на список. Не путай."
       }
     ],
     "runnable_code": "text = \"  PyThOn  \"\nprint(text.lower().strip())"
@@ -6180,26 +5528,6 @@
         "hint": "print(word[-1])"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что индексы начинаются с 1, а не с 0",
-        "wrong": "word = \"python\"\nprint(word[1])  # ожидает 'p'",
-        "right": "print(word[0])  # 'p' — первый символ",
-        "note": "В Python (и многих языках) индексы начинаются с 0. word[0] — первый символ, word[1] — второй."
-      },
-      {
-        "title": "Забывает про отрицательные индексы",
-        "wrong": "word = \"python\"\nprint(word[len(word)-1])  # работает, но длинно",
-        "right": "print(word[-1])  # 'n' — последний символ",
-        "note": "Отрицательные индексы считают с конца: -1 — последний, -2 — предпоследний и так далее."
-      },
-      {
-        "title": "Путает индекс с длиной — выходит за границы",
-        "wrong": "word = \"abc\"\nprint(word[3])  # IndexError",
-        "right": "print(word[2])  # 'c' — последний допустимый индекс",
-        "note": "Длина 'abc' = 3, но индексы: 0, 1, 2. Последний индекс = len - 1, не len."
-      }
-    ],
     "runnable_code": "word = \"python\"\nprint(word[0])"
   },
   {
@@ -6333,26 +5661,6 @@
         "task": "Дана переменная word = «Python». Выведи срез со 2-го по 4-й символ (индексы 1:4).",
         "expected_output": "yth",
         "hint": "print(word[1:4])"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Думает, что stop в срезе [start:stop] включается",
-        "wrong": "\"python\"[1:4]  # ожидает 'ytho'",
-        "right": "\"python\"[1:4]  # 'yth'",
-        "note": "Срез [start:stop] не включает stop, как и range. [1:4] берёт символы с индексами 1, 2, 3."
-      },
-      {
-        "title": "Путает порядок start и stop",
-        "wrong": "\"python\"[4:1]  # пустая строка",
-        "right": "\"python\"[1:4]  # 'yth'",
-        "note": "start должен идти раньше stop. [4:1] пуст, потому что 4 > 1 и шаг по умолчанию +1."
-      },
-      {
-        "title": "Думает, что срез изменяет исходную строку",
-        "wrong": "word = \"python\"\nword[1:4]  # ожидает, что word изменится",
-        "right": "sliced = word[1:4]  # сохрани срез в новую переменную",
-        "note": "Срез создаёт новую строку (или список), не меняя исходную. Нужно сохранить результат."
       }
     ],
     "runnable_code": "word = \"python\"\nprint(word[0:2])"
@@ -6490,26 +5798,6 @@
         "hint": "for ch in text:\n    if ch == \"a\":\n        print(ch)"
       }
     ],
-    "common_mistakes": [
-      {
-        "title": "Пытается изменить строку через цикл (забывает про неизменяемость)",
-        "wrong": "word = \"abc\"\nfor ch in word:\n    ch = ch.upper()\nprint(word)  # ожидает 'ABC'",
-        "right": "result = ''\nfor ch in word:\n    result += ch.upper()\nprint(result)  # 'ABC'",
-        "note": "ch — это копия символа, его изменение не влияет на исходную строку. Строки неизменяемы."
-      },
-      {
-        "title": "Путает for char in string с for i in range(len())",
-        "wrong": "for ch in \"abc\":\n    print(ch)  # получает символы, а хотел индексы",
-        "right": "for i in range(len(\"abc\")):\n    print(i)  # 0, 1, 2",
-        "note": "for ch in string даёт символы. Если нужны индексы — используй for i in range(len(string))."
-      },
-      {
-        "title": "Пытается перебирать число через for in",
-        "wrong": "for x in 123:  # TypeError: 'int' is not iterable",
-        "right": "for x in str(123):  # преобразуй в строку",
-        "note": "Числа нельзя перебирать через for in. Сначала преобразуй их в строку: str(123)."
-      }
-    ],
     "runnable_code": "word = \"abc\"\nfor letter in word:\n    print(letter)"
   },
   {
@@ -6643,20 +5931,6 @@
         "task": "Дан список fruits = ['яблоко', 'банан', 'апельсин', 'киви']. Выведи количество элементов через len().",
         "expected_output": "4",
         "hint": "print(len(fruits))"
-      }
-    ],
-    "common_mistakes": [
-      {
-        "title": "Забыл квадратные скобки",
-        "wrong": "items = \"меч\", \"щит\"\nprint(items)",
-        "right": "items = [\"меч\", \"щит\"]\nprint(items)",
-        "note": "Без [] Python создаёт кортеж (tuple), а не список. Всегда используй квадратные скобки для списка."
-      },
-      {
-        "title": "Думает, что первый элемент — индекс 1",
-        "wrong": "items = [\"меч\", \"щит\"]\nprint(items[1])",
-        "right": "items = [\"меч\", \"щит\"]\nprint(items[0])",
-        "note": "В Python индексация начинается с 0. Первый элемент — items[0], второй — items[1]."
       }
     ],
     "runnable_code": "items = [\"меч\", \"щит\"]\nprint(items)"
@@ -6794,21 +6068,7 @@
         "hint": "inventory[0] = \"алмаз\"\nprint(inventory)"
       }
     ],
-    "runnable_code": "items = [\"старый щит\", \"меч\"]\nitems[0] = \"новый щит\"\nprint(items)",
-    "common_mistakes": [
-      {
-        "title": "Пытается заменить элемент без индекса",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems = \"новый меч\"",
-        "right": "items = [\"меч\", \"щит\"]\nitems[0] = \"новый меч\"\nprint(items)",
-        "note": "Чтобы заменить элемент списка, укажи индекс в квадратных скобках: items[0] = новое_значение."
-      },
-      {
-        "title": "Выходит за границы списка при замене",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems[5] = \"шлем\"",
-        "right": "items = [\"меч\", \"щит\"]\nitems.append(\"шлем\")",
-        "note": "Нельзя заменить элемент по индексу, которого нет. Чтобы добавить новый — используй append()."
-      }
-    ]
+    "runnable_code": "items = [\"старый щит\", \"меч\"]\nitems[0] = \"новый щит\"\nprint(items)"
   },
   {
     "id": "3-29",
@@ -6943,21 +6203,7 @@
         "hint": "queue.pop(0) удаляет и возвращает элемент с индексом 0."
       }
     ],
-    "runnable_code": "items = [\"меч\", \"щит\"]\ndeleted = items.pop()\nprint(deleted)\nprint(items)",
-    "common_mistakes": [
-      {
-        "title": "Вызывает pop() на пустом списке",
-        "wrong": "items = []\nitems.pop()",
-        "right": "items = []\nif items:\n    items.pop()",
-        "note": "pop() на пустом списке вызывает IndexError. Всегда проверяй, что список не пуст."
-      },
-      {
-        "title": "Путает pop() с remove()",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems.pop(\"щит\")",
-        "right": "items = [\"меч\", \"щит\"]\nitems.remove(\"щит\")\nprint(items)",
-        "note": "pop() удаляет по индексу, а remove() — по значению."
-      }
-    ]
+    "runnable_code": "items = [\"меч\", \"щит\"]\ndeleted = items.pop()\nprint(deleted)\nprint(items)"
   },
   {
     "id": "3-30",
@@ -7092,21 +6338,7 @@
         "hint": "Сначала проверь if 2 in nums:, потом nums.remove(2)."
       }
     ],
-    "runnable_code": "items = [\"меч\", \"щит\"]\nitems.remove(\"щит\")\nprint(items)",
-    "common_mistakes": [
-      {
-        "title": "Удаляет несуществующий элемент",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems.remove(\"шлем\")",
-        "right": "items = [\"меч\", \"щит\"]\nif \"шлем\" in items:\n    items.remove(\"шлем\")",
-        "note": "remove() вызывает ValueError, если элемента нет. Проверяй через in перед удалением."
-      },
-      {
-        "title": "Думает, что remove() удаляет все вхождения",
-        "wrong": "items = [\"болт\", \"гайка\", \"болт\"]\nitems.remove(\"болт\")\nprint(items)",
-        "right": "items = [x for x in items if x != \"болт\"]\nprint(items)",
-        "note": "remove() удаляет только ПЕРВОЕ вхождение. Чтобы удалить все — используй list comprehension."
-      }
-    ]
+    "runnable_code": "items = [\"меч\", \"щит\"]\nitems.remove(\"щит\")\nprint(items)"
   },
   {
     "id": "3-31",
@@ -7241,21 +6473,7 @@
         "hint": "coins = []; coins.append(10); coins.append(20); coins.append(30); print(coins)"
       }
     ],
-    "runnable_code": "items = []\nitems.append(\"ключ\")\nprint(items)",
-    "common_mistakes": [
-      {
-        "title": "Присваивает результат append() переменной",
-        "wrong": "items = []\nitems = items.append(\"ключ\")",
-        "right": "items = []\nitems.append(\"ключ\")\nprint(items)",
-        "note": "append() изменяет список на месте и возвращает None. Не присваивай результат обратно."
-      },
-      {
-        "title": "Пытается добавить несколько элементов за раз",
-        "wrong": "items = []\nitems.append(\"меч\", \"щит\")",
-        "right": "items = []\nitems.append(\"меч\")\nitems.append(\"щит\")\nprint(items)",
-        "note": "append() принимает только один аргумент."
-      }
-    ]
+    "runnable_code": "items = []\nitems.append(\"ключ\")\nprint(items)"
   },
   {
     "id": "3-32",
@@ -7386,21 +6604,7 @@
         "hint": "Сначала if \"р\" in word:, потом word.index(\"р\")."
       }
     ],
-    "runnable_code": "items = [\"меч\", \"ключ\"]\nprint(items.index(\"ключ\"))",
-    "common_mistakes": [
-      {
-        "title": "Ищет несуществующий элемент",
-        "wrong": "items = [\"меч\", \"щит\"]\nprint(items.index(\"шлем\"))",
-        "right": "items = [\"меч\", \"щит\"]\nif \"шлем\" in items:\n    print(items.index(\"шлем\"))\nelse:\n    print(-1)",
-        "note": "index() вызывает ValueError, если элемента нет. Сначала проверяй через in."
-      },
-      {
-        "title": "Путает — передаёт индекс вместо значения",
-        "wrong": "items = [\"меч\", \"щит\"]\nprint(items.index(1))",
-        "right": "items = [\"меч\", \"щит\"]\nprint(items[1])",
-        "note": "index(value) ищет ПО ЗНАЧЕНИЮ и возвращает индекс. items[индекс] получает значение по индексу."
-      }
-    ]
+    "runnable_code": "items = [\"меч\", \"ключ\"]\nprint(items.index(\"ключ\"))"
   },
   {
     "id": "3-33",
@@ -7535,21 +6739,7 @@
         "hint": "sum(prices) вернёт сумму всех цен."
       }
     ],
-    "runnable_code": "numbers = [1, 2, 3]\nprint(sum(numbers))",
-    "common_mistakes": [
-      {
-        "title": "Пытается сложить строки через sum()",
-        "wrong": "words = [\"a\", \"b\", \"c\"]\nprint(sum(words))",
-        "right": "words = [\"a\", \"b\", \"c\"]\nprint(\"\".join(words))",
-        "note": "sum() работает только с числами. Для строк используй метод join()."
-      },
-      {
-        "title": "Забыл инициализировать сумму в цикле",
-        "wrong": "numbers = [1, 2, 3]\nfor n in numbers:\n    total += n",
-        "right": "numbers = [1, 2, 3]\ntotal = 0\nfor n in numbers:\n    total += n\nprint(total)",
-        "note": "Перед циклом с накоплением создай total = 0, иначе Python выдаст NameError."
-      }
-    ]
+    "runnable_code": "numbers = [1, 2, 3]\nprint(sum(numbers))"
   },
   {
     "id": "3-34",
@@ -7684,21 +6874,7 @@
         "hint": "text.count(\"а\") считает вхождения подстроки в строке."
       }
     ],
-    "runnable_code": "items = [\"зелье\", \"меч\", \"зелье\"]\nprint(items.count(\"зелье\"))",
-    "common_mistakes": [
-      {
-        "title": "Вызывает count() как функцию, а не метод",
-        "wrong": "items = [1, 2, 1, 3]\nprint(count(1))",
-        "right": "items = [1, 2, 1, 3]\nprint(items.count(1))",
-        "note": "count() — метод списка. Вызывай через точку: список.count(значение)."
-      },
-      {
-        "title": "Путает count() с len()",
-        "wrong": "items = [1, 2, 3]\nprint(items.count())",
-        "right": "items = [1, 2, 3]\nprint(len(items))",
-        "note": "count(значение) считает вхождения элемента. len(список) возвращает длину списка."
-      }
-    ]
+    "runnable_code": "items = [\"зелье\", \"меч\", \"зелье\"]\nprint(items.count(\"зелье\"))"
   },
   {
     "id": "3-35",
@@ -7833,21 +7009,7 @@
         "hint": "[w for w in words if len(w) == 3] — проверка длины слова."
       }
     ],
-    "runnable_code": "numbers = [1, 2, 3, 4]\nfor n in numbers:\n    if n % 2 == 0:\n        print(n)",
-    "common_mistakes": [
-      {
-        "title": "Путает порядок в list comprehension",
-        "wrong": "nums = [1, 2, 3, 4]\nevens = [if n % 2 == 0 for n in nums]",
-        "right": "nums = [1, 2, 3, 4]\nevens = [n for n in nums if n % 2 == 0]\nprint(evens)",
-        "note": "Порядок: [выражение for элемент in список if условие]. Сначала пиши for, потом if."
-      },
-      {
-        "title": "Забывает квадратные скобки",
-        "wrong": "nums = [1, 2, 3, 4]\nresult = (n for n in nums if n > 2)",
-        "right": "nums = [1, 2, 3, 4]\nresult = [n for n in nums if n > 2]\nprint(result)",
-        "note": "Круглые скобки создают генератор, а не список. Используй квадратные [] для списка."
-      }
-    ]
+    "runnable_code": "numbers = [1, 2, 3, 4]\nfor n in numbers:\n    if n % 2 == 0:\n        print(n)"
   },
   {
     "id": "3-36",
@@ -7982,21 +7144,7 @@
         "hint": "tasks.insert(0, \"завтрак\") — вставка на нулевой индекс добавляет в начало."
       }
     ],
-    "runnable_code": "items = [\"меч\", \"зелье\"]\nitems.insert(1, \"щит\")\nprint(items)",
-    "common_mistakes": [
-      {
-        "title": "Забывает передать значение для вставки",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems.insert(1)",
-        "right": "items = [\"меч\", \"щит\"]\nitems.insert(1, \"шлем\")\nprint(items)",
-        "note": "insert() требует два аргумента: индекс и значение."
-      },
-      {
-        "title": "Путает insert(-1, x) с добавлением в конец",
-        "wrong": "items = [\"меч\", \"щит\"]\nitems.insert(-1, \"шлем\")\nprint(items)",
-        "right": "items = [\"меч\", \"щит\"]\nitems.append(\"шлем\")\nprint(items)",
-        "note": "insert(-1, x) вставляет ПЕРЕД последним элементом. Для добавления в конец используй append()."
-      }
-    ]
+    "runnable_code": "items = [\"меч\", \"зелье\"]\nitems.insert(1, \"щит\")\nprint(items)"
   },
   {
     "id": "3-37",
@@ -8131,21 +7279,7 @@
         "hint": "cart.extend([\"хлеб\", \"масло\"]) — добавляет несколько элементов за раз."
       }
     ],
-    "runnable_code": "a = [1, 2]\nb = [3, 4]\na.extend(b)\nprint(a)",
-    "common_mistakes": [
-      {
-        "title": "Передаёт число, а не коллекцию",
-        "wrong": "a = [1, 2]\na.extend(3)",
-        "right": "a = [1, 2]\na.append(3)\nprint(a)",
-        "note": "extend() ожидает коллекцию (список, строку). Для одного элемента используй append()."
-      },
-      {
-        "title": "Не учитывает, что extend разбивает строку",
-        "wrong": "a = [1, 2]\na.extend(\"abc\")\nprint(a)",
-        "right": "a = [1, 2]\na.append(\"abc\")\nprint(a)",
-        "note": "extend(\"abc\") разобьёт строку на символы. Чтобы добавить строку целиком, используй append()."
-      }
-    ]
+    "runnable_code": "a = [1, 2]\nb = [3, 4]\na.extend(b)\nprint(a)"
   },
   {
     "id": "3-38",
@@ -8280,21 +7414,7 @@
         "hint": "nums[:3] — если не указывать start, срез начинается с 0."
       }
     ],
-    "runnable_code": "a = [10, 20, 30, 40]\nprint(a[1:3])",
-    "common_mistakes": [
-      {
-        "title": "Думает, что конечный индекс входит в срез",
-        "wrong": "a = [10, 20, 30, 40]\nprint(a[1:3])",
-        "right": "a = [10, 20, 30, 40]\nprint(a[1:3])",
-        "note": "Срез [start:end] не включает элемент с индексом end. a[1:3] даёт элементы с индексами 1 и 2 (20, 30)."
-      },
-      {
-        "title": "Путает синтаксис среза с функцией",
-        "wrong": "a = [10, 20, 30, 40]\nprint(a.slice(1, 3))",
-        "right": "a = [10, 20, 30, 40]\nprint(a[1:3])",
-        "note": "В Python срезы пишутся через квадратные скобки и двоеточие: список[старт:конец]."
-      }
-    ]
+    "runnable_code": "a = [10, 20, 30, 40]\nprint(a[1:3])"
   },
   {
     "id": "3-39",
@@ -8429,21 +7549,7 @@
         "hint": "random.choice() возвращает один элемент из списка."
       }
     ],
-    "runnable_code": "import random\nitems = [\"меч\", \"щит\"]\nprint(random.choice(items))",
-    "common_mistakes": [
-      {
-        "title": "Забыл import random",
-        "wrong": "items = [\"меч\", \"щит\"]\nprint(random.choice(items))",
-        "right": "import random\nitems = [\"меч\", \"щит\"]\nprint(random.choice(items))",
-        "note": "Модуль random нужно импортировать до использования."
-      },
-      {
-        "title": "Вызывает choice() на пустом списке",
-        "wrong": "items = []\nprint(random.choice(items))",
-        "right": "items = []\nif items:\n    print(random.choice(items))\nelse:\n    print(\"Список пуст\")",
-        "note": "random.choice() выдаёт IndexError на пустом списке. Проверяй, что список не пуст."
-      }
-    ]
+    "runnable_code": "import random\nitems = [\"меч\", \"щит\"]\nprint(random.choice(items))"
   },
   {
     "id": "3-40",
@@ -8578,21 +7684,7 @@
         "hint": "shuffle() изменяет список на месте и возвращает None. Выводи сам список, а не результат shuffle()."
       }
     ],
-    "runnable_code": "import random\ncards = [1, 2, 3]\nrandom.shuffle(cards)\nprint(cards)",
-    "common_mistakes": [
-      {
-        "title": "Присваивает результат shuffle() переменной",
-        "wrong": "import random\ncards = [1, 2, 3]\nshuffled = random.shuffle(cards)\nprint(shuffled)",
-        "right": "import random\ncards = [1, 2, 3]\nrandom.shuffle(cards)\nprint(cards)",
-        "note": "shuffle() перемешивает на месте и возвращает None. Выводи сам список, а не результат."
-      },
-      {
-        "title": "Не копирует список, теряя оригинальный порядок",
-        "wrong": "import random\noriginal = [1, 2, 3, 4, 5]\nrandom.shuffle(original)",
-        "right": "import random\noriginal = [1, 2, 3, 4, 5]\nshuffled = original.copy()\nrandom.shuffle(shuffled)",
-        "note": "shuffle() меняет исходный список. Сохрани копию через .copy() до перемешивания."
-      }
-    ]
+    "runnable_code": "import random\ncards = [1, 2, 3]\nrandom.shuffle(cards)\nprint(cards)"
   },
   {
     "id": "4-1",
@@ -8727,21 +7819,7 @@
         "hint": "found = False; for door in doors: if door == 'открыто': found = True; break; print(found)"
       }
     ],
-    "runnable_code": "found = False\nfor x in [1, 2, 3]:\n    if x == 2:\n        found = True\nprint(found)",
-    "common_mistakes": [
-      {
-        "title": "Флаг никогда не сбрасывается",
-        "wrong": "found = False\nfor item in items:\n    if item == target:\n        found = True\n    else:\n        found = False",
-        "right": "found = False\nfor item in items:\n    if item == target:\n        found = True\n        break",
-        "note": "Флаг нашли — не сбрасывай его обратно. Добавь break для выхода."
-      },
-      {
-        "title": "Путает флаг со счётчиком",
-        "wrong": "flag = 0\nif условие:\n    flag = 1",
-        "right": "flag = False\nif условие:\n    flag = True",
-        "note": "Флаг — это bool: True или False. Не используй 0 и 1."
-      }
-    ]
+    "runnable_code": "found = False\nfor x in [1, 2, 3]:\n    if x == 2:\n        found = True\nprint(found)"
   },
   {
     "id": "4-2",
@@ -8876,21 +7954,7 @@
         "hint": "Выведи 'start', потом в while True выведи 'work' и сделай break, затем после цикла выведи 'end'."
       }
     ],
-    "runnable_code": "for x in [1, 2, 3]:\n    if x == 2:\n        break\n    print(x)",
-    "common_mistakes": [
-      {
-        "title": "break до вывода результата",
-        "wrong": "for n in range(10):\n    break\n    print(n)",
-        "right": "for n in range(10):\n    print(n)\n    if n == 5:\n        break",
-        "note": "break завершает цикл немедленно. Весь код после break в цикле не выполнится."
-      },
-      {
-        "title": "break вне цикла",
-        "wrong": "if x > 5:\n    break",
-        "right": "for i in range(10):\n    if i > 5:\n        break",
-        "note": "break работает только внутри цикла (for, while). Вне цикла — SyntaxError."
-      }
-    ]
+    "runnable_code": "for x in [1, 2, 3]:\n    if x == 2:\n        break\n    print(x)"
   },
   {
     "id": "4-3",
@@ -9025,15 +8089,7 @@
         "hint": "-1 больше, чем -5. Условие if n > mx сработает правильно."
       }
     ],
-    "runnable_code": "numbers = [4, 9, 2]\nmx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)",
-    "common_mistakes": [
-      {
-        "title": "Стартовое значение для максимума — 0",
-        "wrong": "mx = 0\nfor n in numbers:\n    if n > mx:\n        mx = n",
-        "right": "mx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)",
-        "note": "Если все числа отрицательные, mx = 0 не сработает. Инициализируй первым элементом."
-      }
-    ]
+    "runnable_code": "numbers = [4, 9, 2]\nmx = numbers[0]\nfor n in numbers:\n    if n > mx:\n        mx = n\nprint(mx)"
   },
   {
     "id": "4-4",
@@ -9168,15 +8224,7 @@
         "hint": "-5 меньше, чем 2. Условие if n < mn найдет самое маленькое число."
       }
     ],
-    "runnable_code": "numbers = [4, 9, 2]\nmn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
-    "common_mistakes": [
-      {
-        "title": "Стартовое значение для минимума — 0",
-        "wrong": "mn = 0\nfor n in numbers:\n    if n < mn:\n        mn = n",
-        "right": "mn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)",
-        "note": "Если все числа положительные, mn = 0 не сработает. Инициализируй первым элементом."
-      }
-    ]
+    "runnable_code": "numbers = [4, 9, 2]\nmn = numbers[0]\nfor n in numbers:\n    if n < mn:\n        mn = n\nprint(mn)"
   },
   {
     "id": "4-5",
@@ -9311,15 +8359,7 @@
         "hint": "После нахождения самой длинной строки выведи len(longest)."
       }
     ],
-    "runnable_code": "names = [\"Ксю\", \"Архивариус\"]\nlongest = names[0]\nfor name in names:\n    if len(name) > len(longest):\n        longest = name\nprint(longest)",
-    "common_mistakes": [
-      {
-        "title": "Сравнивает длину строки неправильно",
-        "wrong": "words = ['cat', 'python', 'hi']\nprint(max(words))",
-        "right": "words = ['cat', 'python', 'hi']\nprint(max(words, key=len))",
-        "note": "max() без key сравнивает строки лексикографически, не по длине. Используй key=len."
-      }
-    ]
+    "runnable_code": "names = [\"Ксю\", \"Архивариус\"]\nlongest = names[0]\nfor name in names:\n    if len(name) > len(longest):\n        longest = name\nprint(longest)"
   },
   {
     "id": "4-6",
@@ -9454,15 +8494,7 @@
         "hint": "-2 — предпоследний, -1 — последний элемент."
       }
     ],
-    "runnable_code": "items = [1, 2, 3]\nfor i in range(len(items)-1, -1, -1):\n    print(items[i])",
-    "common_mistakes": [
-      {
-        "title": "Отрицательный индекс = -0",
-        "wrong": "items = [10, 20, 30]\nprint(items[-0])",
-        "right": "items = [10, 20, 30]\nprint(items[-1])",
-        "note": "-0 это то же самое, что 0 — первый элемент. Последний элемент — это -1."
-      }
-    ]
+    "runnable_code": "items = [1, 2, 3]\nfor i in range(len(items)-1, -1, -1):\n    print(items[i])"
   },
   {
     "id": "4-7",
@@ -9597,15 +8629,7 @@
         "hint": "После цикла проверь if result is None: print('not found')."
       }
     ],
-    "runnable_code": "result = None\nfor x in [2, 4, 5]:\n    if x % 2 != 0:\n        result = x\n        break\nprint(result)",
-    "common_mistakes": [
-      {
-        "title": "Путает None с 0 или False",
-        "wrong": "result = None\nif result == False:\n    print('нет результата')",
-        "right": "result = None\nif result is None:\n    print('нет результата')",
-        "note": "None — это не 0 и не False. Проверяй через is None."
-      }
-    ]
+    "runnable_code": "result = None\nfor x in [2, 4, 5]:\n    if x % 2 != 0:\n        result = x\n        break\nprint(result)"
   },
   {
     "id": "4-8",
@@ -9740,15 +8764,7 @@
         "hint": "Если n % 2 == 0, то добавляй n к total."
       }
     ],
-    "runnable_code": "numbers = [1, -2, 3]\ntotal = 0\nfor n in numbers:\n    if n > 0:\n        total += n\nprint(total)",
-    "common_mistakes": [
-      {
-        "title": "Пишет код без плана",
-        "wrong": "# Алгоритм: просто начну писать\nif x > 0:\n    y = x * 2\nfor i in range(y):\n    ...",
-        "right": "# Алгоритм:\n# 1. Считаем сумму\n# 2. Удваиваем\n# 3. Выводим\n# А теперь код:",
-        "note": "Сначала продумай алгоритм словами — это сэкономит часы отладки."
-      }
-    ]
+    "runnable_code": "numbers = [1, -2, 3]\ntotal = 0\nfor n in numbers:\n    if n > 0:\n        total += n\nprint(total)"
   },
   {
     "id": "4-9",
@@ -9883,21 +8899,7 @@
         "hint": "''.join(symbols) склеит все элементы без разделителя."
       }
     ],
-    "runnable_code": "words = [\"я\", \"учу\", \"python\"]\nprint(\" \".join(words))",
-    "common_mistakes": [
-      {
-        "title": "Забыл разделитель в join",
-        "wrong": "words = ['a', 'b', 'c']\nprint(join(words))",
-        "right": "words = ['a', 'b', 'c']\nprint(''.join(words))",
-        "note": "join() — метод строки-разделителя, не функция. Пиши: разделитель.join(список)."
-      },
-      {
-        "title": "Числа в join без str()",
-        "wrong": "nums = [1, 2, 3]\nprint('-'.join(nums))",
-        "right": "nums = [1, 2, 3]\nprint('-'.join(str(n) for n in nums))",
-        "note": "join() работает только со строками. Числа нужно преобразовать через str()."
-      }
-    ]
+    "runnable_code": "words = [\"я\", \"учу\", \"python\"]\nprint(\" \".join(words))"
   },
   {
     "id": "4-10",
@@ -10032,21 +9034,7 @@
         "hint": "print('\\n'.join(lines))."
       }
     ],
-    "runnable_code": "lines = [\"a\", \"b\"]\nprint(\"\\n\".join(lines))",
-    "common_mistakes": [
-      {
-        "title": "Путает \\n с /n",
-        "wrong": "print(\"Строка 1/nСтрока 2\")",
-        "right": "print(\"Строка 1\\nСтрока 2\")",
-        "note": "Экранирование — обратная косая черта \\. /n — просто слеш и буква n."
-      },
-      {
-        "title": "Думает \\n работает в любом print",
-        "wrong": "print(\"Строка 1\\nСтрока 2\", end=\"\\n\")",
-        "right": "print(\"Строка 1\\nСтрока 2\")",
-        "note": "По умолчанию print() уже добавляет \\n в конце. Не пиши end=\\n вручную."
-      }
-    ]
+    "runnable_code": "lines = [\"a\", \"b\"]\nprint(\"\\n\".join(lines))"
   },
   {
     "id": "4-11",
@@ -10181,21 +9169,7 @@
         "hint": "print(*items) распакует все элементы в аргументы print."
       }
     ],
-    "runnable_code": "items = [\"меч\", \"щит\"]\nprint(*items)",
-    "common_mistakes": [
-      {
-        "title": "Несовпадение количества переменных",
-        "wrong": "a, b = [1, 2, 3]",
-        "right": "a, b, c = [1, 2, 3]",
-        "note": "Количество переменных слева должно равняться количеству элементов справа."
-      },
-      {
-        "title": "Путает распаковку с индексацией",
-        "wrong": "a, *b = [1]\nprint(a, b)",
-        "right": "a, b = [1, 2]",
-        "note": "*b соберёт все оставшиеся элементы. Для одного элемента без * он распакуется."
-      }
-    ]
+    "runnable_code": "items = [\"меч\", \"щит\"]\nprint(*items)"
   },
   {
     "id": "4-12",
@@ -10330,15 +9304,7 @@
         "hint": "len(text.split()) даст количество слов."
       }
     ],
-    "runnable_code": "text = \"меч щит ключ\"\nprint(text.split())",
-    "common_mistakes": [
-      {
-        "title": "split() без переменной",
-        "wrong": "text = \"a b c\"\nsplit()\nprint(text)",
-        "right": "text = \"a b c\"\nwords = text.split()\nprint(words)",
-        "note": "split() возвращает список. Его нужно сохранить в переменную."
-      }
-    ]
+    "runnable_code": "text = \"меч щит ключ\"\nprint(text.split())"
   },
   {
     "id": "4-13",
@@ -10473,15 +9439,7 @@
         "hint": "Сначала parts = ip.split('.'), затем перебери циклом."
       }
     ],
-    "runnable_code": "text = \"a,b,c\"\nprint(text.split(\",\"))",
-    "common_mistakes": [
-      {
-        "title": "split() без аргумента когда нужен разделитель",
-        "wrong": "data = \"a,b,c\"\nprint(data.split())",
-        "right": "data = \"a,b,c\"\nprint(data.split(\",\"))",
-        "note": "split() без аргумента делит по пробелам. Для запятой укажи split(',')."
-      }
-    ]
+    "runnable_code": "text = \"a,b,c\"\nprint(text.split(\",\"))"
   },
   {
     "id": "4-14",
@@ -10616,15 +9574,7 @@
         "hint": "list(map(str, numbers)) даст список строк. Затем ','.join()."
       }
     ],
-    "runnable_code": "numbers = list(map(int, [\"1\", \"2\"]))\nprint(numbers)",
-    "common_mistakes": [
-      {
-        "title": "Забывает list() для map",
-        "wrong": "nums = ['1', '2', '3']\nprint(map(int, nums))",
-        "right": "nums = ['1', '2', '3']\nprint(list(map(int, nums)))",
-        "note": "map() возвращает итератор, а не список. Оберни в list() чтобы увидеть результат."
-      }
-    ]
+    "runnable_code": "numbers = list(map(int, [\"1\", \"2\"]))\nprint(numbers)"
   },
   {
     "id": "4-15",
@@ -10759,15 +9709,7 @@
         "hint": "sort() без аргументов сортирует строки по алфавиту."
       }
     ],
-    "runnable_code": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)",
-    "common_mistakes": [
-      {
-        "title": "sort() без ключа возвращает None",
-        "wrong": "nums = [3, 1, 2]\nsorted_nums = nums.sort()\nprint(sorted_nums)",
-        "right": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)",
-        "note": "sort() сортирует на месте и возвращает None. Используй sorted() для новой переменной."
-      }
-    ]
+    "runnable_code": "nums = [3, 1, 2]\nnums.sort()\nprint(nums)"
   },
   {
     "id": "4-16",
@@ -10902,15 +9844,7 @@
         "hint": "sorted(words, key=len) — key указывает правило сортировки."
       }
     ],
-    "runnable_code": "nums = [3, 1, 2]\nnew_nums = sorted(nums)\nprint(new_nums)\nprint(nums)",
-    "common_mistakes": [
-      {
-        "title": "Думает, что sorted() меняет исходный",
-        "wrong": "nums = [3, 1, 2]\nsorted(nums)\nprint(nums)",
-        "right": "nums = [3, 1, 2]\nsorted_nums = sorted(nums)\nprint(sorted_nums)",
-        "note": "sorted() возвращает новый список, не меняя исходный. Сохрани результат в переменную."
-      }
-    ]
+    "runnable_code": "nums = [3, 1, 2]\nnew_nums = sorted(nums)\nprint(new_nums)\nprint(nums)"
   },
   {
     "id": "4-17",
@@ -11045,15 +9979,7 @@
         "hint": "sorted(nums, key=abs) отсортирует по модулю числа."
       }
     ],
-    "runnable_code": "names = [\"Ксю\", \"Архивариус\", \"Да\"]\nnames.sort(key=len)\nprint(names)",
-    "common_mistakes": [
-      {
-        "title": "Забывает key= при сортировке",
-        "wrong": "people = [('Аня', 25), ('Боря', 18)]\nprint(sorted(people))",
-        "right": "people = [('Аня', 25), ('Боря', 18)]\nprint(sorted(people, key=lambda x: x[1]))",
-        "note": "Без key sorted() сравнивает по первому элементу. Укажи key= для другого критерия."
-      }
-    ]
+    "runnable_code": "names = [\"Ксю\", \"Архивариус\", \"Да\"]\nnames.sort(key=len)\nprint(names)"
   },
   {
     "id": "4-18",
@@ -11188,15 +10114,7 @@
         "hint": "matrix[1][2] — вторая строка (индекс 1), третий столбец (индекс 2)."
       }
     ],
-    "runnable_code": "table = [[\"Ксю\", 10], [\"Да\", 12]]\nprint(table[0][0])",
-    "common_mistakes": [
-      {
-        "title": "Путает индексы во вложенных списках",
-        "wrong": "matrix = [[1, 2], [3, 4]]\nprint(matrix[1][0])",
-        "right": "matrix = [[1, 2], [3, 4]]\nprint(matrix[1][0])",
-        "note": "matrix[1][0] — сначала выбираем строку [1], потом элемент [0] внутри неё = 3."
-      }
-    ]
+    "runnable_code": "table = [[\"Ксю\", 10], [\"Да\", 12]]\nprint(table[0][0])"
   },
   {
     "id": "4-19",
@@ -11331,15 +10249,7 @@
         "hint": "matrix[0][1] = 'x' — первая строка (0), второй столбец (1)."
       }
     ],
-    "runnable_code": "table = [[\"Ксю\", 10]]\ntable[0][1] = 20\nprint(table)",
-    "common_mistakes": [
-      {
-        "title": "Пытается изменить вложенный список через запятую",
-        "wrong": "matrix = [[1, 2], [3, 4]]\nmatrix[0, 1] = 9",
-        "right": "matrix = [[1, 2], [3, 4]]\nmatrix[0][1] = 9\nprint(matrix)",
-        "note": "Доступ к вложенным элементам: список[строка][столбец], а не список[строка, столбец]."
-      }
-    ]
+    "runnable_code": "table = [[\"Ксю\", 10]]\ntable[0][1] = 20\nprint(table)"
   },
   {
     "id": "4-20",
@@ -11474,15 +10384,7 @@
         "hint": "for row in matrix: for elem in row: print(elem)."
       }
     ],
-    "runnable_code": "orders = [[\"Анна\", 100], [\"Иван\", 200]]\nfor order in orders:\n    print(order[0], order[1])",
-    "common_mistakes": [
-      {
-        "title": "Один цикл вместо двух",
-        "wrong": "matrix = [[1, 2], [3, 4]]\nfor row in matrix:\n    print(row)",
-        "right": "matrix = [[1, 2], [3, 4]]\nfor row in matrix:\n    for item in row:\n        print(item)",
-        "note": "print(row) выводит список целиком. Нужен вложенный цикл для каждого элемента."
-      }
-    ]
+    "runnable_code": "orders = [[\"Анна\", 100], [\"Иван\", 200]]\nfor order in orders:\n    print(order[0], order[1])"
   },
   {
     "id": "4-21",
@@ -11617,15 +10519,7 @@
         "hint": "b = a — обе переменные указывают на один список. Изменения через b видны в a."
       }
     ],
-    "runnable_code": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)",
-    "common_mistakes": [
-      {
-        "title": "Путает присваивание с копированием",
-        "wrong": "a = [1, 2, 3]\nb = a\na.append(4)\nprint(b)",
-        "right": "a = [1, 2, 3]\nb = a.copy()\na.append(4)\nprint(b)",
-        "note": "b = a не копирует список. b — это ссылка на тот же список. Используй copy()."
-      }
-    ]
+    "runnable_code": "a = [1, 2]\nb = a\nb.append(3)\nprint(a)"
   },
   {
     "id": "4-22",
@@ -11760,15 +10654,7 @@
         "hint": "Строки — неизменяемый тип. text[0] = 'z' вызовет TypeError. Используй try-except."
       }
     ],
-    "runnable_code": "a = [1]\na.append(2)\nprint(a)\nx = 5\nx = 6\nprint(x)",
-    "common_mistakes": [
-      {
-        "title": "Пытается изменить строку по индексу",
-        "wrong": "s = \"Python\"\ns[0] = \"J\"",
-        "right": "s = \"Python\"\ns = \"J\" + s[1:]\nprint(s)",
-        "note": "Строки неизменяемы (immutable). Нельзя присвоить значение по индексу. Создай новую строку."
-      }
-    ]
+    "runnable_code": "a = [1]\na.append(2)\nprint(a)\nx = 5\nx = 6\nprint(x)"
   },
   {
     "id": "4-23",
@@ -11903,15 +10789,7 @@
         "hint": "Даже если содержимое одинаковое, это разные объекты в памяти, поэтому is вернёт False."
       }
     ],
-    "runnable_code": "a = [1]\nb = a\nprint(a is b)",
-    "common_mistakes": [
-      {
-        "title": "Использует is для сравнения чисел",
-        "wrong": "if x is 5:",
-        "right": "if x == 5:",
-        "note": "is проверяет идентичность объектов. Для сравнения значений используй ==."
-      }
-    ]
+    "runnable_code": "a = [1]\nb = a\nprint(a is b)"
   },
   {
     "id": "4-24",
@@ -12046,15 +10924,7 @@
         "hint": "copy() создаёт поверхностную копию — внутренние списки остаются ссылками."
       }
     ],
-    "runnable_code": "a = [1, 2]\nb = a.copy()\nb.append(3)\nprint(a)\nprint(b)",
-    "common_mistakes": [
-      {
-        "title": "Думает, что copy() копирует всё",
-        "wrong": "a = [[1, 2], [3, 4]]\nb = a.copy()\na[0].append(5)\nprint(b)",
-        "right": "from copy import deepcopy\na = [[1, 2], [3, 4]]\nb = deepcopy(a)\na[0].append(5)\nprint(b)",
-        "note": "copy() — поверхностная копия. Вложенные списки всё ещё общие. Используй deepcopy()."
-      }
-    ]
+    "runnable_code": "a = [1, 2]\nb = a.copy()\nb.append(3)\nprint(a)\nprint(b)"
   },
   {
     "id": "4-25",
@@ -12189,15 +11059,7 @@
         "hint": "После deepcopy изменения в b не затрагивают a даже на вложенном уровне."
       }
     ],
-    "runnable_code": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0].append(2)\nprint(a)\nprint(b)",
-    "common_mistakes": [
-      {
-        "title": "Забыл импортировать deepcopy",
-        "wrong": "a = [[1, 2], [3, 4]]\nb = deepcopy(a)",
-        "right": "from copy import deepcopy\na = [[1, 2], [3, 4]]\nb = deepcopy(a)",
-        "note": "deepcopy() живёт в модуле copy. Не забудь импортировать."
-      }
-    ]
+    "runnable_code": "import copy\na = [[1]]\nb = copy.deepcopy(a)\nb[0].append(2)\nprint(a)\nprint(b)"
   },
   {
     "id": "4-26",
@@ -12332,15 +11194,7 @@
         "hint": "while guess != secret: guess = int(input()); break если угадал"
       }
     ],
-    "runnable_code": "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1",
-    "common_mistakes": [
-      {
-        "title": "Забыл обновить счётчик — бесконечный цикл",
-        "wrong": "i = 0\nwhile i < 5:\n    print(i)",
-        "right": "i = 0\nwhile i < 5:\n    print(i)\n    i += 1",
-        "note": "Без i += 1 условие никогда не станет False — цикл бесконечный. Нажми Ctrl+C для спасения."
-      }
-    ]
+    "runnable_code": "count = 1\nwhile count <= 3:\n    print(count)\n    count += 1"
   },
   {
     "id": "4-27",
@@ -12475,15 +11329,7 @@
         "hint": "Используй переменную-счётчик или просто break после третьего print."
       }
     ],
-    "runnable_code": "command = \"\"\nwhile command != \"exit\":\n    command = \"exit\"\nprint(\"done\")",
-    "common_mistakes": [
-      {
-        "title": "while True без break",
-        "wrong": "while True:\n    print('бесконечно')",
-        "right": "while True:\n    cmd = input('> ')\n    if cmd == 'выход':\n        break",
-        "note": "while True без break — бесконечный цикл. Всегда предусматривай условие выхода."
-      }
-    ]
+    "runnable_code": "command = \"\"\nwhile command != \"exit\":\n    command = \"exit\"\nprint(\"done\")"
   },
   {
     "id": "4-28",
@@ -12618,15 +11464,7 @@
         "hint": "while num <= 0: num = 5 — внутри цикла меняем значение, чтобы выйти."
       }
     ],
-    "runnable_code": "password = \"\"\nwhile password != \"1234\":\n    password = \"1234\"\nprint(\"ok\")",
-    "common_mistakes": [
-      {
-        "title": "Не обновляет input внутри цикла",
-        "wrong": "guess = int(input())\nwhile guess != secret:\n    print('Не угадал')",
-        "right": "guess = 0\nwhile guess != secret:\n    guess = int(input())\n    if guess != secret:\n        print('Не угадал')",
-        "note": "Если input() вне цикла, число будет проверяться вечно. Читай ввод внутри while."
-      }
-    ]
+    "runnable_code": "password = \"\"\nwhile password != \"1234\":\n    password = \"1234\"\nprint(\"ok\")"
   },
   {
     "id": "4-29",
@@ -12761,15 +11599,7 @@
         "hint": "if cmd == 'help': print(...) elif cmd == 'about': print(...)."
       }
     ],
-    "runnable_code": "msg = \"привет\"\nif msg.lower() == \"привет\":\n    print(\"Привет\")\nelif msg.lower() == \"выход\":\n    print(\"Пока\")",
-    "common_mistakes": [
-      {
-        "title": "Не учитывает регистр",
-        "wrong": "if msg == 'привет':\n    print('бот: Привет!')",
-        "right": "if msg.lower() == 'привет':\n    print('бот: Привет!')",
-        "note": "Python различает 'Привет' и 'привет'. Используй .lower() для регистронезависимости."
-      }
-    ]
+    "runnable_code": "msg = \"привет\"\nif msg.lower() == \"привет\":\n    print(\"Привет\")\nelif msg.lower() == \"выход\":\n    print(\"Пока\")"
   },
   {
     "id": "4-30",
@@ -12904,15 +11734,7 @@
         "hint": "tasks.remove('b') удалит первый элемент с таким значением."
       }
     ],
-    "runnable_code": "tasks = []\ncommand = \"add\"\nif command == \"add\":\n    task = \"learn\"\n    tasks.append(task)\nprint(tasks)",
-    "common_mistakes": [
-      {
-        "title": "Перезаписывает список вместо добавления",
-        "wrong": "tasks = []\ntasks = 'купить хлеб'",
-        "right": "tasks = []\ntasks.append('купить хлеб')\nprint(tasks)",
-        "note": "tasks = 'купить хлеб' заменит список на строку. Используй append()."
-      }
-    ]
+    "runnable_code": "tasks = []\ncommand = \"add\"\nif command == \"add\":\n    task = \"learn\"\n    tasks.append(task)\nprint(tasks)"
   },
   {
     "id": "4-31",
@@ -13047,21 +11869,7 @@
         "hint": "random.randint(1, 5) даёт случайное число от 1 до 5."
       }
     ],
-    "runnable_code": "secret = 2\nattempts = 3\nguess = 2\nwhile attempts > 0:\n    if guess == secret:\n        print(\"win\")\n        break\n    attempts -= 1",
-    "common_mistakes": [
-      {
-        "title": "Не обновляет попытки",
-        "wrong": "attempts = 3\nwhile attempts > 0:\n    guess = int(input())\n    if guess != secret:\n        print('Неверно')",
-        "right": "attempts = 3\nwhile attempts > 0:\n    guess = int(input())\n    if guess != secret:\n        attempts -= 1\n        print(f'Осталось {attempts}')",
-        "note": "Без attempts -= 1 количество попыток не уменьшается. Цикл будет бесконечным."
-      },
-      {
-        "title": "Путает random.randint с random.choice",
-        "wrong": "secret = random.choice([1, 2, 3])",
-        "right": "secret = random.randint(1, 10)",
-        "note": "randint(a, b) — случайное ЧИСЛО от a до b. choice — случайный элемент из списка."
-      }
-    ]
+    "runnable_code": "secret = 2\nattempts = 3\nguess = 2\nwhile attempts > 0:\n    if guess == secret:\n        print(\"win\")\n        break\n    attempts -= 1"
   },
   {
     "id": "3-41",
@@ -13193,27 +12001,7 @@
         "hint": "Обе строки print() внутри цикла должны быть с одинаковым отступом (4 пробела)."
       }
     ],
-    "runnable_code": "health = 10\nif health > 0:\n    print('Герой жив!')\n    print('Можно продолжать')\nprint('Это вне блока if')",
-    "common_mistakes": [
-      {
-        "title": "Смешивает табуляцию и пробелы",
-        "wrong": "if True:\n    print(1)\n\tprint(2)",
-        "right": "if True:\n    print(1)\n    print(2)",
-        "note": "Нельзя смешивать табуляцию и пробелы. Используй 4 пробела — это стандарт Python."
-      },
-      {
-        "title": "Забыл двоеточие после if/for/while",
-        "wrong": "x = 5\nif x > 0\n    print(\"Положительное\")",
-        "right": "x = 5\nif x > 0:\n    print(\"Положительное\")",
-        "note": "После if, for, while, def обязательно ставится двоеточие :. Без него Python не понимает, где блок."
-      },
-      {
-        "title": "Разные отступы внутри одного блока",
-        "wrong": "if True:\n    print(1)\n      print(2)",
-        "right": "if True:\n    print(1)\n    print(2)",
-        "note": "Все строки внутри блока должны иметь одинаковый отступ. 4 пробела для каждой строки."
-      }
-    ]
+    "runnable_code": "health = 10\nif health > 0:\n    print('Герой жив!')\n    print('Можно продолжать')\nprint('Это вне блока if')"
   },
   {
     "id": "5-1",
@@ -13348,21 +12136,7 @@
         "hint": "Вызови bell() три раза — каждый на новой строке."
       }
     ],
-    "runnable_code": "def greet():\n    print('Hello!')\n\ngreet()",
-    "common_mistakes": [
-      {
-        "title": "Забыл двоеточие после def",
-        "wrong": "def greet()\n    print('Привет')",
-        "right": "def greet():\n    print('Привет')",
-        "note": "После def обязательно двоеточие — как после if или for."
-      },
-      {
-        "title": "Вызывает функцию до её определения",
-        "wrong": "greet()\ndef greet():\n    print('Привет')",
-        "right": "def greet():\n    print('Привет')\ngreet()",
-        "note": "Python выполняет код сверху вниз. Сначала определи функцию, потом вызывай."
-      }
-    ]
+    "runnable_code": "def greet():\n    print('Hello!')\n\ngreet()"
   },
   {
     "id": "5-2",
@@ -13497,15 +12271,7 @@
         "hint": "Число age можно вывести через запятую: print('Мой возраст:', age)."
       }
     ],
-    "runnable_code": "def square(x):\n    print(x * x)\n\nsquare(4)",
-    "common_mistakes": [
-      {
-        "title": "Забыл передать аргумент",
-        "wrong": "def square(x):\n    print(x * x)\nsquare()",
-        "right": "def square(x):\n    print(x * x)\nsquare(5)",
-        "note": "Функция ожидает аргумент. Если не передать — TypeError."
-      }
-    ]
+    "runnable_code": "def square(x):\n    print(x * x)\n\nsquare(4)"
   },
   {
     "id": "5-3",
@@ -13640,21 +12406,7 @@
         "hint": "return 'Привет, ' + name + '!' — возвращает строку. Вызови: print(make_greeting('Ксю'))."
       }
     ],
-    "runnable_code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)",
-    "common_mistakes": [
-      {
-        "title": "Код после return не выполняется",
-        "wrong": "def calc(x):\n    return x * 2\n    print('готово')",
-        "right": "def calc(x):\n    result = x * 2\n    print('готово')\n    return result",
-        "note": "После return функция завершается. Если print стоит после return — он не выполнится."
-      },
-      {
-        "title": "Забыл return — получает None",
-        "wrong": "def add(a, b):\n    result = a + b\nprint(add(2, 3))",
-        "right": "def add(a, b):\n    return a + b\nprint(add(2, 3))",
-        "note": "Без return функция возвращает None. return — це отдаёт результат."
-      }
-    ]
+    "runnable_code": "def add(a, b):\n    return a + b\n\nresult = add(3, 4)\nprint(result)"
   },
   {
     "id": "5-4",
@@ -13789,21 +12541,7 @@
         "hint": "scores['score'] = 10 — так добавляется новая пара ключ-значение."
       }
     ],
-    "runnable_code": "hero = {'name': 'Новичок', 'hp': 100}\nprint(hero['name'])\nprint(hero['hp'])",
-    "common_mistakes": [
-      {
-        "title": "Обращается к несуществующему ключу",
-        "wrong": "hero = {'name': 'Ксю', 'hp': 100}\nprint(hero['mp'])",
-        "right": "hero = {'name': 'Ксю', 'hp': 100}\nprint(hero.get('mp', 0))",
-        "note": "Несуществующий ключ даёт KeyError. Используй get() со значением по умолчанию."
-      },
-      {
-        "title": "Пытается создать dict с дублирующимся ключом",
-        "wrong": "d = {'a': 1, 'a': 2}\nprint(d)",
-        "right": "d = {'a': 1, 'b': 2}\nprint(d)",
-        "note": "Дублирующийся ключ перезапишет первое значение. Ключи должны быть уникальными."
-      }
-    ]
+    "runnable_code": "hero = {'name': 'Новичок', 'hp': 100}\nprint(hero['name'])\nprint(hero['hp'])"
   },
   {
     "id": "5-7",
@@ -13938,20 +12676,6 @@
         "hint": "try: print(10 / 0) except: print('На ноль делить нельзя')"
       }
     ],
-    "runnable_code": "try:\n    number = 10\n    print('Число:', number)\nexcept:\n    print('Это не число!')",
-    "common_mistakes": [
-      {
-        "title": "Ловит слишком общее исключение",
-        "wrong": "try:\n    x = int(input())\nexcept:\n    print('Ошибка')",
-        "right": "try:\n    x = int(input())\nexcept ValueError:\n    print('Это не число')",
-        "note": "except: без типа ловит ВСЕ ошибки. Указывай конкретный тип (ValueError, TypeError)."
-      },
-      {
-        "title": "Забыл, что после except код продолжается",
-        "wrong": "try:\n    x = int(input())\nexcept ValueError:\n    print('Ошибка')\n    x = 0\nprint(x)",
-        "right": "Правильно! Код после try-except работает в любом случае.",
-        "note": "try-except не завершает программу. После except выполнение продолжается как обычно."
-      }
-    ]
+    "runnable_code": "try:\n    number = 10\n    print('Число:', number)\nexcept:\n    print('Это не число!')"
   }
 ]

@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
 import type { LessonSummary } from '../types'
-import DialogueBubble from '../components/DialogueBubble'
 import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
 import QuizSection from '../components/QuizSection'
@@ -22,6 +21,7 @@ import CharacterAvatar from '../components/CharacterAvatar'
 import AnalogyBlock from '../components/AnalogyBlock'
 import CodeWatchBlock from '../components/CodeWatchBlock'
 import TaskPresentationBlock from '../components/TaskPresentationBlock'
+import CommonMistakesBlock from '../components/CommonMistakesBlock'
 
 interface Props {
   lessons: LessonSummary[]
@@ -291,10 +291,10 @@ export default function LessonPage({ lessons }: Props) {
         </SteampunkCard>
       )}
 
-      {/* Mini summary (if not already shown) */}
-      {lesson.mini_summary && lesson.find_bug && !lesson.connection_to_game && (
-        <SteampunkCard>
-          <MiniSummaryBlock text={lesson.mini_summary} />
+      {/* Common mistakes */}
+      {lesson.common_mistakes && lesson.common_mistakes.length > 0 && (
+        <SteampunkCard accentColor="rgba(255,107,107,0.15)">
+          <CommonMistakesBlock mistakes={lesson.common_mistakes} />
         </SteampunkCard>
       )}
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { LessonSummary } from '../types'
 import { useProgress } from '../hooks/useProgress'
 
@@ -66,9 +67,9 @@ export default function CourseMap({ lessons }: Props) {
               const st = getStatus(lesson.id)
               const style = statusStyles[st]
               return (
-                <a
+                <Link
                   key={lesson.id}
-                  href={`/lesson/${lesson.id}`}
+                  to={`/lesson/${lesson.id}`}
                   className="rounded-lg px-3 py-2 text-xs transition-all hover:scale-105"
                   style={{
                     background: style.bg,
@@ -82,7 +83,7 @@ export default function CourseMap({ lessons }: Props) {
                 >
                   <div className="font-mono text-[10px] opacity-60">{lesson.id}</div>
                   <div className="font-medium truncate max-w-[90px]">{lesson.title.split(' ')[0]}</div>
-                </a>
+                </Link>
               )
             })}
           </div>
