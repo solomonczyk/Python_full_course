@@ -12,6 +12,14 @@ interface Props {
   progress: Record<string, Progress>
 }
 
+const PART_IMAGES: Record<number, string> = {
+  1: '/parts/rituals.webp',
+  2: '/parts/logic.webp',
+  3: '/parts/alchemy.webp',
+  4: '/parts/mastery.webp',
+  5: '/parts/part5.webp',
+}
+
 const PART_LABELS: Record<number, { label: string; icon: string }> = {
   1: { label: 'Rituals', icon: '🔮' },
   2: { label: 'Alchemy', icon: '⚗️' },
@@ -110,8 +118,8 @@ export default function HomePage({ lessons, progress }: Props) {
 
       {/* 3. The Path of the Python */}
       <section>
-        <h3 className="text-sm font-bold mb-1" style={{ color: '#e8e6f0' }}>The Path of the Python</h3>
-        <p className="text-xs mb-4" style={{ color: '#9b98a8' }}>Master the four realms of foundational wizardry.</p>
+        <h3 className="text-sm font-bold mb-1" style={{ color: '#e8e6f0' }}>Путь Python</h3>
+        <p className="text-xs mb-4" style={{ color: '#9b98a8' }}>Освой четыре царства фундаментального волшебства.</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {parts.map((part) => {
             const done = completedCount(part)
@@ -132,10 +140,17 @@ export default function HomePage({ lessons, progress }: Props) {
                 }}
                 onClick={() => { if (!isLocked) { const first = lessons.find(l => l.part === part && isLessonUnlocked(l.id, lessons)); if (first) navigate(`/lesson/${first.id}`) } }}
               >
-                <div className="h-[100px] flex items-center justify-center text-3xl" style={{
-                  background: isCurrent ? 'linear-gradient(135deg, rgba(0,212,170,0.2), rgba(201,162,39,0.1))' : 'linear-gradient(135deg, #2a1a3a, #1a2a3a)',
-                }}>
-                  {isLocked ? '🔒' : info.icon}
+                <div className="h-[130px] relative overflow-hidden">
+                  <img
+                    src={PART_IMAGES[part] ?? ''}
+                    alt={`Part ${part}`}
+                    className="w-full h-full object-cover"
+                  />
+                  {isLocked && (
+                    <div className="absolute inset-0 flex items-center justify-center text-3xl" style={{ background: 'rgba(15,14,23,0.7)' }}>
+                      🔒
+                    </div>
+                  )}
                 </div>
                 <div className="p-3">
                   <h4 className="text-xs font-bold mb-1" style={{ color: '#e8e6f0' }}>Part {part}: {info.label}</h4>
