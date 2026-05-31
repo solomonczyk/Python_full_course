@@ -25,6 +25,7 @@ const PART_LABELS: Record<number, { label: string; icon: string }> = {
   2: { label: 'Alchemy', icon: '⚗️' },
   3: { label: 'Logic', icon: '⚙️' },
   4: { label: 'Mastery', icon: '🏰' },
+  5: { label: 'Constructs', icon: '🧱' },
 }
 
 export default function HomePage({ lessons, progress }: Props) {
