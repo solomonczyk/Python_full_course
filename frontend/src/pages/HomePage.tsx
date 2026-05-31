@@ -59,40 +59,86 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner — изображение + кнопки + прогресс */}
+      {/* 1. Hero Banner — чистое изображение + DOM overlays */}
       <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
         <div className="relative">
+          {/* Фоновое изображение — без встроенных кнопок */}
           <img
             src="/herro_section/ChatGPT Image May 31, 2026, 04_51_53 PM.webp"
-            alt="Python Quest"
+            alt="Python Quest — Башня Алгоритмов"
             className="w-full h-auto object-contain"
-            style={{ display: 'block' }}
+            style={{ display: 'block', pointerEvents: 'none' }}
           />
 
-          {/* Кнопки поверх изображения — на зарезервированном месте */}
-          <div className="absolute bottom-[15%] left-[8%] flex gap-3">
-            <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-              className="px-8 py-3 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:scale-105" style={{ background: '#00d4aa', color: '#0f0e17' }}>
+          {/* Кнопки — нижняя левая зона, поверх изображения */}
+          <div
+            className="absolute flex gap-3 sm:gap-4 z-10"
+            style={{ bottom: '12%', left: '8%' }}
+          >
+            <button
+              onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+              className="px-5 sm:px-8 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-bold cursor-pointer border-none transition-all hover:scale-105 hover:brightness-110 focus:outline-2 focus:outline-[#00d4aa] active:scale-95"
+              style={{ background: '#00d4aa', color: '#0f0e17' }}
+            >
               🎮 Продолжить квест
             </button>
-            <button onClick={() => navigate('/lesson/1-1')}
-              className="px-6 py-3 rounded-lg text-sm font-bold cursor-pointer transition-all hover:scale-105 border-none" style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#ffd700' }}>
+            <button
+              onClick={() => navigate('/lesson/1-1')}
+              className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-bold cursor-pointer border-none transition-all hover:scale-105 hover:brightness-110 focus:outline-2 focus:outline-[#c9a227] active:scale-95"
+              style={{ background: 'rgba(15,14,23,0.75)', border: '1px solid #c9a227', color: '#ffd700' }}
+            >
               📜 Начать с начала
             </button>
           </div>
 
-          {/* Прогресс поверх изображения — в правом нижнем углу */}
-          <div className="absolute bottom-[15%] right-[4%] rounded-xl p-3" style={{ background: 'rgba(26,25,36,0.85)', border: '1px solid rgba(201,162,39,0.2)' }}>
-            <div className="flex items-center gap-3">
-              <div>
-                <div className="text-[10px] font-bold mb-1" style={{ color: '#9b98a8' }}>ПРОГРЕСС</div>
-                <div className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</div>
+          {/* Progress banner — glass panel, нижняя правая зона */}
+          <div
+            className="absolute z-10 hidden sm:block"
+            style={{ bottom: '13%', right: '5%' }}
+          >
+            <div
+              className="rounded-xl px-4 py-3 backdrop-blur-sm"
+              style={{
+                background: 'rgba(26,25,36,0.7)',
+                border: '1px solid rgba(201,162,39,0.2)',
+              }}
+            >
+              <div className="text-[10px] font-bold mb-2 uppercase tracking-wider" style={{ color: '#9b98a8' }}>
+                ПРОГРЕСС
               </div>
-              <div className="w-20 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
-                <div className="h-full rounded-full" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
+              <div className="flex items-center gap-3">
+                <div>
+                  <div className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
+                    {done} <span style={{ color: '#6b7280' }}>/</span> {total}
+                  </div>
+                </div>
+                <div className="w-16 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+                  <div
+                    className="h-full rounded-full transition-all duration-500"
+                    style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }}
+                  />
+                </div>
+                <div className="text-[10px] font-medium" style={{ color: '#c9a227' }}>
+                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
+                </div>
               </div>
-              <div className="text-[10px]" style={{ color: '#9b98a8' }}>
-                {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
+            </div>
+          </div>
+
+          {/* Mobile: progress под изображением */}
+          <div className="sm:hidden px-4 py-3" style={{ background: 'rgba(26,25,36,0.9)' }}>
+            <div className="flex items-center justify-between">
+              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
+                ПРОГРЕСС
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done}/{total}</span>
+                <div className="w-12 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+                  <div className="h-full rounded-full" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
+                </div>
+                <span className="text-[10px]" style={{ color: '#c9a227' }}>
+                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
+                </span>
               </div>
             </div>
           </div>
