@@ -1,0 +1,295 @@
+{
+  "meta": {
+    "audit_type": "persona_20",
+    "persona": "20-year-old young adult, modern Russian speaker, beginner programmer, steampunk/RPG fan",
+    "criteria": [
+      "pacing",
+      "depth",
+      "theme",
+      "relevance",
+      "challenge",
+      "language"
+    ],
+    "date": "2026-05-31"
+  },
+  "lessons": [
+    {
+      "id": "1-1",
+      "title": "print()",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "ACCEPTABLE",
+      "note": "Strong start, but the 'cave echo' metaphor is overused (dialogue + analogy + relevance all repeat it). Novice character seems unnecessarily clueless — a 20yo would get it faster. Bagus mocks mistakes which feels bad."
+    },
+    {
+      "id": "1-3",
+      "title": "Переменные",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "ACCEPTABLE",
+      "note": "Solid lesson. Swap-values subtask is a highlight — actually makes you think. But Novice asking 'is that like a chest?' after Ksyu already explained the chest is too much handholding."
+    },
+    {
+      "id": "1-8",
+      "title": "if",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "ACCEPTABLE",
+      "note": "The 'bouncer at club' analogy actually works well for 20-year-olds. Indentation bug (find_bug) is excellent. But Novice's dialogue responses are too obvious — real 20yo would connect faster."
+    },
+    {
+      "id": "2-1",
+      "title": "elif",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "One of the better lessons. Three bridges analogy maps cleanly to elif chain. Find_bug with if/if instead of if/elif is a real-world bug beginners actually make. Mission is reasonably challenging."
+    },
+    {
+      "id": "2-3",
+      "title": "random.randint",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "PROBLEMATIC",
+        "language": "GOOD"
+      },
+      "overall": "ACCEPTABLE",
+      "note": "Good concept execution but the mission is a miss: expected output is literally 'Бросок сделан!' — no random value needed. A 20yo would find this trivial. The find_bug (missing import) is great though."
+    },
+    {
+      "id": "2-5",
+      "title": "Первое знакомство с for",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "PROBLEMATIC",
+        "language": "GOOD"
+      },
+      "overall": "PROBLEMATIC",
+      "note": "Mission expected_output='Python' (single) contradicts the task (print 3 times). This inconsistency would confuse a learner. The practice subtasks (print numbers 1-5) are better but still basic. Missing list iteration."
+    },
+    {
+      "id": "3-6",
+      "title": "Bool",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "PROBLEMATIC",
+        "theme": "GOOD",
+        "relevance": "ACCEPTABLE",
+        "challenge": "PROBLEMATIC",
+        "language": "GOOD"
+      },
+      "overall": "PROBLEMATIC",
+      "note": "Bool introduced way too late (lesson 3-6). Students have been writing if statements since lesson 1-8 without understanding what a condition actually returns. This should be right after or along with if. Mission is trivial."
+    },
+    {
+      "id": "3-8",
+      "title": "Короткая запись условий",
+      "ratings": {
+        "pacing": "PROBLEMATIC",
+        "depth": "PROBLEMATIC",
+        "theme": "ACCEPTABLE",
+        "relevance": "ACCEPTABLE",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "PROBLEMATIC",
+      "note": "Scope confusion: title says 'short condition notation', explanation covers `if found:` shorthand, analogy covers ternary, practice covers ternary, mission covers `if found:`. These are two different concepts. Pick one or clearly separate them."
+    },
+    {
+      "id": "3-22",
+      "title": "F-строка",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Clean lesson. Great analogy (birthday card with blanks), good progression, mission is appropriately challenging for medium difficulty. One of the best structured lessons."
+    },
+    {
+      "id": "3-35",
+      "title": "Фильтрация списка",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Solid medium-difficulty lesson. The find_bug (using n without defining it/loop) is excellent. List comprehension is introduced naturally. Good balance of theory and practice."
+    },
+    {
+      "id": "4-9",
+      "title": "join",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Effective lesson. The find_bug (join with int list) is a genuinely useful trap. Clean explanation, good analogy. The subtitle says 'Поиск в тексте' (text search) which doesn't match join — cosmetic bug."
+    },
+    {
+      "id": "4-14",
+      "title": "map",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Good lesson with a practical multi-step mission. The pipeline (split -> map -> sum) is a realistic pattern. Find_bug (sum of strings) is perfect. Could mention that map returns an iterator."
+    },
+    {
+      "id": "4-15",
+      "title": "sort",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Well-focused lesson. The find_bug (sort() returns None) is the absolute highlight — this confuses every beginner. Would benefit from also mentioning sorted() for immutable sorting. The subtitle says 'Логическое ИЛИ' (logical OR) which is completely wrong — should be 'Сортировка'."
+    },
+    {
+      "id": "4-21",
+      "title": "Ссылки",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "One of the best lessons. Two-remotes analogy is perfect for 20-year-olds. The reference vs copy distinction is one of the hardest concepts for beginners, and this lesson nails it. Great find_bug and practice tasks."
+    },
+    {
+      "id": "4-24",
+      "title": "copy",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "GOOD",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Excellent follow-up to lesson 4-21. The nested list mutation practice task is the highlight — it shows exactly why shallow copy isn't always enough. Good progression from reference -> copy -> deep copy awareness."
+    },
+    {
+      "id": "4-31",
+      "title": "random + while игра",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "GOOD",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "PROBLEMATIC",
+        "language": "GOOD"
+      },
+      "overall": "PROBLEMATIC",
+      "note": "Great concept (boss lesson combining everything) but flawed execution. The code example has guess=secret always succeeding, but the task asks for 'remaining attempts after first wrong guess'. Inconsistent. 50min difficulty is appropriate but the mission design needs rework."
+    },
+    {
+      "id": "5-1",
+      "title": "Кнопка на пульте",
+      "ratings": {
+        "pacing": "GOOD",
+        "depth": "ACCEPTABLE",
+        "theme": "GOOD",
+        "relevance": "GOOD",
+        "challenge": "ACCEPTABLE",
+        "language": "GOOD"
+      },
+      "overall": "GOOD",
+      "note": "Remote control is the perfect analogy for functions — a 20yo has never thought about how a TV button works, which is exactly the point. Good intro but needs parameters and return in follow-up lessons to feel complete."
+    },
+    {
+      "id": "5-4",
+      "title": "Телефонная книга",
+      "ratings": {
+        "pacing": "ACCEPTABLE",
+        "depth": "ACCEPTABLE",
+        "theme": "ACCEPTABLE",
+        "relevance": "GOOD",
+        "challenge": "PROBLEMATIC",
+        "language": "GOOD"
+      },
+      "overall": "ACCEPTABLE",
+      "note": "Content is correct but the mission is far too easy for a lesson this late (5-4). By lesson ~60, a 20yo should be building small multi-step programs, not 'create one key-value pair'. The telephone book subtitle is 'Храним данные по ключам' which is accurate, but the chapter 5 placement means students should handle more complex tasks."
+    }
+  ],
+  "general_observations": {
+    "positive": [
+      "Analogy quality is generally high — 'two remotes one TV' (4-21), 'bouncer at club' (1-8), 'birthday card' (3-22) are genuinely good",
+      "Find_bug exercises are consistently excellent across all lessons — real-world mistakes, not contrived",
+      "Practice subtasks add meaningful reinforcement beyond the main mission",
+      "F-strings, join, map, references, copy, sort, filter — the chapter 3-4 lessons are very strong",
+      "Russian language is natural, modern, avoids both overly formal and cringey slang",
+      "Steampunk RPG theme is consistent and creates a coherent identity"
+    ],
+    "issues": [
+      "MISSIONS are often too easy: many ask to replicate the exact code example with minor changes. By lesson 5-4, a 20yo should write multi-step programs",
+      "DIALOGUE repetition: analogy is stated in pre_topic_dialogue, then again in analogy section, then again in game_relevance. Novice character always repeats the analogy back verbatim — patronizing for 20yo",
+      "BAGUS character mocks mistakes ('Ха-ха! Типичная ошибка новичка!') — this is actively demotivating for a young adult learner",
+      "BOOL introduced too late (3-6) — students use conditions from 1-8 without understanding what a boolean is",
+      "Lesson 3-8 mixes two unrelated concepts (if-found shorthand AND ternary operator) with no clear separation",
+      "Lesson 4-31 (boss) has mission/code example inconsistency — code always wins but task expects wrong guess handling",
+      "Several subtitles are wrong: 4-15 shows 'Логическое ИЛИ' instead of 'Сортировка', 4-9 shows 'Поиск в тексте' instead of 'Объединение строк'",
+      "CompletionPage.tsx has no progressive roadmap — just redirects to lesson 1-1 if incomplete. No 'you are here' milestone visualization"
+    ],
+    "for_20yo_summary": "The course is ACCEPTABLE for a 20-year-old but has clear marks of being designed for a younger audience. The steampunk RPG theme is not a problem — it's well-executed and consistent. The real issues are: (1) missions lack bite — most replicate examples, (2) dialogue is too repetitive with the Novice character being overly slow on the uptake, (3) Bagus laughing at mistakes would annoy any self-respecting 20yo, (4) the late bool introduction and confused 3-8 lesson show structural curriculum issues. The strongest part is the chapter 4 sequence (join, map, sort, references, copy) which is genuinely well-structured. With harder missions, less patronizing dialogue, and curriculum reordering, this could be excellent for young adults."
+  },
+  "completion_page_review": {
+    "file": "frontend/src/pages/CompletionPage.tsx",
+    "useful_as_roadmap": false,
+    "note": "CompletionPage is a finish-line screen, not a roadmap. It has no 'you are here' indicator, no milestone tracking, no part/chapter progression visualization. The skills checklist (7 items) is reasonable for the course scope. The next-steps links (FastAPI, pandas, selenium, LeetCode) are useful post-course suggestions. But a true roadmap would show lesson parts, completion percentage per part, and the student's current position in the broader curriculum — none of which exist here."
+  }
+}

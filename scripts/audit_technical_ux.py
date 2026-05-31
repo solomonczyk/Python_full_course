@@ -1,0 +1,328 @@
+#!/usr/bin/env python3
+"""Generate technical UX audit report for Python Quest frontend."""
+
+import json
+
+report = {
+    "meta": {
+        "project": "Python Quest Frontend",
+        "date": "2026-05-31",
+        "files_reviewed": [
+            "frontend/src/App.tsx",
+            "frontend/src/pages/LessonPage.tsx",
+            "frontend/src/pages/HomePage.tsx",
+            "frontend/src/components/CodePlayground.tsx",
+            "frontend/src/components/QuizSection.tsx",
+            "frontend/src/components/MissionCard.tsx",
+            "frontend/src/components/CourseMap.tsx",
+            "frontend/src/hooks/useApi.ts",
+            "frontend/src/hooks/ProgressContext.tsx",
+            "frontend/src/utils/userId.ts",
+            "frontend/src/types/index.ts",
+            "frontend/src/components/CharacterAvatar.tsx",
+        ],
+    },
+    "findings": [
+        {
+            "severity": "critical",
+            "category": "logic_bug",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "269-299",
+            "title": "mini_summary renders twice when lesson has find_bug but no connection_to_game",
+            "description": (
+                "When lesson.find_bug is truthy, lesson.connection_to_game is falsy, "
+                "and lesson.mini_summary is truthy, the mini_summary renders both "
+                "inside the 2-column grid (lines 279-283 as the else branch) AND "
+                "again outside the grid (lines 295-299). This duplicates content visually."
+            ),
+            "code": (
+                "# Inside find_bug block (line 274-283):\n"
+                "{lesson.connection_to_game && (<ConnectionToGameBlock />)}\n"
+                "{!lesson.connection_to_game && lesson.mini_summary && (<MiniSummaryBlock />)}\n\n"
+                "# Outside find_bug block (line 295-299):\n"
+                "{lesson.mini_summary && lesson.find_bug && !lesson.connection_to_game && (<MiniSummaryBlock />)}"
+            ),
+            "fix": "Remove the outer conditional block (lines 295-299) — the inner block already covers this case.",
+        },
+        {
+            "severity": "critical",
+            "category": "runtime_error",
+            "file": "frontend/src/utils/userId.ts",
+            "line": "6",
+            "title": "crypto.randomUUID() has no fallback",
+            "description": (
+                "If crypto.randomUUID() is unavailable (non-HTTPS context, older browsers), "
+                "getUserId() throws. Since every authenticated API call depends on this, "
+                "the entire app breaks silently. authHeaders() has no try/catch, and callers "
+                "like useProgress() catch generically — so a user in an insecure context "
+                "sees zero progress with no actionable feedback."
+            ),
+            "fix": "Add a fallback: `uid = crypto.randomUUID?.() ?? Date.now().toString(36) + Math.random().toString(36).slice(2)`",
+        },
+        {
+            "severity": "critical",
+            "category": "performance",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "37-49",
+            "title": "SteampunkCard component redefined on every render",
+            "description": (
+                "The SteampunkCard component is defined inside the LessonPage function body. "
+                "Every state change causes React to see a new component type, forcing "
+                "unmount/remount of all children wrapped in it. This destroys internal state "
+                "(e.g. expanded states in children) and harms performance."
+            ),
+            "fix": "Move SteampunkCard outside the component (top-level or a separate file).",
+        },
+        {
+            "severity": "critical",
+            "category": "navigation_bug",
+            "file": "frontend/src/components/CourseMap.tsx",
+            "line": "69-85",
+            "title": "CourseMap uses <a href> instead of React Router <Link>",
+            "description": (
+                "Lesson links use `<a href=\"/lesson/${lesson.id}\">` instead of "
+                "React Router's `<Link to=...>`. This causes a full page reload on "
+                "every lesson click, resetting all React state (Pyodide, quiz state, "
+                "editor content). This is a significant UX degradation."
+            ),
+            "fix": "Replace `<a>` with `<Link to={...}>` from react-router-dom.",
+        },
+        {
+            "severity": "high",
+            "category": "error_handling",
+            "file": "frontend/src/pages/HomePage.tsx",
+            "line": "29-36",
+            "title": "Reviews fetch has no loading state and silent error catch",
+            "description": (
+                "The /api/reviews fetch in HomePage has `.catch(() => {})` which "
+                "silently swallows all errors. There is no loading spinner or error message. "
+                "If the API is slow or unreachable, the reviews section appears empty "
+                "with no visual feedback. Also, no AbortController cleanup — if the "
+                "component unmounts before the fetch completes, it calls setState on "
+                "an unmounted component."
+            ),
+            "fix": "Add loading/error states to the reviews fetch; add AbortController cleanup.",
+        },
+        {
+            "severity": "high",
+            "category": "error_handling",
+            "file": "frontend/src/hooks/useApi.ts",
+            "line": "14-38",
+            "title": "useLessons() error not surfaced in Layout or Sidebar",
+            "description": (
+                "useLessons() exposes an `error` state, but Layout.tsx (which calls it) "
+                "never passes it to the Sidebar or displays it. If the /api/lessons "
+                "endpoint fails, the app renders with an empty lessons array and no "
+                "feedback to the user — the sidebar is empty, navigation links vanish."
+            ),
+            "fix": "Pass the error to a toast/notification or show inline in the Sidebar.",
+        },
+        {
+            "severity": "high",
+            "category": "accessibility",
+            "file": "frontend/src/components/CodePlayground.tsx",
+            "line": "153-158",
+            "title": "Line numbers have insufficient color contrast (~3.47:1)",
+            "description": (
+                "Line numbers use color #6b7280 on background #0d0c14. The contrast "
+                "ratio is approximately 3.47:1, which fails WCAG AA (4.5:1 for normal "
+                "text). This affects readability, especially since these are 10px text."
+            ),
+            "fix": "Lighten line numbers to at least #8b8f98 or darken the background.",
+        },
+        {
+            "severity": "high",
+            "category": "accessibility",
+            "file": "frontend/src/components/CodePlayground.tsx",
+            "line": "161-174",
+            "title": "Code textarea lacks accessible label",
+            "description": (
+                "The main code textarea in CodePlayground has no aria-label, "
+                "aria-labelledby, or associated <label> element. Screen readers "
+                "will not announce its purpose."
+            ),
+            "fix": "Add `aria-label=\"Python code editor\"` or `aria-labelledby` pointing to a visible heading.",
+        },
+        {
+            "severity": "high",
+            "category": "accessibility",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "65-68",
+            "title": "Loading spinner missing aria-hidden and aria-label",
+            "description": (
+                "The animated loading spinner uses `<span className=\"material-symbols-outlined ... animate-spin\">progress_activity</span>` "
+                "without `aria-hidden=\"true\"` or `role=\"status\"` / `aria-live=\"polite\"`. "
+                "Screen readers may read the icon character or ignore the loading state entirely."
+            ),
+            "fix": "Add `aria-hidden=\"true\"` on the icon and a visually-hidden `role=\"status\"` span with 'Loading lesson...'.",
+        },
+        {
+            "severity": "medium",
+            "category": "error_handling",
+            "file": "frontend/src/hooks/useApi.ts",
+            "line": "72-112",
+            "title": "useProgress() has no loading state exposed",
+            "description": (
+                "useProgress() starts with an empty progress map and fetches "
+                "asynchronously. There is no `loading` boolean returned. Components "
+                "using it (HomePage, LessonPage, CourseMap) show '0 completed' / "
+                "'locked' for all lessons until the API responds, causing a flash "
+                "of incorrect state."
+            ),
+            "fix": "Add a `loading` boolean to the return value and show a skeleton while loading.",
+        },
+        {
+            "severity": "medium",
+            "category": "error_handling",
+            "file": "frontend/src/components/CodePlayground.tsx",
+            "line": "19-48",
+            "title": "Pyodide load failure has no retry mechanism",
+            "description": (
+                "If Pyodide fails to load (script.onerror), status is set to 'idle' "
+                "and the user sees 'Python ne zagruzilsya. Prover internet.' when trying "
+                "to run code. There is no retry button — the user must refresh the page."
+            ),
+            "fix": "Add a 'Retry' button that resets scriptLoaded and re-creates the <script> tag.",
+        },
+        {
+            "severity": "medium",
+            "category": "code_quality",
+            "file": "frontend/src/pages/HomePage.tsx",
+            "line": "8",
+            "title": "Duplicate BASE constant defined in HomePage",
+            "description": (
+                "HomePage.tsx defines `const BASE = '/api'` at line 8, but useApi.ts "
+                "already defines `const BASE = '/api'` at line 5. The HomePage fetch "
+                "at line 30 uses `${BASE}/reviews` instead of the shared hook "
+                "useReviews() defined in useApi.ts."
+            ),
+            "fix": "Use the existing useReviews() hook instead of duplicating the fetch and constant.",
+        },
+        {
+            "severity": "medium",
+            "category": "error_handling",
+            "file": "frontend/src/components/QuizSection.tsx",
+            "line": "32-42",
+            "title": "QuizSection catches errors but shows no user-facing feedback",
+            "description": (
+                "When checkQuizAnswer() throws, the catch block sets a fallback result "
+                "but only logs to console. The UI shows 'Неверно' with an empty "
+                "correct_id — preventing the user from learning the right answer. "
+                "If the API is unreachable, this is misleading."
+            ),
+            "fix": "Show a distinct 'Connection error' message when the fetch fails, preserving the correct answer display.",
+        },
+        {
+            "severity": "medium",
+            "category": "accessibility",
+            "file": "frontend/src/components/MissionCard.tsx",
+            "line": "243-269",
+            "title": "Bagus error feedback uses animate-bounce, which can trigger vestibular issues",
+            "description": (
+                "The error feedback box uses `animate-bounce` — a CSS animation that "
+                "repeatedly bounces the element. This animation cannot be disabled by "
+                "users who prefer reduced motion (no `prefers-reduced-motion` check)."
+            ),
+            "fix": "Use `motion-safe:animate-bounce` or `@media (prefers-reduced-motion: no-preference)` guard.",
+        },
+        {
+            "severity": "medium",
+            "category": "error_handling",
+            "file": "frontend/src/hooks/useApi.ts",
+            "line": "152-170",
+            "title": "checkQuizAnswer and checkWhatOutputs have no request timeout",
+            "description": (
+                "Both functions make fetch() calls without a timeout or AbortSignal. "
+                "A slow/unresponsive API will cause the UI to hang indefinitely "
+                "(QuizSection's button remains disabled, MissionCard shows 'checking')."
+            ),
+            "fix": "Pass an AbortSignal with a timeout (e.g., 10s) to fetch.",
+        },
+        {
+            "severity": "low",
+            "category": "code_quality",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "6",
+            "title": "Unused import: DialogueBubble",
+            "description": (
+                "DialogueBubble is imported at line 6 but never used in the component. "
+                "DialogueScene is used instead, which may internally use DialogueBubble. "
+                "This can cause lint warnings and confusion."
+            ),
+            "fix": "Remove the unused DialogueBubble import.",
+        },
+        {
+            "severity": "low",
+            "category": "maintainability",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "247-258",
+            "title": "Conditional 2-column grid wraps single-child sections",
+            "description": (
+                "The grid at line 247 wraps PredictOutputBlock and GameRelevanceBlock. "
+                "If either is missing, the grid still renders with a single cell. "
+                "This can look unbalanced. Same for the FindBugBlock grid at line 270."
+            ),
+            "fix": "Conditionally render the grid wrapper only when both children are present, or use auto-fill.",
+        },
+        {
+            "severity": "low",
+            "category": "ux",
+            "file": "frontend/src/pages/HomePage.tsx",
+            "line": "75",
+            "title": "Continue Quest button may become invisible if all lessons completed",
+            "description": (
+                "The 'Continue Quest' button finds the first incomplete lesson. If "
+                "all lessons are complete, `next` is undefined and `navigate(undefined)` "
+                "does nothing silently — the button still renders but is dead."
+            ),
+            "fix": "Show 'All quests complete!' or navigate to a review/celebration page when done.",
+        },
+        {
+            "severity": "info",
+            "category": "ux",
+            "file": "frontend/src/components/CourseMap.tsx",
+            "line": "10-11",
+            "title": "CourseMap redundant totalLessons/completedCount from useProgress vs props",
+            "description": (
+                "CourseMap receives `lessons` as a prop AND calls useProgress() for "
+                "progress data. But it also destructures `totalLessons` and "
+                "`completedCount` from useProgress() while computing `total` from "
+                "both. If the two progress sources disagree, the UI is inconsistent."
+            ),
+            "fix": "Use a single source of truth — either props or the hook, not both.",
+        },
+        {
+            "severity": "info",
+            "category": "resilience",
+            "file": "frontend/src/pages/LessonPage.tsx",
+            "line": "84",
+            "title": "isLessonUnlocked return true when lessons array is empty (loading)",
+            "description": (
+                "When lessons array is empty (still loading), isLessonUnlocked "
+                "returns true because findIndex returns -1 and idx <= 0 is true. "
+                "This means locked lessons shown briefly as unlocked before the "
+                "correct state loads from the API."
+            ),
+            "fix": "Add a loading guard — if lessons array is empty, show a skeleton instead of rendering lesson content.",
+        },
+    ],
+    "summary": {
+        "total": 19,
+        "critical": 4,
+        "high": 5,
+        "medium": 5,
+        "low": 3,
+        "info": 2,
+        "top_3_fixes": [
+            "1. Move SteampunkCard outside LessonPage to prevent unmount/remount on every render (critical performance bug).",
+            "2. Fix mini_summary duplication in LessonPage lines 295-299 (critical logic bug).",
+            "3. Replace <a href> with React Router <Link> in CourseMap to prevent full page reloads (critical navigation bug).",
+        ],
+    },
+}
+
+output_path = "f:/Dev/Python_full_course/scripts/audit_technical_ux.json"
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(report, f, indent=2, ensure_ascii=False)
+
+print(f"Written to {output_path}")
