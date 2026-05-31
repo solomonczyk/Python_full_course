@@ -1,16 +1,21 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import type { LessonSummary } from '../types'
+import type { LessonSummary, Progress } from '../types'
 import { USER_AVATAR } from '../constants'
 
 interface Props {
   lessons: LessonSummary[]
   currentId?: string
+  progress: Record<string, Progress>
   onMenuClick: () => void
 }
 
-export default function TopNav({ onMenuClick }: Props) {
+export default function TopNav({ lessons, progress, onMenuClick }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
+
+  const completedCount = lessons.filter(l => progress[l.id]?.completed).length
+  const totalCount = lessons.length
+  const pct = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0
 
   const currentPath = location.pathname
   const isActive = (path: string) => {
@@ -54,6 +59,25 @@ export default function TopNav({ onMenuClick }: Props) {
             </button>
           ))}
         </nav>
+
+        {/* Progress bar — hidden on small screens */}
+        <div className="items-center gap-2 hidden sm:flex">
+          <div
+            className="w-24 h-1.5 rounded-full overflow-hidden"
+            style={{ background: 'rgba(155,152,168,0.2)' }}
+          >
+            <div
+              className="h-full rounded-full transition-all duration-500"
+              style={{
+                width: `${pct}%`,
+                background: 'linear-gradient(90deg, #00d4aa, #c9a227)',
+              }}
+            />
+          </div>
+          <span className="text-[10px] font-semibold" style={{ color: '#9b98a8' }}>
+            {completedCount}/{totalCount}
+          </span>
+        </div>
       </div>
 
       {/* Right: Search + Avatar */}

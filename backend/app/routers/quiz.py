@@ -36,7 +36,6 @@ def check_quiz_answer(body: QuizAnswer) -> dict[str, Any]:
         "lesson_id": body.lesson_id,
         "answer_id": body.answer_id,
         "correct": bool(is_correct),
-        "correct_id": correct_option["id"] if correct_option else None,
         "explanation": correct_option["text"] if correct_option else None,
     }
 
@@ -57,5 +56,4 @@ def check_what_outputs(body: QuizAnswer) -> dict[str, Any]:
         "lesson_id": body.lesson_id,
         "answer": body.answer_id,
         "correct": is_correct,
-        "correct_answer": what_outputs["correct"],
     }
