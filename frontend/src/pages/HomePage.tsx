@@ -59,86 +59,47 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner — История мира */}
-      <section
-        className="rounded-[20px] overflow-hidden relative"
-        style={{
-          background: 'linear-gradient(135deg, #1a2a3a 0%, #2a1a3a 50%, #1a1a2e 100%)',
-          border: '1px solid rgba(201,162,39,0.3)',
-        }}
-      >
-        <div className="absolute inset-0" style={{
-          background: 'radial-gradient(circle at 80% 50%, rgba(0,212,170,0.1) 0%, transparent 50%), radial-gradient(circle at 20% 80%, rgba(201,162,39,0.08) 0%, transparent 40%)',
-        }} />
-        <div className="relative z-10 p-7">
-          <div className="flex gap-6 items-start">
-            <div className="flex-1 min-w-0">
-              <div className="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider mb-3" style={{ background: 'rgba(255,107,107,0.15)', border: '1px solid #ff6b6b', color: '#ff6b6b' }}>
-                ⚔️ Python Quest
-              </div>
-              <h1 className="text-2xl font-extrabold mb-3" style={{ color: '#e8e6f0' }}>Добро пожаловать, герой!</h1>
+      {/* 1. Hero Banner — изображение + кнопки + прогресс */}
+      <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
+        <div className="relative">
+          <img
+            src="/herro_section/ChatGPT Image May 31, 2026, 03_46_40 PM.webp"
+            alt="Python Quest"
+            className="w-full h-auto object-contain"
+            style={{ display: 'block' }}
+          />
 
-              <div className="space-y-3 text-xs leading-relaxed max-w-[550px]" style={{ color: '#9b98a8' }}>
-                <p>
-                  <strong style={{ color: '#c9a227' }}>Башня Алгоритмов</strong> — древнее сооружение,
-                  в котором переплелись магия и логика. На каждом этаже — свои загадки:
-                  от простейших заклинаний вывода до сложных конструкций, меняющих реальность.
-                </p>
-                <p>
-                  Ты — <strong style={{ color: '#e8e6f0' }}>Новичок</strong>, наследник древнего дара
-                  программирования. Твоя цель — подняться на самый верх, освоить все 5 ярусов
-                  и одолеть <strong style={{ color: '#ff6b6b' }}>Багуса</strong> — хитрого духа ошибок,
-                  что прячет баги в отступах и путает индексы.
-                </p>
-                <p>
-                  На пути тебя ждут: мудрая <strong style={{ color: '#74B9FF' }}>Ксю</strong>
-                  с её аналогиями, строгий <strong style={{ color: '#A29BFE' }}>Ва</strong>,
-                  проверяющий логику, и <strong style={{ color: '#28A745' }}>Да</strong>,
-                  дающий боевые миссии. А попасть в плен к Багусу — лучший способ научиться!
-                </p>
-              </div>
+          {/* Кнопки поверх изображения — на зарезервированном месте */}
+          <div className="absolute bottom-[15%] left-[8%] flex gap-3">
+            <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+              className="px-8 py-3 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:scale-105" style={{ background: '#00d4aa', color: '#0f0e17' }}>
+              🎮 Продолжить квест
+            </button>
+            <button onClick={() => navigate('/lesson/1-1')}
+              className="px-6 py-3 rounded-lg text-sm font-bold cursor-pointer transition-all hover:scale-105 border-none" style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#ffd700' }}>
+              📜 Начать с начала
+            </button>
+          </div>
 
-              <div className="flex flex-wrap gap-3 mt-5">
-                <button onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-                  className="px-6 py-2.5 rounded-lg text-xs font-bold cursor-pointer border-none" style={{ background: '#00d4aa', color: '#0f0e17' }}>
-                  🎮 Продолжить квест
-                </button>
-                <button onClick={() => navigate('/lesson/1-1')}
-                  className="px-5 py-2.5 rounded-lg text-xs font-bold cursor-pointer" style={{ background: 'transparent', border: '1px solid #c9a227', color: '#ffd700' }}>
-                  📜 Начать с начала
-                </button>
+          {/* Прогресс поверх изображения — в правом нижнем углу */}
+          <div className="absolute bottom-[15%] right-[4%] rounded-xl p-3" style={{ background: 'rgba(26,25,36,0.85)', border: '1px solid rgba(201,162,39,0.2)' }}>
+            <div className="flex items-center gap-3">
+              <div>
+                <div className="text-[10px] font-bold mb-1" style={{ color: '#9b98a8' }}>ПРОГРЕСС</div>
+                <div className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</div>
               </div>
-
-              <div className="mt-4 flex flex-col gap-1 text-[10px]" style={{ color: '#6b7280' }}>
-                <span>💡 <strong>Совет:</strong> проходи уроки по порядку — каждый следующий опирается на предыдущий</span>
-                <span>❓ <strong>Застрял?</strong> Перечитай диалоги, открой «Частые ошибки» или нажми «Подсказка» в задании</span>
+              <div className="w-20 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+                <div className="h-full rounded-full" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
               </div>
-            </div>
-            <div className="w-[200px] shrink-0 rounded-xl p-4 hidden lg:block" style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.15)' }}>
-              <h4 className="text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: '#9b98a8' }}>ПРОГРЕСС</h4>
-              <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>ПРОЙДЕНО</span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
-              </div>
-              <div className="h-1.5 rounded-full my-2" style={{ background: 'rgba(0,212,170,0.1)' }}>
-                <div className="h-full rounded-full transition-all duration-700" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
-              </div>
-              <div className="flex justify-between items-center py-2" style={{ borderBottom: '1px solid rgba(201,162,39,0.1)' }}>
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>РАНГ</span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
-                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
-                </span>
-              </div>
-              <div className="flex justify-between items-center py-2">
-                <span className="text-[11px]" style={{ color: '#9b98a8' }}>ДНИ</span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{Math.floor(done / 3)}</span>
+              <div className="text-[10px]" style={{ color: '#9b98a8' }}>
+                {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Character Introduction — restored */}
+      {/* 2. Character Introduction */}
       <CharacterIntroSection />
 
       {/* 3. The Path of the Python */}
