@@ -78,15 +78,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
         {/* Logo */}
         <div className="px-5 py-5 shrink-0" style={{ borderBottom: '1px solid rgba(201,162,39,0.15)' }}>
           <Link to="/" onClick={onClose} className="flex items-center gap-2 no-underline">
-            <div className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-extrabold shrink-0"
-              style={{
-                background: 'linear-gradient(135deg, #00d4aa, #00a884)',
-                color: '#0f0e17',
-              }}
-            >
-              Py
-            </div>
-            <span className="font-display text-sm font-extrabold" style={{ color: '#ffd700' }}>Python Quest</span>
+            <img src="/logo/logo.webp" alt="Python Quest" className="w-full max-w-[180px] h-auto object-contain" />
           </Link>
         </div>
 

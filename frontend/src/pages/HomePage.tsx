@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import type { LessonSummary, Progress, ReviewSummary } from '../types'
 import CharacterAvatar from '../components/CharacterAvatar'
 import CharacterIntroSection from '../components/CharacterIntroSection'
@@ -59,10 +59,9 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner — чистое изображение + DOM overlays */}
+      {/* 1. Hero Banner — чисте зображення */}
       <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
         <div className="relative">
-          {/* Фоновое изображение — без встроенных кнопок */}
           <img
             src="/herro_section/ChatGPT Image May 31, 2026, 04_51_53 PM.webp"
             alt="Python Quest — Башня Алгоритмов"
@@ -70,73 +69,24 @@ export default function HomePage({ lessons, progress }: Props) {
             style={{ display: 'block', pointerEvents: 'none' }}
           />
 
-          {/* Кнопки — нижняя левая зона, поверх изображения */}
-          <div
-            className="absolute flex gap-3 sm:gap-4 z-10"
-            style={{ bottom: '12%', left: '8%' }}
-          >
-            <button
-              onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-              className="px-5 sm:px-8 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-bold cursor-pointer border-none transition-all hover:scale-105 hover:brightness-110 focus:outline-2 focus:outline-[#00d4aa] active:scale-95"
-              style={{ background: '#00d4aa', color: '#0f0e17' }}
-            >
-              🎮 Продолжить квест
-            </button>
-            <button
-              onClick={() => navigate('/lesson/1-1')}
-              className="px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-sm font-bold cursor-pointer border-none transition-all hover:scale-105 hover:brightness-110 focus:outline-2 focus:outline-[#c9a227] active:scale-95"
-              style={{ background: 'rgba(15,14,23,0.75)', border: '1px solid #c9a227', color: '#ffd700' }}
-            >
-              📜 Начать с начала
-            </button>
-          </div>
-
-          {/* Progress banner — glass panel, нижняя правая зона */}
-          <div
-            className="absolute z-10 hidden sm:block"
-            style={{ bottom: '13%', right: '5%' }}
-          >
+          {/* Progress banner — TOP CENTER */}
+          <div className="absolute z-10 hidden sm:block" style={{ top: '10%', left: '50%', transform: 'translateX(-50%)' }}>
             <div
-              className="rounded-xl px-4 py-3 backdrop-blur-sm"
+              className="rounded-xl px-5 py-2.5 backdrop-blur-sm inline-flex items-center gap-3"
               style={{
                 background: 'rgba(26,25,36,0.7)',
                 border: '1px solid rgba(201,162,39,0.2)',
               }}
             >
-              <div className="text-[10px] font-bold mb-2 uppercase tracking-wider" style={{ color: '#9b98a8' }}>
-                ПРОГРЕСС
-              </div>
-              <div className="flex items-center gap-3">
-                <div>
-                  <div className="text-xs font-bold" style={{ color: '#e8e6f0' }}>
-                    {done} <span style={{ color: '#6b7280' }}>/</span> {total}
-                  </div>
-                </div>
-                <div className="w-16 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
-                  <div
-                    className="h-full rounded-full transition-all duration-500"
-                    style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }}
-                  />
-                </div>
-                <div className="text-[10px] font-medium" style={{ color: '#c9a227' }}>
-                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile: progress под изображением */}
-          <div className="sm:hidden px-4 py-3" style={{ background: 'rgba(26,25,36,0.9)' }}>
-            <div className="flex items-center justify-between">
               <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
                 ПРОГРЕСС
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done}/{total}</span>
-                <div className="w-12 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
-                  <div className="h-full rounded-full" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
+                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
+                <div className="w-16 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+                  <div className="h-full rounded-full transition-all duration-500" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
                 </div>
-                <span className="text-[10px]" style={{ color: '#c9a227' }}>
+                <span className="text-[10px] font-medium" style={{ color: '#c9a227' }}>
                   {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
                 </span>
               </div>
@@ -144,6 +94,40 @@ export default function HomePage({ lessons, progress }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Кнопки ПІД хиро-секцією */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <button
+          onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+          className="flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+          style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#e8e6f0' }}
+        >
+          <img src="/buttons/prodolgyt_quest.webp" alt="" className="w-8 h-8 object-contain" />
+          <span>Продолжить квест</span>
+        </button>
+        <button
+          onClick={() => navigate('/lesson/1-1')}
+          className="flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
+          style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#e8e6f0' }}
+        >
+          <img src="/buttons/nachat_s_nachala.webp" alt="" className="w-8 h-8 object-contain" />
+          <span>Начать с начала</span>
+        </button>
+      </div>
+
+      {/* Mobile: progress під кнопками */}
+      <div className="sm:hidden">
+        <div className="flex items-center gap-2 text-[10px]" style={{ color: '#9b98a8' }}>
+          <span className="font-bold uppercase tracking-wider">ПРОГРЕСС</span>
+          <span className="font-bold" style={{ color: '#e8e6f0' }}>{done}/{total}</span>
+          <div className="flex-1 h-1 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+            <div className="h-full rounded-full" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
+          </div>
+          <span style={{ color: '#c9a227' }}>
+            {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
+          </span>
+        </div>
+      </div>
 
       {/* 2. Character Introduction */}
       <CharacterIntroSection />
@@ -210,35 +194,36 @@ export default function HomePage({ lessons, progress }: Props) {
               >
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center text-xs shrink-0" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa' }}>✓</div>
                 <div className="flex-1 min-w-0">
-                  <h5 className="text-xs font-semibold" style={{ color: '#e8e6f0' }}>Mastered: {lesson.title}</h5>
-                  <p className="text-[10px]" style={{ color: '#9b98a8' }}>{lesson.subtitle}</p>
+                  <div className="text-xs font-bold truncate" style={{ color: '#e8e6f0' }}>
+                    {lesson.title}
+                  </div>
+                  <div className="text-[10px]" style={{ color: '#9b98a8' }}>
+                    Lesson {lesson.id} • {lesson.difficulty}
+                  </div>
                 </div>
-                <div className="text-[11px] font-bold shrink-0" style={{ color: '#c9a227' }}>+50 XP</div>
               </div>
             ))}
           </div>
         </section>
       )}
 
-      {/* 5. Reviews at the bottom */}
+      {/* 5. Review Blocks */}
       {reviews.length > 0 && (
         <section>
-          <h3 className="text-sm font-bold mb-3 uppercase tracking-wider" style={{ color: '#9b98a8' }}>Review Blocks</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>REVIEW BLOCKS</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {reviews.map((r) => (
               <button key={r.id}
                 onClick={() => navigate(`/review/${r.id}`)}
-                className="rounded-xl p-4 text-left cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98]"
-                style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.15)' }}
+                className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
+                style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.1)' }}
               >
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#00d4aa' }}>
-                    {r.type === 'quick_recall' ? 'Quick Recall' : r.type === 'chapter_review' ? 'Chapter' : r.type === 'boss_review' ? 'Boss' : 'Part'}
-                  </span>
-                  <span className="text-[10px]" style={{ color: '#c9a227' }}>· {r.part}.{r.chapter}</span>
-                </div>
-                <h4 className="text-sm font-bold" style={{ color: '#ffd700' }}>{r.title}</h4>
-                <p className="text-xs mt-1" style={{ color: '#9b98a8' }}>{r.subtitle}</p>
+                <span className="text-[10px] font-bold" style={{ color: '#00d4aa' }}>
+                  {r.type === 'quick_recall' ? 'QUICK RECALL' : r.type === 'chapter_review' ? 'CHAPTER' : r.type === 'boss_review' ? 'BOSS' : 'PART'}
+                  <span style={{ color: '#c9a227' }}> · {r.part}.{r.chapter}</span>
+                </span>
+                <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{r.title}</span>
+                <span className="text-[10px] mt-0.5" style={{ color: '#9b98a8' }}>{r.subtitle}</span>
               </button>
             ))}
           </div>
