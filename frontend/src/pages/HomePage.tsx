@@ -63,7 +63,7 @@ export default function HomePage({ lessons, progress }: Props) {
       <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
         <div className="relative">
           <img
-            src="/herro_section/ChatGPT Image May 31, 2026, 03_46_40 PM.webp"
+            src="/herro_section/ChatGPT Image May 31, 2026, 04_51_53 PM.webp"
             alt="Python Quest"
             className="w-full h-auto object-contain"
             style={{ display: 'block' }}
