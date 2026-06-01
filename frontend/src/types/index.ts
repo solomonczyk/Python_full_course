@@ -105,6 +105,7 @@ export interface LessonSummary {
 
 export interface Lesson extends LessonSummary {
   scene_image?: string
+  foundation?: FoundationBlock
   game_relevance?: string
   analogy?: {
     title: string
@@ -181,6 +182,21 @@ export interface CommonMistake {
   wrong: string
   right: string
   note: string
+}
+
+// ── Foundation types (embedding inside lessons) ──────────────────────────────
+
+export interface FoundationTerm {
+  term_id: string
+  label: string
+  definition: string
+}
+
+export interface FoundationBlock {
+  title: string
+  terms?: FoundationTerm[]
+  glossary_terms?: string[]
+  rules?: string[]
 }
 
 // ── Code Walkthrough types ──────────────────────────────────────────────
