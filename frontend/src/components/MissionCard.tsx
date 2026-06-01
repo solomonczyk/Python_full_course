@@ -17,6 +17,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
   const [bagusVisible, setBagusVisible] = useState(false)
   const [actualOutput, setActualOutput] = useState<string | null>(null)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [hints, setHints] = useState<string[]>([])
   const [expanded, setExpanded] = useState(false)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -29,6 +30,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
       setBagusVisible(true)
       setResult('error')
       setErrorMessage('Напиши код перед запуском')
+      setHints([])
       return
     }
 
@@ -36,6 +38,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
     setBagusVisible(false)
     setErrorMessage(null)
     setActualOutput(null)
+    setHints([])
 
     try {
       const res = await fetch(`${BASE}/mission/check`, {
@@ -48,7 +51,13 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
       })
       const data: MissionResult = await res.json()
 
-      if (data.correct) {
+      // Use new v2 fields if available, fall back to legacy
+      const isCorrect = data.finally_correct ?? data.correct
+      const outputOk = data.output_correct
+      const structOk = data.structure_correct
+      const safetyOk = data.safety_passed
+
+      if (isCorrect) {
         setResult('success')
         setBagusVisible(false)
         setActualOutput(data.actual_output)
@@ -57,12 +66,27 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
         setResult('error')
         setBagusVisible(true)
         setActualOutput(data.actual_output)
-        setErrorMessage(data.error ?? null)
+
+        // Build error message from hints or fallback
+        const allHints = data.hints ?? []
+
+        // Determine primary error
+        if (!safetyOk) {
+          setErrorMessage(data.error ?? 'Код не прошёл проверку безопасности')
+        } else if (structOk === false && outputOk === undefined) {
+          // Structure issue
+          setErrorMessage(allHints.find(h => h.startsWith('🔧') || h.startsWith('❗')) ?? 'Проверь структуру кода')
+        } else {
+          setErrorMessage(data.error ?? 'Неверный вывод. Проверь логику программы')
+        }
+
+        setHints(allHints.filter(h => !h.startsWith('⛔')))
       }
     } catch (e) {
       setResult('error')
       setBagusVisible(true)
       setErrorMessage('Ошибка соединения с сервером')
+      setHints([])
     }
   }
 
@@ -168,7 +192,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
               <textarea
                 ref={textareaRef}
                 value={code}
-                onChange={(e) => { setCode(e.target.value); setResult('idle'); setBagusVisible(false); setErrorMessage(null) }}
+                onChange={(e) => { setCode(e.target.value); setResult('idle'); setBagusVisible(false); setErrorMessage(null); setHints([]) }}
                 className="w-full p-3 pl-2 font-mono text-xs leading-7 resize-none outline-none"
                 style={{
                   minHeight: expanded ? '400px' : `${collapsedHeight}px`,
@@ -202,6 +226,26 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
             </div>
           )}
         </div>
+
+        {/* Hints / detailed feedback */}
+        {hints.length > 0 && (
+          <div className="mb-4 space-y-2">
+            {hints.map((hint, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-2 p-3 rounded-lg text-[11px] leading-relaxed"
+                style={{
+                  background: 'rgba(201,162,39,0.08)',
+                  border: '1px solid rgba(201,162,39,0.2)',
+                  color: '#e8e6f0',
+                }}
+              >
+                <span className="text-sm shrink-0 mt-0.5">💡</span>
+                <span>{hint.replace(/^[🔧❗⚠️ℹ️\s]+/, '')}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Buttons */}
         <div className="flex items-center justify-between">
@@ -242,7 +286,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
       {/* Bagus error feedback */}
       {bagusVisible && (
         <div
-          className="mx-6 mb-6 p-4 rounded-xl flex gap-4 items-start animate-bounce"
+          className="mx-6 mb-6 p-4 rounded-xl flex gap-4 items-start"
           style={{
             background: 'rgba(255,107,107,0.1)',
             border: '2px solid #ff6b6b',
@@ -263,6 +307,16 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
               <p className="text-[11px] mt-2 p-2 rounded font-mono" style={{ background: 'rgba(255,107,107,0.05)', color: '#ff6b6b' }}>
                 {errorMessage}
               </p>
+            )}
+            {/* Show hints inside bagus box as well */}
+            {hints.length > 0 && (
+              <div className="mt-2 space-y-1">
+                {hints.map((hint, i) => (
+                  <p key={i} className="text-[11px] p-2 rounded" style={{ background: 'rgba(255,107,107,0.05)', color: '#e8e6f0' }}>
+                    💡 {hint.replace(/^[🔧❗⚠️ℹ️\s]+/, '')}
+                  </p>
+                ))}
+              </div>
             )}
           </div>
         </div>

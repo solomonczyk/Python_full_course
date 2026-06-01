@@ -172,6 +172,17 @@ export interface MissionResult {
   actual_output: string | null
   expected_output: string
   error: string | null
+  // New v2 fields (optional for backward compatibility)
+  output_correct?: boolean | null
+  structure_correct?: boolean
+  safety_passed?: boolean
+  finally_correct?: boolean
+  hints?: string[]
+  details?: {
+    constructs_found?: string[]
+    required_constructs?: string[]
+    missing_constructs?: string[]
+  }
 }
 
 // ── Common Mistakes types ──────────────────────────────────────────────
