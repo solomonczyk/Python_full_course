@@ -83,15 +83,15 @@
     "frontend_build_passed": "not_run_or_passed"
   },
   "production_checks": {
-    "production_url_checked": false,
-    "lesson_1_5_checked": false,
-    "lesson_1_8_checked": false,
-    "lesson_1_2_checked": false,
+    "production_url_checked": true,
+    "lesson_1_2_checked": true,
+    "lesson_1_5_checked": true,
+    "lesson_1_8_checked": true,
     "api_backend_data_consistency_checked": true
   },
-  "git_commit": "e564e83cc799d3827459a227206fb2d8579157a2",
-  "git_pushed": false,
-  "git_clean": false,
+  "git_commit": "3c48715a8c533ee36638999e29b483088b0dbc71",
+  "git_pushed": true,
+  "git_clean": true,
   "production_accepted": false,
   "next_allowed_action": "operator_recheck_corrected_lessons_or_course_flow_review"
 }
