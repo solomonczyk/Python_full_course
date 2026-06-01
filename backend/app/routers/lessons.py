@@ -7,20 +7,11 @@ from fastapi import APIRouter, HTTPException
 router = APIRouter(prefix="/lessons", tags=["lessons"])
 
 _DATA_FILE = Path(__file__).parent.parent / "data" / "lessons.json"
-_cache: list[dict[str, Any]] | None = None
 
 
 def _load_lessons() -> list[dict[str, Any]]:
-    global _cache
-    if _cache is None:
-        with open(_DATA_FILE, encoding="utf-8") as f:
-            _cache = json.load(f)
-    return _cache
-
-
-def invalidate_cache() -> None:
-    global _cache
-    _cache = None
+    with open(_DATA_FILE, encoding="utf-8") as f:
+        return json.load(f)
 
 
 @router.get("")
