@@ -13,8 +13,5 @@
   ],
   "env": {
     "DB_PATH": "/tmp/progress.db"
-  },
-  "projectSettings": {
-    "sourceFilesOutsideRootDirectory": true
   }
 }
