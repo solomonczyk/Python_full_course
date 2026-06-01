@@ -1,0 +1,18 @@
+# Large directories to exclude from Vercel upload
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+.git/
+.claude/
+.cursor/
+docs/
+scripts/
+*.pyc
+*.pyo
+*.egg-info/
+*.egg
+backend/data/progress.db
+frontend/node_modules/
+frontend/.vite/
