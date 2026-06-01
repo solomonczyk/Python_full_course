@@ -24,7 +24,7 @@
   ],
   "production_accepted": false,
   "next_allowed_action": "targeted_lesson_content_corrective_pass",
-  "git_commit": "562216505b9f2c3b37dbadbe21dbda68e4982fb0",
-  "git_pushed": false,
+  "git_commit": "66b9a272a58717736d115111349923d7bc43cd88",
+  "git_pushed": true,
   "git_clean": true
 }
