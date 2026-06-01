@@ -218,7 +218,6 @@ class TestLessonDialogue:
                     f"invalid character '{entry.get('character')}'"
                 )
 
-    @pytest.mark.xfail(reason="Pre-existing content issues across 92 lessons — editorial review pending separate merge")
     def test_bagus_no_duplicates_in_one_lesson(self, lessons):
         """Verify Bagus doesn't say the exact same phrase twice in one lesson."""
         for lesson in lessons:
