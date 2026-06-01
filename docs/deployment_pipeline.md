@@ -12,8 +12,8 @@ Course** (Vercel project `andy-s-projects26/python-full-course`).
 | GitHub repo | [`solomonczyk/Python_full_course`](https://github.com/solomonczyk/Python_full_course) |
 | Vercel project | `andy-s-projects26/python-full-course` |
 | Production branch | `master` |
-| Auto-deploy | Enabled via GitHub Actions + Vercel Deploy Hook |
-| Deploy hook URL | `https://api.vercel.com/v1/integrations/deploy/prj_OiUzohnPa84Tcd088T5K9XzFqfrV/4MTCFBO3i7` |
+| Auto-deploy | Enabled via GitHub Actions + Vercel Deploy Hook (hook URL stored in GitHub Secrets) |
+| Deploy hook URL | Stored in GitHub Secrets → `VERCEL_DEPLOY_HOOK_URL` |
 
 ## How Deployment is Triggered
 
@@ -87,35 +87,14 @@ GitHub-triggered (Actions or native integration).
 
 ### Vercel Deploy Hook
 
-- Name: `github-push`
-- Branch: `master`
-- ID: `4MTCFBO3i7`
-- URL (sensitive): `https://api.vercel.com/v1/integrations/deploy/prj_OiUzohnPa84Tcd088T5K9XzFqfrV/4MTCFBO3i7`
-
-This hook is called by the GitHub Actions workflow on push to `master`.
+A deploy hook is configured for `master` branch. The hook URL is stored
+as a GitHub secret (`VERCEL_DEPLOY_HOOK_URL`) and is used by the
+GitHub Actions workflow. Never commit the hook URL or ID to the repository.
 
 ### GitHub Actions Workflow
 
-Created at `.github/workflows/deploy.yml`:
-
-```yaml
-name: Deploy to Vercel
-
-on:
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Trigger Vercel deploy hook
-        run: |
-          curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}" > /dev/null
-          echo "Vercel deploy triggered from GitHub Actions"
-```
+Created at `.github/workflows/deploy.yml` — triggers on push to `master` only.
+The deploy hook URL is read from GitHub Secrets (`VERCEL_DEPLOY_HOOK_URL`).
 
 ## Environment Variables
 
