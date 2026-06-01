@@ -17,19 +17,12 @@ def _load_lessons() -> list[dict[str, Any]]:
 @router.get("")
 def list_lessons() -> list[dict[str, Any]]:
     lessons = _load_lessons()
+    SUMMARY_FIELDS = ("id","part","chapter","lesson","slug","title","subtitle",
+                      "topic","locked","difficulty","estimated_time_min")
     return [
-        {
-            "id": l["id"],
-            "part": l["part"],
-            "chapter": l["chapter"],
-            "lesson": l["lesson"],
-            "slug": l["slug"],
-            "title": l["title"],
-            "subtitle": l["subtitle"],
-            "topic": l["topic"],
-            "locked": l["locked"],
-        }
-        for l in lessons
+        {k: lesson[k] for k in SUMMARY_FIELDS if k in lesson}
+        | ({"scene_image": lesson["scene_image"]} if "scene_image" in lesson and lesson.get("scene_image") else {})
+        for lesson in lessons
     ]
 
 
