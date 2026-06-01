@@ -22,6 +22,8 @@ import AnalogyBlock from '../components/AnalogyBlock'
 import CodeWatchBlock from '../components/CodeWatchBlock'
 import TaskPresentationBlock from '../components/TaskPresentationBlock'
 import CommonMistakesBlock from '../components/CommonMistakesBlock'
+import FoundationBlock from '../components/FoundationBlock'
+import GlossaryLessonLinks from '../components/GlossaryLessonLinks'
 
 interface Props {
   lessons: LessonSummary[]
@@ -148,6 +150,16 @@ export default function LessonPage({ lessons }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Foundation block — terms and rules before the lesson starts */}
+      {lesson.foundation && (
+        <FoundationBlock foundation={lesson.foundation} />
+      )}
+
+      {/* Glossary lesson links — quick term access */}
+      {lesson.foundation?.glossary_terms && lesson.foundation.glossary_terms.length > 0 && (
+        <GlossaryLessonLinks termIds={lesson.foundation.glossary_terms} />
+      )}
 
       {/* Pre-topic dialogue */}
       {lesson.pre_topic_dialogue && lesson.pre_topic_dialogue.length > 0 && (

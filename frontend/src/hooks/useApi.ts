@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Lesson, LessonSummary, ReviewBlock, ReviewSummary } from '../types'
+import type { Lesson, LessonSummary, ReviewBlock, ReviewSummary, GlossaryTerm, GlossaryTermSummary, Recap, RecapSummary, ChapterQuest, QuestSummary } from '../types'
 import { getUserId } from '../utils/userId'
 
 const BASE = '/api'
@@ -215,4 +215,148 @@ export function useReview(id: string) {
   }, [id])
 
   return { review, loading, error }
+}
+
+// ── Glossary hooks ──────────────────────────────────────────────────────────
+
+export function useGlossary() {
+  const [terms, setTerms] = useState<GlossaryTermSummary[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`${BASE}/glossary`)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load glossary')
+        return r.json()
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          console.warn('Glossary data is not an array:', data)
+          setTerms([])
+          return
+        }
+        setTerms(data)
+      })
+      .catch((e) => console.error('Error loading glossary:', e))
+      .finally(() => setLoading(false))
+  }, [])
+
+  return { terms, loading }
+}
+
+export function useGlossaryTerm(id: string) {
+  const [term, setTerm] = useState<GlossaryTerm | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+    fetch(`${BASE}/glossary/${id}`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Glossary term ${id} not found`)
+        return r.json()
+      })
+      .then(setTerm)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  return { term, loading, error }
+}
+
+// ── Recap hooks ─────────────────────────────────────────────────────────────
+
+export function useRecaps() {
+  const [recaps, setRecaps] = useState<RecapSummary[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`${BASE}/recaps`)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load recaps')
+        return r.json()
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          console.warn('Recaps data is not an array:', data)
+          setRecaps([])
+          return
+        }
+        setRecaps(data)
+      })
+      .catch((e) => console.error('Error loading recaps:', e))
+      .finally(() => setLoading(false))
+  }, [])
+
+  return { recaps, loading }
+}
+
+export function useRecap(id: string) {
+  const [recap, setRecap] = useState<Recap | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+    fetch(`${BASE}/recaps/${id}`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Recap ${id} not found`)
+        return r.json()
+      })
+      .then(setRecap)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  return { recap, loading, error }
+}
+
+// ── Quest hooks ─────────────────────────────────────────────────────────────
+
+export function useQuests() {
+  const [quests, setQuests] = useState<QuestSummary[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    fetch(`${BASE}/quests`)
+      .then((r) => {
+        if (!r.ok) throw new Error('Failed to load quests')
+        return r.json()
+      })
+      .then((data) => {
+        if (!Array.isArray(data)) {
+          console.warn('Quests data is not an array:', data)
+          setQuests([])
+          return
+        }
+        setQuests(data)
+      })
+      .catch((e) => console.error('Error loading quests:', e))
+      .finally(() => setLoading(false))
+  }, [])
+
+  return { quests, loading }
+}
+
+export function useQuest(id: string) {
+  const [quest, setQuest] = useState<ChapterQuest | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!id) return
+    setLoading(true)
+    fetch(`${BASE}/quests/${id}`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Quest ${id} not found`)
+        return r.json()
+      })
+      .then(setQuest)
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false))
+  }, [id])
+
+  return { quest, loading, error }
 }

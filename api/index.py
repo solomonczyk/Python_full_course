@@ -15,6 +15,9 @@ from pydantic import BaseModel
 # ── paths ──────────────────────────────────────────────────────────────────
 _HERE = Path(__file__).parent
 _LESSONS_FILE = _HERE / "app" / "data" / "lessons.json"
+_GLOSSARY_FILE = _HERE / "app" / "data" / "glossary.json"
+_RECAPS_FILE = _HERE / "app" / "data" / "recaps.json"
+_QUESTS_FILE = _HERE / "app" / "data" / "chapter_quests.json"
 _DB_PATH = Path(os.environ.get("DB_PATH", "/tmp/progress.db"))
 
 # ── models ─────────────────────────────────────────────────────────────────
@@ -359,6 +362,78 @@ def get_review(review_id: str) -> dict[str, Any]:
         if r["id"] == review_id:
             return r
     raise HTTPException(status_code=404, detail=f"Review {review_id} not found")
+
+# ── routes: glossary ─────────────────────────────────────────────────────
+def _load_glossary() -> list[dict[str, Any]]:
+    if not _GLOSSARY_FILE.exists():
+        return []
+    with open(_GLOSSARY_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+@app.get("/glossary")
+def list_glossary() -> list[dict[str, Any]]:
+    terms = _load_glossary()
+    SUMMARY_FIELDS = ("id", "term", "python_name", "category", "beginner_level")
+    return [
+        {k: term[k] for k in SUMMARY_FIELDS if k in term}
+        for term in terms
+    ]
+
+@app.get("/glossary/{term_id}")
+def get_glossary_term(term_id: str) -> dict[str, Any]:
+    terms = _load_glossary()
+    for term in terms:
+        if term["id"] == term_id:
+            return term
+    raise HTTPException(status_code=404, detail=f"Glossary term '{term_id}' not found")
+
+# ── routes: recaps ───────────────────────────────────────────────────────
+def _load_recaps() -> list[dict[str, Any]]:
+    if not _RECAPS_FILE.exists():
+        return []
+    with open(_RECAPS_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+@app.get("/recaps")
+def list_recaps() -> list[dict[str, Any]]:
+    recaps = _load_recaps()
+    SUMMARY_FIELDS = ("id", "part", "title")
+    return [
+        {k: r[k] for k in SUMMARY_FIELDS if k in r}
+        for r in recaps
+    ]
+
+@app.get("/recaps/{recap_id}")
+def get_recap(recap_id: str) -> dict[str, Any]:
+    recaps = _load_recaps()
+    for r in recaps:
+        if r["id"] == recap_id:
+            return r
+    raise HTTPException(status_code=404, detail=f"Recap '{recap_id}' not found")
+
+# ── routes: quests ───────────────────────────────────────────────────────
+def _load_quests() -> list[dict[str, Any]]:
+    if not _QUESTS_FILE.exists():
+        return []
+    with open(_QUESTS_FILE, encoding="utf-8") as f:
+        return json.load(f)
+
+@app.get("/quests")
+def list_quests() -> list[dict[str, Any]]:
+    quests = _load_quests()
+    SUMMARY_FIELDS = ("id", "part", "title")
+    return [
+        {k: q[k] for k in SUMMARY_FIELDS if k in q}
+        for q in quests
+    ]
+
+@app.get("/quests/{quest_id}")
+def get_quest(quest_id: str) -> dict[str, Any]:
+    quests = _load_quests()
+    for q in quests:
+        if q["id"] == quest_id:
+            return q
+    raise HTTPException(status_code=404, detail=f"Quest '{quest_id}' not found")
 
 # ── AI chat ────────────────────────────────────────────────────────────────
 _AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")

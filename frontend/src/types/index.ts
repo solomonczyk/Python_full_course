@@ -105,6 +105,7 @@ export interface LessonSummary {
 
 export interface Lesson extends LessonSummary {
   scene_image?: string
+  foundation?: FoundationBlock
   game_relevance?: string
   analogy?: {
     title: string
@@ -186,6 +187,116 @@ export interface MissionResult {
 }
 
 // ── Common Mistakes types ──────────────────────────────────────────────
+
+// ── Foundation types (embedding inside lessons) ──────────────────────────────
+
+export interface FoundationTerm {
+  term_id: string
+  label: string
+  definition: string
+}
+
+export interface FoundationBlock {
+  title: string
+  terms?: FoundationTerm[]
+  glossary_terms?: string[]
+  rules?: string[]
+}
+
+// ── Glossary types ──────────────────────────────────────────────────────────
+
+export type GlossaryCategory =
+  | 'basics'
+  | 'strings'
+  | 'variables'
+  | 'numbers'
+  | 'conditions'
+  | 'loops'
+  | 'functions'
+  | 'lists'
+  | 'errors'
+  | 'style'
+
+export interface GlossaryTerm {
+  id: string
+  term: string
+  python_name: string
+  category: GlossaryCategory
+  simple_definition: string
+  analogy: string
+  code_example: string
+  common_mistake: string
+  mistake_explanation: string
+  related_lessons: string[]
+  beginner_level: string
+}
+
+export interface GlossaryTermSummary {
+  id: string
+  term: string
+  python_name: string
+  category: string
+  beginner_level: string
+}
+
+// ── Recap types ─────────────────────────────────────────────────────────────
+
+export interface MiniCheck {
+  question: string
+  answer: string
+}
+
+export interface HeroSkill {
+  name: string
+  python: string
+  meaning: string
+  analogy: string
+}
+
+export interface Recap {
+  id: string
+  part: number
+  title: string
+  story_summary: string
+  learned_terms: string[]
+  hero_skills: HeroSkill[]
+  key_rules: string[]
+  mini_check: MiniCheck[]
+}
+
+export interface RecapSummary {
+  id: string
+  part: number
+  title: string
+}
+
+// ── Quest types ─────────────────────────────────────────────────────────────
+
+export interface QuestTestCase {
+  input: string
+  expected_contains: string[]
+}
+
+export interface ChapterQuest {
+  id: string
+  part: number
+  title: string
+  story: string
+  required_lessons: string[]
+  required_constructs: string[]
+  task: string
+  starter_code: string
+  example_solution: string
+  test_cases: QuestTestCase[]
+  success_criteria: string[]
+  hints: string[]
+}
+
+export interface QuestSummary {
+  id: string
+  part: number
+  title: string
+}
 
 export interface CommonMistake {
   title: string

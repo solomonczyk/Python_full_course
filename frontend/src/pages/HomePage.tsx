@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
-import type { LessonSummary, Progress, ReviewSummary } from '../types'
+import type { LessonSummary, Progress, ReviewSummary, RecapSummary, QuestSummary } from '../types'
 import CharacterAvatar from '../components/CharacterAvatar'
 import CharacterIntroSection from '../components/CharacterIntroSection'
 import { useProgressContext } from '../hooks/ProgressContext'
@@ -34,12 +34,26 @@ export default function HomePage({ lessons, progress }: Props) {
   const total = lessons.length
   const done = Object.values(progress).filter((p) => p.completed).length
   const [reviews, setReviews] = useState<ReviewSummary[]>([])
+  const [recaps, setRecaps] = useState<RecapSummary[]>([])
+  const [quests, setQuests] = useState<QuestSummary[]>([])
 
   useEffect(() => {
     fetch(`${BASE}/reviews`)
       .then((r) => r.json())
       .then((data) => {
         if (Array.isArray(data)) setReviews(data)
+      })
+      .catch(() => {})
+    fetch(`${BASE}/recaps`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data)) setRecaps(data)
+      })
+      .catch(() => {})
+    fetch(`${BASE}/quests`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data)) setQuests(data)
       })
       .catch(() => {})
   }, [])
@@ -224,6 +238,44 @@ export default function HomePage({ lessons, progress }: Props) {
                 </span>
                 <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{r.title}</span>
                 <span className="text-[10px] mt-0.5" style={{ color: '#9b98a8' }}>{r.subtitle}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 6. Recaps section */}
+      {recaps.length > 0 && (
+        <section>
+          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>🔄 Повторение частей</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {recaps.map((r) => (
+              <button key={r.id}
+                onClick={() => navigate(`/recap/${r.id}`)}
+                className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
+                style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.1)' }}
+              >
+                <span className="text-[10px] font-bold" style={{ color: '#ffd700' }}>RECAP · Part {r.part}</span>
+                <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{r.title}</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* 7. Quests section */}
+      {quests.length > 0 && (
+        <section>
+          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>⚔️ Финальные испытания</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {quests.map((q) => (
+              <button key={q.id}
+                onClick={() => navigate(`/quest/${q.id}`)}
+                className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
+                style={{ background: '#1a1924', border: '1px solid rgba(255,107,107,0.15)' }}
+              >
+                <span className="text-[10px] font-bold" style={{ color: '#ff7675' }}>QUEST · Part {q.part}</span>
+                <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{q.title}</span>
               </button>
             ))}
           </div>

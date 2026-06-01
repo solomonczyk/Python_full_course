@@ -13,6 +13,9 @@ import OnboardingPage from './pages/OnboardingPage'
 import CompletionPage from './pages/CompletionPage'
 import CourseCatalogPage from './pages/CourseCatalogPage'
 import LessonPreviewPage from './pages/LessonPreviewPage'
+import GlossaryPage from './pages/GlossaryPage'
+import RecapPage from './pages/RecapPage'
+import QuestPage from './pages/QuestPage'
 
 /** Layout used for authenticated (onboarded) learning pages. */
 function Layout() {
@@ -51,6 +54,9 @@ function Layout() {
               <Route path="/" element={<HomePage lessons={lessons} progress={progress} />} />
               <Route path="/lesson/:id" element={<LessonPage lessons={lessons} />} />
               <Route path="/review/:id" element={<ReviewPage />} />
+              <Route path="/glossary" element={<GlossaryPage />} />
+              <Route path="/recap/:id" element={<RecapPage />} />
+              <Route path="/quest/:id" element={<QuestPage />} />
             </Routes>
           </div>
         </main>
@@ -91,6 +97,24 @@ function MetaRouter({ children }: { children: React.ReactNode }) {
     if (path === '/' || path.startsWith('/lesson/') && !path.endsWith('/preview') || path.startsWith('/review/')) {
       usePageMeta({
         ...PUBLIC_ROUTES['/'],
+        canonical: canonicalUrl(path),
+      })
+    } else if (path === '/glossary') {
+      usePageMeta({
+        title: 'Глоссарий — Python Quest',
+        description: 'Словарь терминов Python с простыми определениями, аналогиями и примерами кода.',
+        canonical: canonicalUrl('/glossary'),
+      })
+    } else if (path.startsWith('/recap/')) {
+      usePageMeta({
+        title: 'Повторение — Python Quest',
+        description: 'Напоминалка по пройденному разделу курса Python Quest.',
+        canonical: canonicalUrl(path),
+      })
+    } else if (path.startsWith('/quest/')) {
+      usePageMeta({
+        title: 'Испытание — Python Quest',
+        description: 'Финальное испытание по разделу курса Python Quest.',
         canonical: canonicalUrl(path),
       })
     } else if (path === '/course') {

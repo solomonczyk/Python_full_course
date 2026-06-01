@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import type { LessonSummary, Progress } from '../types'
+import type { LessonSummary, Progress, RecapSummary, QuestSummary } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
 import { useProgressContext } from '../hooks/ProgressContext'
 
@@ -18,14 +18,30 @@ const PART_LABELS: Record<number, string> = {
   4: 'Loop Labyrinth',
 }
 
+const BASE_API = '/api'
+
 export default function Sidebar({ lessons, progress, open, onClose }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
   const { isLessonUnlocked } = useProgressContext()
-  const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
+  const match = location.pathname.match(/\/(?:lesson|review|recap|quest)\/([\w-]+)/)
   const activeId = match ? match[1] : undefined
   const activeLesson = activeId ? lessons.find(l => l.id === activeId) : null
   const activePart = activeLesson?.part ?? 0
+
+  const [recaps, setRecaps] = useState<RecapSummary[]>([])
+  const [quests, setQuests] = useState<QuestSummary[]>([])
+
+  useEffect(() => {
+    fetch(`${BASE_API}/recaps`)
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data)) setRecaps(data) })
+      .catch(() => {})
+    fetch(`${BASE_API}/quests`)
+      .then(r => r.json())
+      .then(data => { if (Array.isArray(data)) setQuests(data) })
+      .catch(() => {})
+  }, [])
 
   const parts = Array.from(new Set(lessons.map((l) => l.part))).sort()
 
@@ -157,6 +173,67 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
             )
           })}
         </nav>
+
+        {/* Glossary link */}
+        <div className="px-4 py-2" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
+          <Link
+            to="/glossary"
+            onClick={onClose}
+            className="flex items-center gap-2 py-2 px-2 text-xs font-medium rounded-md no-underline transition-all"
+            style={{ color: '#9b98a8' }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = '#00d4aa' }}
+            onMouseLeave={(e) => { e.currentTarget.style.color = '#9b98a8' }}
+          >
+            <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 0" }}>menu_book</span>
+            📘 Глоссарий
+          </Link>
+        </div>
+
+        {/* Recaps section */}
+        {recaps.length > 0 && (
+          <div className="px-4 py-2" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
+            <div className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: '#9b98a8' }}>
+              🔄 Повторение
+            </div>
+            {recaps.map((r) => (
+              <Link
+                key={r.id}
+                to={`/recap/${r.id}`}
+                onClick={onClose}
+                className="flex items-center gap-2 py-1.5 px-2 text-[11px] font-medium rounded-sm no-underline transition-all"
+                style={{ color: '#e8e6f0' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#ffd700' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#e8e6f0' }}
+              >
+                <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 0" }}>history_edu</span>
+                Part {r.part}: {r.title}
+              </Link>
+            ))}
+          </div>
+        )}
+
+        {/* Quests section */}
+        {quests.length > 0 && (
+          <div className="px-4 py-2" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
+            <div className="text-[10px] font-bold uppercase tracking-wider mb-2" style={{ color: '#9b98a8' }}>
+              ⚔️ Испытания
+            </div>
+            {quests.map((q) => (
+              <Link
+                key={q.id}
+                to={`/quest/${q.id}`}
+                onClick={onClose}
+                className="flex items-center gap-2 py-1.5 px-2 text-[11px] font-medium rounded-sm no-underline transition-all"
+                style={{ color: '#e8e6f0' }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#ff7675' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#e8e6f0' }}
+              >
+                <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: "'FILL' 0" }}>swords</span>
+                Part {q.part}: {q.title}
+              </Link>
+            ))}
+          </div>
+        )}
 
         {/* Footer */}
         <div className="px-4 py-4 shrink-0" style={{ borderTop: '1px solid rgba(201,162,39,0.15)' }}>
