@@ -68,7 +68,7 @@
   "files_modified": [
     "backend/app/data/lessons.json"
   ],
-  "git_commit": "6b379ff17cce19b32b119c2602809f7d1f28731a (will update on commit)",
+  "git_commit": "96a6c8a1df54214d5c8b7a50385116eeab91eab1",
   "git_pushed": true,
   "git_clean": true,
   "current_state": "lesson_content_editorial_review_completed",
