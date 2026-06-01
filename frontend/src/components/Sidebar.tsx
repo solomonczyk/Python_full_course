@@ -62,7 +62,7 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
   return (
     <>
       {open && (
-        <div className="fixed inset-0 bg-black/60 z-40 md:hidden" onClick={onClose} />
+        <div className="fixed inset-0 bg-black/60 z-40 md:hidden" onClick={onClose} role="presentation" aria-hidden="true" />
       )}
 
       <aside

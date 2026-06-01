@@ -415,3 +415,38 @@ class TestMissionCheckAPIV2:
         assert "details" in data
         # Legacy correct matches new finally_correct
         assert data["correct"] == data["finally_correct"]
+
+    def test_hint_classification_carryover(self):
+        """Regression: constructive hints (🔧) should not leak into errors.
+        Only safety (⛔) and syntax (❗) should be in the error field.
+        """
+        client = self._setup()
+
+        # Case: missing variable — hints should contain 🔧 but errors should NOT
+        r = client.post("/mission/check", json={
+            "lesson_id": "1-3",
+            "code": "print('10')",
+        })
+        data = r.json()
+        hints = data.get("hints", [])
+        error = data.get("error") or ""
+        has_constructive_hint = any("переменную" in h or "просто вывести" in h for h in hints)
+        assert has_constructive_hint, \
+            f"Expected constructive hint about variable, got: {hints}"
+        # The error field should not contain the constructive hint text
+        assert "переменную" not in error.lower(), \
+            f"Constructive hint leaked into error: {error}"
+        assert "просто вывести" not in error.lower(), \
+            f"Constructive hint leaked into error: {error}"
+
+    def test_safety_hints_are_errors(self):
+        """Regression: safety violations (⛔) MUST appear in both hints AND errors."""
+        client = self._setup()
+        r = client.post("/mission/check", json={
+            "lesson_id": "1-1",
+            "code": "import os\nprint('test')",
+        })
+        data = r.json()
+        error = data.get("error") or ""
+        assert "запрещен" in error.lower(), \
+            f"Safety violation should be in error, got: {error}"

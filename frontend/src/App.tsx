@@ -1,7 +1,8 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect, useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { useLessons } from './hooks/useApi'
 import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
+import { usePageMeta, canonicalUrl, PUBLIC_ROUTES } from './hooks/usePageMeta'
 import TopNav from './components/TopNav'
 import Sidebar from './components/Sidebar'
 import ChatWidget from './components/ChatWidget'
@@ -10,7 +11,10 @@ import LessonPage from './pages/LessonPage'
 import ReviewPage from './pages/ReviewPage'
 import OnboardingPage from './pages/OnboardingPage'
 import CompletionPage from './pages/CompletionPage'
+import CourseCatalogPage from './pages/CourseCatalogPage'
+import LessonPreviewPage from './pages/LessonPreviewPage'
 
+/** Layout used for authenticated (onboarded) learning pages. */
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { lessons } = useLessons()
@@ -25,15 +29,12 @@ function Layout() {
 
   return (
     <div className="min-h-screen" style={{ background: '#0a0910' }}>
-      {/* Persistent Sidebar */}
       <Sidebar
         lessons={lessons}
         progress={progress}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
-
-      {/* Main area: TopBar + Content */}
       <div className="md:ml-[220px] flex flex-col min-h-screen">
         <TopNav
           lessons={lessons}
@@ -41,7 +42,6 @@ function Layout() {
           progress={progress}
           onMenuClick={() => setSidebarOpen((v) => !v)}
         />
-
         <main
           className="flex-1 px-6 py-6 flex justify-center"
           style={{ background: '#0f0e17' }}
@@ -55,10 +55,59 @@ function Layout() {
           </div>
         </main>
       </div>
-
       <ChatWidget lessonId={currentLessonId} />
     </div>
   )
+}
+
+/** Minimal layout for public pages (no sidebar, no onboarding requirement). */
+function PublicLayout() {
+  const location = useLocation()
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
+  return (
+    <div className="min-h-screen" style={{ background: '#0f0e17' }}>
+      <main>
+        <Routes>
+          <Route path="/course" element={<CourseCatalogPage />} />
+          <Route path="/lesson/:id/preview" element={<LessonPreviewPage />} />
+        </Routes>
+      </main>
+    </div>
+  )
+}
+
+/** SEO metadata router — updates meta tags on every route change. */
+function MetaRouter({ children }: { children: React.ReactNode }) {
+  const location = useLocation()
+
+  useEffect(() => {
+    const path = location.pathname
+
+    // Route-level metadata
+    if (path === '/' || path.startsWith('/lesson/') && !path.endsWith('/preview') || path.startsWith('/review/')) {
+      usePageMeta({
+        ...PUBLIC_ROUTES['/'],
+        canonical: canonicalUrl(path),
+      })
+    } else if (path === '/course') {
+      usePageMeta({
+        ...PUBLIC_ROUTES['/course'],
+        canonical: canonicalUrl(path),
+      })
+    } else if (path === '/onboarding') {
+      usePageMeta({
+        title: 'Вступление',
+        description: 'Начни своё путешествие в мир Python с короткого вступления.',
+        canonical: canonicalUrl('/onboarding'),
+      })
+    }
+  }, [location.pathname])
+
+  return <>{children}</>
 }
 
 const ONBOARDING_KEY = 'pq_onboarding_done'
@@ -71,16 +120,24 @@ export default function App() {
   return (
     <BrowserRouter>
       <ProgressProvider>
-        <Routes>
-          {/* Full-screen pages (no sidebar) */}
-          <Route path="/onboarding" element={<OnboardingPage />} />
-          <Route path="/completion" element={<CompletionPage />} />
+        <MetaRouter>
+          <Routes>
+            {/* Full-screen pages (no sidebar) */}
+            <Route path="/onboarding" element={<OnboardingPage />} />
+            <Route path="/completion" element={<CompletionPage />} />
 
-          {/* Layout pages (with sidebar/nav) — catch-all */}
-          <Route path="/*" element={
-            localStorage.getItem(ONBOARDING_KEY) ? <Layout /> : <Navigate to="/onboarding" replace />
-          } />
-        </Routes>
+            {/* PUBLIC pages — no onboarding required */}
+            <Route path="/course" element={<PublicLayout />} />
+            <Route path="/lesson/:id/preview" element={<PublicLayout />} />
+
+            {/* Authenticated pages — onboarding required */}
+            <Route path="/*" element={
+              localStorage.getItem(ONBOARDING_KEY)
+                ? <Layout />
+                : <Navigate to="/onboarding" replace />
+            } />
+          </Routes>
+        </MetaRouter>
       </ProgressProvider>
     </BrowserRouter>
   )

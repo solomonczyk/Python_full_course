@@ -118,7 +118,8 @@ def check_mission(body: MissionSubmit) -> dict[str, Any]:
         )
         hints.extend(ast_hints)
         for h in ast_hints:
-            if h.startswith("🔧") or h.startswith("❗") or h.startswith("⛔"):
+            # Only safety (⛔) and syntax (❗) hints are real errors
+            if h.startswith("⛔") or h.startswith("❗"):
                 if h not in errors:
                     errors.append(h)
 

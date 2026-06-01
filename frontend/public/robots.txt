@@ -1,0 +1,12 @@
+# robots.txt — Python Quest
+# SPA hosted on Vercel; sitemap is manually generated.
+
+User-agent: *
+Allow: /
+
+# Disallow onboarding and full lesson pages behind auth gate
+Disallow: /onboarding
+Disallow: /completion
+
+# Sitemap
+Sitemap: https://python-quest.app/sitemap.xml

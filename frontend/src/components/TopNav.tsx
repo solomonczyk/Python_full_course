@@ -40,7 +40,7 @@ export default function TopNav({ lessons, progress, onMenuClick }: Props) {
         >
           <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 0" }}>menu</span>
         </button>
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-6" aria-label="Основная навигация">
           {[
             { label: 'Curriculum', path: '/' },
             { label: 'Leaderboard', path: '/leaderboard' },
