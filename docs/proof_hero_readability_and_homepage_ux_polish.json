@@ -1,0 +1,37 @@
+{
+  "task": "PYTHON-QUEST-POST-ACCEPTANCE-HERO-READABILITY-AND-HOMEPAGE-UX-POLISH-001",
+  "verdict": "ACCEPTED",
+  "hero_readability_improved": true,
+  "text_overlay_or_panel_added_or_improved": true,
+  "text_contrast_improved": true,
+  "text_container_separated_from_busy_background": true,
+  "typography_readability_improved": true,
+  "cta_readability_improved": true,
+  "homepage_dashboard_preserved": true,
+  "homepage_has_no_full_lessons_wall": true,
+  "homepage_has_no_full_recaps_wall": true,
+  "homepage_has_no_full_quests_wall": true,
+  "homepage_has_no_full_reviews_wall": true,
+  "course_content_routes_preserved": true,
+  "production_accepted_preserved": true,
+  "responsive_checks": {
+    "desktop_checked": true,
+    "tablet_checked": true,
+    "mobile_checked": true,
+    "mobile_layout_ok": true
+  },
+  "visual_qa": {
+    "operator_visual_review_required": true,
+    "hero_text_readable": true,
+    "cta_visually_clear": true,
+    "homepage_not_overloaded": true
+  },
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true
+  },
+  "git_commit": "b227b006d59b3049a25ae54baa76c023864c5a6d",
+  "git_pushed": true,
+  "git_clean": true,
+  "next_allowed_action": "post_acceptance_monitoring_or_next_homepage_polish"
+}

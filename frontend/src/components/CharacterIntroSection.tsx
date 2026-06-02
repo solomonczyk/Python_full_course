@@ -10,12 +10,15 @@ export default function CharacterIntroSection() {
   return (
     <section className="mb-12">
       <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
-          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>diversity_3</span>
+        <div
+          className="w-10 h-10 rounded-xl flex items-center justify-center"
+          style={{ background: 'rgba(201,162,39,0.15)' }}
+        >
+          <span className="material-symbols-outlined text-lg" style={{ color: '#c9a227', fontVariationSettings: "'FILL' 1" }}>diversity_3</span>
         </div>
-        <h2 className="font-display text-[24px] leading-8 font-bold text-on-surface">Персонажи курса</h2>
+        <h2 className="font-display text-[24px] leading-8 font-bold" style={{ color: '#e8e6f0' }}>Персонажи курса</h2>
       </div>
-      <p className="font-sans text-[15px] leading-[22px] text-on-surface-variant mb-6 max-w-[600px]">
+      <p className="font-sans text-[15px] leading-[22px] mb-6 max-w-[600px]" style={{ color: '#9b98a8' }}>
         В Python Quest у каждого персонажа своя роль. Вместе они проводят тебя через все ловушки Башни Алгоритмов.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

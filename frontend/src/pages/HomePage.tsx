@@ -40,7 +40,7 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner — чисте зображення */}
+      {/* 1. Hero Banner — welcome section with readable overlay */}
       <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
         <div className="relative">
           <img
@@ -50,19 +50,26 @@ export default function HomePage({ lessons, progress }: Props) {
             style={{ display: 'block', pointerEvents: 'none' }}
           />
 
-          {/* Progress banner — TOP CENTER */}
-          <div className="absolute z-10 hidden sm:block" style={{ top: '10%', left: '50%', transform: 'translateX(-50%)' }}>
-            <div
-              className="rounded-xl px-5 py-2.5 backdrop-blur-sm inline-flex items-center gap-3"
-              style={{
-                background: 'rgba(26,25,36,0.7)',
-                border: '1px solid rgba(201,162,39,0.2)',
-              }}
-            >
-              <div className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
-                ПРОГРЕСС
-              </div>
-              <div className="flex items-center gap-2">
+          {/* Full-image gradient overlay — dark at bottom, transparent at top */}
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background: 'linear-gradient(to top, rgba(10,9,16,0.92) 0%, rgba(10,9,16,0.55) 30%, rgba(10,9,16,0.15) 50%, rgba(10,9,16,0.04) 65%, transparent 80%)',
+              pointerEvents: 'none',
+            }}
+          >
+            {/* Progress badge — top right (desktop only) */}
+            <div className="absolute top-4 right-4 hidden sm:block" style={{ pointerEvents: 'auto' }}>
+              <div
+                className="rounded-xl px-4 py-2 backdrop-blur-md inline-flex items-center gap-3"
+                style={{
+                  background: 'rgba(15,14,23,0.75)',
+                  border: '1px solid rgba(201,162,39,0.2)',
+                }}
+              >
+                <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
+                  ПРОГРЕСС
+                </span>
                 <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
                 <div className="w-16 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
                   <div className="h-full rounded-full transition-all duration-500" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
@@ -72,31 +79,51 @@ export default function HomePage({ lessons, progress }: Props) {
                 </span>
               </div>
             </div>
+
+            {/* Welcome text + CTA — bottom area */}
+            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7" style={{ pointerEvents: 'auto' }}>
+              <div className="max-w-[560px]">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-1.5" style={{ color: '#e8e6f0' }}>
+                  Python Quest — Башня Алгоритмов
+                </h1>
+                <p className="text-xs sm:text-sm leading-relaxed mb-4 max-w-[460px]" style={{ color: '#c9a227', lineHeight: '1.65' }}>
+                  Погрузись в мир магии и алгоритмов. Пройди путь от новичка до архимага Python.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+                    className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+                    style={{
+                      background: 'linear-gradient(135deg, #c9a227 0%, #d4b44a 100%)',
+                      color: '#0f0e17',
+                      boxShadow: '0 4px 18px rgba(201,162,39,0.4)',
+                    }}
+                  >
+                    <span className="text-base">⚔️</span>
+                    <span>Продолжить квест</span>
+                  </button>
+                  <button
+                    onClick={() => navigate('/lesson/1-1')}
+                    className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-medium cursor-pointer transition-all hover:scale-[1.03] active:scale-[0.97] hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+                    style={{
+                      background: 'rgba(15,14,23,0.55)',
+                      border: '1px solid rgba(201,162,39,0.35)',
+                      color: '#e8e6f0',
+                      backdropFilter: 'blur(6px)',
+                    }}
+                  >
+                    <span>📖</span>
+                    <span>Начать с начала</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Кнопки ПІД хиро-секцією — 3 в одному стилі */}
-      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-        <button
-          onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-          className="flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
-          style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#e8e6f0' }}
-        >
-          <img src="/buttons/prodolgyt_quest.webp" alt="" className="w-8 h-8 object-contain" />
-          <span>Продолжить квест</span>
-        </button>
-        <button
-          onClick={() => navigate('/lesson/1-1')}
-          className="flex items-center gap-3 px-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.02] active:scale-[0.98]"
-          style={{ background: 'rgba(15,14,23,0.8)', border: '1px solid #c9a227', color: '#e8e6f0' }}
-        >
-          <img src="/buttons/nachat_s_nachala.webp" alt="" className="w-8 h-8 object-contain" />
-          <span>Начать с начала</span>
-        </button>
-      </div>
-
-      {/* Mobile: progress під кнопками */}
+      {/* Mobile: progress below hero */}
       <div className="sm:hidden">
         <div className="flex items-center gap-2 text-[10px]" style={{ color: '#9b98a8' }}>
           <span className="font-bold uppercase tracking-wider">ПРОГРЕСС</span>
