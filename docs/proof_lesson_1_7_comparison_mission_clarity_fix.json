@@ -28,6 +28,8 @@
     "frontend_typecheck_passed": true,
     "frontend_build_passed": true
   },
+  "git_commit": "ab3a077553aeadfd3c0a77d8ff9db9e4270e5d79",
+  "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "continue_post_acceptance_polish"
 }
