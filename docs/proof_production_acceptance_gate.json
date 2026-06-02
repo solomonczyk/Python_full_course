@@ -45,8 +45,12 @@
   "production_accepted": true,
   "acceptance_docs_committed": true,
   "untracked_files_count": 0,
+  "smoke_checks_passed": true,
+  "tests_passed": true,
+  "current_state": "production_accepted",
+  "course_status": "ready_for_public_learning_use",
   "next_allowed_action": "post_acceptance_monitoring_or_polish_backlog",
-  "git_commit": "7e71d32",
+  "git_commit": "5cc250a",
   "git_pushed": true,
   "git_clean": true
 }
