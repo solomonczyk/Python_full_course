@@ -25,7 +25,8 @@ const NAME_COLORS: Record<Character, string> = {
   novice: '#9b98a8',
 }
 
-function renderText(text: string) {
+function renderText(text?: string | null) {
+  if (!text) return null
   const parts = text.split(/(`[^`]+`)/)
   return parts.map((part, i) =>
     part.startsWith('`') && part.endsWith('`')
@@ -34,7 +35,8 @@ function renderText(text: string) {
   )
 }
 
-export default function DialogueBubble({ character, text }: { character: Character; text: string }) {
+export default function DialogueBubble({ character, text }: { character: Character; text?: string | null }) {
+  if (!text) return null
   return (
     <section className="flex gap-4 items-start">
       <CharacterAvatar character={character} />

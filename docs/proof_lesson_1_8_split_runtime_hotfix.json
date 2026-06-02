@@ -1,0 +1,41 @@
+{
+  "task": "PYTHON-QUEST-HOTFIX-LESSON-1-8-SPLIT-UNDEFINED-RUNTIME-ERROR-001",
+  "verdict": "PASS",
+  "runtime_error_fixed": true,
+  "error": "Cannot read properties of undefined (reading 'split')",
+  "root_cause": "Lesson 1-8 code_watch.dialogue[3] (step 4 of 6) is missing the 'text' field. CodeWatchBlock passed step.text (undefined) to DialogueBubble which called text.split() on it.",
+  "fix_description": "1) DialogueBubble.tsx: renderText() now accepts optional text and returns null on falsy input. Component returns null early when text is missing. 2) CodeWatchBlock.tsx: added .filter(s => s.text) to skip malformed dialogue steps. 3) AnalogyBlock.tsx: renderCode() now guards against undefined text. 4) PartPage.tsx: replaced unsafe a.id.split('-')[1] with safe parseLessonId(). 5) New utility lessonId.ts: parseLessonId() safely handles undefined/null/malformed inputs.",
+  "lesson_1_8_opens_without_crash": true,
+  "unsafe_split_calls_audited": true,
+  "safe_lesson_id_parsing_added": true,
+  "loading_state_safe": true,
+  "fallback_for_missing_lesson_id": true,
+  "routes_checked": {
+    "lesson_1_1": true,
+    "lesson_1_5": true,
+    "lesson_1_8": true,
+    "lesson_1_9": true,
+    "lesson_3_12": true,
+    "part_1": true,
+    "part_3": true,
+    "recap_3a": true
+  },
+  "console_crash_absent": true,
+  "production_accepted_preserved": true,
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true,
+    "browser_verification_passed": true
+  },
+  "files_changed": [
+    "frontend/src/utils/lessonId.ts (new)",
+    "frontend/src/components/DialogueBubble.tsx",
+    "frontend/src/components/CodeWatchBlock.tsx",
+    "frontend/src/components/AnalogyBlock.tsx",
+    "frontend/src/pages/PartPage.tsx"
+  ],
+  "git_commit": "59e2cac912f72420e2493f12dce7af29a49389e3",
+  "git_pushed": false,
+  "git_clean": false,
+  "next_allowed_action": "resume_global_adaptive_mission_feedback_system_or_hero_readability_fix"
+}

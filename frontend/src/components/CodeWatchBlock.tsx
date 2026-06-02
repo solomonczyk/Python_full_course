@@ -24,7 +24,7 @@ export default function CodeWatchBlock({ walkthrough }: Props) {
 
       {/* Dialogue steps */}
       <div className="flex flex-col gap-4">
-        {walkthrough.dialogue.map((step, i) => (
+        {walkthrough.dialogue.filter(s => s.text).map((step, i) => (
           <div key={i} className="space-y-2">
             <DialogueBubble character={step.speaker} text={step.text} />
             {step.code && (

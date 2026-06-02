@@ -2,7 +2,8 @@ import type { Character } from '../types'
 import CharacterAvatar from './CharacterAvatar'
 
 /** Renders text with backtick-delimited code highlighted in a different color/size */
-function renderCode(text: string, codeColor: string, baseColor: string, codeSize?: string): React.ReactNode[] {
+function renderCode(text?: string | null, codeColor?: string, baseColor?: string, codeSize?: string): React.ReactNode[] | null {
+  if (!text) return null
   const parts = text.split(/(`[^`]+`)/)
   return parts.map((part, i) => {
     if (part.startsWith('`') && part.endsWith('`')) {

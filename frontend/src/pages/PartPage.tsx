@@ -7,6 +7,7 @@ import {
   isRecapUnlocked,
   isRecapCompleted,
 } from '../data/recapPlacements'
+import { parseLessonId } from '../utils/lessonId'
 
 interface Props {
   lessons: LessonSummary[]
@@ -81,9 +82,9 @@ export default function PartPage({ lessons }: Props) {
   const partLessons = lessons
     .filter((l) => l.part === part)
     .sort((a, b) => {
-      const aNum = parseInt(a.id.split('-')[1], 10)
-      const bNum = parseInt(b.id.split('-')[1], 10)
-      return aNum - bNum
+      const aParsed = parseLessonId(a.id)
+      const bParsed = parseLessonId(b.id)
+      return (aParsed.index ?? 0) - (bParsed.index ?? 0)
     })
 
   const total = partLessons.length
