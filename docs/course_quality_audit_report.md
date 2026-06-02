@@ -1,17 +1,17 @@
 # Course Quality Audit Report
 
-**Generated:** 2026-06-02T16:27:41.238889+00:00
+**Generated:** 2026-06-02T16:43:04.654142+00:00
 
 ## Summary
 
 - **Total entities checked:** 1347
-- **Total issues found:** 56
+- **Total issues found:** 53
 
 ### Severity Breakdown
 
 - ⏳ **can_defer**: 0
 - 🚨 **must_fix_now**: 0
-- 🔍 **needs_human_review**: 54
+- 🔍 **needs_human_review**: 51
 - 💅 **non_blocking_polish**: 2
 
 ### Items Checked

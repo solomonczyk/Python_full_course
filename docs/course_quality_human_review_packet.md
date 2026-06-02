@@ -1,7 +1,7 @@
 # Course Quality Audit — Human Review Packet
 
-**Generated:** 2026-06-02T16:27:41.237889+00:00
-**Total Issues:** 56
+**Generated:** 2026-06-02T16:43:04.653142+00:00
+**Total Issues:** 53
 
 ---
 ## 🚨 Must Fix Now
@@ -11,7 +11,7 @@ _No must-fix issues found._
 
 ---
 ## 🔍 Needs Human Review
-**Count:** 54
+**Count:** 51
 
 ### PQA-0001: 1-1 — dialogue_premature_concept
 - **Surface:** lesson | **Field:** `pre_topic_dialogue[2].text`
@@ -229,109 +229,91 @@ _No must-fix issues found._
 - **Reason:** Correct solution appears joined into one line without proper formatting
 - **Suggested Fix:** Format as multi-line code block
 
-### PQA-0037: 1-4 — consecutive_bagus
-- **Surface:** lesson | **Field:** `post_error_dialogue[5]`
-- **Current:** Ошибки нет — есть только шаги к правильному решению!
-- **Reason:** Bagus appears 2 times consecutively (max 1)
-- **Suggested Fix:** Separate Bagus lines with another character
-
-### PQA-0038: 1-6 — consecutive_bagus
-- **Surface:** lesson | **Field:** `post_error_dialogue[5]`
-- **Current:** Так тоже можно! Только в этот раз давай сделаем правильно.
-- **Reason:** Bagus appears 2 times consecutively (max 1)
-- **Suggested Fix:** Separate Bagus lines with another character
-
-### PQA-0039: 1-7 — consecutive_bagus
-- **Surface:** lesson | **Field:** `post_error_dialogue[5]`
-- **Current:** Ой-ой! Багус нашёл багус! Python в замешательстве! Хорошо, что ты тренируешься!
-- **Reason:** Bagus appears 2 times consecutively (max 1)
-- **Suggested Fix:** Separate Bagus lines with another character
-
-### PQA-0040: 1-5 — wording_ambiguous
+### PQA-0037: 1-5 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Игрок вводит число своих монет — 8. Добавь 1 монету и выведи результат (9).
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0041: 1-6 — wording_ambiguous
+### PQA-0038: 1-6 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Атака = 7, защита = 6 у Багуса. Посчитай суммарный урон (7 + 6) и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0043: 2-3 — wording_ambiguous
+### PQA-0040: 2-3 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Напиши программу, которая имитирует бросок двух кубиков. Подключи random, создай две переменные dice1 и dice2 с random.randint(1, 6), вычисли их сумму и выведи результат в формате: 'Бросок: X + Y = Су
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0045: 3-1 — wording_ambiguous
+### PQA-0042: 3-1 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** В рецепте нужно 3.5 части муки и 2 части воды. Перемножь их и выведи результат (7.0).
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0046: 3-18 — wording_ambiguous
+### PQA-0043: 3-18 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Сложи числа от 1 до 4 включительно с помощью цикла и выведи результат (10).
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0047: 3-30 — wording_ambiguous
+### PQA-0044: 3-30 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Из списка ['a', 'b', 'c'] удали элемент 'b' по значению и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0048: 3-33 — wording_ambiguous
+### PQA-0045: 3-33 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Посчитай сумму чисел 1 + 2 + 3 с помощью цикла и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0049: 3-34 — wording_ambiguous
+### PQA-0046: 3-34 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** В списке [1, 2, 1, 3, 1] посчитай, сколько раз встречается 1, и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0050: 3-37 — wording_ambiguous
+### PQA-0047: 3-37 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Объедини списки [1, 2] и [3, 4] с помощью extend() и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0051: 3-39 — wording_ambiguous
+### PQA-0048: 3-39 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Напиши программу «Бросок монетки». Подключи random, создай список coins = ['орёл', 'решка']. Используй random.choice() чтобы выбрать сторону. Выведи результат. Затем добавь условие: если выпал 'орёл' 
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0052: 4-17 — wording_ambiguous
+### PQA-0049: 4-17 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Отсортируй список ['ccc', 'b', 'aa'] по длине строк и выведи результат.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0053: 4-23 — wording_ambiguous
+### PQA-0050: 4-23 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Создай список a = [1], присвой b = a. Выведи результат a is b.
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0054: 5-3 — wording_ambiguous
+### PQA-0051: 5-3 — wording_ambiguous
 - **Surface:** lesson | **Field:** `mission.task`
 - **Current:** Создай функцию add(a, b), которая возвращает сумму двух чисел. Выведи результат вызова add(7, 8).
 - **Reason:** Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 - **Suggested Fix:** Clearly specify what should be displayed
 
-### PQA-0055: 4-31 — boss_no_code_watch
+### PQA-0052: 4-31 — boss_no_code_watch
 - **Surface:** lesson | **Field:** `code_watch`
 - **Current:** 
 - **Reason:** Boss difficulty lesson has no code_watch block
 - **Suggested Fix:** Consider adding code_walkthrough for boss lesson
 
-### PQA-0056: 3-41 — boss_no_code_watch
+### PQA-0053: 3-41 — boss_no_code_watch
 - **Surface:** lesson | **Field:** `code_watch`
 - **Current:** 
 - **Reason:** Boss difficulty lesson has no code_watch block
@@ -340,7 +322,7 @@ _No must-fix issues found._
 ---
 ## 📂 Issues by Part
 
-### Part 1 (25 issues)
+### Part 1 (22 issues)
 
 - 🔍 **PQA-0001** `needs_human_review` — 1-1: dialogue_premature_concept (pre_topic_dialogue[2].text)
   - Dialogue uses 'повтор' which relates to 'for', a forbidden concept before this lesson
@@ -382,15 +364,9 @@ _No must-fix issues found._
   - Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson
 - 🔍 **PQA-0035** `needs_human_review` — 1-1: suspicious_one_line_code (find_bug.correct)
   - Correct solution appears joined into one line without proper formatting
-- 🔍 **PQA-0037** `needs_human_review` — 1-4: consecutive_bagus (post_error_dialogue[5])
-  - Bagus appears 2 times consecutively (max 1)
-- 🔍 **PQA-0038** `needs_human_review` — 1-6: consecutive_bagus (post_error_dialogue[5])
-  - Bagus appears 2 times consecutively (max 1)
-- 🔍 **PQA-0039** `needs_human_review` — 1-7: consecutive_bagus (post_error_dialogue[5])
-  - Bagus appears 2 times consecutively (max 1)
-- 🔍 **PQA-0040** `needs_human_review` — 1-5: wording_ambiguous (mission.task)
+- 🔍 **PQA-0037** `needs_human_review` — 1-5: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0041** `needs_human_review` — 1-6: wording_ambiguous (mission.task)
+- 🔍 **PQA-0038** `needs_human_review` — 1-6: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 
 ### Part 2 (16 issues)
@@ -421,32 +397,32 @@ _No must-fix issues found._
   - Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson
 - 🔍 **PQA-0032** `needs_human_review` — 2-6: dialogue_premature_concept (pre_topic_dialogue[0].text)
   - Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson
-- 💅 **PQA-0042** `non_blocking_polish` — 2-2: wording_overstated (mission.task)
+- 💅 **PQA-0039** `non_blocking_polish` — 2-2: wording_overstated (mission.task)
   - Wording 'напиши программу' may overstate when only one line is expected
-- 🔍 **PQA-0043** `needs_human_review` — 2-3: wording_ambiguous (mission.task)
+- 🔍 **PQA-0040** `needs_human_review` — 2-3: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 💅 **PQA-0044** `non_blocking_polish` — 2-3: wording_overstated (mission.task)
+- 💅 **PQA-0041** `non_blocking_polish` — 2-3: wording_overstated (mission.task)
   - Wording 'напиши программу' may overstate when only one line is expected
 
 ### Part 3 (9 issues)
 
 - 🔍 **PQA-0033** `needs_human_review` — 3-11: dialogue_premature_concept (post_error_dialogue[4].text)
   - Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson
-- 🔍 **PQA-0045** `needs_human_review` — 3-1: wording_ambiguous (mission.task)
+- 🔍 **PQA-0042** `needs_human_review` — 3-1: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0046** `needs_human_review` — 3-18: wording_ambiguous (mission.task)
+- 🔍 **PQA-0043** `needs_human_review` — 3-18: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0047** `needs_human_review` — 3-30: wording_ambiguous (mission.task)
+- 🔍 **PQA-0044** `needs_human_review` — 3-30: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0048** `needs_human_review` — 3-33: wording_ambiguous (mission.task)
+- 🔍 **PQA-0045** `needs_human_review` — 3-33: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0049** `needs_human_review` — 3-34: wording_ambiguous (mission.task)
+- 🔍 **PQA-0046** `needs_human_review` — 3-34: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0050** `needs_human_review` — 3-37: wording_ambiguous (mission.task)
+- 🔍 **PQA-0047** `needs_human_review` — 3-37: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0051** `needs_human_review` — 3-39: wording_ambiguous (mission.task)
+- 🔍 **PQA-0048** `needs_human_review` — 3-39: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0056** `needs_human_review` — 3-41: boss_no_code_watch (code_watch)
+- 🔍 **PQA-0053** `needs_human_review` — 3-41: boss_no_code_watch (code_watch)
   - Boss difficulty lesson has no code_watch block
 
 ### Part 4 (5 issues)
@@ -455,29 +431,24 @@ _No must-fix issues found._
   - Dialogue uses 'словар' which relates to 'dict', a forbidden concept before this lesson
 - 🔍 **PQA-0036** `needs_human_review` — 4-10: suspicious_one_line_code (find_bug.correct)
   - Correct solution appears joined into one line without proper formatting
-- 🔍 **PQA-0052** `needs_human_review` — 4-17: wording_ambiguous (mission.task)
+- 🔍 **PQA-0049** `needs_human_review` — 4-17: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0053** `needs_human_review` — 4-23: wording_ambiguous (mission.task)
+- 🔍 **PQA-0050** `needs_human_review` — 4-23: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
-- 🔍 **PQA-0055** `needs_human_review` — 4-31: boss_no_code_watch (code_watch)
+- 🔍 **PQA-0052** `needs_human_review` — 4-31: boss_no_code_watch (code_watch)
   - Boss difficulty lesson has no code_watch block
 
 ### Part 5 (1 issues)
 
-- 🔍 **PQA-0054** `needs_human_review` — 5-3: wording_ambiguous (mission.task)
+- 🔍 **PQA-0051** `needs_human_review` — 5-3: wording_ambiguous (mission.task)
   - Wording 'выведи результат' is ambiguous if expected output is not clearly specified
 
 ---
 ## 🏷️ Issues by Type
 
 ### boss_no_code_watch (2 issues)
-- PQA-0055: 4-31 (needs_human_review)
-- PQA-0056: 3-41 (needs_human_review)
-
-### consecutive_bagus (3 issues)
-- PQA-0037: 1-4 (needs_human_review)
-- PQA-0038: 1-6 (needs_human_review)
-- PQA-0039: 1-7 (needs_human_review)
+- PQA-0052: 4-31 (needs_human_review)
+- PQA-0053: 3-41 (needs_human_review)
 
 ### dialogue_premature_concept (33 issues)
 - PQA-0001: 1-1 (needs_human_review)
@@ -522,20 +493,20 @@ _No must-fix issues found._
 - PQA-0036: 4-10 (needs_human_review)
 
 ### wording_ambiguous (13 issues)
-- PQA-0040: 1-5 (needs_human_review)
-- PQA-0041: 1-6 (needs_human_review)
-- PQA-0043: 2-3 (needs_human_review)
-- PQA-0045: 3-1 (needs_human_review)
-- PQA-0046: 3-18 (needs_human_review)
-- PQA-0047: 3-30 (needs_human_review)
-- PQA-0048: 3-33 (needs_human_review)
-- PQA-0049: 3-34 (needs_human_review)
-- PQA-0050: 3-37 (needs_human_review)
-- PQA-0051: 3-39 (needs_human_review)
-- PQA-0052: 4-17 (needs_human_review)
-- PQA-0053: 4-23 (needs_human_review)
-- PQA-0054: 5-3 (needs_human_review)
+- PQA-0037: 1-5 (needs_human_review)
+- PQA-0038: 1-6 (needs_human_review)
+- PQA-0040: 2-3 (needs_human_review)
+- PQA-0042: 3-1 (needs_human_review)
+- PQA-0043: 3-18 (needs_human_review)
+- PQA-0044: 3-30 (needs_human_review)
+- PQA-0045: 3-33 (needs_human_review)
+- PQA-0046: 3-34 (needs_human_review)
+- PQA-0047: 3-37 (needs_human_review)
+- PQA-0048: 3-39 (needs_human_review)
+- PQA-0049: 4-17 (needs_human_review)
+- PQA-0050: 4-23 (needs_human_review)
+- PQA-0051: 5-3 (needs_human_review)
 
 ### wording_overstated (2 issues)
-- PQA-0042: 2-2 (non_blocking_polish)
-- PQA-0044: 2-3 (non_blocking_polish)
+- PQA-0039: 2-2 (non_blocking_polish)
+- PQA-0041: 2-3 (non_blocking_polish)

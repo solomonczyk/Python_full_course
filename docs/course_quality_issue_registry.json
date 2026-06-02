@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-02T16:27:41.235893+00:00",
+  "generated_at": "2026-06-02T16:43:04.651123+00:00",
   "total_items_checked": 1347,
-  "issues_total": 56,
+  "issues_total": 53,
   "severity_counts": {
     "must_fix_now": 0,
-    "needs_human_review": 54,
+    "needs_human_review": 51,
     "can_defer": 0,
     "non_blocking_polish": 2
   },
@@ -481,45 +481,6 @@
       "issue_id": "PQA-0037",
       "severity": "needs_human_review",
       "surface": "lesson",
-      "item_id": "1-4",
-      "field": "post_error_dialogue[5]",
-      "issue_type": "consecutive_bagus",
-      "current_text": "Ошибки нет — есть только шаги к правильному решению!",
-      "reason": "Bagus appears 2 times consecutively (max 1)",
-      "suggested_fix": "Separate Bagus lines with another character",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0038",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-6",
-      "field": "post_error_dialogue[5]",
-      "issue_type": "consecutive_bagus",
-      "current_text": "Так тоже можно! Только в этот раз давай сделаем правильно.",
-      "reason": "Bagus appears 2 times consecutively (max 1)",
-      "suggested_fix": "Separate Bagus lines with another character",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0039",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-7",
-      "field": "post_error_dialogue[5]",
-      "issue_type": "consecutive_bagus",
-      "current_text": "Ой-ой! Багус нашёл багус! Python в замешательстве! Хорошо, что ты тренируешься!",
-      "reason": "Bagus appears 2 times consecutively (max 1)",
-      "suggested_fix": "Separate Bagus lines with another character",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0040",
-      "severity": "needs_human_review",
-      "surface": "lesson",
       "item_id": "1-5",
       "field": "mission.task",
       "issue_type": "wording_ambiguous",
@@ -530,7 +491,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0041",
+      "issue_id": "PQA-0038",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-6",
@@ -543,7 +504,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0042",
+      "issue_id": "PQA-0039",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-2",
@@ -556,7 +517,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0043",
+      "issue_id": "PQA-0040",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "2-3",
@@ -569,7 +530,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0044",
+      "issue_id": "PQA-0041",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-3",
@@ -582,7 +543,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0045",
+      "issue_id": "PQA-0042",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-1",
@@ -595,7 +556,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0046",
+      "issue_id": "PQA-0043",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-18",
@@ -608,7 +569,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0047",
+      "issue_id": "PQA-0044",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-30",
@@ -621,7 +582,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0048",
+      "issue_id": "PQA-0045",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-33",
@@ -634,7 +595,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0049",
+      "issue_id": "PQA-0046",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-34",
@@ -647,7 +608,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0050",
+      "issue_id": "PQA-0047",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-37",
@@ -660,7 +621,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0051",
+      "issue_id": "PQA-0048",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-39",
@@ -673,7 +634,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0052",
+      "issue_id": "PQA-0049",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-17",
@@ -686,7 +647,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0053",
+      "issue_id": "PQA-0050",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-23",
@@ -699,7 +660,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0054",
+      "issue_id": "PQA-0051",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "5-3",
@@ -712,7 +673,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0055",
+      "issue_id": "PQA-0052",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-31",
@@ -725,7 +686,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0056",
+      "issue_id": "PQA-0053",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-41",
