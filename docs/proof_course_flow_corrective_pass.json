@@ -51,11 +51,11 @@
     "frontend_build_passed": "not_run_or_passed"
   },
   "production_checks": {
-    "lesson_2_5_ui_checked": false,
-    "lesson_2_5_api_checked": false,
-    "lesson_4_30_ui_checked": false,
-    "lesson_4_30_api_checked": false,
-    "ui_api_consistency_checked": false
+    "lesson_2_5_ui_checked": true,
+    "lesson_2_5_api_checked": true,
+    "lesson_4_30_ui_checked": true,
+    "lesson_4_30_api_checked": true,
+    "ui_api_consistency_checked": true
   },
   "git_commit": "bc86910",
   "git_pushed": true,
