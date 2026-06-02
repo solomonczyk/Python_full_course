@@ -42,8 +42,8 @@
     "quest_routes_checked": true,
     "sidebar_or_course_flow_links_checked": true,
     "api_returns_new_data": true,
-    "production_ui_checked": false,
-    "production_api_checked": false
+    "production_ui_checked": true,
+    "production_api_checked": true
   },
   "regression_checks": {
     "lesson_2_5_still_fixed": true,
@@ -64,7 +64,7 @@
   },
   "production_accepted": false,
   "next_allowed_action": "operator_review_quest_recap_architecture_or_production_readiness_review",
-  "git_commit": "",
+  "git_commit": "3f10d27e59f0494dcd296965635eb3f8220150a9",
   "git_pushed": true,
   "git_clean": true
 }
