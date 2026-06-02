@@ -40,90 +40,88 @@ export default function HomePage({ lessons, progress }: Props) {
 
   return (
     <div className="space-y-6">
-      {/* 1. Hero Banner — welcome section with readable overlay */}
-      <section className="rounded-[20px] overflow-hidden relative" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
-        <div className="relative">
-          <img
-            src="/herro_section/ChatGPT Image May 31, 2026, 04_51_53 PM.webp"
-            alt="Python Quest — Башня Алгоритмов"
-            className="w-full h-auto object-contain"
-            style={{ display: 'block', pointerEvents: 'none' }}
-          />
+      {/* 1. Welcome text — над изображением */}
+      <section
+        className="rounded-xl p-5 sm:p-6"
+        style={{
+          background: '#1a1924',
+          border: '1px solid rgba(201,162,39,0.15)',
+        }}
+      >
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
+          <div className="max-w-[560px]">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-1.5" style={{ color: '#e8e6f0' }}>
+              Python Quest — Башня Алгоритмов
+            </h1>
+            <p className="text-xs sm:text-sm leading-relaxed max-w-[480px]" style={{ color: '#c9a227', lineHeight: '1.65' }}>
+              Погрузись в мир магии и алгоритмов. Пройди путь от новичка до архимага Python.
+            </p>
+          </div>
 
-          {/* Full-image gradient overlay — dark at bottom, transparent at top */}
-          <div
-            className="absolute inset-0 z-10"
-            style={{
-              background: 'linear-gradient(to top, rgba(10,9,16,0.92) 0%, rgba(10,9,16,0.55) 30%, rgba(10,9,16,0.15) 50%, rgba(10,9,16,0.04) 65%, transparent 80%)',
-              pointerEvents: 'none',
-            }}
-          >
-            {/* Progress badge — top right (desktop only) */}
-            <div className="absolute top-4 right-4 hidden sm:block" style={{ pointerEvents: 'auto' }}>
-              <div
-                className="rounded-xl px-4 py-2 backdrop-blur-md inline-flex items-center gap-3"
-                style={{
-                  background: 'rgba(15,14,23,0.75)',
-                  border: '1px solid rgba(201,162,39,0.2)',
-                }}
-              >
-                <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
-                  ПРОГРЕСС
-                </span>
-                <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
-                <div className="w-16 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
-                  <div className="h-full rounded-full transition-all duration-500" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
-                </div>
-                <span className="text-[10px] font-medium" style={{ color: '#c9a227' }}>
-                  {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
-                </span>
+          {/* Progress badge — desktop */}
+          <div className="hidden sm:flex items-center gap-2 shrink-0 self-start">
+            <div
+              className="rounded-lg px-3 py-1.5 inline-flex items-center gap-2"
+              style={{
+                background: 'rgba(15,14,23,0.6)',
+                border: '1px solid rgba(201,162,39,0.15)',
+              }}
+            >
+              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#9b98a8' }}>
+                ПРОГРЕСС
+              </span>
+              <span className="text-xs font-bold" style={{ color: '#e8e6f0' }}>{done} / {total}</span>
+              <div className="w-14 h-1.5 rounded-full" style={{ background: 'rgba(0,212,170,0.15)' }}>
+                <div className="h-full rounded-full transition-all duration-500" style={{ width: total > 0 ? `${(done / total) * 100}%` : '0%', background: '#00d4aa' }} />
               </div>
-            </div>
-
-            {/* Welcome text + CTA — bottom area */}
-            <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7" style={{ pointerEvents: 'auto' }}>
-              <div className="max-w-[560px]">
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-1.5" style={{ color: '#e8e6f0' }}>
-                  Python Quest — Башня Алгоритмов
-                </h1>
-                <p className="text-xs sm:text-sm leading-relaxed mb-4 max-w-[460px]" style={{ color: '#c9a227', lineHeight: '1.65' }}>
-                  Погрузись в мир магии и алгоритмов. Пройди путь от новичка до архимага Python.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-3">
-                  <button
-                    onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-                    className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
-                    style={{
-                      background: 'linear-gradient(135deg, #c9a227 0%, #d4b44a 100%)',
-                      color: '#0f0e17',
-                      boxShadow: '0 4px 18px rgba(201,162,39,0.4)',
-                    }}
-                  >
-                    <span className="text-base">⚔️</span>
-                    <span>Продолжить квест</span>
-                  </button>
-                  <button
-                    onClick={() => navigate('/lesson/1-1')}
-                    className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-medium cursor-pointer transition-all hover:scale-[1.03] active:scale-[0.97] hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
-                    style={{
-                      background: 'rgba(15,14,23,0.55)',
-                      border: '1px solid rgba(201,162,39,0.35)',
-                      color: '#e8e6f0',
-                      backdropFilter: 'blur(6px)',
-                    }}
-                  >
-                    <span>📖</span>
-                    <span>Начать с начала</span>
-                  </button>
-                </div>
-              </div>
+              <span className="text-[10px] font-medium" style={{ color: '#c9a227' }}>
+                {done >= 80 ? 'Архимаг' : done >= 50 ? 'Плетущий код' : done >= 20 ? 'Адепт' : 'Новичок'}
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mobile: progress below hero */}
+      {/* 2. Hero Image — без текста поверх */}
+      <section className="rounded-[20px] overflow-hidden" style={{ border: '1px solid rgba(201,162,39,0.3)' }}>
+        <img
+          src="/herro_section/76a49100-f0db-405c-9bd9-da72317bbd2d.webp"
+          alt="Python Quest — Башня Алгоритмов"
+          className="w-full h-auto object-contain"
+          style={{ display: 'block' }}
+        />
+      </section>
+
+      {/* 3. CTA buttons — под изображением */}
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+        <button
+          onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
+          className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+          style={{
+            background: 'linear-gradient(135deg, #c9a227 0%, #d4b44a 100%)',
+            color: '#0f0e17',
+            boxShadow: '0 4px 18px rgba(201,162,39,0.4)',
+          }}
+        >
+          <span className="text-base">⚔️</span>
+          <span>Продолжить квест</span>
+        </button>
+        <button
+          onClick={() => navigate('/lesson/1-1')}
+          className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-medium cursor-pointer transition-all hover:scale-[1.03] active:scale-[0.97] hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+          style={{
+            background: 'rgba(15,14,23,0.55)',
+            border: '1px solid rgba(201,162,39,0.35)',
+            color: '#e8e6f0',
+            backdropFilter: 'blur(6px)',
+          }}
+        >
+          <span>📖</span>
+          <span>Начать с начала</span>
+        </button>
+      </div>
+
+      {/* Mobile: progress под кнопками */}
       <div className="sm:hidden">
         <div className="flex items-center gap-2 text-[10px]" style={{ color: '#9b98a8' }}>
           <span className="font-bold uppercase tracking-wider">ПРОГРЕСС</span>
