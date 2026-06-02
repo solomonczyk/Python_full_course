@@ -126,16 +126,16 @@ export const SKILL_PROGRESSION: SkillProgressionMap = {
       concepts_known_after: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random"],
     },
     "2-5": {
-      new_concepts: ["elif"],
+      new_concepts: ["for", "loop"],
       known_before: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random"],
-      forbidden_before: ["for", "while", "functions", "list", "logical_ops"],
-      concepts_known_after: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "elif"],
+      forbidden_before: ["while", "functions", "list", "logical_ops"],
+      concepts_known_after: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "for", "loop"],
     },
     "2-6": {
       new_concepts: ["logical_ops", "and", "or", "not"],
-      known_before: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "elif"],
-      forbidden_before: ["for", "while", "functions", "list"],
-      concepts_known_after: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "elif", "logical_ops"],
+      known_before: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "elif", "for", "loop"],
+      forbidden_before: ["while", "functions", "list"],
+      concepts_known_after: ["print", "string", "variables", "input", "int", "arithmetic_operator", "comparison", "true_false", "if", "else", "float", "string_methods", "f_string", "import", "random", "elif", "for", "loop", "logical_ops"],
     },
     "3-1": {
       new_concepts: ["for", "loop"],
@@ -619,7 +619,7 @@ export const SKILL_PROGRESSION: SkillProgressionMap = {
     },
     "recap-2": {
       covers_lessons: ["2-1", "2-2", "2-3", "2-4", "2-5", "2-6"],
-      concepts_covered: ["print", "string", "variables", "input", "int", "float", "arithmetic_operator", "comparison", "true_false", "if", "else", "elif", "string_methods", "f_string", "import", "random", "logical_ops"],
+      concepts_covered: ["print", "string", "variables", "input", "int", "float", "arithmetic_operator", "comparison", "true_false", "if", "else", "elif", "string_methods", "f_string", "import", "random", "logical_ops", "for", "loop"],
     },
     "recap-3a": {
       covers_lessons: ["3-1", "3-2", "3-3", "3-4", "3-5", "3-6", "3-7", "3-8", "3-9", "3-10", "3-11", "3-12", "3-13", "3-14", "3-15", "3-16", "3-17", "3-18"],

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-06-02T16:43:04.651123+00:00",
+  "generated_at": "2026-06-02T17:00:04.441243+00:00",
   "total_items_checked": 1347,
-  "issues_total": 53,
+  "issues_total": 41,
   "severity_counts": {
     "must_fix_now": 0,
-    "needs_human_review": 51,
+    "needs_human_review": 39,
     "can_defer": 0,
     "non_blocking_polish": 2
   },
@@ -299,136 +299,6 @@
       "issue_id": "PQA-0023",
       "severity": "needs_human_review",
       "surface": "lesson",
-      "item_id": "2-5",
-      "field": "mission.task",
-      "issue_type": "premature_concept_risk",
-      "current_text": "Выведи результаты умножения числа 3 на каждое число от 1 до 5. Используй цикл for и range(1, 6). Внутри цикла вычисли результат = 3 * i и выведи его. Каждое число на новой строке.",
-      "reason": "Task text mentions 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase task to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0024",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Представь паровую сборочную линию на фабрике. Мимо едут заготовки, и на каждом шаге автомат ставит штамп. Сколько заготовок проехало — столько раз автомат повторил действие. В Python это цикл `for`.",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0025",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "pre_topic_dialogue[2].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть `for` сам следит, сколько раз выполнить блок, и я не копирую код. Как конвейер: заготовки — это повторения, а автомат — мой код с отступом?",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0026",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "pre_topic_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Да. `for i in range(5): print('Привет!')` — конвейер из пяти заготовок. Двоеточие в конце и отступ внутри: без них паровой автомат не включится.",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0027",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "pre_topic_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть `for i in range(5): print('Привет')` — это как сказать «сделай так 5 раз»? И мне не нужно копировать `print` пять раз подряд?",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0028",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "post_error_dialogue[0].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "А, понял! `for` сам повторяет код. Не нужно писать `print` несколько раз.",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0029",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "post_error_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Цикл for сам управляет переменной. Не нужно вручную увеличивать счётчик.",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0030",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "post_error_dialogue[2].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Тело цикла должно быть с отступом. Без отступа Python не поймёт, что повторять.",
-      "reason": "Dialogue uses 'повтор' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0031",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-5",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Ясно: `for` сам повторяет блок кода. `range`(n) говорит сколько раз.",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0032",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-6",
-      "field": "pre_topic_dialogue[0].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Я написал `for i in range(5): print(i)` и получил 0, 1, 2, 3, 4. Почему с нуля, а не с единицы?",
-      "reason": "Dialogue uses 'for' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0033",
-      "severity": "needs_human_review",
-      "surface": "lesson",
       "item_id": "3-11",
       "field": "post_error_dialogue[4].text",
       "issue_type": "dialogue_premature_concept",
@@ -439,7 +309,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0034",
+      "issue_id": "PQA-0024",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-17",
@@ -452,7 +322,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0035",
+      "issue_id": "PQA-0025",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-1",
@@ -465,7 +335,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0036",
+      "issue_id": "PQA-0026",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-10",
@@ -478,7 +348,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0037",
+      "issue_id": "PQA-0027",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-5",
@@ -491,7 +361,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0038",
+      "issue_id": "PQA-0028",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-6",
@@ -504,7 +374,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0039",
+      "issue_id": "PQA-0029",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-2",
@@ -517,7 +387,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0040",
+      "issue_id": "PQA-0030",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "2-3",
@@ -530,7 +400,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0041",
+      "issue_id": "PQA-0031",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-3",
@@ -543,7 +413,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0042",
+      "issue_id": "PQA-0032",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-1",
@@ -556,7 +426,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0043",
+      "issue_id": "PQA-0033",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-18",
@@ -569,7 +439,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0044",
+      "issue_id": "PQA-0034",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-30",
@@ -582,7 +452,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0045",
+      "issue_id": "PQA-0035",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-33",
@@ -595,7 +465,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0046",
+      "issue_id": "PQA-0036",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-34",
@@ -608,7 +478,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0047",
+      "issue_id": "PQA-0037",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-37",
@@ -621,7 +491,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0048",
+      "issue_id": "PQA-0038",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-39",
@@ -634,7 +504,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0049",
+      "issue_id": "PQA-0039",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-17",
@@ -647,7 +517,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0050",
+      "issue_id": "PQA-0040",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-23",
@@ -660,7 +530,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0051",
+      "issue_id": "PQA-0041",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "5-3",
@@ -669,32 +539,6 @@
       "current_text": "Создай функцию add(a, b), которая возвращает сумму двух чисел. Выведи результат вызова add(7, 8).",
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0052",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "4-31",
-      "field": "code_watch",
-      "issue_type": "boss_no_code_watch",
-      "current_text": "",
-      "reason": "Boss difficulty lesson has no code_watch block",
-      "suggested_fix": "Consider adding code_walkthrough for boss lesson",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0053",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "3-41",
-      "field": "code_watch",
-      "issue_type": "boss_no_code_watch",
-      "current_text": "",
-      "reason": "Boss difficulty lesson has no code_watch block",
-      "suggested_fix": "Consider adding code_walkthrough for boss lesson",
       "auto_fix_safe": false,
       "requires_operator_review": true
     }
