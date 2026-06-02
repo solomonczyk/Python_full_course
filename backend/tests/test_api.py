@@ -220,3 +220,124 @@ def test_progress_with_user_id():
     """GET /progress with X-User-Id returns 200."""
     r = client.get("/progress", headers={"X-User-Id": "test-user"})
     assert r.status_code == 200
+
+
+# ── Quest endpoint tests ────────────────────────────────────────────────────
+
+def test_quests():
+    """GET /quests returns all quests."""
+    r = client.get("/quests")
+    assert r.status_code == 200
+    data = r.json()
+    assert isinstance(data, list)
+    assert len(data) >= 6, f"Expected 6+ quests, got {len(data)}"
+    quest = data[0]
+    assert "id" in quest
+    assert "part" in quest
+    assert "title" in quest
+
+
+def test_quest_detail():
+    """GET /quests/{id} returns full quest data."""
+    r = client.get("/quests/quest-1")
+    assert r.status_code == 200
+    data = r.json()
+    assert data["id"] == "quest-1"
+    assert "story" in data
+    assert "test_cases" in data
+    assert "task" in data
+    assert "starter_code" in data
+
+
+def test_capstone_quest():
+    """GET /quests/quest-6 returns capstone quest."""
+    r = client.get("/quests/quest-6")
+    assert r.status_code == 200
+    data = r.json()
+    assert data.get("is_capstone") is True, "quest-6 should have is_capstone=true"
+    required = data.get("required_lessons", [])
+    assert len(required) >= 80, f"Capstone should reference 80+ lessons, got {len(required)}"
+
+
+def test_quest_not_found():
+    """GET /quests/nonexistent returns 404."""
+    r = client.get("/quests/nonexistent-quest")
+    assert r.status_code == 404
+
+
+def test_quest_check_valid():
+    """POST /quests/{quest_id}/check validates code for quest-1."""
+    code = "name = input()\nlevel = int(input())\nelement = input()\nprint('Герой:', name)\nprint('Стихия:', element)\nif level >= 5:\n    print('Врата открываются!')\nelse:\n    print('Нужно больше тренировок.')"
+    r = client.post("/quests/quest-1/check", json={"code": code})
+    assert r.status_code == 200
+    result = r.json()
+    assert "all_passed" in result
+    assert result["all_passed"] is True, f"Quest check should pass, got: {result}"
+    assert len(result["results"]) == 2
+
+
+def test_quest_check_invalid():
+    """POST /quests/{quest_id}/check with bad code returns failures."""
+    code = "print('hello')"
+    r = client.post("/quests/quest-1/check", json={"code": code})
+    assert r.status_code == 200
+    result = r.json()
+    assert result["all_passed"] is False
+
+
+def test_quest_check_forbidden():
+    """POST /quests/{quest_id}/check rejects forbidden imports."""
+    code = "import os\nprint('hello')"
+    r = client.post("/quests/quest-1/check", json={"code": code})
+    assert r.status_code == 200
+    result = r.json()
+    assert result["all_passed"] is False
+    assert "запрещён" in (result.get("error") or "").lower()
+
+
+# ── Recap endpoint tests ────────────────────────────────────────────────────
+
+def test_recaps():
+    """GET /recaps returns all recaps."""
+    r = client.get("/recaps")
+    assert r.status_code == 200
+    data = r.json()
+    assert isinstance(data, list)
+    assert len(data) >= 9, f"Expected 9+ recaps, got {len(data)}"
+
+
+def test_recap_detail():
+    """GET /recaps/{id} returns a single recap."""
+    r = client.get("/recaps/recap-1")
+    assert r.status_code == 200
+    data = r.json()
+    assert data["id"] == "recap-1"
+    assert "story_summary" in data
+    assert "hero_skills" in data
+    assert "key_rules" in data
+    assert "mini_check" in data
+
+
+def test_sub_recap_detail():
+    """GET /recaps/recap-3a returns Part 3 checkpoint recap."""
+    r = client.get("/recaps/recap-3a")
+    assert r.status_code == 200
+    data = r.json()
+    assert data["id"] == "recap-3a"
+    assert data["part"] == 3
+    assert len(data.get("mini_check", [])) >= 3
+    assert len(data.get("key_rules", [])) >= 5
+
+
+def test_sub_recap_all_exist():
+    """All 4 Part 3 sub-recaps exist."""
+    for rid in ["recap-3a", "recap-3b", "recap-3c", "recap-3d"]:
+        r = client.get(f"/recaps/{rid}")
+        assert r.status_code == 200, f"Sub-recap {rid} not found"
+        assert r.json()["part"] == 3
+
+
+def test_recap_not_found():
+    """GET /recaps/nonexistent returns 404."""
+    r = client.get("/recaps/nonexistent-recap")
+    assert r.status_code == 404

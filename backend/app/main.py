@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
-from app.routers import lessons, progress, quiz, mission
+from app.routers import lessons, progress, quiz, mission, quests, recaps
 
 
 @asynccontextmanager
@@ -40,6 +40,8 @@ app.include_router(lessons.router)
 app.include_router(progress.router)
 app.include_router(quiz.router)
 app.include_router(mission.router)
+app.include_router(quests.router)
+app.include_router(recaps.router)
 
 
 @app.get("/")

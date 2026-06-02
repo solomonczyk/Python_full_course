@@ -231,6 +231,80 @@ export interface CodeWalkthrough {
   solutions?: WalkthroughSolution[]
 }
 
+// ── Quest types ──────────────────────────────────────────────────────────
+
+export interface QuestTestCase {
+  input: string
+  expected_contains: string[]
+}
+
+export interface QuestSummary {
+  id: string
+  part: number
+  title: string
+  is_capstone?: boolean
+}
+
+export interface Quest {
+  id: string
+  part: number
+  title: string
+  is_capstone?: boolean
+  story: string
+  required_lessons: string[]
+  required_constructs: string[]
+  task: string
+  starter_code: string
+  example_solution: string
+  test_cases: QuestTestCase[]
+  success_criteria: string[]
+  hints: string[]
+}
+
+export interface QuestCheckResult {
+  quest_id: string
+  results: Array<{
+    passed: boolean
+    input: string
+    actual_output: string
+    missing_contains: string[]
+    error?: string | null
+  }>
+  all_passed: boolean
+  error?: string
+}
+
+// ── Recap types ──────────────────────────────────────────────────────────
+
+export interface RecapSummary {
+  id: string
+  part: number
+  title: string
+}
+
+export interface HeroSkill {
+  name: string
+  python: string
+  meaning: string
+  analogy: string
+}
+
+export interface MiniCheckItem {
+  question: string
+  answer: string
+}
+
+export interface Recap {
+  id: string
+  part: number
+  title: string
+  story_summary: string
+  learned_terms: string[]
+  hero_skills: HeroSkill[]
+  key_rules: string[]
+  mini_check: MiniCheckItem[]
+}
+
 export interface TaskPresentation {
   title: string
   description: string

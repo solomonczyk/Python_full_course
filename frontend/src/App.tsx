@@ -8,6 +8,8 @@ import ChatWidget from './components/ChatWidget'
 import HomePage from './pages/HomePage'
 import LessonPage from './pages/LessonPage'
 import ReviewPage from './pages/ReviewPage'
+import QuestPage from './pages/QuestPage'
+import RecapPage from './pages/RecapPage'
 import OnboardingPage from './pages/OnboardingPage'
 import CompletionPage from './pages/CompletionPage'
 
@@ -16,7 +18,7 @@ function Layout() {
   const { lessons } = useLessons()
   const { progress } = useProgressContext()
   const location = useLocation()
-  const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
+  const match = location.pathname.match(/\/(?:lesson|review|quest|recap)\/([\w-]+)/)
   const currentLessonId = match ? match[1] : undefined
 
   useLayoutEffect(() => {
@@ -51,6 +53,8 @@ function Layout() {
               <Route path="/" element={<HomePage lessons={lessons} progress={progress} />} />
               <Route path="/lesson/:id" element={<LessonPage lessons={lessons} />} />
               <Route path="/review/:id" element={<ReviewPage />} />
+              <Route path="/quest/:id" element={<QuestPage />} />
+              <Route path="/recap/:id" element={<RecapPage />} />
             </Routes>
           </div>
         </main>

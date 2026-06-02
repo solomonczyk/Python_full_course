@@ -1573,5 +1573,24 @@
     }
   ],
   "total_lessons": 92,
-  "all_92_preserved": true
+  "all_92_preserved": true,
+  "quest_architecture": {
+    "level_5_quests_count_before": 0,
+    "level_5_quests_count_after": 6,
+    "quest_ids": ["quest-1", "quest-2", "quest-3", "quest-4", "quest-5", "quest-6"],
+    "part_5_capstone_added": true,
+    "capstone_id": "quest-6"
+  },
+  "recap_architecture": {
+    "part_recaps_before": 5,
+    "part_recaps_after": 5,
+    "part_3_recap_checkpoints_before": 0,
+    "part_3_recap_checkpoints_after": 4,
+    "sub_recap_ids": ["recap-3a", "recap-3b", "recap-3c", "recap-3d"]
+  },
+  "api_routes_added": ["/quests", "/quests/{id}", "/quests/{id}/check", "/recaps", "/recaps/{id}"],
+  "frontend_routes_added": ["/quest/:id", "/recap/:id"],
+  "frontend_pages_added": ["QuestPage", "RecapPage"],
+  "backend_routers_wired": ["quests", "recaps"],
+  "production_accepted": false
 }

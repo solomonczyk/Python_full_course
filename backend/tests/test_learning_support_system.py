@@ -75,7 +75,7 @@ class TestRecapsData:
     def test_recaps_exists(self):
         data = _load_json("recaps.json")
         assert isinstance(data, list), "recaps.json must be a list"
-        assert len(data) >= 5, f"Expected >= 5 recaps (1 per part), got {len(data)}"
+        assert len(data) >= 9, f"Expected >= 9 recaps (5 part + 4 sub-recaps), got {len(data)}"
 
     def test_recaps_required_fields(self):
         data = _load_json("recaps.json")
@@ -96,17 +96,42 @@ class TestRecapsData:
         ids = [r["id"] for r in data]
         assert len(ids) == len(set(ids)), "Duplicate recap IDs found"
 
+    def test_recaps_have_sub_recaps(self):
+        data = _load_json("recaps.json")
+        sub_ids = ["recap-3a", "recap-3b", "recap-3c", "recap-3d"]
+        found = [r["id"] for r in data if r["id"] in sub_ids]
+        assert len(found) == 4, f"Expected 4 Part 3 sub-recaps, found: {found}"
+
+    def test_sub_recaps_have_mini_check(self):
+        data = _load_json("recaps.json")
+        sub_ids = ["recap-3a", "recap-3b", "recap-3c", "recap-3d"]
+        for rid in sub_ids:
+            recap = next((r for r in data if r["id"] == rid), None)
+            assert recap is not None, f"Sub-recap '{rid}' not found"
+            assert len(recap.get("mini_check", [])) >= 3, \
+                f"Sub-recap '{rid}' has < 3 mini_check questions"
+            assert len(recap.get("key_rules", [])) >= 5, \
+                f"Sub-recap '{rid}' has < 5 key_rules"
+
+    def test_sub_recaps_have_part_3(self):
+        data = _load_json("recaps.json")
+        sub_ids = ["recap-3a", "recap-3b", "recap-3c", "recap-3d"]
+        for rid in sub_ids:
+            recap = next((r for r in data if r["id"] == rid), None)
+            assert recap is not None, f"Sub-recap '{rid}' not found"
+            assert recap["part"] == 3, f"Sub-recap '{rid}' has part={recap['part']}, expected 3"
+
 
 class TestQuestsData:
-    """Tests for chapter_quests.json completeness."""
+    """Tests for quests.json completeness."""
 
     def test_quests_exists(self):
-        data = _load_json("chapter_quests.json")
-        assert isinstance(data, list), "chapter_quests.json must be a list"
-        assert len(data) >= 5, f"Expected >= 5 quests (1 per part), got {len(data)}"
+        data = _load_json("quests.json")
+        assert isinstance(data, list), "quests.json must be a list"
+        assert len(data) >= 6, f"Expected >= 6 quests (5 part + 1 capstone), got {len(data)}"
 
     def test_quests_required_fields(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         required = {"id", "part", "title", "story", "required_lessons",
                      "required_constructs", "task", "starter_code",
                      "example_solution", "test_cases", "success_criteria", "hints"}
@@ -115,33 +140,48 @@ class TestQuestsData:
             assert not missing, f"Quest '{quest.get('id', '?')}' missing fields: {missing}"
 
     def test_quests_cover_all_parts(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         parts = sorted(set(q["part"] for q in data))
         expected = list(range(1, 6))
         assert parts == expected, f"Expected quests for parts {expected}, got {parts}"
 
     def test_quests_have_multiple_constructs(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         for quest in data:
             assert len(quest["required_constructs"]) >= 3, \
                 f"Quest '{quest['id']}' has < 3 required constructs (single-topic)"
 
     def test_quests_no_duplicate_ids(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         ids = [q["id"] for q in data]
         assert len(ids) == len(set(ids)), "Duplicate quest IDs found"
 
     def test_quests_have_test_cases(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         for quest in data:
             assert len(quest["test_cases"]) >= 1, \
                 f"Quest '{quest['id']}' has no test cases"
 
     def test_quests_have_hints(self):
-        data = _load_json("chapter_quests.json")
+        data = _load_json("quests.json")
         for quest in data:
             assert len(quest["hints"]) >= 1, \
                 f"Quest '{quest['id']}' has no hints"
+
+    def test_quest_6_is_capstone(self):
+        data = _load_json("quests.json")
+        quest_6 = next((q for q in data if q["id"] == "quest-6"), None)
+        assert quest_6 is not None, "quest-6 not found"
+        assert quest_6.get("is_capstone") is True, "quest-6 missing is_capstone=true"
+        assert len(quest_6.get("required_constructs", [])) >= 6, \
+            f"Capstone integrates {len(quest_6.get('required_constructs', []))} constructs, expected 6+"
+        assert len(quest_6.get("test_cases", [])) >= 3, \
+            f"Capstone has {len(quest_6.get('test_cases', []))} test cases, expected 3+"
+
+    def test_chapter_quests_legacy_unchanged(self):
+        """Legacy chapter_quests.json should still have 5 entries."""
+        data = _load_json("chapter_quests.json")
+        assert len(data) == 5, f"chapter_quests.json has {len(data)} entries, expected 5"
 
 
 class TestFoundationBlocks:
