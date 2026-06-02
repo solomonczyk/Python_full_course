@@ -43,7 +43,7 @@
     "report": "docs/skill_progression_and_boss_code_watch_resolution_report.md",
     "proof": "docs/proof_skill_progression_and_boss_code_watch_resolution.json"
   },
-  "git_commit": "5207ffa",
+  "git_commit": "745fc74",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "operator_review_remaining_wording_polish_or_post_acceptance_monitoring"
