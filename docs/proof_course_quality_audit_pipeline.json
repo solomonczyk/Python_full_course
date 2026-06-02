@@ -34,7 +34,7 @@
     "frontend_typecheck_passed": true,
     "frontend_build_passed": true
   },
-  "git_commit": "a5bfda1612750f38b957df551b5598873611b1b7",
+  "git_commit": "6c2d171637cc93af1b93c9ff697046d83faf28be",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "course_quality_issue_triage_or_targeted_corrective_pass",
