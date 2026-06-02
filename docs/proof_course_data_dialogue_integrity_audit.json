@@ -1,0 +1,60 @@
+{
+  "task": "PYTHON-QUEST-POST-ACCEPTANCE-COURSE-DATA-DIALOGUE-INTEGRITY-AUDIT-001",
+  "verdict": "PASS",
+  "lesson_1_8_runtime_blocker_remains_fixed": true,
+  "dialogue_steps_checked": true,
+  "code_watch_blocks_checked": true,
+  "analogy_blocks_checked": true,
+  "recaps_checked": true,
+  "quests_checked": true,
+  "malformed_entries_found": 2,
+  "malformed_entries_fixed": 2,
+  "malformed_entries_detail": [
+    {
+      "location": "lesson=1-8 code_watch.dialogue[3]",
+      "issue": "missing 'text' field (had speaker, code, output, caption only)",
+      "fix": "added text from caption field: 'Что происходит при x = -5'"
+    },
+    {
+      "location": "lesson=2-1 code_watch.dialogue[3]",
+      "issue": "missing 'text' field (had speaker, code, caption only)",
+      "fix": "added text from caption field: 'Первое True побеждает'"
+    }
+  ],
+  "fixed_in_files": [
+    "backend/app/data/lessons.json",
+    "api/app/data/lessons.json",
+    "api/lessons.json"
+  ],
+  "audit_script_added_or_updated": true,
+  "audit_script": "scripts/audit_dialogue_integrity.py",
+  "audit_script_checks": [
+    "dialogue steps (pre_topic, post_error, code_watch, review, dialogues_part2): missing text, invalid character",
+    "WalkthroughStep: required text/speaker fields, empty optional fields",
+    "code_watch block: required title/main_code/dialogue",
+    "analogy block: required title/story_metaphor/python_mapping/key_rule",
+    "foundation block: required title",
+    "lesson blocks: what_outputs/find_bug/quiz/mission field completeness",
+    "recap structure: title/story_summary/hero_skills",
+    "quest structure: required fields and test_cases",
+    "review_schedule: nested reviews array, optional dialogue",
+    "all optional-but-present fields checked for non-empty content"
+  ],
+  "runtime_guards_preserved": true,
+  "runtime_guards_verified": [
+    "frontend/src/components/CodeWatchBlock.tsx:27 — walkthrough.dialogue.filter(s => s.text)",
+    "frontend/src/components/DialogueBubble.tsx:29,39 — if (!text) return null",
+    "frontend/src/components/AnalogyBlock.tsx:6 — if (!text) return null",
+    "frontend/src/utils/lessonId.ts — parseLessonId() safe parsing"
+  ],
+  "production_accepted_preserved": true,
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true,
+    "audit_script_self_check": true
+  },
+  "git_commit": "5b9cb06",
+  "git_pushed": true,
+  "git_clean": true,
+  "next_allowed_action": "hero_readability_fix_or_homepage_ux_polish"
+}

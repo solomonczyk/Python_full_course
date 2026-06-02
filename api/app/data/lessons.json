@@ -1386,7 +1386,8 @@
           "speaker": "ksyu",
           "code": "x = -5\nif x > 0:\n    message = \"Плюс\"\nprint(message)",
           "output": "NameError: name \"message\" is not defined",
-          "caption": "Что происходит при x = -5"
+          "caption": "Что происходит при x = -5",
+          "text": "Что происходит при x = -5"
         },
         {
           "speaker": "novice",
@@ -1786,7 +1787,8 @@
         {
           "speaker": "va",
           "code": "x = 10\nif x > 0:      # True → выполнится\n    result = \"Больше нуля\"\nelif x > 5:    # True, но не проверяется!\n    result = \"Больше пяти\"\nprint(result)",
-          "caption": "Первое True побеждает"
+          "caption": "Первое True побеждает",
+          "text": "Первое True побеждает"
         },
         {
           "speaker": "novice",
