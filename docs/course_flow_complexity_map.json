@@ -1,0 +1,1577 @@
+{
+  "difficulty_scale": {
+    "1": "recognition / copy simple code",
+    "2": "single concept application",
+    "3": "combine 2 related concepts",
+    "4": "multi-step task with several prior concepts",
+    "5": "quest / recap / mixed challenge"
+  },
+  "lesson_map": [
+    {
+      "lesson_id": "1-1",
+      "part": 1,
+      "chapter": 1,
+      "title": "print()",
+      "main_topic": "print()",
+      "new_concepts_introduced": [
+        "print()"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": true,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-2",
+      "part": 1,
+      "chapter": 1,
+      "title": "Строки и кавычки",
+      "main_topic": "строки",
+      "new_concepts_introduced": [
+        "строки"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": true,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-3",
+      "part": 1,
+      "chapter": 1,
+      "title": "Переменные",
+      "main_topic": "переменные",
+      "new_concepts_introduced": [
+        "переменные"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": true,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-4",
+      "part": 1,
+      "chapter": 1,
+      "title": "input()",
+      "main_topic": "input()",
+      "new_concepts_introduced": [
+        "input()"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-5",
+      "part": 1,
+      "chapter": 1,
+      "title": "int(input())",
+      "main_topic": "int(input())",
+      "new_concepts_introduced": [
+        "int(input())"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": true,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-6",
+      "part": 1,
+      "chapter": 2,
+      "title": "Арифметика",
+      "main_topic": "арифметика",
+      "new_concepts_introduced": [
+        "арифметика"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-7",
+      "part": 1,
+      "chapter": 2,
+      "title": "Сравнения",
+      "main_topic": "сравнения",
+      "new_concepts_introduced": [
+        "сравнения"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-8",
+      "part": 1,
+      "chapter": 2,
+      "title": "if",
+      "main_topic": "if",
+      "new_concepts_introduced": [
+        "if"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "1-9",
+      "part": 1,
+      "chapter": 2,
+      "title": "if else",
+      "main_topic": "if",
+      "new_concepts_introduced": [
+        "if"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "2-1",
+      "part": 2,
+      "chapter": 3,
+      "title": "elif",
+      "main_topic": "elif",
+      "new_concepts_introduced": [
+        "elif"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "2-2",
+      "part": 2,
+      "chapter": 3,
+      "title": "Логические цепочки",
+      "main_topic": "логические",
+      "new_concepts_introduced": [
+        "логические"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "2-3",
+      "part": 2,
+      "chapter": 4,
+      "title": "random.randint",
+      "main_topic": "random.randint",
+      "new_concepts_introduced": [
+        "random.randint"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "2-4",
+      "part": 2,
+      "chapter": 4,
+      "title": "Простая игра с random",
+      "main_topic": "простая",
+      "new_concepts_introduced": [
+        "простая"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "single_subtask",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "2-5",
+      "part": 2,
+      "chapter": 5,
+      "title": "Первое знакомство с for",
+      "main_topic": "первое",
+      "new_concepts_introduced": [
+        "первое"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "difficulty_jump_mission_too_hard"
+    },
+    {
+      "lesson_id": "2-6",
+      "part": 2,
+      "chapter": 5,
+      "title": "range",
+      "main_topic": "range",
+      "new_concepts_introduced": [
+        "range"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-1",
+      "part": 3,
+      "chapter": 6,
+      "title": "Float и типы данных",
+      "main_topic": "float",
+      "new_concepts_introduced": [
+        "float"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-2",
+      "part": 3,
+      "chapter": 6,
+      "title": "Обычное деление /",
+      "main_topic": "обычное",
+      "new_concepts_introduced": [
+        "обычное"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "single_subtask",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-3",
+      "part": 3,
+      "chapter": 6,
+      "title": "Целочисленное деление //",
+      "main_topic": "целочисленное",
+      "new_concepts_introduced": [
+        "целочисленное"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-4",
+      "part": 3,
+      "chapter": 6,
+      "title": "Остаток от деления %",
+      "main_topic": "остаток",
+      "new_concepts_introduced": [
+        "остаток"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-5",
+      "part": 3,
+      "chapter": 6,
+      "title": "Определение на чётность",
+      "main_topic": "определение",
+      "new_concepts_introduced": [
+        "определение"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-6",
+      "part": 3,
+      "chapter": 7,
+      "title": "Bool",
+      "main_topic": "bool",
+      "new_concepts_introduced": [
+        "bool"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-7",
+      "part": 3,
+      "chapter": 7,
+      "title": "Состояния объектов",
+      "main_topic": "состояния",
+      "new_concepts_introduced": [
+        "состояния"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-8",
+      "part": 3,
+      "chapter": 7,
+      "title": "Короткая запись условий",
+      "main_topic": "короткая",
+      "new_concepts_introduced": [
+        "короткая"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-9",
+      "part": 3,
+      "chapter": 7,
+      "title": "and",
+      "main_topic": "and",
+      "new_concepts_introduced": [
+        "and"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-10",
+      "part": 3,
+      "chapter": 7,
+      "title": "or",
+      "main_topic": "or",
+      "new_concepts_introduced": [
+        "or"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-11",
+      "part": 3,
+      "chapter": 7,
+      "title": "not",
+      "main_topic": "not",
+      "new_concepts_introduced": [
+        "not"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-12",
+      "part": 3,
+      "chapter": 7,
+      "title": "Оптимизация if",
+      "main_topic": "оптимизация",
+      "new_concepts_introduced": [
+        "оптимизация"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-13",
+      "part": 3,
+      "chapter": 7,
+      "title": "Вложенные if",
+      "main_topic": "вложенные",
+      "new_concepts_introduced": [
+        "вложенные"
+      ],
+      "difficulty_label": "hard",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "hard_lesson_mid_chapter"
+    },
+    {
+      "lesson_id": "3-14",
+      "part": 3,
+      "chapter": 8,
+      "title": "For и range база",
+      "main_topic": "for",
+      "new_concepts_introduced": [
+        "for"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-15",
+      "part": 3,
+      "chapter": 8,
+      "title": "Диапазон range(start, stop)",
+      "main_topic": "диапазон",
+      "new_concepts_introduced": [
+        "диапазон"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-16",
+      "part": 3,
+      "chapter": 8,
+      "title": "Шаг range",
+      "main_topic": "шаг",
+      "new_concepts_introduced": [
+        "шаг"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-17",
+      "part": 3,
+      "chapter": 8,
+      "title": "Обратный ход",
+      "main_topic": "обратный",
+      "new_concepts_introduced": [
+        "обратный"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-18",
+      "part": 3,
+      "chapter": 8,
+      "title": "Переменные в циклах",
+      "main_topic": "переменные",
+      "new_concepts_introduced": [
+        "переменные"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-19",
+      "part": 3,
+      "chapter": 9,
+      "title": "Строки база",
+      "main_topic": "строки",
+      "new_concepts_introduced": [
+        "строки"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-20",
+      "part": 3,
+      "chapter": 9,
+      "title": "Оператор in для строк",
+      "main_topic": "оператор",
+      "new_concepts_introduced": [
+        "оператор"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-21",
+      "part": 3,
+      "chapter": 9,
+      "title": "len",
+      "main_topic": "len",
+      "new_concepts_introduced": [
+        "len"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-22",
+      "part": 3,
+      "chapter": 9,
+      "title": "F-строка",
+      "main_topic": "f-строка",
+      "new_concepts_introduced": [
+        "f-строка"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-23",
+      "part": 3,
+      "chapter": 9,
+      "title": "Методы строк",
+      "main_topic": "методы",
+      "new_concepts_introduced": [
+        "методы"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-24",
+      "part": 3,
+      "chapter": 9,
+      "title": "Индексы",
+      "main_topic": "индексы",
+      "new_concepts_introduced": [
+        "индексы"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-25",
+      "part": 3,
+      "chapter": 9,
+      "title": "Срезы",
+      "main_topic": "срезы",
+      "new_concepts_introduced": [
+        "срезы"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-26",
+      "part": 3,
+      "chapter": 10,
+      "title": "Перебор строки",
+      "main_topic": "перебор",
+      "new_concepts_introduced": [
+        "перебор"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-27",
+      "part": 3,
+      "chapter": 10,
+      "title": "Списки база",
+      "main_topic": "списки",
+      "new_concepts_introduced": [
+        "списки"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-28",
+      "part": 3,
+      "chapter": 10,
+      "title": "Замена элемента списка",
+      "main_topic": "замена",
+      "new_concepts_introduced": [
+        "замена"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-29",
+      "part": 3,
+      "chapter": 10,
+      "title": "pop",
+      "main_topic": "pop",
+      "new_concepts_introduced": [
+        "pop"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-30",
+      "part": 3,
+      "chapter": 10,
+      "title": "remove",
+      "main_topic": "remove",
+      "new_concepts_introduced": [
+        "remove"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-31",
+      "part": 3,
+      "chapter": 10,
+      "title": "append",
+      "main_topic": "append",
+      "new_concepts_introduced": [
+        "append"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-32",
+      "part": 3,
+      "chapter": 10,
+      "title": "index",
+      "main_topic": "index",
+      "new_concepts_introduced": [
+        "index"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-33",
+      "part": 3,
+      "chapter": 10,
+      "title": "Сумма элементов списка",
+      "main_topic": "сумма",
+      "new_concepts_introduced": [
+        "сумма"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-34",
+      "part": 3,
+      "chapter": 10,
+      "title": "count",
+      "main_topic": "count",
+      "new_concepts_introduced": [
+        "count"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-35",
+      "part": 3,
+      "chapter": 10,
+      "title": "Фильтрация списка",
+      "main_topic": "фильтрация",
+      "new_concepts_introduced": [
+        "фильтрация"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-36",
+      "part": 3,
+      "chapter": 11,
+      "title": "insert",
+      "main_topic": "insert",
+      "new_concepts_introduced": [
+        "insert"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-37",
+      "part": 3,
+      "chapter": 11,
+      "title": "extend",
+      "main_topic": "extend",
+      "new_concepts_introduced": [
+        "extend"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-38",
+      "part": 3,
+      "chapter": 11,
+      "title": "Срезы списков",
+      "main_topic": "срезы",
+      "new_concepts_introduced": [
+        "срезы"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-39",
+      "part": 3,
+      "chapter": 11,
+      "title": "random.choice",
+      "main_topic": "random.choice",
+      "new_concepts_introduced": [
+        "random.choice"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-40",
+      "part": 3,
+      "chapter": 11,
+      "title": "random.shuffle",
+      "main_topic": "random.shuffle",
+      "new_concepts_introduced": [
+        "random.shuffle"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-1",
+      "part": 4,
+      "chapter": 12,
+      "title": "Флаги",
+      "main_topic": "флаги",
+      "new_concepts_introduced": [
+        "флаги"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-2",
+      "part": 4,
+      "chapter": 12,
+      "title": "break",
+      "main_topic": "break",
+      "new_concepts_introduced": [
+        "break"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-3",
+      "part": 4,
+      "chapter": 12,
+      "title": "Поиск максимума",
+      "main_topic": "поиск",
+      "new_concepts_introduced": [
+        "поиск"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-4",
+      "part": 4,
+      "chapter": 12,
+      "title": "Поиск минимума",
+      "main_topic": "поиск",
+      "new_concepts_introduced": [
+        "поиск"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-5",
+      "part": 4,
+      "chapter": 12,
+      "title": "Максимальная длина",
+      "main_topic": "максимальная",
+      "new_concepts_introduced": [
+        "максимальная"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-6",
+      "part": 4,
+      "chapter": 12,
+      "title": "Первый с конца",
+      "main_topic": "первый",
+      "new_concepts_introduced": [
+        "первый"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-7",
+      "part": 4,
+      "chapter": 13,
+      "title": "None",
+      "main_topic": "none",
+      "new_concepts_introduced": [
+        "none"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-8",
+      "part": 4,
+      "chapter": 13,
+      "title": "Алгоритмическое мышление",
+      "main_topic": "алгоритмическое",
+      "new_concepts_introduced": [
+        "алгоритмическое"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-9",
+      "part": 4,
+      "chapter": 13,
+      "title": "join",
+      "main_topic": "join",
+      "new_concepts_introduced": [
+        "join"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-10",
+      "part": 4,
+      "chapter": 13,
+      "title": "Перенос строки \\n",
+      "main_topic": "перенос",
+      "new_concepts_introduced": [
+        "перенос"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-11",
+      "part": 4,
+      "chapter": 13,
+      "title": "Распаковка",
+      "main_topic": "распаковка",
+      "new_concepts_introduced": [
+        "распаковка"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-12",
+      "part": 4,
+      "chapter": 13,
+      "title": "split",
+      "main_topic": "split",
+      "new_concepts_introduced": [
+        "split"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-13",
+      "part": 4,
+      "chapter": 14,
+      "title": "split по разделителю",
+      "main_topic": "split",
+      "new_concepts_introduced": [
+        "split"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-14",
+      "part": 4,
+      "chapter": 14,
+      "title": "map",
+      "main_topic": "map",
+      "new_concepts_introduced": [
+        "map"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-15",
+      "part": 4,
+      "chapter": 14,
+      "title": "sort",
+      "main_topic": "sort",
+      "new_concepts_introduced": [
+        "sort"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-16",
+      "part": 4,
+      "chapter": 14,
+      "title": "sorted",
+      "main_topic": "sorted",
+      "new_concepts_introduced": [
+        "sorted"
+      ],
+      "difficulty_label": "easy",
+      "difficulty_level": 1,
+      "difficulty_description": "recognition / copy simple code",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-17",
+      "part": 4,
+      "chapter": 14,
+      "title": "key",
+      "main_topic": "key",
+      "new_concepts_introduced": [
+        "key"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-18",
+      "part": 4,
+      "chapter": 15,
+      "title": "Вложенные списки",
+      "main_topic": "вложенные",
+      "new_concepts_introduced": [
+        "вложенные"
+      ],
+      "difficulty_label": "hard",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "consecutive_hard_lessons"
+    },
+    {
+      "lesson_id": "4-19",
+      "part": 4,
+      "chapter": 15,
+      "title": "Изменение вложенных списков",
+      "main_topic": "изменение",
+      "new_concepts_introduced": [
+        "изменение"
+      ],
+      "difficulty_label": "hard",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "consecutive_hard_lessons"
+    },
+    {
+      "lesson_id": "4-20",
+      "part": 4,
+      "chapter": 15,
+      "title": "Перебор вложенного списка",
+      "main_topic": "перебор",
+      "new_concepts_introduced": [
+        "перебор"
+      ],
+      "difficulty_label": "hard",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "consecutive_hard_lessons"
+    },
+    {
+      "lesson_id": "4-21",
+      "part": 4,
+      "chapter": 15,
+      "title": "Ссылки",
+      "main_topic": "ссылки",
+      "new_concepts_introduced": [
+        "ссылки"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-22",
+      "part": 4,
+      "chapter": 15,
+      "title": "Изменяемые и неизменяемые типы",
+      "main_topic": "изменяемые",
+      "new_concepts_introduced": [
+        "изменяемые"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-23",
+      "part": 4,
+      "chapter": 15,
+      "title": "is",
+      "main_topic": "is",
+      "new_concepts_introduced": [
+        "is"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-24",
+      "part": 4,
+      "chapter": 15,
+      "title": "copy",
+      "main_topic": "copy",
+      "new_concepts_introduced": [
+        "copy"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-25",
+      "part": 4,
+      "chapter": 15,
+      "title": "deepcopy",
+      "main_topic": "deepcopy",
+      "new_concepts_introduced": [
+        "deepcopy"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-26",
+      "part": 4,
+      "chapter": 16,
+      "title": "while",
+      "main_topic": "while",
+      "new_concepts_introduced": [
+        "while"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-27",
+      "part": 4,
+      "chapter": 16,
+      "title": "while True",
+      "main_topic": "while",
+      "new_concepts_introduced": [
+        "while"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-28",
+      "part": 4,
+      "chapter": 16,
+      "title": "До правильного ввода",
+      "main_topic": "до",
+      "new_concepts_introduced": [
+        "до"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-29",
+      "part": 4,
+      "chapter": 17,
+      "title": "Чат-бот",
+      "main_topic": "чат-бот",
+      "new_concepts_introduced": [
+        "чат-бот"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "recap",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "4-30",
+      "part": 4,
+      "chapter": 17,
+      "title": "Таск-менеджер",
+      "main_topic": "таск-менеджер",
+      "new_concepts_introduced": [
+        "таск-менеджер"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "recap",
+      "has_foundation": false,
+      "risk_level": "mission_too_simple_for_recap"
+    },
+    {
+      "lesson_id": "4-31",
+      "part": 4,
+      "chapter": 17,
+      "title": "random + while игра",
+      "main_topic": "random",
+      "new_concepts_introduced": [
+        "random"
+      ],
+      "difficulty_label": "boss",
+      "difficulty_level": 4,
+      "difficulty_description": "multi-step task with several prior concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "boss",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "3-41",
+      "part": 3,
+      "chapter": 18,
+      "title": "Лестница отступов Багуса",
+      "main_topic": "indentation",
+      "new_concepts_introduced": [
+        "indentation"
+      ],
+      "difficulty_label": "boss",
+      "difficulty_level": 5,
+      "difficulty_description": "quest / recap / mixed challenge",
+      "practice_type": "paired_subtasks",
+      "mission_type": "boss",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "5-1",
+      "part": 5,
+      "chapter": 19,
+      "title": "Кнопка на пульте",
+      "main_topic": "def",
+      "new_concepts_introduced": [
+        "def"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "5-2",
+      "part": 5,
+      "chapter": 19,
+      "title": "Кофемашина с настройками",
+      "main_topic": "параметры",
+      "new_concepts_introduced": [
+        "параметры"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "5-3",
+      "part": 5,
+      "chapter": 19,
+      "title": "Завод с конвейером",
+      "main_topic": "return",
+      "new_concepts_introduced": [
+        "return"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "5-4",
+      "part": 5,
+      "chapter": 19,
+      "title": "Телефонная книга",
+      "main_topic": "dict",
+      "new_concepts_introduced": [
+        "dict"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 3,
+      "difficulty_description": "combine 2 related concepts",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    },
+    {
+      "lesson_id": "5-7",
+      "part": 5,
+      "chapter": 19,
+      "title": "Страховка альпиниста",
+      "main_topic": "try/except",
+      "new_concepts_introduced": [
+        "try/except"
+      ],
+      "difficulty_label": "medium",
+      "difficulty_level": 2,
+      "difficulty_description": "single concept application",
+      "practice_type": "paired_subtasks",
+      "mission_type": "standard",
+      "has_foundation": false,
+      "risk_level": "none"
+    }
+  ],
+  "total_lessons": 92,
+  "all_92_preserved": true
+}

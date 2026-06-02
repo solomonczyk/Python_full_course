@@ -1,0 +1,120 @@
+{
+  "task": "PYTHON-QUEST-COURSE-FLOW-REVIEW-001",
+  "verdict": "NEEDS_FIX",
+  "review_method": "course_flow_and_difficulty_curve_review",
+  "source_documents_reviewed": [
+    "docs/remaining_deferred_issue_triage.md",
+    "docs/proof_remaining_deferred_issue_triage.json",
+    "docs/operator_human_lesson_review_10_lessons.md",
+    "docs/content_corrective_pass_report.md",
+    "docs/operator_recheck_corrected_lessons.md",
+    "backend/app/data/lessons.json",
+    "api/app/data/lessons.json"
+  ],
+  "course_structure_mapped": true,
+  "total_lessons_count": 92,
+  "all_92_lessons_preserved": true,
+  "difficulty_model_created": true,
+  "chapter_flow_reviewed": true,
+  "lesson_2_5_reviewed": true,
+  "lesson_2_5_issue_confirmed": true,
+  "lesson_2_5_classification": "course_flow_issue",
+  "lesson_2_5_evidence": "Practice tasks only use print(i) pattern (L2). Mission requires formatted multiplication table with string concatenation and arithmetic inside loop (L3-L4). Formatting skill not taught until lesson 3-22 (f-strings), 17 lessons later.",
+  "lesson_2_5_recommended_action": "split_mission_with_scaffold",
+  "lesson_2_5_options_evaluated": {
+    "option_a_add_bridge_before": false,
+    "option_b_split_mission": true,
+    "option_c_add_scaffold_hints": true,
+    "option_d_move_to_quest": false,
+    "recommended": "B + C: split into staged tasks with scaffold template"
+  },
+  "lesson_4_30_reviewed": true,
+  "lesson_4_30_issue_confirmed": true,
+  "lesson_4_30_classification": "recap_quest_strength_issue",
+  "lesson_4_30_evidence": "Mission only requires create empty list + append one item (L1). Lesson body teaches multi-skill integration: lists + while + conditions + input. Mission does not test while loops, conditionals, input, or multi-step logic.",
+  "lesson_4_30_recommended_action": "upgrade_to_guided_recap_mission",
+  "lesson_4_30_options_evaluated": {
+    "option_a_upgrade_to_multi_skill": true,
+    "option_b_keep_simple_add_quest": false,
+    "option_c_guided_recap_staged": true,
+    "option_d_defer_to_architecture": false,
+    "recommended": "C: guided recap with multi-step mission within current format"
+  },
+  "course_flow_blockers_count": 0,
+  "course_flow_structural_issues_count": 4,
+  "structural_issues": [
+    {
+      "issue": "part_volume_imbalance",
+      "severity": "high",
+      "details": "Part 2 (6 lessons) to Part 3 (41 lessons) is a 7× volume jump. No bridge or recap between parts."
+    },
+    {
+      "issue": "missing_mid_part_3_recap",
+      "severity": "high",
+      "details": "Part 3 has 41 lessons with zero recap/quest lessons. Learners go 41 lessons without consolidation."
+    },
+    {
+      "issue": "missing_quest_architecture",
+      "severity": "high",
+      "details": "Zero lessons at difficulty Level 5 (quest/recap/mixed challenge). Current format does not distinguish recap/quest missions."
+    },
+    {
+      "issue": "missing_part_5_capstone",
+      "severity": "medium",
+      "details": "Course ends abruptly at lesson 5-7 without a final integration project or capstone."
+    }
+  ],
+  "course_flow_corrections_needed_count": 2,
+  "corrections_needed": [
+    {
+      "lesson_id": "2-5",
+      "current_issue": "mission_difficulty_jump",
+      "proposed_fix": "split_mission_into_staged_tasks",
+      "scope": "single_lesson_mission_only",
+      "complexity": "low"
+    },
+    {
+      "lesson_id": "4-30",
+      "current_issue": "mission_too_simple_for_recap",
+      "proposed_fix": "multi_step_list_task_mission",
+      "scope": "single_lesson_mission_only",
+      "complexity": "low"
+    }
+  ],
+  "quest_recap_architecture_correction_needed": true,
+  "foundation_polish_remaining_count": 6,
+  "foundation_missing_total_count": 88,
+  "part_difficulty_distribution": {
+    "part_1": "easy=8, medium=1, hard=0, boss=0 (total 9)",
+    "part_2": "easy=4, medium=2, hard=0, boss=0 (total 6)",
+    "part_3": "easy=12, medium=27, hard=1, boss=1 (total 41)",
+    "part_4": "easy=4, medium=23, hard=3, boss=1 (total 31)",
+    "part_5": "easy=0, medium=5, hard=0, boss=0 (total 5)",
+    "total": "easy=28, medium=58, hard=4, boss=2 (total 92)"
+  },
+  "difficulty_level_model": {
+    "1": "recognition / copy simple code",
+    "2": "single concept application",
+    "3": "combine 2 related concepts",
+    "4": "multi-step task with several prior concepts",
+    "5": "quest / recap / mixed challenge"
+  },
+  "lesson_data_changed": false,
+  "backend_api_data_synced": true,
+  "mission_checker_unchanged": true,
+  "seo_routes_unchanged": true,
+  "deployment_pipeline_unchanged": true,
+  "frontend_backend_architecture_unchanged": true,
+  "production_accepted": false,
+  "recommended_next_allowed_action": "course_flow_corrective_pass",
+  "next_action_justification": "Two concrete bounded fixes (2-5 mission scaffold, 4-30 multi-step mission) can be done within current format. Architecture correction (quest system) is deferred but tracked. Corrective pass is prerequisite for architecture work.",
+  "expected_next_action_sequence": [
+    "course_flow_corrective_pass",
+    "quest_recap_architecture_correction",
+    "foundation_consistency_polish",
+    "production_readiness_review"
+  ],
+  "git_commit": "11d83016fd34f9f1ae3179221687b459d8d3ef29",
+  "git_pushed": true,
+  "git_clean": true
+}
