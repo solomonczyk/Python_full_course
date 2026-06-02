@@ -92,31 +92,30 @@ export default function HomePage({ lessons, progress }: Props) {
         />
       </section>
 
-      {/* 3. CTA buttons — под изображением */}
+      {/* 3. CTA buttons — под изображением, в стиле Continue Learning */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <button
           onClick={() => { const next = lessons.find(l => !progress[l.id]?.completed && isLessonUnlocked(l.id, lessons)); if (next) navigate(`/lesson/${next.id}`) }}
-          className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-bold cursor-pointer border-none transition-all hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+          className="flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
           style={{
-            background: 'linear-gradient(135deg, #c9a227 0%, #d4b44a 100%)',
-            color: '#0f0e17',
-            boxShadow: '0 4px 18px rgba(201,162,39,0.4)',
+            background: 'rgba(15,14,23,0.8)',
+            border: '1px solid #c9a227',
+            color: '#e8e6f0',
           }}
         >
-          <span className="text-base">⚔️</span>
+          <img src="/buttons/prodolgyt_quest.webp" alt="" className="w-8 h-8 object-contain" />
           <span>Продолжить квест</span>
         </button>
         <button
           onClick={() => navigate('/lesson/1-1')}
-          className="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-medium cursor-pointer transition-all hover:scale-[1.03] active:scale-[0.97] hover:bg-white/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
+          className="flex items-center gap-2.5 px-5 py-2.5 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a227]"
           style={{
-            background: 'rgba(15,14,23,0.55)',
-            border: '1px solid rgba(201,162,39,0.35)',
+            background: 'rgba(15,14,23,0.8)',
+            border: '1px solid #c9a227',
             color: '#e8e6f0',
-            backdropFilter: 'blur(6px)',
           }}
         >
-          <span>📖</span>
+          <img src="/buttons/nachat_s_nachala.webp" alt="" className="w-8 h-8 object-contain" />
           <span>Начать с начала</span>
         </button>
       </div>
