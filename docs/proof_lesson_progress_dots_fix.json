@@ -29,8 +29,8 @@
     "frontend_build_passed": true,
     "frontend_unit_tests": "none_found"
   },
-  "git_commit": "50a1dcf",
-  "git_pushed": false,
-  "git_clean": false,
+  "git_commit": "26ed8bc",
+  "git_pushed": true,
+  "git_clean": true,
   "next_allowed_action": "post_acceptance_monitoring_or_polish_backlog"
 }
