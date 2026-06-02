@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useQuest, checkQuest } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
+import type { FeedbackState, MissionResult } from '../types'
 import CodeBlock from '../components/CodeBlock'
+import AdaptiveMissionFeedback from '../components/AdaptiveMissionFeedback'
 
 const PART_COLORS: Record<number, string> = {
   1: '#00d4aa',
@@ -22,6 +24,8 @@ export default function QuestPage() {
   const [showHints, setShowHints] = useState(false)
   const [showSolution, setShowSolution] = useState(false)
   const [completed, setCompleted] = useState(false)
+  const [feedbackState, setFeedbackState] = useState<FeedbackState>('not_started')
+  const [attemptCount, setAttemptCount] = useState(0)
 
   if (loading) {
     return (
@@ -45,16 +49,23 @@ export default function QuestPage() {
     if (!code.trim()) return
     setChecking(true)
     setResults(null)
+    setFeedbackState('checking')
     try {
       const res = await checkQuest(quest.id, code)
       setResults(res)
       if (res.all_passed) {
         setShowSolution(true)
         setCompleted(true)
+        setFeedbackState('passed')
         await markComplete(`quest-${quest.id}`)
+      } else {
+        setFeedbackState('failed')
+        setAttemptCount(prev => prev + 1)
       }
     } catch (e: any) {
       setResults({ all_passed: false, results: [], error: e.message })
+      setFeedbackState('failed')
+      setAttemptCount(prev => prev + 1)
     } finally {
       setChecking(false)
     }
@@ -230,6 +241,17 @@ export default function QuestPage() {
           </div>
         </div>
       )}
+
+      {/* Adaptive quest feedback */}
+      <AdaptiveMissionFeedback
+        config={{
+          character: 'ksyu',
+          expectedOutput: quest.success_criteria.join(', '),
+        }}
+        state={feedbackState}
+        attemptCount={attemptCount}
+        standalone
+      />
 
       {/* Success Criteria */}
       <div className="rounded-xl p-4" style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.1)' }}>

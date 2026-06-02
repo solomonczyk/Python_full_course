@@ -325,3 +325,36 @@ export type PartFlowItem =
       unlocked: boolean
       completed: boolean
     }
+
+// ── Adaptive Mission Feedback types ────────────────────────────────────────
+
+export type FeedbackState =
+  | 'not_started'
+  | 'attempted'
+  | 'checking'
+  | 'failed'
+  | 'passed'
+
+export type ErrorCategory =
+  | 'syntax_error'
+  | 'type_error'
+  | 'wrong_output'
+  | 'missing_output'
+  | 'empty_code'
+  | 'forbidden_import'
+  | 'timeout'
+  | 'connection_error'
+  | 'unknown'
+
+export interface AdaptiveFeedbackConfig {
+  /** Short hint shown before first attempt (1 line) */
+  preAttemptHint?: DialogueLine[]
+  /** Full post-error dialogue shown progressively on failure */
+  failDialogue?: DialogueLine[]
+  /** Success celebration (2 lines max) */
+  successDialogue?: DialogueLine[]
+  /** The mission's character for contextual hints */
+  character: Character
+  /** Expected output for contextual error hints */
+  expectedOutput?: string
+}

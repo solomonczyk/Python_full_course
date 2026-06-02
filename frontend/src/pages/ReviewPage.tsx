@@ -24,6 +24,7 @@ export default function ReviewPage() {
   const [quizResults, setQuizResults] = useState<Record<string, { correct: boolean; correct_id: string }>>({})
   const [outputResult, setOutputResult] = useState<{ correct: boolean; correct_answer: string } | null>(null)
   const [completed, setCompleted] = useState(false)
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -61,6 +62,7 @@ export default function ReviewPage() {
   const allDone = allQuizAnswered && (outputResult != null || !review.what_outputs)
 
   const handleQuiz = (question: string, optId: string, correctId: string) => {
+    setHasInteracted(true)
     setQuizAnswers((prev) => ({ ...prev, [question]: optId }))
     setQuizResults((prev) => ({
       ...prev,
@@ -70,6 +72,7 @@ export default function ReviewPage() {
   }
 
   const handleOutput = (correct: boolean, _answer: string) => {
+    setHasInteracted(true)
     setOutputResult({ correct, correct_answer: review.what_outputs?.correct ?? '' })
     checkAllDone()
   }
@@ -126,13 +129,26 @@ export default function ReviewPage() {
         </div>
       </section>
 
-      {/* Dialogue */}
-      {review.dialogue && review.dialogue.length > 0 && (
+      {/* Dialogue — shown only after user interacts with questions */}
+      {hasInteracted && review.dialogue && review.dialogue.length > 0 && (
         <section className="flex flex-col gap-4">
           {review.dialogue.map((line, i) => (
             <DialogueBubble key={i} character={line.character} text={line.text} />
           ))}
         </section>
+      )}
+      {!hasInteracted && review.dialogue && review.dialogue.length > 0 && (
+        <div
+          className="rounded-xl p-4"
+          style={{
+            background: '#1a1924',
+            border: '1px solid rgba(201,162,39,0.15)',
+          }}
+        >
+          <p className="text-xs" style={{ color: '#9b98a8' }}>
+            💬 Персонажи прокомментируют твои ответы после первой попытки.
+          </p>
+        </div>
       )}
 
       {/* Quick questions */}

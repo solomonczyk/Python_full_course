@@ -1,0 +1,37 @@
+{
+  "task": "PYTHON-QUEST-POST-ACCEPTANCE-GLOBAL-ADAPTIVE-MISSION-FEEDBACK-SYSTEM-001",
+  "verdict": "ACCEPTED",
+  "global_scope_confirmed": true,
+  "static_feedback_dialogue_removed_before_attempt_globally": true,
+  "adaptive_feedback_depends_on_checker_result": true,
+  "success_feedback_shown_after_pass": true,
+  "failure_feedback_shown_after_fail": true,
+  "attempt_based_feedback_supported": true,
+  "no_consecutive_bagus_replies": true,
+  "answer_not_revealed_before_attempt": true,
+  "mission_checker_core_preserved": true,
+  "affected_surfaces": {
+    "lesson_pages": true,
+    "recap_pages": true,
+    "quest_pages": true,
+    "shared_mission_components": true
+  },
+  "verification": {
+    "at_least_3_lesson_pages_checked": true,
+    "at_least_1_recap_page_checked": true,
+    "at_least_1_quest_page_checked": true,
+    "success_case_checked": true,
+    "failure_case_checked": true,
+    "first_attempt_no_spoiler_checked": true
+  },
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true,
+    "relevant_frontend_tests_passed": true
+  },
+  "production_accepted_preserved": true,
+  "git_commit": "39f429316176a0fb04c50730893e48003f5a93ad",
+  "git_pushed": false,
+  "git_clean": false,
+  "next_allowed_action": "hero_readability_fix_or_next_post_acceptance_feature"
+}

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useRecap } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
+import DialogueBubble from '../components/DialogueBubble'
+import type { Character } from '../types'
 
 export default function RecapPage() {
   const { id } = useParams<{ id: string }>()
@@ -167,6 +169,15 @@ export default function RecapPage() {
                 <p className="text-xs mt-1" style={{ color: checked[i] ? '#00d4aa' : '#ff6b6b' }}>
                   {checked[i] ? '✓ Верно!' : '✗ Попробуй ещё раз'}
                 </p>
+              )}
+              {checked[i] !== undefined && (
+                <div className="mt-2">
+                  {checked[i] ? (
+                    <DialogueBubble character="novice" text="Верно! Я это запомнил." />
+                  ) : (
+                    <DialogueBubble character="va" text="Не совсем. Попробуй ещё раз — подумай, что мы проходили в этой части." />
+                  )}
+                </div>
               )}
               {(allRevealed || checked[i]) && (
                 <p className="text-xs mt-1" style={{ color: '#9b98a8' }}>

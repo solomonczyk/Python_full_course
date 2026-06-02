@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import type { Lesson, MissionResult } from '../types'
+import type { Lesson, MissionResult, FeedbackState } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
 import { getUserId } from '../utils/userId'
 
@@ -7,11 +7,12 @@ interface Props {
   mission: Lesson['mission']
   lessonId: string
   onComplete?: (score: number) => void
+  onStateChange?: (state: FeedbackState, result?: MissionResult | null) => void
 }
 
 const BASE = '/api'
 
-export default function MissionCard({ mission, lessonId, onComplete }: Props) {
+export default function MissionCard({ mission, lessonId, onComplete, onStateChange }: Props) {
   const [code, setCode] = useState('')
   const [result, setResult] = useState<'idle' | 'checking' | 'success' | 'error'>('idle')
   const [bagusVisible, setBagusVisible] = useState(false)
@@ -29,6 +30,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
       setBagusVisible(true)
       setResult('error')
       setErrorMessage('Напиши код перед запуском')
+      onStateChange?.('failed', { correct: false, actual_output: null, expected_output: mission.expected_output, error: 'Напиши код перед запуском' })
       return
     }
 
@@ -36,6 +38,7 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
     setBagusVisible(false)
     setErrorMessage(null)
     setActualOutput(null)
+    onStateChange?.('checking')
 
     try {
       const res = await fetch(`${BASE}/mission/check`, {
@@ -53,16 +56,19 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
         setBagusVisible(false)
         setActualOutput(data.actual_output)
         onComplete?.(100)
+        onStateChange?.('passed', data)
       } else {
         setResult('error')
         setBagusVisible(true)
         setActualOutput(data.actual_output)
         setErrorMessage(data.error ?? null)
+        onStateChange?.('failed', data)
       }
     } catch (e) {
       setResult('error')
       setBagusVisible(true)
       setErrorMessage('Ошибка соединения с сервером')
+      onStateChange?.('failed', { correct: false, actual_output: null, expected_output: mission.expected_output, error: 'Ошибка соединения с сервером' })
     }
   }
 
@@ -168,7 +174,14 @@ export default function MissionCard({ mission, lessonId, onComplete }: Props) {
               <textarea
                 ref={textareaRef}
                 value={code}
-                onChange={(e) => { setCode(e.target.value); setResult('idle'); setBagusVisible(false); setErrorMessage(null) }}
+                onChange={(e) => {
+                  setCode(e.target.value);
+                  const wasError = result === 'error' || result === 'success'
+                  setResult('idle');
+                  setBagusVisible(false);
+                  setErrorMessage(null);
+                  if (wasError) onStateChange?.('attempted', null)
+                }}
                 className="w-full p-3 pl-2 font-mono text-xs leading-7 resize-none outline-none"
                 style={{
                   minHeight: expanded ? '400px' : `${collapsedHeight}px`,

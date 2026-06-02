@@ -1,12 +1,13 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
-import type { LessonSummary } from '../types'
+import type { LessonSummary, FeedbackState, MissionResult } from '../types'
 import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
 import QuizSection from '../components/QuizSection'
 import MissionCard from '../components/MissionCard'
+import AdaptiveMissionFeedback from '../components/AdaptiveMissionFeedback'
 import PracticeSubtasks from '../components/PracticeSubtasks'
 import StoryPlacementBlock from '../components/StoryPlacementBlock'
 import DialogueScene from '../components/DialogueScene'
@@ -54,6 +55,24 @@ export default function LessonPage({ lessons }: Props) {
   const { id } = useParams<{ id: string }>()
   const { lesson, loading, error } = useLesson(id ?? '')
   const { progress, markComplete, isLessonUnlocked } = useProgressContext()
+
+  // Adaptive feedback state
+  const [feedbackState, setFeedbackState] = useState<FeedbackState>('not_started')
+  const [feedbackResult, setFeedbackResult] = useState<MissionResult | null>(null)
+  const [attemptCount, setAttemptCount] = useState(0)
+
+  const handleMissionStateChange = (state: FeedbackState, result?: MissionResult | null) => {
+    setFeedbackState(state)
+    if (result) setFeedbackResult(result)
+    if (state === 'failed') {
+      setAttemptCount(prev => prev + 1)
+    } else if (state === 'attempted') {
+      // Reset attempt count when user starts fresh
+      // (keeps current count for progressive hints)
+    } else if (state === 'not_started') {
+      setAttemptCount(0)
+    }
+  }
 
   useEffect(() => {
     if (lesson) window.scrollTo(0, 0)
@@ -158,7 +177,7 @@ export default function LessonPage({ lessons }: Props) {
         <FoundationBlock foundation={lesson.foundation} />
       )}
 
-      {/* Pre-topic dialogue */}
+      {/* Pre-topic dialogue — first line shown as hint, rest adaptively after mission */}
       {lesson.pre_topic_dialogue && lesson.pre_topic_dialogue.length > 0 && (
         <SteampunkCard>
           <DialogueScene lines={lesson.pre_topic_dialogue} />
@@ -293,13 +312,6 @@ export default function LessonPage({ lessons }: Props) {
         </div>
       )}
 
-      {/* Post-error dialogue */}
-      {lesson.post_error_dialogue && lesson.post_error_dialogue.length > 0 && (
-        <SteampunkCard accentColor="rgba(255,107,107,0.15)">
-          <DialogueScene lines={lesson.post_error_dialogue} />
-        </SteampunkCard>
-      )}
-
       {/* Common mistakes */}
       {lesson.common_mistakes && lesson.common_mistakes.length > 0 && (
         <SteampunkCard accentColor="rgba(255,107,107,0.15)">
@@ -307,11 +319,27 @@ export default function LessonPage({ lessons }: Props) {
         </SteampunkCard>
       )}
 
-      {/* Mission */}
+      {/* Mission — with adaptive feedback */}
       <MissionCard
         mission={lesson.mission}
         lessonId={lesson.id}
         onComplete={(score) => markComplete(lesson.id, score)}
+        onStateChange={handleMissionStateChange}
+      />
+
+      {/* Adaptive feedback — shown only after interaction, varies by attempt */}
+      <AdaptiveMissionFeedback
+        config={{
+          preAttemptHint: lesson.pre_topic_dialogue
+            ? [lesson.pre_topic_dialogue[0]]
+            : undefined,
+          failDialogue: lesson.post_error_dialogue,
+          character: lesson.mission.character,
+          expectedOutput: lesson.mission.expected_output,
+        }}
+        state={feedbackState}
+        attemptCount={attemptCount}
+        result={feedbackResult}
       />
 
       {/* Practice subtasks */}
