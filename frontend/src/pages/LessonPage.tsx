@@ -110,13 +110,9 @@ export default function LessonPage({ lessons }: Props) {
   const idx = lessons.findIndex((l) => l.id === lesson.id)
   const prev = idx > 0 ? lessons[idx - 1] : null
   const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : null
-  // Progress dots: lessons in the same part, sorted by lesson number
+  // Progress: lessons in the same part, sorted by lesson number
   const partLessons = lessons.filter((l) => l.part === lesson.part).sort((a, b) => a.lesson - b.lesson)
   const currentPartIndex = partLessons.findIndex((l) => l.id === lesson.id)
-  // Responsive dot sizing for parts with many lessons
-  const isLargePart = partLessons.length > 20
-  const dotSize = isLargePart ? 'w-1.5 h-1.5' : 'w-2 h-2'
-  const dotGap = isLargePart ? 'gap-1' : 'gap-1.5'
   const charColor = CHAR_COLORS[lesson.explanation.character] ?? '#74B9FF'
 
   return (
@@ -346,22 +342,20 @@ export default function LessonPage({ lessons }: Props) {
           </button>
         ) : <div />}
 
-        {/* Page dots — dynamic by part lesson count */}
-        <div
-          className={`flex ${dotGap} max-w-full overflow-x-auto`}
-          role="progressbar"
-          aria-label={`Урок ${currentPartIndex + 1} из ${partLessons.length}`}
-          title={`${currentPartIndex + 1} / ${partLessons.length}`}
-        >
-          {partLessons.map((_, i) => (
+        {/* Progress indicator — part name, lesson count, thin bar */}
+        <div className="flex flex-col items-center gap-1.5 min-w-0 max-w-[180px]">
+          <span className="text-[10px] leading-tight whitespace-nowrap" style={{ color: '#9b98a8' }}>
+            Часть {lesson.part} · Урок {currentPartIndex + 1} из {partLessons.length}
+          </span>
+          <div className="w-full h-1 rounded-full" style={{ background: 'rgba(201,162,39,0.15)' }}>
             <div
-              key={i}
-              className={`${dotSize} rounded-full shrink-0 transition-all duration-300`}
+              className="h-full rounded-full transition-all duration-300"
               style={{
-                background: i === currentPartIndex ? '#00d4aa' : 'rgba(201,162,39,0.3)',
+                width: `${((currentPartIndex + 1) / partLessons.length) * 100}%`,
+                background: 'linear-gradient(90deg, #c9a227, #00d4aa)',
               }}
             />
-          ))}
+          </div>
         </div>
 
         {next && isLessonUnlocked(next.id, lessons) ? (
