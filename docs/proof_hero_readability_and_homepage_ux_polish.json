@@ -30,7 +30,7 @@
     "frontend_typecheck_passed": true,
     "frontend_build_passed": true
   },
-  "git_commit": "142cc3c2e10c0509b86cc35805eac5e19a6be0ce",
+  "git_commit": "57d391594a519c4046bc16e375d1e486acc85ff7",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "post_acceptance_monitoring_or_next_homepage_polish"
