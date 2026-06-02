@@ -110,6 +110,13 @@ export default function LessonPage({ lessons }: Props) {
   const idx = lessons.findIndex((l) => l.id === lesson.id)
   const prev = idx > 0 ? lessons[idx - 1] : null
   const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : null
+  // Progress dots: lessons in the same part, sorted by lesson number
+  const partLessons = lessons.filter((l) => l.part === lesson.part).sort((a, b) => a.lesson - b.lesson)
+  const currentPartIndex = partLessons.findIndex((l) => l.id === lesson.id)
+  // Responsive dot sizing for parts with many lessons
+  const isLargePart = partLessons.length > 20
+  const dotSize = isLargePart ? 'w-1.5 h-1.5' : 'w-2 h-2'
+  const dotGap = isLargePart ? 'gap-1' : 'gap-1.5'
   const charColor = CHAR_COLORS[lesson.explanation.character] ?? '#74B9FF'
 
   return (
@@ -339,14 +346,19 @@ export default function LessonPage({ lessons }: Props) {
           </button>
         ) : <div />}
 
-        {/* Page dots */}
-        <div className="flex gap-1.5">
-          {[0, 1, 2, 3].map((i) => (
+        {/* Page dots — dynamic by part lesson count */}
+        <div
+          className={`flex ${dotGap} max-w-full overflow-x-auto`}
+          role="progressbar"
+          aria-label={`Урок ${currentPartIndex + 1} из ${partLessons.length}`}
+          title={`${currentPartIndex + 1} / ${partLessons.length}`}
+        >
+          {partLessons.map((_, i) => (
             <div
               key={i}
-              className="w-2 h-2 rounded-full"
+              className={`${dotSize} rounded-full shrink-0 transition-all duration-300`}
               style={{
-                background: i === 0 ? '#00d4aa' : 'rgba(201,162,39,0.3)',
+                background: i === currentPartIndex ? '#00d4aa' : 'rgba(201,162,39,0.3)',
               }}
             />
           ))}
