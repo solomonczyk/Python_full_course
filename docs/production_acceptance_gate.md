@@ -43,6 +43,7 @@
 | Check | Result |
 |-------|--------|
 | Untracked acceptance docs committed | ✅ 7 files (verification/review docs + proofs) committed in `d42a34d` |
+| Proof JSON finalized | ✅ `9172611` — `git_clean: true`, `git_pushed: true`, `acceptance_docs_committed: true` |
 | `.vercel/` added to `.gitignore` | ✅ Local Vercel artifact — proper exclusion |
 | Final `git status --short` | ✅ Empty — clean state confirmed |
 

@@ -46,7 +46,7 @@
   "acceptance_docs_committed": true,
   "untracked_files_count": 0,
   "next_allowed_action": "post_acceptance_monitoring_or_polish_backlog",
-  "git_commit": "d42a34d",
-  "git_pushed": false,
+  "git_commit": "9172611",
+  "git_pushed": true,
   "git_clean": true
 }
