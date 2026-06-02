@@ -394,3 +394,13 @@ course_flow_corrective_pass → quest_recap_architecture_correction → foundati
 | Issues dismissed without evidence | ✅ Not done — each issue has evidence and reasoning |
 | 2-5 or 4-30 fixed without review | ✅ Not done — only recommended corrections, no edits |
 | All issues called non-blocking without proof | ✅ Not done — 4 structural risks identified with evidence |
+
+## Follow-up Status
+
+**2026-06-02**: `course_flow_corrective_pass` completed.
+
+- Lesson 2-5: Mission simplified from formatted multiplication table to simple arithmetic-within-loop (L3-L4 → L2-L3). String formatting requirement removed.
+- Lesson 4-30: Mission upgraded from single `list.append()` to multi-step list task (L1 → L3). Tests append, len, and print.
+- Structural issues (Part 3 volume, missing recap, missing quest architecture, missing capstone) deferred to next architecture layer.
+
+See `docs/course_flow_corrective_pass_report.md` and `docs/proof_course_flow_corrective_pass.json`.
