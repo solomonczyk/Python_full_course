@@ -4,6 +4,8 @@
   "source_readiness_review": "docs/proof_production_readiness_review.json",
   "production_readiness_review_accepted": true,
   "production_accepted_allowed": true,
+  "git_clean_fix_applied": true,
+  "git_clean_fix_commit": "d42a34d",
   "final_smoke_checks": {
     "home_page_200": true,
     "lesson_1_1_200": true,
@@ -41,8 +43,10 @@
     "blocks_production_acceptance": false
   },
   "production_accepted": true,
+  "acceptance_docs_committed": true,
+  "untracked_files_count": 0,
   "next_allowed_action": "post_acceptance_monitoring_or_polish_backlog",
-  "git_commit": "538a75750975a8a2b2ac42f8578a5886d8b9fb08",
-  "git_pushed": true,
+  "git_commit": "d42a34d",
+  "git_pushed": false,
   "git_clean": true
 }
