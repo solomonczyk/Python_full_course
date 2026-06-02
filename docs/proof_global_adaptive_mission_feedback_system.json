@@ -30,8 +30,8 @@
     "relevant_frontend_tests_passed": true
   },
   "production_accepted_preserved": true,
-  "git_commit": "39f429316176a0fb04c50730893e48003f5a93ad",
-  "git_pushed": false,
-  "git_clean": false,
+  "git_commit": "f1f58718455528b7d57b0e7772c7e9de1359b333",
+  "git_pushed": true,
+  "git_clean": true,
   "next_allowed_action": "hero_readability_fix_or_next_post_acceptance_feature"
 }
