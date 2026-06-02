@@ -313,3 +313,15 @@ export interface TaskPresentation {
   what_if?: WhatIfScenario[]
   solutions?: WalkthroughSolution[]
 }
+
+// ── Part flow types ────────────────────────────────────────────────────────
+
+export type PartFlowItem =
+  | { type: 'lesson'; id: string; lesson: LessonSummary }
+  | {
+      type: 'recap'
+      id: string
+      recap: RecapSummary
+      unlocked: boolean
+      completed: boolean
+    }

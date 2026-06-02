@@ -45,7 +45,7 @@ export default function RecapPage() {
 
   const handleComplete = async () => {
     setCompleted(true)
-    await markComplete(`recap-${recap.id}`)
+    await markComplete(recap.id)
   }
 
   return (

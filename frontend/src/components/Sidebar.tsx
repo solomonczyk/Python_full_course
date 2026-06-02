@@ -1,12 +1,18 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import type { LessonSummary, Progress } from '../types'
+import type { LessonSummary, Progress, RecapSummary } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
 import { useProgressContext } from '../hooks/ProgressContext'
+import {
+  RECAP_PLACEMENTS,
+  isRecapUnlocked,
+  isRecapCompleted,
+} from '../data/recapPlacements'
 
 interface Props {
   lessons: LessonSummary[]
   progress: Record<string, Progress>
+  recaps: RecapSummary[]
   open: boolean
   onClose: () => void
 }
@@ -18,7 +24,7 @@ const PART_LABELS: Record<number, string> = {
   4: 'Loop Labyrinth',
 }
 
-export default function Sidebar({ lessons, progress, open, onClose }: Props) {
+export default function Sidebar({ lessons, progress, recaps, open, onClose }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
   const { isLessonUnlocked } = useProgressContext()
@@ -49,6 +55,11 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
   const navToLesson = (lessonId: string) => {
     onClose()
     navigate(`/lesson/${lessonId}`)
+  }
+
+  const navToRecap = (recapId: string) => {
+    onClose()
+    navigate(`/recap/${recapId}`)
   }
 
   const goToContinue = () => {
@@ -128,12 +139,18 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                 {/* Lessons list (collapsible) */}
                 {isExpanded && (
                   <div className="ml-3 pl-3" style={{ borderLeft: '1px solid rgba(201,162,39,0.15)' }}>
-                    {partLessons.map((lesson) => {
+                    {partLessons.flatMap((lesson) => {
                       const isLessonActive = lesson.id === activeId
                       const isDone = progress[lesson.id]?.completed
                       const isLocked = lesson.locked && !progress[lesson.id]?.completed
 
-                      return (
+                      // Find recaps that should appear after this lesson
+                      const recapsAfterThis = recaps.filter((r) => {
+                        const p = RECAP_PLACEMENTS.find((pl) => pl.recapId === r.id)
+                        return p?.afterLesson === lesson.id
+                      })
+
+                      return [
                         <button
                           key={lesson.id}
                           onClick={() => !isLocked && navToLesson(lesson.id)}
@@ -148,8 +165,40 @@ export default function Sidebar({ lessons, progress, open, onClose }: Props) {
                             {isLocked ? 'lock' : isDone ? 'check_circle' : 'radio_button_unchecked'}
                           </span>
                           <span className="truncate">{lesson.id} {lesson.title}</span>
-                        </button>
-                      )
+                        </button>,
+                        ...recapsAfterThis.map((recap) => {
+                          const recapUnlocked = isRecapUnlocked(recap.id, progress)
+                          const recapCompleted = isRecapCompleted(recap.id, progress)
+                          const isCheckpoint = recap.id.startsWith('recap-3') && recap.id !== 'recap-3'
+                          const accentColor = isCheckpoint ? '#6c5ce7' : '#c9a227'
+                          const isRecapActive = location.pathname === `/recap/${recap.id}`
+                          const recapDisabled = !recapUnlocked && !recapCompleted
+
+                          return (
+                            <button
+                              key={recap.id}
+                              onClick={() => !recapDisabled && navToRecap(recap.id)}
+                              disabled={recapDisabled}
+                              className="w-full flex items-center gap-2 px-3 py-1.5 text-[11px] font-medium transition-all cursor-pointer text-left border-none rounded-sm"
+                              style={{
+                                color: recapCompleted
+                                  ? '#9b98a8'
+                                  : recapUnlocked
+                                    ? accentColor
+                                    : 'rgba(155,152,168,0.4)',
+                                background: isRecapActive
+                                  ? `${accentColor}18`
+                                  : 'transparent',
+                              }}
+                            >
+                              <span className="material-symbols-outlined text-[14px]" style={{ fontVariationSettings: `'FILL' ${recapCompleted ? '1' : '0'}` }}>
+                                {recapDisabled ? 'lock' : recapCompleted ? 'check_circle' : isCheckpoint ? 'checklist' : 'menu_book'}
+                              </span>
+                              <span className="truncate">{recap.id} {recap.title}</span>
+                            </button>
+                          )
+                        }),
+                      ]
                     })}
                   </div>
                 )}

@@ -1,6 +1,6 @@
 import { useState, useLayoutEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom'
-import { useLessons } from './hooks/useApi'
+import { useLessons, useRecaps } from './hooks/useApi'
 import { ProgressProvider, useProgressContext } from './hooks/ProgressContext'
 import TopNav from './components/TopNav'
 import Sidebar from './components/Sidebar'
@@ -10,12 +10,14 @@ import LessonPage from './pages/LessonPage'
 import ReviewPage from './pages/ReviewPage'
 import QuestPage from './pages/QuestPage'
 import RecapPage from './pages/RecapPage'
+import PartPage from './pages/PartPage'
 import OnboardingPage from './pages/OnboardingPage'
 import CompletionPage from './pages/CompletionPage'
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { lessons } = useLessons()
+  const { recaps } = useRecaps()
   const { progress } = useProgressContext()
   const location = useLocation()
   const match = location.pathname.match(/\/(?:lesson|review|quest|recap)\/([\w-]+)/)
@@ -31,6 +33,7 @@ function Layout() {
       <Sidebar
         lessons={lessons}
         progress={progress}
+        recaps={recaps}
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
       />
@@ -51,6 +54,7 @@ function Layout() {
           <div className="w-full max-w-[1000px]">
             <Routes>
               <Route path="/" element={<HomePage lessons={lessons} progress={progress} />} />
+              <Route path="/part/:partNum" element={<PartPage lessons={lessons} />} />
               <Route path="/lesson/:id" element={<LessonPage lessons={lessons} />} />
               <Route path="/review/:id" element={<ReviewPage />} />
               <Route path="/quest/:id" element={<QuestPage />} />

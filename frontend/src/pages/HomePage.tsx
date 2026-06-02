@@ -1,11 +1,7 @@
-import { useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import type { LessonSummary, Progress, ReviewSummary, QuestSummary, RecapSummary } from '../types'
-import CharacterAvatar from '../components/CharacterAvatar'
+import { useNavigate } from 'react-router-dom'
+import type { LessonSummary, Progress } from '../types'
 import CharacterIntroSection from '../components/CharacterIntroSection'
 import { useProgressContext } from '../hooks/ProgressContext'
-
-const BASE = '/api'
 
 interface Props {
   lessons: LessonSummary[]
@@ -33,30 +29,6 @@ export default function HomePage({ lessons, progress }: Props) {
   const { isLessonUnlocked } = useProgressContext()
   const total = lessons.length
   const done = Object.values(progress).filter((p) => p.completed).length
-  const [reviews, setReviews] = useState<ReviewSummary[]>([])
-  const [quests, setQuests] = useState<QuestSummary[]>([])
-  const [recaps, setRecaps] = useState<RecapSummary[]>([])
-
-  useEffect(() => {
-    fetch(`${BASE}/reviews`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setReviews(data)
-      })
-      .catch(() => {})
-    fetch(`${BASE}/quests`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setQuests(data)
-      })
-      .catch(() => {})
-    fetch(`${BASE}/recaps`)
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setRecaps(data)
-      })
-      .catch(() => {})
-  }, [])
 
   const parts = Array.from(new Set(lessons.map((l) => l.part))).sort()
 
@@ -65,11 +37,6 @@ export default function HomePage({ lessons, progress }: Props) {
 
   const totalCount = (part: number) =>
     lessons.filter(l => l.part === part).length
-
-  const completedLessons = lessons
-    .filter(l => progress[l.id]?.completed)
-    .slice(-3)
-    .reverse()
 
   return (
     <div className="space-y-6">
@@ -168,7 +135,7 @@ export default function HomePage({ lessons, progress }: Props) {
                   boxShadow: isCurrent ? '0 0 20px rgba(0,212,170,0.15)' : 'none',
                   opacity: isLocked ? 0.5 : 1,
                 }}
-                onClick={() => { if (!isLocked) { const first = lessons.find(l => l.part === part && isLessonUnlocked(l.id, lessons)); if (first) navigate(`/lesson/${first.id}`) } }}
+                onClick={() => { if (!isLocked) navigate(`/part/${part}`) }}
               >
                 <div className="h-[130px] relative overflow-hidden">
                   <img
@@ -195,107 +162,30 @@ export default function HomePage({ lessons, progress }: Props) {
         </div>
       </section>
 
-      {/* 4. Quest History */}
-      {completedLessons.length > 0 && (
-        <section>
-          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>Quest History</h3>
-          <div className="space-y-2">
-            {completedLessons.map((lesson) => (
-              <div key={lesson.id}
-                className="flex items-center gap-3 p-3 rounded-xl cursor-pointer hover:scale-[1.01] transition-all"
-                style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.1)' }}
-                onClick={() => navigate(`/lesson/${lesson.id}`)}
-              >
-                <div className="w-9 h-9 rounded-lg flex items-center justify-center text-xs shrink-0" style={{ background: 'rgba(0,212,170,0.1)', color: '#00d4aa' }}>✓</div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-xs font-bold truncate" style={{ color: '#e8e6f0' }}>
-                    {lesson.title}
-                  </div>
-                  <div className="text-[10px]" style={{ color: '#9b98a8' }}>
-                    Lesson {lesson.id} • {lesson.difficulty}
-                  </div>
-                </div>
-              </div>
-            ))}
+      {/* 4. How to continue */}
+      <section
+        className="rounded-xl p-4"
+        style={{
+          background: '#1a1924',
+          border: '1px solid rgba(201,162,39,0.1)',
+        }}
+      >
+        <div className="flex items-start gap-3">
+          <span className="material-symbols-outlined text-lg" style={{ color: '#c9a227' }}>
+            info
+          </span>
+          <div>
+            <h4 className="text-xs font-bold mb-1" style={{ color: '#e8e6f0' }}>
+              Как продолжить обучение
+            </h4>
+            <p className="text-[11px] leading-relaxed" style={{ color: '#9b98a8' }}>
+              Выбери часть курса на карте выше, чтобы увидеть все уроки и повторения.
+              Повторения и чекпоинты открываются после прохождения соответствующих
+              уроков — они встроены в учебный маршрут каждой части.
+            </p>
           </div>
-        </section>
-      )}
-
-      {/* 5. Quests */}
-      {quests.length > 0 && (
-        <section>
-          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>QUESTS</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {quests.map((q) => (
-              <button key={q.id}
-                onClick={() => navigate(`/quest/${q.id}`)}
-                className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
-                style={{
-                  background: '#1a1924',
-                  border: q.is_capstone ? '1px solid rgba(253,121,168,0.3)' : '1px solid rgba(201,162,39,0.1)',
-                }}
-              >
-                <span className="text-[10px] font-bold" style={{ color: q.is_capstone ? '#fd79a8' : '#00d4aa' }}>
-                  {q.is_capstone ? 'CAPSTONE' : 'QUEST'}
-                  <span style={{ color: '#c9a227' }}> · Part {q.part}</span>
-                </span>
-                <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{q.title}</span>
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* 6. Recaps / Checkpoints */}
-      {recaps.length > 0 && (
-        <section>
-          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>RECAPS &amp; CHECKPOINTS</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {recaps.map((r) => {
-              const isCheckpoint = r.id.startsWith('recap-3') && r.id !== 'recap-3'
-              return (
-                <button key={r.id}
-                  onClick={() => navigate(`/recap/${r.id}`)}
-                  className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
-                  style={{
-                    background: '#1a1924',
-                    border: isCheckpoint ? '1px solid rgba(108,92,231,0.2)' : '1px solid rgba(201,162,39,0.1)',
-                  }}
-                >
-                  <span className="text-[10px] font-bold" style={{ color: isCheckpoint ? '#6c5ce7' : '#c9a227' }}>
-                    {isCheckpoint ? 'CHECKPOINT' : 'RECAP'}
-                    <span style={{ color: '#c9a227' }}> · Part {r.part}</span>
-                  </span>
-                  <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{r.title}</span>
-                </button>
-              )
-            })}
-          </div>
-        </section>
-      )}
-
-      {/* 7. Review Blocks */}
-      {reviews.length > 0 && (
-        <section>
-          <h3 className="text-sm font-bold mb-3" style={{ color: '#e8e6f0' }}>REVIEW BLOCKS</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {reviews.map((r) => (
-              <button key={r.id}
-                onClick={() => navigate(`/review/${r.id}`)}
-                className="flex flex-col p-3 rounded-xl text-left cursor-pointer transition-all hover:scale-[1.01] border-none"
-                style={{ background: '#1a1924', border: '1px solid rgba(201,162,39,0.1)' }}
-              >
-                <span className="text-[10px] font-bold" style={{ color: '#00d4aa' }}>
-                  {r.type === 'quick_recall' ? 'QUICK RECALL' : r.type === 'chapter_review' ? 'CHAPTER' : r.type === 'boss_review' ? 'BOSS' : 'PART'}
-                  <span style={{ color: '#c9a227' }}> · {r.part}.{r.chapter}</span>
-                </span>
-                <span className="text-xs font-bold mt-1" style={{ color: '#e8e6f0' }}>{r.title}</span>
-                <span className="text-[10px] mt-0.5" style={{ color: '#9b98a8' }}>{r.subtitle}</span>
-              </button>
-            ))}
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
     </div>
   )
 }

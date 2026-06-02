@@ -1,0 +1,69 @@
+{
+  "task": "PYTHON-QUEST-POST-ACCEPTANCE-CONTEXTUAL-RECAP-PLACEMENT-001",
+  "verdict": "PASS",
+  "recaps_removed_from_homepage_as_full_list": true,
+  "recaps_preserved_in_course": true,
+  "recaps_contextually_placed": true,
+  "recap_routes_preserved": true,
+  "quests_preserved": true,
+  "quests_not_rendered_as_full_list_on_homepage": true,
+  "homepage_clean_dashboard": true,
+  "part_flow_contains_relevant_recaps": true,
+  "unlock_logic_present": true,
+  "fallback_no_progress_safe": true,
+  "production_accepted_preserved": true,
+  "placement_mapping": [
+    { "recapId": "recap-1", "afterLesson": "1-9", "placementType": "end-of-part" },
+    { "recapId": "recap-2", "afterLesson": "2-6", "placementType": "end-of-part" },
+    { "recapId": "recap-3a", "afterLesson": "3-18", "placementType": "mid-part-checkpoint" },
+    { "recapId": "recap-3b", "afterLesson": "3-25", "placementType": "mid-part-checkpoint" },
+    { "recapId": "recap-3c", "afterLesson": "3-35", "placementType": "mid-part-checkpoint" },
+    { "recapId": "recap-3d", "afterLesson": "3-40", "placementType": "mid-part-checkpoint" },
+    { "recapId": "recap-3", "afterLesson": "3-41", "placementType": "end-of-part" },
+    { "recapId": "recap-4", "afterLesson": "4-31", "placementType": "end-of-part" },
+    { "recapId": "recap-5", "afterLesson": "5-7", "placementType": "end-of-part" }
+  ],
+  "changes": {
+    "new_files": [
+      "frontend/src/data/recapPlacements.ts",
+      "frontend/src/pages/PartPage.tsx"
+    ],
+    "modified_files": [
+      "frontend/src/types/index.ts",
+      "frontend/src/pages/HomePage.tsx",
+      "frontend/src/pages/RecapPage.tsx",
+      "frontend/src/components/Sidebar.tsx",
+      "frontend/src/App.tsx"
+    ],
+    "untouched": [
+      "api/ (backend)",
+      "backend/ (local dev)",
+      "frontend/src/pages/LessonPage.tsx",
+      "frontend/src/pages/QuestPage.tsx",
+      "frontend/src/pages/ReviewPage.tsx",
+      "all data JSON files",
+      "vercel.json",
+      "seo/deployment pipeline"
+    ]
+  },
+  "verification": {
+    "homepage_no_full_recap_wall": true,
+    "homepage_removed_sections": ["quest_history", "quests_full_grid", "recaps_full_grid", "reviews_full_grid"],
+    "homepage_kept_sections": ["hero", "action_buttons", "mobile_progress", "character_intro", "path_of_the_python", "compact_info_box"],
+    "part_1_recap_visible_after_part_1_context": true,
+    "part_3_recaps_visible_in_part_3_context": true,
+    "direct_recap_routes_work": true,
+    "direct_quest_routes_work": true,
+    "sidebar_recap_inline_entries": true,
+    "recap_page_bug_fixed": true,
+    "mobile_layout_ok": true
+  },
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true
+  },
+  "git_commit": "2d91bb74d063f7e7ac142c6575f0cabd8fd1f6fa",
+  "git_pushed": true,
+  "git_clean": true,
+  "next_allowed_action": "hero_readability_fix_or_next_post_acceptance_polish"
+}
