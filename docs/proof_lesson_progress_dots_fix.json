@@ -1,0 +1,36 @@
+{
+  "task": "PYTHON-QUEST-POST-ACCEPTANCE-LESSON-PROGRESS-DOTS-FIX-001",
+  "verdict": "PASS",
+  "issue_fixed": "bottom_progress_dots_not_synced_with_lessons",
+  "hardcoded_4_dots_removed": true,
+  "dots_are_dynamic_by_part_lesson_count": true,
+  "implementation": {
+    "approach": "filter lessons array by current lesson.part, sort by lesson number, render dynamically",
+    "file_changed": "frontend/src/pages/LessonPage.tsx",
+    "changes_summary": "Removed hardcoded [0,1,2,3] array; added partLessons filter, currentPartIndex, responsive dot sizing (w-2 h-2 for <=20 lessons, w-1.5 h-1.5 for larger parts), overflow-x-auto for mobile safety, aria-label + title for accessibility"
+  },
+  "part_1_lessons_count": 9,
+  "part_1_dots_count": 9,
+  "active_dot_updates_on_lesson_change": true,
+  "direct_url_active_dot_correct": true,
+  "next_previous_navigation_updates_dot": true,
+  "other_parts_intact": {
+    "part_2_lessons_count": 6,
+    "part_3_lessons_count": 41,
+    "part_4_lessons_count": 31,
+    "part_5_lessons_count": 5
+  },
+  "mobile_layout_checked": true,
+  "mobile_layout_notes": "overflow-x-auto prevents overflow; large parts (>20) use smaller dots (w-1.5 h-1.5, gap-1) to reduce horizontal space",
+  "production_accepted_preserved": true,
+  "production_accepted_source": "docs/proof_production_acceptance_gate.json",
+  "tests": {
+    "frontend_typecheck_passed": true,
+    "frontend_build_passed": true,
+    "frontend_unit_tests": "none_found"
+  },
+  "git_commit": "50a1dcf",
+  "git_pushed": false,
+  "git_clean": false,
+  "next_allowed_action": "post_acceptance_monitoring_or_polish_backlog"
+}
