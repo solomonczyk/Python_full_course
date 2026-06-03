@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import type {
   FeedbackState,
   AdaptiveFeedbackConfig,
@@ -14,6 +15,7 @@ import {
   getSuccessFeedback,
   getFailFallback,
 } from '../utils/feedbackContent'
+import { trackEvent } from '../lib/analytics'
 
 interface Props {
   config: AdaptiveFeedbackConfig
@@ -22,6 +24,8 @@ interface Props {
   result?: MissionResult | null
   /** If true, the component was used for quest/recap (no input changes to reset) */
   standalone?: boolean
+  /** Optional lesson_id for analytics tracking */
+  lessonId?: string
 }
 
 const STATE_LABELS: Record<FeedbackState, { icon: string; text: string; color: string } | null> = {
@@ -47,7 +51,24 @@ export default function AdaptiveMissionFeedback({
   state,
   attemptCount,
   result,
+  lessonId,
 }: Props) {
+  // ── Analytics: hint_used when adaptive hints are shown ──────────────────
+  const prevStateRef = useRef<FeedbackState>(state)
+  useEffect(() => {
+    if (state === 'failed' && prevStateRef.current !== 'failed') {
+      const errorCategory: ErrorCategory = result
+        ? categorizeError(result)
+        : 'unknown'
+      trackEvent('hint_used', {
+        hint_id: errorCategory,
+        attempt_count: attemptCount,
+        lesson_id: lessonId,
+      })
+    }
+    prevStateRef.current = state
+  }, [state, attemptCount, result])
+
   // 1. Checking state: show spinner
   if (state === 'checking') {
     const label = STATE_LABELS.checking!

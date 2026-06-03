@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { trackEvent } from '../lib/analytics'
 
 // ── FAQ data ─────────────────────────────────────────────────────────────
 
@@ -95,6 +96,10 @@ export default function BetaLandingPage() {
   const navigate = useNavigate()
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
+  useEffect(() => {
+    trackEvent('landing_opened', { source: 'beta_landing', route: '/beta' })
+  }, [])
+
   const scrollToHowItWorks = () => {
     const el = document.getElementById('how-it-works')
     if (el) el.scrollIntoView({ behavior: 'smooth' })
@@ -103,8 +108,6 @@ export default function BetaLandingPage() {
   const toggleFaq = (idx: number) => {
     setOpenFaq(openFaq === idx ? null : idx)
   }
-
-  // TODO analytics: landing_opened (safe placeholder — no third-party provider)
 
   return (
     <div className="min-h-screen" style={{ background: '#0f0e17' }}>
@@ -158,7 +161,7 @@ export default function BetaLandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
             <button
               onClick={() => {
-                // TODO analytics: demo_started
+                trackEvent('demo_started', { source: 'hero_cta', route: '/lesson/1-1' })
                 navigate('/lesson/1-1')
               }}
               className="px-6 py-3 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:opacity-90 active:scale-[0.97]"
@@ -374,7 +377,7 @@ export default function BetaLandingPage() {
             </p>
             <button
               onClick={() => {
-                // TODO analytics: beta_cta_clicked
+                trackEvent('demo_started', { source: 'bottom_cta', route: '/lesson/1-1' })
                 navigate('/lesson/1-1')
               }}
               className="px-8 py-3.5 rounded-lg text-sm font-bold cursor-pointer border-none transition-all hover:opacity-90 active:scale-[0.97]"

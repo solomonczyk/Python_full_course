@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import type { Lesson, MissionResult, FeedbackState } from '../types'
 import { CHARACTER_AVATARS } from '../constants'
 import { getUserId } from '../utils/userId'
+import { trackEvent } from '../lib/analytics'
 
 interface Props {
   mission: Lesson['mission']
@@ -39,6 +40,13 @@ export default function MissionCard({ mission, lessonId, onComplete, onStateChan
     setErrorMessage(null)
     setActualOutput(null)
     onStateChange?.('checking')
+
+    // ── Analytics: mission_attempted ─────────────────────────────────────
+    trackEvent('mission_attempted', {
+      lesson_id: lessonId,
+      mission_id: `mission-${lessonId}`,
+      source: 'mission_submit',
+    })
 
     try {
       const res = await fetch(`${BASE}/mission/check`, {

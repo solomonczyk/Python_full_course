@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import type { LessonSummary, Progress } from '../types'
 import CharacterIntroSection from '../components/CharacterIntroSection'
 import { useProgressContext } from '../hooks/ProgressContext'
+import { trackEvent } from '../lib/analytics'
 
 interface Props {
   lessons: LessonSummary[]
@@ -193,7 +194,10 @@ export default function HomePage({ lessons, progress }: Props) {
           background: '#1a1924',
           border: '1px solid rgba(201,162,39,0.2)',
         }}
-        onClick={() => navigate('/beta')}
+        onClick={() => {
+          trackEvent('beta_entry_clicked', { source: 'homepage_beta_callout', route: '/beta' })
+          navigate('/beta')
+        }}
       >
         <div className="flex items-start gap-3">
           <span className="text-lg" style={{ color: '#c9a227' }}>

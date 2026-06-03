@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
+import { trackEvent } from '../lib/analytics'
 import type { LessonSummary, FeedbackState, MissionResult } from '../types'
 import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
@@ -65,7 +66,20 @@ export default function LessonPage({ lessons }: Props) {
     setFeedbackState(state)
     if (result) setFeedbackResult(result)
     if (state === 'failed') {
-      setAttemptCount(prev => prev + 1)
+      const newCount = attemptCount + 1
+      setAttemptCount(newCount)
+      trackEvent('mission_failed', {
+        lesson_id: lesson?.id,
+        mission_id: lesson?.id ? `mission-${lesson.id}` : undefined,
+        attempt_count: newCount,
+        result: result?.error ?? 'incorrect',
+      })
+    } else if (state === 'passed') {
+      trackEvent('mission_passed', {
+        lesson_id: lesson?.id,
+        mission_id: lesson?.id ? `mission-${lesson.id}` : undefined,
+        attempt_count: attemptCount,
+      })
     } else if (state === 'attempted') {
       // Reset attempt count when user starts fresh
       // (keeps current count for progressive hints)
@@ -76,6 +90,13 @@ export default function LessonPage({ lessons }: Props) {
 
   useEffect(() => {
     if (lesson) window.scrollTo(0, 0)
+  }, [lesson?.id])
+
+  // ── Analytics: lesson_started ──────────────────────────────────────────
+  useEffect(() => {
+    if (lesson) {
+      trackEvent('lesson_started', { lesson_id: lesson.id, source: 'lesson_page' })
+    }
   }, [lesson?.id])
 
   if (loading) {
@@ -323,7 +344,10 @@ export default function LessonPage({ lessons }: Props) {
       <MissionCard
         mission={lesson.mission}
         lessonId={lesson.id}
-        onComplete={(score) => markComplete(lesson.id, score)}
+        onComplete={(score) => {
+          trackEvent('lesson_completed', { lesson_id: lesson.id, result: 'mission_passed' })
+          markComplete(lesson.id, score)
+        }}
         onStateChange={handleMissionStateChange}
       />
 
@@ -340,6 +364,7 @@ export default function LessonPage({ lessons }: Props) {
         state={feedbackState}
         attemptCount={attemptCount}
         result={feedbackResult}
+        lessonId={lesson.id}
       />
 
       {/* Practice subtasks */}
