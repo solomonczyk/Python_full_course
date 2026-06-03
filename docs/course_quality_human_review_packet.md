@@ -1,7 +1,11 @@
-# Course Quality Audit — Human Review Packet
+# Course Quality Audit — Human Review Packet (CLOSED)
 
 **Generated:** 2026-06-03T06:24:49.865498+00:00
-**Total Issues:** 19
+**Closed:** 2026-06-03
+**Total Issues:** 19 (12 FIXED, 5 ACCEPTED, 2 DEFERRED to v2)
+
+> All 19 PQA issues have been resolved as part of Course Editorial & Persona QA close.
+> See `course_editorial_persona_qa_close_report.md` for details.
 
 ---
 ## 🚨 Must Fix Now

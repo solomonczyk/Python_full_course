@@ -125,7 +125,7 @@ export default function LessonPage({ lessons }: Props) {
       <div className="flex items-center justify-center h-64">
         <div className="flex flex-col items-center gap-4" style={{ color: '#9b98a8' }}>
           <span className="material-symbols-outlined text-5xl animate-spin" style={{ fontVariationSettings: "'FILL' 0" }}>progress_activity</span>
-          <p className="text-sm">Loading lesson...</p>
+          <p className="text-sm">Загрузка урока...</p>
         </div>
       </div>
     )

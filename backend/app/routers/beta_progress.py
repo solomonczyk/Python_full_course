@@ -8,7 +8,7 @@ import json
 from datetime import datetime, timezone
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 
 from app.database import get_connection
 from app.schemas.beta_progress import (

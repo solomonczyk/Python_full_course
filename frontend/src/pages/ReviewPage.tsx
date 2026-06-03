@@ -40,7 +40,7 @@ export default function ReviewPage() {
       <div className="w-full max-w-[800px] flex items-center justify-center h-64">
         <div className="flex flex-col items-center gap-4" style={{ color: '#9b98a8' }}>
           <span className="material-symbols-outlined text-5xl animate-spin" style={{ fontVariationSettings: "'FILL' 0" }}>progress_activity</span>
-          <p className="text-sm">Loading review...</p>
+          <p className="text-sm">Загрузка повторения...</p>
         </div>
       </div>
     )

@@ -1,5 +1,6 @@
 {
   "generated_at": "2026-06-03T06:24:49.864498+00:00",
+  "closed_at": "2026-06-03",
   "total_items_checked": 1347,
   "issues_total": 19,
   "severity_counts": {
@@ -7,6 +8,11 @@
     "needs_human_review": 17,
     "can_defer": 0,
     "non_blocking_polish": 2
+  },
+  "close_summary": {
+    "fixed": 12,
+    "accepted_no_action": 5,
+    "deferred_to_v2": 2
   },
   "issues": [
     {
@@ -20,7 +26,8 @@
       "reason": "Dialogue uses 'услови' which relates to 'if', a forbidden concept before this lesson",
       "suggested_fix": "Rephrase to avoid referencing this concept",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0002",
@@ -33,7 +40,8 @@
       "reason": "Dialogue uses 'словар' which relates to 'dict', a forbidden concept before this lesson",
       "suggested_fix": "Rephrase to avoid referencing this concept",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0003",
@@ -46,7 +54,8 @@
       "reason": "Correct solution appears joined into one line without proper formatting",
       "suggested_fix": "Format as multi-line code block",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "ACCEPTED"
     },
     {
       "issue_id": "PQA-0004",
@@ -59,7 +68,8 @@
       "reason": "Correct solution appears joined into one line without proper formatting",
       "suggested_fix": "Format as multi-line code block",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "ACCEPTED"
     },
     {
       "issue_id": "PQA-0005",
@@ -72,7 +82,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0006",
@@ -85,7 +96,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0007",
@@ -98,7 +110,8 @@
       "reason": "Wording 'напиши программу' may overstate when only one line is expected",
       "suggested_fix": "Consider 'напиши код' or 'выведи' instead if single line",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "DEFERRED"
     },
     {
       "issue_id": "PQA-0008",
@@ -111,7 +124,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "ACCEPTED"
     },
     {
       "issue_id": "PQA-0009",
@@ -124,7 +138,8 @@
       "reason": "Wording 'напиши программу' may overstate when only one line is expected",
       "suggested_fix": "Consider 'напиши код' or 'выведи' instead if single line",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "DEFERRED"
     },
     {
       "issue_id": "PQA-0010",
@@ -137,7 +152,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0011",
@@ -150,7 +166,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0012",
@@ -163,7 +180,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0013",
@@ -176,7 +194,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0014",
@@ -189,7 +208,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0015",
@@ -202,7 +222,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0016",
@@ -215,7 +236,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0017",
@@ -228,7 +250,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "FIXED"
     },
     {
       "issue_id": "PQA-0018",
@@ -241,7 +264,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "ACCEPTED"
     },
     {
       "issue_id": "PQA-0019",
@@ -254,7 +278,8 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true
+      "requires_operator_review": true,
+      "status": "ACCEPTED"
     }
   ],
   "items_checked": {
