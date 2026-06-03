@@ -51,7 +51,7 @@
     "analytics": "frontend/src/lib/analytics.ts",
     "e2e_tests": "frontend/e2e/persistent_user_progress.spec.ts"
   },
-  "git_commit": "788be7c",
+  "git_commit": "58dd2c0",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "run_real_first_student_testing_or_backend_progress_persistence"
