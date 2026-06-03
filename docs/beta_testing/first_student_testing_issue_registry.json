@@ -1,0 +1,23 @@
+{
+  "registry_status": "PREPARED_NOT_EXECUTED",
+  "reason": "No testing conducted yet — issue registry ready to be populated after real sessions",
+  "issues": [],
+  "collect_instructions": {
+    "per_session": "Create one issue entry per observed problem during each student session",
+    "severity_labels": ["blocker", "major", "minor", "polish"],
+    "area_labels": ["landing", "onboarding", "lesson", "mission", "hint", "checker", "progress", "analytics"],
+    "required_fields": ["issue_id", "source", "severity", "area", "description", "evidence", "affected_sessions", "recommended_action", "must_fix_before_next_beta"],
+    "id_format": "FST-0001, FST-0002, ..."
+  },
+  "issue_schema": {
+    "issue_id": "FST-0001",
+    "source": "student_observation | analytics | parent_feedback | operator_review",
+    "severity": "blocker | major | minor | polish",
+    "area": "landing | onboarding | lesson | mission | hint | checker | progress | analytics",
+    "description": "Description of the problem",
+    "evidence": "What evidence supports this finding",
+    "affected_sessions": ["session-1", "session-2"],
+    "recommended_action": "What to fix",
+    "must_fix_before_next_beta": true
+  }
+}

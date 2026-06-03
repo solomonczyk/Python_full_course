@@ -1,0 +1,36 @@
+{
+  "sessions_total": 0,
+  "students_tested": 0,
+  "testing_status": "PREPARED_NOT_EXECUTED",
+  "reason": "Real students not available yet — analytics summary template ready for data collection",
+  "events_summary": {
+    "landing_opened": 0,
+    "demo_started": 0,
+    "lesson_started": 0,
+    "mission_attempted": 0,
+    "mission_failed": 0,
+    "mission_passed": 0,
+    "hint_used": 0,
+    "lesson_completed": 0
+  },
+  "conversion": {
+    "landing_to_demo": null,
+    "demo_to_lesson_started": null,
+    "lesson_started_to_mission_attempted": null,
+    "mission_attempted_to_mission_passed": null,
+    "lesson_started_to_lesson_completed": null
+  },
+  "observed_friction_points": [],
+  "analytics_quality": {
+    "events_visible": true,
+    "missing_events": [],
+    "external_requests_detected": false,
+    "personal_data_detected": false,
+    "note": "Analytics system verified operational via code review. No real sessions conducted yet."
+  },
+  "collect_instructions": {
+    "method": "window.__PYTHON_QUEST_ANALYTICS__.getEvents()",
+    "scope": "Run in browser console after each student session",
+    "storage": "localStorage key: pq_analytics_events"
+  }
+}
