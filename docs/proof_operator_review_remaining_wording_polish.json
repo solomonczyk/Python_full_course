@@ -51,8 +51,8 @@
     "report": "docs/operator_review_remaining_wording_polish_report.md",
     "proof": "docs/proof_operator_review_remaining_wording_polish.json"
   },
-  "git_commit": "<pending>",
-  "git_pushed": false,
-  "git_clean": false,
+  "git_commit": "35a014f",
+  "git_pushed": true,
+  "git_clean": true,
   "next_allowed_action": "post_acceptance_monitoring_or_next_learning_flow_polish"
 }
