@@ -47,8 +47,8 @@
     "backend_tests_passed": true,
     "all_tests_passed": true
   },
-  "git_commit": "8b4c34f",
-  "git_pushed": false,
-  "git_clean": false,
+  "git_commit": "9d5af19",
+  "git_pushed": true,
+  "git_clean": true,
   "next_allowed_action": "beta_landing_implementation_or_analytics_implementation_or_first_student_testing"
 }
