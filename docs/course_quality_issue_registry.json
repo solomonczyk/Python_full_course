@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T17:00:04.441243+00:00",
+  "generated_at": "2026-06-03T05:24:32.506040+00:00",
   "total_items_checked": 1347,
   "issues_total": 41,
   "severity_counts": {
@@ -552,5 +552,23 @@
     "dialogue_blocks": 1000,
     "mission_blocks": 92,
     "code_examples": 103
+  },
+  "operator_review_summary": {
+    "review_date": "2026-06-03",
+    "review_task": "PYTHON-QUEST-POST-ACCEPTANCE-OPERATOR-REVIEW-REMAINING-WORDING-POLISH-001",
+    "total_reviewed": 41,
+    "classified_false_positive": 26,
+    "classified_acceptable": 15,
+    "classified_fix_required": 0,
+    "classified_deferred": 0,
+    "classified_needs_operator_decision": 0,
+    "fixes_applied": 0,
+    "mass_rewrite_check": "No course mass rewrite — only registry summary appended.",
+    "checker_changes": 0,
+    "expected_output_changes": 0,
+    "lesson_order_changes": 0,
+    "production_accepted_preserved": true,
+    "verdict_after_review": "ACCEPTED_WITH_CARRYOVER",
+    "next_allowed_action": "post_acceptance_monitoring_or_next_learning_flow_polish"
   }
 }
