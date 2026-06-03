@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "description": "Rules for distinguishing natural language from Python concept references in course quality audit",
+  "natural_language_suppression": {
+    "_note": "Words in this list are ordinary Russian words that should not trigger premature concept detection when used in dialogue or mission text. They are either: (a) fundamental grammatical conjunctions used in everyday speech, or (b) general-purpose verbs/nouns that happen to overlap with Python concept names.",
+    "ordinary_russian_words": [
+      "если",
+      "пока",
+      "повтор",
+      "повтори",
+      "повторяется",
+      "повторить"
+    ],
+    "suppress_in_dialogue": true,
+    "suppress_in_task_unless_explicit_instruction": true
+  },
+  "explicit_instruction_triggers": {
+    "_note": "These phrases explicitly ask the student to use a Python concept. They SHOULD trigger detection even in dialogue context, because they are instructional, not conversational.",
+    "if": [
+      "используй if",
+      "напиши if",
+      "создай if",
+      "сделай if",
+      "примени if",
+      "используй условие if",
+      "напиши условие if"
+    ],
+    "else": [
+      "используй else",
+      "напиши else",
+      "добавь else",
+      "сделай else"
+    ],
+    "while": [
+      "используй while",
+      "напиши while",
+      "создай while",
+      "сделай while",
+      "используй цикл while",
+      "напиши цикл while"
+    ],
+    "for": [
+      "используй for",
+      "напиши for",
+      "создай for",
+      "сделай for",
+      "используй цикл for",
+      "напиши цикл for"
+    ],
+    "loop": [
+      "используй цикл",
+      "создай цикл",
+      "напиши цикл",
+      "сделай цикл",
+      "напиши цикл с for",
+      "напиши цикл с while"
+    ],
+    "function": [
+      "используй функцию",
+      "создай функцию",
+      "напиши функцию",
+      "сделай функцию",
+      "используй def",
+      "напиши def"
+    ],
+    "return": [
+      "используй return",
+      "напиши return",
+      "верни значение",
+      "используй return для",
+      "добавь return"
+    ],
+    "dict": [
+      "используй dict",
+      "создай dict",
+      "сделай словарь",
+      "используй словарь",
+      "напиши словарь"
+    ],
+    "list": [
+      "используй список",
+      "создай список",
+      "напиши список",
+      "используй list",
+      "создай list"
+    ]
+  },
+  "code_token_triggers": {
+    "_note": "These are actual Python keyword tokens that indicate the concept is being used in code context. They should trigger detection even in dialogue when they appear as inline code or code examples.",
+    "if": ["if ", "else:", "elif "],
+    "while": ["while "],
+    "for": ["for "],
+    "function": ["def "],
+    "return": ["return "]
+  }
+}

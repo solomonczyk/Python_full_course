@@ -58,6 +58,18 @@ CHARACTER_LORE = {
     "bagus": "comic relief, encouragement, NOT primary educator",
 }
 
+CONCEPT_DETECTION_RULES_PATH = os.path.join(BASE, "scripts", "config", "audit_concept_detection_rules.json")
+
+def load_concept_detection_rules() -> dict:
+    """Load concept detection rules from config file."""
+    if os.path.exists(CONCEPT_DETECTION_RULES_PATH):
+        return load_json(CONCEPT_DETECTION_RULES_PATH)
+    return {
+        "natural_language_suppression": {"ordinary_russian_words": []},
+        "explicit_instruction_triggers": {},
+        "code_token_triggers": {},
+    }
+
 # ---------------------------------------------------------------------------
 # Loaders
 # ---------------------------------------------------------------------------
@@ -571,6 +583,13 @@ def audit_prerequisites(data: dict, skill_prog: dict, registry: IssueRegistry):
     lessons_map = {l["id"]: l for l in data["lessons"]}
     prog_lessons = skill_prog.get("lessons", {})
 
+    # Load concept detection rules for natural language suppression
+    detection_rules = load_concept_detection_rules()
+    natural_language_words = set(
+        detection_rules.get("natural_language_suppression", {})
+        .get("ordinary_russian_words", [])
+    )
+
     RISKY_WORDS_BEFORE_IF = ["если", "иначе", "elif", "else if", "условие"]
     RISKY_CONCEPTS_MAP = {
         "if": {"trigger_words": ["if ", "else ", "elif "], "forbidden_in": []},
@@ -633,6 +652,9 @@ def audit_prerequisites(data: dict, skill_prog: dict, registry: IssueRegistry):
                     if concept_name in forbidden:
                         for tr in triggers:
                             if tr.lower() in task_lower:
+                                # Suppress ordinary Russian words that are not actual concept references
+                                if tr.strip() in natural_language_words:
+                                    continue
                                 registry.add_issue(
                                     "needs_human_review" if lid not in ("1-7",) else "must_fix_now",
                                     "lesson", lid, "mission.task",
@@ -680,6 +702,10 @@ def audit_prerequisites(data: dict, skill_prog: dict, registry: IssueRegistry):
                     if concept_name in forbidden:
                         for tr in triggers:
                             if tr in step_lower and len(tr) > 2:
+                                # Suppress ordinary Russian words that are not actual concept references
+                                tr_clean = tr.strip()
+                                if tr_clean in natural_language_words:
+                                    continue
                                 registry.add_issue(
                                     "needs_human_review", "lesson", lid,
                                     f"{dialogue_field}[{idx}].text",

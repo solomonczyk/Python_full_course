@@ -1,237 +1,16 @@
 {
-  "generated_at": "2026-06-03T05:24:32.506040+00:00",
+  "generated_at": "2026-06-03T05:40:50.945011+00:00",
   "total_items_checked": 1347,
-  "issues_total": 41,
+  "issues_total": 19,
   "severity_counts": {
     "must_fix_now": 0,
-    "needs_human_review": 39,
+    "needs_human_review": 17,
     "can_defer": 0,
     "non_blocking_polish": 2
   },
   "issues": [
     {
       "issue_id": "PQA-0001",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-1",
-      "field": "pre_topic_dialogue[2].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть `print()` — это как крик в пещеру. Я говорю что-то внутри скобок, и Python повторяет это на экране?",
-      "reason": "Dialogue uses 'повтор' which relates to 'for', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0002",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-1",
-      "field": "pre_topic_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "А, то есть если я напишу `print('Привет')`, Python выведет «Привет» на экран? А если `print(5 + 3)` — он сначала посчитает и выведет 8?",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0003",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-2",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "У тебя есть банка с вареньем и банка с солёными огурцами. Если на них нет этикеток — ты через месяц не вспомнишь, где что. Кавычки — это этикетка для текста. Без них Python не понимает: это текст (вар",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0004",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-2",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "А если я поставлю одинарную кавычку в начале и двойную в конце — Python выдаст ошибку? Они должны в паре ходить?",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0005",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-3",
-      "field": "pre_topic_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Да! `name = \"Ксю\"` — в сундук `name` положили строку. `health = 100` — в сундук `health` положили число. Имя сундука без кавычек, значение — с кавычками если текст, без кавычек если число.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0006",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-4",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Представь, что ты звонишь в дверь магазинчика. Ты ждёшь, пока продавец откроет и скажет «Здравствуйте!». `input()` — это звонок. Программа ждёт, пока ты что-то напишешь и нажмёшь Enter.",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0007",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-4",
-      "field": "pre_topic_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "`input()` ждёт, пока пользователь что-то введёт, и возвращает это как строку. Звонок в дверь программы.",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0008",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-4",
-      "field": "post_error_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "input() возвращает строку. Даже если ввели число. Преобразуй через int().",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0009",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-4",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть `input()` всегда возвращает текст, даже если я ввожу число? И чтобы складывать, нужно заворачивать в `int()`?",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0010",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-4",
-      "field": "post_error_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Я тоже так ошибался, пока не разобрался. Попробуй ещё!",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0011",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-5",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Ты позвонил в дверь, продавец что-то сказал — но сказал он это на иностранном языке. Ты слышишь звуки, но не понимаешь числа. `input()` возвращает строку, даже если ввели цифры. `int()` — переводчик, ",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0012",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-5",
-      "field": "post_error_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "int(input()) — стандартный приём. Но если введут букву — будет ValueError.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0013",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-5",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть если я сделаю int(\"5\") + 3 — получится 8, а \"5\" + 3 — ошибка? Типы должны совпадать?",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0014",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-6",
-      "field": "pre_topic_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Да. `10 + 5 * 2` — Python сначала умножает, потом складывает (как в школе). Если хочешь другой порядок — ставь скобки: `(10 + 5) * 2 = 30`. Скобки работают как в математике.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0015",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-6",
-      "field": "post_error_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Умножение и деление выполняются до сложения и вычитания. Если хочешь другой порядок — используй скобки.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0016",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-6",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "То есть если я напишу 10 + 2 * 3, будет 16, а не 36? Надо запомнить про порядок.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0017",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-7",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Представь старинные весы с двумя чашами. На одну кладёшь число игрока, на другую — число врага. Весы опускаются вниз на той стороне, где число больше. Если чаши на одном уровне — числа равны. `==`, `>",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0018",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-7",
@@ -244,72 +23,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0019",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "1-7",
-      "field": "post_error_dialogue[3].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Ясно: == проверяет, = присваивает. Ошибка компиляции сразу покажет, если перепутал.",
-      "reason": "Dialogue uses 'если' which relates to 'if', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0020",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-1",
-      "field": "pre_topic_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Значит, `elif` — это как дополнительная проверка между `if` и `else`? Сначала `if` спросил — не подошло, тогда `elif` спрашивает, и так пока `else` не сработает?",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0021",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-2",
-      "field": "pre_topic_dialogue[1].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Вспомни турнир паровых големов: пока первый бой не закончился — второй не начинается. Как только один голем победил — турнир окончен, остальные матчи отменяются. Логическая цепочка работает так же: пе",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0022",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "2-2",
-      "field": "post_error_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Я тоже так ошибался, пока не разобрался. Попробуй ещё!",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0023",
-      "severity": "needs_human_review",
-      "surface": "lesson",
-      "item_id": "3-11",
-      "field": "post_error_dialogue[4].text",
-      "issue_type": "dialogue_premature_concept",
-      "current_text": "Я тоже так ошибался, пока не разобрался. Попробуй ещё!",
-      "reason": "Dialogue uses 'пока ' which relates to 'while', a forbidden concept before this lesson",
-      "suggested_fix": "Rephrase to avoid referencing this concept",
-      "auto_fix_safe": false,
-      "requires_operator_review": true
-    },
-    {
-      "issue_id": "PQA-0024",
+      "issue_id": "PQA-0002",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-17",
@@ -322,7 +36,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0025",
+      "issue_id": "PQA-0003",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-1",
@@ -335,7 +49,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0026",
+      "issue_id": "PQA-0004",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-10",
@@ -348,7 +62,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0027",
+      "issue_id": "PQA-0005",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-5",
@@ -361,7 +75,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0028",
+      "issue_id": "PQA-0006",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "1-6",
@@ -374,7 +88,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0029",
+      "issue_id": "PQA-0007",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-2",
@@ -387,7 +101,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0030",
+      "issue_id": "PQA-0008",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "2-3",
@@ -400,7 +114,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0031",
+      "issue_id": "PQA-0009",
       "severity": "non_blocking_polish",
       "surface": "lesson",
       "item_id": "2-3",
@@ -413,7 +127,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0032",
+      "issue_id": "PQA-0010",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-1",
@@ -426,7 +140,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0033",
+      "issue_id": "PQA-0011",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-18",
@@ -439,7 +153,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0034",
+      "issue_id": "PQA-0012",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-30",
@@ -452,7 +166,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0035",
+      "issue_id": "PQA-0013",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-33",
@@ -465,7 +179,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0036",
+      "issue_id": "PQA-0014",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-34",
@@ -478,7 +192,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0037",
+      "issue_id": "PQA-0015",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-37",
@@ -491,7 +205,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0038",
+      "issue_id": "PQA-0016",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "3-39",
@@ -504,7 +218,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0039",
+      "issue_id": "PQA-0017",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-17",
@@ -517,7 +231,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0040",
+      "issue_id": "PQA-0018",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "4-23",
@@ -530,7 +244,7 @@
       "requires_operator_review": true
     },
     {
-      "issue_id": "PQA-0041",
+      "issue_id": "PQA-0019",
       "severity": "needs_human_review",
       "surface": "lesson",
       "item_id": "5-3",
@@ -552,23 +266,5 @@
     "dialogue_blocks": 1000,
     "mission_blocks": 92,
     "code_examples": 103
-  },
-  "operator_review_summary": {
-    "review_date": "2026-06-03",
-    "review_task": "PYTHON-QUEST-POST-ACCEPTANCE-OPERATOR-REVIEW-REMAINING-WORDING-POLISH-001",
-    "total_reviewed": 41,
-    "classified_false_positive": 26,
-    "classified_acceptable": 15,
-    "classified_fix_required": 0,
-    "classified_deferred": 0,
-    "classified_needs_operator_decision": 0,
-    "fixes_applied": 0,
-    "mass_rewrite_check": "No course mass rewrite — only registry summary appended.",
-    "checker_changes": 0,
-    "expected_output_changes": 0,
-    "lesson_order_changes": 0,
-    "production_accepted_preserved": true,
-    "verdict_after_review": "ACCEPTED_WITH_CARRYOVER",
-    "next_allowed_action": "post_acceptance_monitoring_or_next_learning_flow_polish"
   }
 }
