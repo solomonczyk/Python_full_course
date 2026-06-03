@@ -46,7 +46,7 @@
     "report": "docs/targeted_learning_flow_polish_report.md",
     "proof": "docs/proof_targeted_learning_flow_polish.json"
   },
-  "git_commit": "<placeholder>",
+  "git_commit": "ecbb48f",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "post_acceptance_monitoring_or_commercial_readiness_layer"
