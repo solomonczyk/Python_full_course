@@ -61,7 +61,7 @@
     "analytics_summary": "docs/beta_testing/synthetic_beta_e2e_analytics_summary.json",
     "proof": "docs/proof_synthetic_beta_e2e_journey_testing.json"
   },
-  "git_commit": "422417d70df1f99b2b5443f89e21dd153f454fae",
+  "git_commit": "58ebecd1be629adcc5d75dc6cb30714e30d7dd01",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "run_real_first_student_testing"
