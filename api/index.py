@@ -307,7 +307,9 @@ def check_mission(body: MissionSubmit) -> dict[str, Any]:
             [py_cmd, tmp_path],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=5,
+            env={**os.environ, "PYTHONIOENCODING": "utf-8"},
         )
 
         actual = result.stdout.strip()
@@ -837,6 +839,86 @@ def beta_lesson_completed(participant_code: str, body: BetaLessonCompletedBody) 
     conn.commit()
     conn.close()
     return {"ok": True}
+
+# ── routes: analytics ────────────────────────────────────────────────────────
+_ANALYTICS_FILE = Path("/tmp/pq_analytics/events.jsonl")
+
+
+@app.post("/analytics/events")
+def collect_analytics_events(body: dict[str, Any]) -> dict[str, Any]:
+    """Collect anonymous analytics events from the frontend."""
+    events = body.get("events", [])
+    if not isinstance(events, list):
+        return {"ok": False, "count": 0}
+    _ANALYTICS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    count = 0
+    for event in events:
+        try:
+            with open(_ANALYTICS_FILE, "a", encoding="utf-8") as f:
+                f.write(json.dumps(event, ensure_ascii=False) + "\n")
+            count += 1
+        except OSError:
+            pass
+    return {"ok": True, "count": count}
+
+
+@app.get("/analytics/export")
+def export_analytics() -> dict[str, Any]:
+    """Export stored analytics events (operator only)."""
+    if os.environ.get("ANALYTICS_ENABLED", "").lower() not in ("true", "1", "yes"):
+        raise HTTPException(status_code=403, detail="Analytics export not enabled")
+    if not _ANALYTICS_FILE.exists():
+        return {"ok": True, "summary": {"total_events": 0, "event_type_counts": {}}, "events": []}
+    events = []
+    try:
+        with open(_ANALYTICS_FILE, "r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line:
+                    try:
+                        events.append(json.loads(line))
+                    except json.JSONDecodeError:
+                        continue
+    except OSError:
+        pass
+
+    event_type_counts: dict[str, int] = {}
+    participant_set: set[str] = set()
+    session_set: set[str] = set()
+    for ev in events:
+        etype = ev.get("event", "unknown")
+        event_type_counts[etype] = event_type_counts.get(etype, 0) + 1
+        if ev.get("participant_id"):
+            participant_set.add(ev["participant_id"])
+        if ev.get("anonymous_session_id"):
+            session_set.add(ev["anonymous_session_id"])
+
+    return {
+        "ok": True,
+        "summary": {
+            "total_events": len(events),
+            "unique_participants": len(participant_set),
+            "unique_sessions": len(session_set),
+            "event_type_counts": event_type_counts,
+            "earliest_event": events[0].get("timestamp") if events else None,
+            "latest_event": events[-1].get("timestamp") if events else None,
+        },
+        "events": events[-1000:],
+    }
+
+
+@app.delete("/analytics/events")
+def clear_analytics() -> dict[str, Any]:
+    """Clear all stored analytics events (operator use)."""
+    if os.environ.get("ANALYTICS_ENABLED", "").lower() not in ("true", "1", "yes"):
+        raise HTTPException(status_code=403, detail="Analytics export not enabled")
+    try:
+        if _ANALYTICS_FILE.exists():
+            _ANALYTICS_FILE.unlink()
+        return {"ok": True, "cleared": True}
+    except OSError as e:
+        return {"ok": False, "cleared": False, "error": str(e)}
+
 
 # ── AI chat ────────────────────────────────────────────────────────────────
 _AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { navigateWithFallback } from '../lib/navigation'
 
 const ONBOARDING_KEY = 'pq_onboarding_done'
 
@@ -16,7 +17,7 @@ export default function OnboardingPage() {
 
   // If already done, redirect
   if (localStorage.getItem(ONBOARDING_KEY)) {
-    navigate('/lesson/1-1', { replace: true })
+    navigateWithFallback(navigate, '/lesson/1-1', true)
     return null
   }
 
@@ -29,7 +30,7 @@ export default function OnboardingPage() {
       // Save and redirect
       localStorage.setItem(ONBOARDING_KEY, 'true')
       localStorage.setItem('pq_onboarding', JSON.stringify(updated))
-      navigate('/lesson/1-1', { replace: true })
+      navigateWithFallback(navigate, '/lesson/1-1', true)
     }
   }
 
@@ -122,7 +123,7 @@ export default function OnboardingPage() {
           <button
             onClick={() => {
               localStorage.setItem(ONBOARDING_KEY, 'true')
-              navigate('/lesson/1-1', { replace: true })
+              navigateWithFallback(navigate, '/lesson/1-1', true)
             }}
             className="text-xs cursor-pointer hover:opacity-80"
             style={{ color: '#6b7280', background: 'none', border: 'none' }}

@@ -302,19 +302,30 @@ export async function restoreFromBackend(
 }> {
   // Try backend first
   const backendResult = await getBackendProgress(participantCode)
+
   if (backendResult.ok && backendResult.data?.found) {
     const converted = convertBackendToBetaProgress(backendResult.data)
     if (converted) {
+      console.debug(`[backendProgressStore] progress restored from backend: ${converted.currentLessonId}, ${converted.completedLessons.length} lessons`)
       return { source: 'backend', progress: converted }
     }
+    console.warn('[backendProgressStore] backend had progress but conversion failed', backendResult.data)
+  }
+
+  if (!backendResult.ok) {
+    console.debug(`[backendProgressStore] backend unreachable: ${backendResult.error}`)
+  } else if (!backendResult.data?.found) {
+    console.debug('[backendProgressStore] backend: code not found, no progress on server')
   }
 
   // Fall back to localStorage
   if (localStorageProgress) {
+    console.debug(`[backendProgressStore] falling back to localStorage: ${localStorageProgress.currentLessonId}`)
     return { source: 'localStorage', progress: localStorageProgress }
   }
 
   // Empty
+  console.debug('[backendProgressStore] no progress found anywhere')
   return { source: 'empty', progress: null }
 }
 

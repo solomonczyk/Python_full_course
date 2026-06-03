@@ -72,7 +72,9 @@ def check_mission(body: MissionSubmit) -> dict[str, Any]:
             [py_cmd, tmp_path],
             capture_output=True,
             text=True,
+            encoding="utf-8",
             timeout=5,
+            env={**os.environ, "PYTHONIOENCODING": "utf-8"},
         )
 
         actual = result.stdout.strip()

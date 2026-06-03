@@ -91,13 +91,16 @@ export async function restoreBetaProgress(
   progress: BetaProgressData | null
 }> {
   const localProgress = loadBetaProgress(participantCode)
+  console.debug(`[progressSync] restoreBetaProgress: code=${participantCode}, local=${!!localProgress}`)
   const result = await restoreFromBackend(participantCode, localProgress)
 
   if (result.source === 'backend' && result.progress) {
     // Backend has progress — save it to localStorage for offline resilience
+    console.debug(`[progressSync] backend has progress, saving locally. lesson=${result.progress.currentLessonId}`)
     saveBetaProgress(result.progress)
   }
 
+  console.debug(`[progressSync] restore result: source=${result.source}, found=${!!result.progress}`)
   return result
 }
 

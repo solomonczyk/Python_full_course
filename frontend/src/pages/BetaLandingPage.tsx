@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { trackEvent } from '../lib/analytics'
+import { navigateWithFallback } from '../lib/navigation'
 import {
   getOrCreateParticipantCode,
   getStoredParticipantCode,
@@ -158,7 +159,7 @@ export default function BetaLandingPage() {
     if (code) {
       createBackendProgress(code)
     }
-    navigate('/lesson/1-1')
+    navigateWithFallback(navigate, '/lesson/1-1')
   }, [navigate])
 
   // ── Returning participant flow ───────────────────────────────────────
@@ -190,32 +191,28 @@ export default function BetaLandingPage() {
       return
     }
 
-    // Try backend first, fall back to localStorage
+    // restoreBetaProgress handles: backend → localStorage → empty
     const result = await restoreBetaProgress(trimmed)
-    if (result.source === 'backend' && result.progress) {
+
+    if (result.progress) {
+      // Progress found from either backend or localStorage
       setRestoredProgress(result.progress)
       setFlowState('restored')
       setCodeError(null)
-      return
-    }
-
-    // Fall back to localStorage
-    const progress = loadBetaProgress(trimmed)
-    if (progress) {
-      setRestoredProgress(progress)
-      setFlowState('restored')
-      setCodeError(null)
-    } else {
+    } else if (result.source === 'empty') {
       // Code format is valid but no progress found anywhere
       setCodeError('Код не найден. Проверьте код или начните заново.')
       // Remove the stored code since no progress was found
       clearBetaProgress()
+    } else {
+      // Backend or localStorage error
+      setCodeError('Не удалось восстановить прогресс. Попробуйте ещё раз.')
     }
   }, [returnCode])
 
   const handleContinueRestored = useCallback((lessonId: string) => {
     trackEvent('demo_started', { source: 'restored_progress', route: `/lesson/${lessonId}` })
-    navigate(`/lesson/${lessonId}`)
+    navigateWithFallback(navigate, `/lesson/${lessonId}`)
   }, [navigate])
 
   const handleStartFresh = useCallback(() => {
@@ -233,7 +230,7 @@ export default function BetaLandingPage() {
     const progress = loadBetaProgress(code)
     const lessonId = progress?.currentLessonId ?? '1-1'
     trackEvent('demo_started', { source: 'quick_continue', route: `/lesson/${lessonId}` })
-    navigate(`/lesson/${lessonId}`)
+    navigateWithFallback(navigate, `/lesson/${lessonId}`)
   }, [navigate])
 
   // ── Get code for display ───────────────────────────────────────────
@@ -255,7 +252,7 @@ export default function BetaLandingPage() {
           PYTHON QUEST
         </span>
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigateWithFallback(navigate, '/')}
           className="text-[11px] cursor-pointer border-none bg-transparent hover:opacity-80"
           style={{ color: '#9b98a8' }}
         >
@@ -653,7 +650,7 @@ export default function BetaLandingPage() {
                 boxShadow: '0 4px 20px rgba(201,162,39,0.3)',
               }}
             >
-              Начать обучение
+              Попробовать бесплатно
             </button>
           </div>
         </section>

@@ -129,6 +129,72 @@ function appendEvent(event: AnalyticsEvent): void {
 
 import { getParticipantId } from './participantIdentity'
 
+// ── Backend sync (optional, non-blocking) ─────────────────────────────────
+
+const ANALYTICS_SYNC_INTERVAL_MS = 30_000  // Sync every 30 seconds
+const ANALYTICS_BATCH_SIZE = 50
+
+let syncTimer: ReturnType<typeof setInterval> | null = null
+
+/**
+ * Start periodic analytics sync to backend.
+ * Safe to call multiple times — only one timer runs.
+ */
+export function startAnalyticsSync(): void {
+  if (syncTimer) return
+  syncTimer = setInterval(() => {
+    syncAnalyticsEvents()
+  }, ANALYTICS_SYNC_INTERVAL_MS)
+  // Also sync immediately
+  syncAnalyticsEvents()
+}
+
+/**
+ * Stop periodic analytics sync.
+ */
+export function stopAnalyticsSync(): void {
+  if (syncTimer) {
+    clearInterval(syncTimer)
+    syncTimer = null
+  }
+}
+
+/**
+ * Sync stored analytics events to backend (non-blocking).
+ * Only sends events that haven't been sent before.
+ */
+async function syncAnalyticsEvents(): Promise<void> {
+  try {
+    const events = readEvents()
+    if (events.length === 0) return
+
+    // Take latest batch
+    const batch = events.slice(-ANALYTICS_BATCH_SIZE)
+
+    // Check if backend responds quickly before sending
+    try {
+      const health = await fetch('/api/health', { method: 'GET', signal: AbortSignal.timeout(3000) })
+      if (!health.ok) return
+    } catch {
+      return  // Backend not reachable — skip sync
+    }
+
+    await fetch('/api/analytics/events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ events: batch }),
+      signal: AbortSignal.timeout(5000),
+    })
+
+    // Clear synced events from localStorage
+    // Only clear up to batch size to avoid losing recent events
+    const remaining = events.slice(0, -batch.length)
+    writeEvents(remaining)
+  } catch {
+    // Never throw from analytics sync
+  }
+}
+
 // ── Public API ────────────────────────────────────────────────────────────
 
 /**

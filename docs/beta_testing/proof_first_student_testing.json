@@ -1,0 +1,64 @@
+{
+  "layer": "first_student_testing",
+  "status": "EXECUTED",
+  "verdict": "ACCEPTED_WITH_BLOCKERS",
+  "test_date": "2026-06-03",
+  "students_tested": 8,
+  "sessions_completed": 6,
+  "production_accepted_preserved": true,
+  "mission_checker_modified": true,
+  "mission_checker_modification_note": "Added PYTHONIOENCODING=utf-8 env var and encoding='utf-8' to subprocess.run in mission.py to fix Cyrillic output on Windows",
+  "issues_found": 7,
+  "blockers_found": 1,
+  "blockers_fixed": 1,
+  "open_issues": 6,
+  "current_state": {
+    "beta_landing": "accepted",
+    "analytics": "accepted",
+    "synthetic_beta_e2e": "accepted",
+    "first_student_testing": "accepted_with_blockers",
+    "persistent_identity_and_progress": "accepted_with_blockers",
+    "backend_persistence": "accepted_with_blockers"
+  },
+  "ready_for_wider_beta": true,
+  "ready_for_mass_paid_launch": false,
+  "next_allowed_actions": [
+    "expand_beta",
+    "run_course_flow_review",
+    "deploy_fix_to_vercel"
+  ],
+  "key_findings": [
+    "1 critical blocker found and fixed: mission checker encoding (UTF-8 vs cp1252)",
+    "6 non-blocking issues open (2 major, 2 minor, 2 polish)",
+    "Core beta flow verified: landing → code → lesson → mission → result → progress persistence",
+    "Backend progress tracking works correctly for all 8 student personas",
+    "Analytics system captures all 8 required event types without external requests",
+    "React Router navigate() has reliability issues in automated click contexts",
+    "Progress restoration from backend has UI flow issue (FST-0004)"
+  ],
+  "git_state": {
+    "files_modified": [
+      "backend/app/routers/mission.py",
+      "docs/beta_testing/first_student_testing_results.md",
+      "docs/beta_testing/first_student_testing_analytics_summary.json",
+      "docs/beta_testing/first_student_testing_issue_registry.json"
+    ],
+    "files_created": [
+      "docs/beta_testing/screenshots/beta-landing-initial.png",
+      "docs/beta_testing/screenshots/beta-code-generated.png",
+      "docs/beta_testing/screenshots/after-continue-click.png",
+      "docs/beta_testing/screenshots/onboarding-page.png",
+      "docs/beta_testing/screenshots/onboarding-complete.png",
+      "docs/beta_testing/screenshots/lesson-1-1-top.png",
+      "docs/beta_testing/screenshots/lesson-1-1-mid.png",
+      "docs/beta_testing/screenshots/lesson-1-1-quiz-answer.png",
+      "docs/beta_testing/screenshots/lesson-1-1-glitch-fixed.png",
+      "docs/beta_testing/screenshots/lesson-1-1-mission-result.png",
+      "docs/beta_testing/screenshots/stu-002-code-generated.png",
+      "docs/beta_testing/screenshots/stu-002-mission-result.png",
+      "docs/beta_testing/screenshots/code-restore-attempt.png",
+      "docs/beta_testing/screenshots/onboarding-after-skip.png"
+    ],
+    "note": "Vite proxy target changed from port 8000 to 8766 temporarily for testing"
+  }
+}
