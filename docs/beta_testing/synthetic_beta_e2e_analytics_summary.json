@@ -1,0 +1,78 @@
+{
+  "data_type": "synthetic_test_events",
+  "real_user_data": false,
+  "synthetic_personas_total": 10,
+  "real_students_tested": 0,
+  "events_summary": {
+    "landing_opened": 8,
+    "demo_started": 6,
+    "lesson_started": 9,
+    "mission_attempted": 16,
+    "mission_failed": 8,
+    "mission_passed": 5,
+    "hint_used": 5,
+    "lesson_completed": 0
+  },
+  "scenario_results": [
+    {
+      "scenario": "SYN-001 fast_success",
+      "result": "passed",
+      "events_verified": ["landing_opened", "demo_started", "lesson_started", "mission_attempted", "mission_passed"]
+    },
+    {
+      "scenario": "SYN-002 one_error_then_success",
+      "result": "passed",
+      "events_verified": ["landing_opened", "demo_started", "lesson_started", "mission_attempted", "mission_failed", "hint_used", "mission_passed"]
+    },
+    {
+      "scenario": "SYN-003 multiple_errors_then_success",
+      "result": "passed",
+      "events_verified": ["mission_attempted", "mission_failed", "hint_used"],
+      "counts_verified": { "mission_failed": 3, "mission_attempted": 3, "hint_used": ">=1" }
+    },
+    {
+      "scenario": "SYN-005 landing_open_no_demo",
+      "result": "passed",
+      "events_verified": ["landing_opened"],
+      "negative_verified": ["demo_started", "lesson_started"]
+    },
+    {
+      "scenario": "SYN-006 demo_open_no_mission_attempt",
+      "result": "passed",
+      "events_verified": ["landing_opened", "demo_started", "lesson_started"],
+      "negative_verified": ["mission_attempted", "mission_failed", "mission_passed"]
+    },
+    {
+      "scenario": "SYN-007 hint_after_first_fail",
+      "result": "passed",
+      "events_verified": ["hint_used", "mission_failed"]
+    },
+    {
+      "scenario": "SYN-008 never_uses_hint",
+      "result": "passed",
+      "events_verified": ["mission_passed"],
+      "negative_verified": ["hint_used"]
+    },
+    {
+      "scenario": "SYN-009 refresh_mid_lesson",
+      "result": "passed",
+      "events_verified": ["lesson_started", "mission_attempted", "mission_failed"],
+      "persistence_verified": true
+    },
+    {
+      "scenario": "SYN-010 mobile_small_screen_path",
+      "result": "passed",
+      "viewport": "375x667",
+      "events_verified": ["landing_opened", "demo_started", "lesson_started"]
+    }
+  ],
+  "analytics_quality": {
+    "events_visible": true,
+    "missing_events": [],
+    "forbidden_payload_fields_detected": [],
+    "external_requests_detected": false,
+    "personal_data_detected": false
+  },
+  "claim_allowed": "technical beta journey verified",
+  "claim_forbidden": "real student comprehension validated"
+}

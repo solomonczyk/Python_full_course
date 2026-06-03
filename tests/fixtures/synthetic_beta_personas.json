@@ -1,0 +1,247 @@
+[
+  {
+    "persona_id": "SYN-001",
+    "persona_type": "fast_success",
+    "real_human": false,
+    "purpose": "happy path validation — user opens beta, clicks CTA, completes mission on first try, completes lesson",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_beta_landing",
+      "click_demo_cta",
+      "open_lesson_1_1",
+      "submit_correct_answer",
+      "complete_lesson"
+    ],
+    "expected_events": [
+      "landing_opened",
+      "demo_started",
+      "lesson_started",
+      "mission_attempted",
+      "mission_passed",
+      "lesson_completed"
+    ]
+  },
+  {
+    "persona_id": "SYN-002",
+    "persona_type": "one_error_then_success",
+    "real_human": false,
+    "purpose": "error recovery validation — user submits wrong answer, sees error feedback, then submits correct answer",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_beta_landing",
+      "click_demo_cta",
+      "open_lesson_1_1",
+      "submit_wrong_answer",
+      "see_error_feedback",
+      "submit_correct_answer",
+      "complete_lesson"
+    ],
+    "expected_events": [
+      "landing_opened",
+      "demo_started",
+      "lesson_started",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used",
+      "mission_attempted",
+      "mission_passed",
+      "lesson_completed"
+    ]
+  },
+  {
+    "persona_id": "SYN-003",
+    "persona_type": "multiple_errors_then_success",
+    "real_human": false,
+    "purpose": "progressive hint validation — user fails multiple times, each hint becomes more detailed, eventually succeeds",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_lesson_1_1",
+      "submit_wrong_answer_1",
+      "see_hint_1",
+      "submit_wrong_answer_2",
+      "see_hint_2",
+      "submit_wrong_answer_3",
+      "see_hint_3",
+      "submit_correct_answer",
+      "complete_lesson"
+    ],
+    "expected_events": {
+      "mission_attempted_count": 4,
+      "mission_failed_count": 3,
+      "hint_used_count": ">=1",
+      "mission_passed_count": 1,
+      "lesson_completed_count": 1
+    }
+  },
+  {
+    "persona_id": "SYN-004",
+    "persona_type": "multiple_errors_then_abandon",
+    "real_human": false,
+    "purpose": "session abandon validation — user fails multiple times then leaves without completing",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_lesson_1_1",
+      "submit_wrong_answer",
+      "submit_wrong_answer",
+      "submit_wrong_answer",
+      "abandon_page"
+    ],
+    "expected_events": [
+      "lesson_started",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used"
+    ],
+    "analytics_counts": {
+      "mission_attempted": 3,
+      "mission_failed": 3,
+      "hint_used": ">=1"
+    }
+  },
+  {
+    "persona_id": "SYN-005",
+    "persona_type": "landing_open_no_demo",
+    "real_human": false,
+    "purpose": "landing-only validation — user opens beta landing page but does not click demo CTA",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_beta_landing",
+      "scroll_landing",
+      "leave_page"
+    ],
+    "expected_events": [
+      "landing_opened"
+    ],
+    "negative_assertions": {
+      "demo_started": false,
+      "lesson_started": false
+    }
+  },
+  {
+    "persona_id": "SYN-006",
+    "persona_type": "demo_open_no_mission_attempt",
+    "real_human": false,
+    "purpose": "demo-viewing validation — user opens beta, clicks demo, views lesson but does not submit any mission code",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_beta_landing",
+      "click_demo_cta",
+      "open_lesson_1_1",
+      "scroll_lesson_content",
+      "leave_page"
+    ],
+    "expected_events": [
+      "landing_opened",
+      "demo_started",
+      "lesson_started"
+    ],
+    "negative_assertions": {
+      "mission_attempted": false,
+      "mission_failed": false,
+      "mission_passed": false
+    }
+  },
+  {
+    "persona_id": "SYN-007",
+    "persona_type": "hint_after_first_fail",
+    "real_human": false,
+    "purpose": "hint trigger validation — user fails once, hint_used event fires on first error feedback",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_lesson_1_1",
+      "submit_wrong_answer",
+      "receive_hint_on_first_fail",
+      "submit_correct_answer"
+    ],
+    "expected_events": [
+      "lesson_started",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used",
+      "mission_attempted",
+      "mission_passed"
+    ]
+  },
+  {
+    "persona_id": "SYN-008",
+    "persona_type": "never_uses_hint",
+    "real_human": false,
+    "purpose": "hint absence validation — user submits correct answer first try, hint_used must never fire",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_lesson_1_1",
+      "submit_correct_answer"
+    ],
+    "expected_events": [
+      "lesson_started",
+      "mission_attempted",
+      "mission_passed"
+    ],
+    "negative_assertions": {
+      "hint_used": false
+    }
+  },
+  {
+    "persona_id": "SYN-009",
+    "persona_type": "refresh_mid_lesson",
+    "real_human": false,
+    "purpose": "page refresh resilience validation — user refreshes mid-lesson, analytics state is preserved in localStorage",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "open_lesson_1_1",
+      "submit_wrong_answer",
+      "receive_error_feedback",
+      "refresh_page",
+      "verify_analytics_preserved",
+      "submit_correct_answer"
+    ],
+    "expected_events": [
+      "lesson_started",
+      "mission_attempted",
+      "mission_failed",
+      "hint_used",
+      "lesson_started",
+      "mission_attempted",
+      "mission_passed"
+    ]
+  },
+  {
+    "persona_id": "SYN-010",
+    "persona_type": "mobile_small_screen_path",
+    "real_human": false,
+    "purpose": "mobile viewport validation — beta landing renders correctly on small screen, CTA is tappable, lesson is accessible",
+    "claim_allowed": "technical journey validation only",
+    "claim_forbidden": "real student comprehension validation",
+    "steps": [
+      "set_mobile_viewport",
+      "open_beta_landing_mobile",
+      "verify_landing_readable",
+      "tap_demo_cta",
+      "verify_lesson_accessible"
+    ],
+    "expected_events": [
+      "landing_opened",
+      "demo_started",
+      "lesson_started"
+    ],
+    "viewport": {
+      "width": 375,
+      "height": 667
+    }
+  }
+]
