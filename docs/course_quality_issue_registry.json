@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-03T05:54:25.279219+00:00",
+  "generated_at": "2026-06-03T06:24:49.864498+00:00",
   "total_items_checked": 1347,
   "issues_total": 19,
   "severity_counts": {
@@ -20,13 +20,7 @@
       "reason": "Dialogue uses 'услови' which relates to 'if', a forbidden concept before this lesson",
       "suggested_fix": "Rephrase to avoid referencing this concept",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Harmless forward reference to if keyword. Lesson 1-7 (comparisons) is immediately before lesson 2-1 (if). Post-error dialogue mentions syntax briefly without teaching conditional logic. Word \"услови\" is ordinary Russian (\"conditions\"), not programming instruction.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0002",
@@ -39,13 +33,7 @@
       "reason": "Dialogue uses 'словар' which relates to 'dict', a forbidden concept before this lesson",
       "suggested_fix": "Rephrase to avoid referencing this concept",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "false_positive",
-        "reason": "Word \"словарь\" (dictionary) refers to Python dict already introduced in Part 3. By lesson 4-17, dict is a known concept. Also an ordinary Russian word. No premature concept issue.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0003",
@@ -58,13 +46,7 @@
       "reason": "Correct solution appears joined into one line without proper formatting",
       "suggested_fix": "Format as multi-line code block",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "false_positive",
-        "reason": "Single-line correct answer print(\"Привет\") is inherently one line for lesson 1-1 (print function). Simple missions with single-line correct answers are valid.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0004",
@@ -77,13 +59,7 @@
       "reason": "Correct solution appears joined into one line without proper formatting",
       "suggested_fix": "Format as multi-line code block",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "false_positive",
-        "reason": "Single-line correct answer print(\"\\n\".join([\"a\",\"b\"])) is standard Python using str.join(). The find_bug task only requires fixing slash direction. Single line is correct here.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0005",
@@ -96,13 +72,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Expected result shown in parentheses (9). Task clearly states: input 8, add 1, print result.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0006",
@@ -115,13 +85,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Calculation (7 + 6) explicitly shown. Expected output 13 trivial to compute. Arithmetic lesson context makes expected print value clear.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0007",
@@ -134,13 +98,7 @@
       "reason": "Wording 'напиши программу' may overstate when only one line is expected",
       "suggested_fix": "Consider 'напиши код' or 'выведи' instead if single line",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "\"Напиши программу\" appropriate for lesson 2-2 (if/elif/else chain). Expected solution is multi-line with conditional structure, not a single expression.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0008",
@@ -153,13 +111,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Output format fully specified: \"Бросок: X + Y = Сумма\". Task also clarifies string concatenation vs f-strings. No ambiguity.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0009",
@@ -172,13 +124,7 @@
       "reason": "Wording 'напиши программу' may overstate when only one line is expected",
       "suggested_fix": "Consider 'напиши код' or 'выведи' instead if single line",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "\"Напиши программу\" appropriate — task requires import, variable assignment, calculation, formatted output. Multi-step program.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0010",
@@ -191,13 +137,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Expected result (7.0) shown in parentheses. 3.5 * 2 = 7.0 unambiguous. Topic (float) matches expected output.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0011",
@@ -210,13 +150,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Expected result (10) shown in parentheses. Task specifies loop. Sum 1+2+3+4 = 10 unambiguous.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0012",
@@ -229,13 +163,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Action specified: remove \"b\" by value from [\"a\",\"b\",\"c\"]. Result [\"a\",\"c\"] trivially derivable.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0013",
@@ -248,13 +176,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Sum 1+2+3 = 6 trivially computable. Task specifies loop usage. Expected output unambiguous.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0014",
@@ -267,13 +189,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Counting 1 in [1,2,1,3,1] = 3 is unambiguous. List and target value explicitly given.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0015",
@@ -286,13 +202,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Result [1,2,3,4] trivially derivable from extending [1,2] with [3,4] via extend(). Method specified.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0016",
@@ -305,13 +215,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Task fully specified step-by-step: import, list, choice, print, if/else. Expected output pattern shown.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0017",
@@ -324,13 +228,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Sorting criterion specified: \"по длине строк\". Result sorted by length: [\"b\",\"aa\",\"ccc\"]. Unambiguous.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0018",
@@ -343,13 +241,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Exact instructions: a=[1], b=a, print(a is b). Result (True) inherent in reference assignment logic.",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     },
     {
       "issue_id": "PQA-0019",
@@ -362,13 +254,7 @@
       "reason": "Wording 'выведи результат' is ambiguous if expected output is not clearly specified",
       "suggested_fix": "Clearly specify what should be displayed",
       "auto_fix_safe": false,
-      "requires_operator_review": true,
-      "operator_review": {
-        "classification": "acceptable",
-        "reason": "Define add(a,b) returning a+b, call add(7,8), print result. 15 unambiguous. \"Выведи результат вызова\" tells student to use print().",
-        "student_confusion_risk": "none",
-        "safe_to_fix_now": false
-      }
+      "requires_operator_review": true
     }
   ],
   "items_checked": {
@@ -380,19 +266,5 @@
     "dialogue_blocks": 1000,
     "mission_blocks": 92,
     "code_examples": 103
-  },
-  "operator_review": {
-    "reviewed_at": "2026-06-03",
-    "reviewed_by": "operator",
-    "total_issues": 19,
-    "fixed": 0,
-    "acceptable": 15,
-    "false_positive": 3,
-    "deferred_non_blocking": 0,
-    "needs_operator_decision": 0,
-    "issues_fixed_count": 0,
-    "real_student_confusion_risk_after": 0,
-    "lesson_content_modified": false,
-    "verdict_on_remaining": "all_acceptable_or_false_positive"
   }
 }
