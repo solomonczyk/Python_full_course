@@ -2,7 +2,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
+
+from app.routers.beta_access import STAGE_PARTS, get_current_stage
 
 router = APIRouter(prefix="/lessons", tags=["lessons"])
 
@@ -27,9 +29,31 @@ def list_lessons() -> list[dict[str, Any]]:
 
 
 @router.get("/{lesson_id}")
-def get_lesson(lesson_id: str) -> dict[str, Any]:
+def get_lesson(lesson_id: str, request: Request) -> dict[str, Any]:
     lessons = _load_lessons()
     for lesson in lessons:
         if lesson["id"] == lesson_id:
+            participant_code = request.headers.get("X-Participant-Code")
+            if participant_code:
+                code = participant_code.strip().upper()
+                stage = get_current_stage(code)
+                allowed_parts = STAGE_PARTS.get(stage, [1])
+                if lesson["part"] not in allowed_parts:
+                    raise HTTPException(
+                        status_code=403,
+                        detail={
+                            "reason": "staged_access",
+                            "message": (
+                                f"Part {lesson['part']} is not yet available. "
+                                f"You have access to Stage {stage}/5 "
+                                f"(Parts {', '.join(str(p) for p in allowed_parts)}). "
+                                "Complete the current stage and provide feedback "
+                                "to unlock the next one."
+                            ),
+                            "current_stage": stage,
+                            "max_stage": 5,
+                            "lesson_part": lesson["part"],
+                        },
+                    )
             return lesson
     raise HTTPException(status_code=404, detail=f"Lesson '{lesson_id}' not found")

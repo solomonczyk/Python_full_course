@@ -54,6 +54,19 @@ def _ensure_db() -> None:
             last_active_at TEXT NOT NULL DEFAULT (datetime('now'))
         )
         """,
+        """
+        CREATE TABLE IF NOT EXISTS beta_stages (
+            participant_code TEXT PRIMARY KEY,
+            current_stage INTEGER NOT NULL DEFAULT 1,
+            feedback_submitted INTEGER NOT NULL DEFAULT 0,
+            feedback_text TEXT NOT NULL DEFAULT '',
+            feedback_rating INTEGER,
+            feedback_submitted_at TEXT,
+            operator_unlocked_at TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+        """,
     ]
 
     if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:

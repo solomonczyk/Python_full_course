@@ -384,3 +384,21 @@ export interface BetaProgressData {
   lastActiveAt: string
   createdAt: string
 }
+
+// ── Beta Access / Staged Access types ──────────────────────────────────────
+
+export interface BetaAccessInfo {
+  participantCode: string
+  currentStage: number
+  maxStage: number
+  hasFeedback: boolean
+  feedbackSubmittedAt: string | null
+}
+
+export interface StagedAccessError {
+  reason: 'staged_access'
+  currentStage: number
+  maxStage: number
+  lessonPart: number
+  message: string
+}

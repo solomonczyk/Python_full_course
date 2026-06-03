@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import type { Lesson, LessonSummary, ReviewBlock, ReviewSummary, QuestSummary, Quest, RecapSummary, Recap, QuestCheckResult } from '../types'
+import type { Lesson, LessonSummary, ReviewBlock, ReviewSummary, QuestSummary, Quest, RecapSummary, Recap, QuestCheckResult, StagedAccessError } from '../types'
 import { getUserId } from '../utils/userId'
+import { getStoredParticipantCode } from '../lib/participantIdentity'
 
 const BASE = '/api'
 
@@ -9,6 +10,14 @@ function authHeaders(): Record<string, string> {
     'Content-Type': 'application/json',
     'X-User-Id': getUserId(),
   }
+}
+
+function betaHeaders(): Record<string, string> {
+  const code = getStoredParticipantCode()
+  if (code) {
+    return { 'X-Participant-Code': code }
+  }
+  return {}
 }
 
 export function useLessons() {
@@ -41,21 +50,44 @@ export function useLesson(id: string) {
   const [lesson, setLesson] = useState<Lesson | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [stagedAccess, setStagedAccess] = useState<StagedAccessError | null>(null)
 
   useEffect(() => {
     if (!id) return
     setLoading(true)
-    fetch(`${BASE}/lessons/${id}`)
-      .then((r) => {
+    setError(null)
+    setStagedAccess(null)
+
+    const headers = { ...betaHeaders() }
+
+    fetch(`${BASE}/lessons/${id}`, { headers })
+      .then(async (r) => {
+        if (r.status === 403) {
+          const data = await r.json()
+          const detail = data?.detail
+          if (detail?.reason === 'staged_access') {
+            setStagedAccess({
+              reason: 'staged_access',
+              currentStage: detail.current_stage,
+              maxStage: detail.max_stage,
+              lessonPart: detail.lesson_part,
+              message: detail.message,
+            })
+            return null
+          }
+          throw new Error(data?.detail ?? `Lesson ${id} not found`)
+        }
         if (!r.ok) throw new Error(`Lesson ${id} not found`)
         return r.json()
       })
-      .then(setLesson)
+      .then((data) => {
+        if (data) setLesson(data)
+      })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false))
   }, [id])
 
-  return { lesson, loading, error }
+  return { lesson, loading, error, stagedAccess }
 }
 
 const STORAGE_KEY = 'python-quest-progress'

@@ -27,7 +27,7 @@ const PART_LABELS: Record<number, { label: string; icon: string }> = {
 
 export default function HomePage({ lessons, progress }: Props) {
   const navigate = useNavigate()
-  const { isLessonUnlocked } = useProgressContext()
+  const { isLessonUnlocked, betaStage } = useProgressContext()
   const total = lessons.length
   const done = Object.values(progress).filter((p) => p.completed).length
 
@@ -149,7 +149,8 @@ export default function HomePage({ lessons, progress }: Props) {
             const info = PART_LABELS[part] ?? { label: `Part ${part}`, icon: '📚' }
             const allDone = done === total
             const isCurrent = done > 0 && done < total
-            const isLocked = done === 0 && part > 1
+            const isStageLocked = betaStage !== undefined && part > betaStage
+            const isLocked = isStageLocked || (done === 0 && part > 1)
 
             return (
               <div key={part}

@@ -142,7 +142,7 @@ export default function Sidebar({ lessons, progress, recaps, open, onClose }: Pr
                     {partLessons.flatMap((lesson) => {
                       const isLessonActive = lesson.id === activeId
                       const isDone = progress[lesson.id]?.completed
-                      const isLocked = lesson.locked && !progress[lesson.id]?.completed
+                      const isLocked = !isLessonUnlocked(lesson.id, lessons)
 
                       // Find recaps that should appear after this lesson
                       const recapsAfterThis = recaps.filter((r) => {

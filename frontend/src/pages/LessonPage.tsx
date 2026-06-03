@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
+import { useBetaAccess } from '../hooks/useBetaAccess'
 import { trackEvent } from '../lib/analytics'
 import { trackLessonStarted, trackMissionAttempt, trackMissionResult, trackLessonCompleted } from '../lib/progressStore'
 import { syncLessonStarted, syncMissionResult, syncLessonCompleted } from '../lib/progressSync'
@@ -27,6 +28,7 @@ import CodeWatchBlock from '../components/CodeWatchBlock'
 import TaskPresentationBlock from '../components/TaskPresentationBlock'
 import CommonMistakesBlock from '../components/CommonMistakesBlock'
 import FoundationBlock from '../components/FoundationBlock'
+import StagedAccessLocked from '../components/StagedAccessLocked'
 
 interface Props {
   lessons: LessonSummary[]
@@ -56,8 +58,9 @@ function SteampunkCard({ children, accentColor = 'rgba(201,162,39,0.15)', classN
 export default function LessonPage({ lessons }: Props) {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
-  const { lesson, loading, error } = useLesson(id ?? '')
+  const { lesson, loading, error, stagedAccess } = useLesson(id ?? '')
   const { progress, markComplete, isLessonUnlocked } = useProgressContext()
+  const { betaAccess, submitFeedback } = useBetaAccess()
 
   // Adaptive feedback state
   const [feedbackState, setFeedbackState] = useState<FeedbackState>('not_started')
@@ -128,6 +131,20 @@ export default function LessonPage({ lessons }: Props) {
           <p className="text-sm">Загрузка урока...</p>
         </div>
       </div>
+    )
+  }
+
+  // NEW: Staged access check — backend 403 for staged beta
+  if (stagedAccess) {
+    return (
+      <StagedAccessLocked
+        currentStage={stagedAccess.currentStage}
+        maxStage={stagedAccess.maxStage}
+        lessonPart={stagedAccess.lessonPart}
+        hasFeedback={betaAccess?.hasFeedback ?? false}
+        feedbackSubmittedAt={betaAccess?.feedbackSubmittedAt ?? null}
+        onSubmitFeedback={submitFeedback}
+      />
     )
   }
 
