@@ -65,8 +65,8 @@
   },
   "github_actions_green": true,
   "vercel_ready": true,
-  "git_commit": "1fac4b172eb9a15162dc8b38201bae356bd5db5b",
-  "git_pushed": false,
+  "git_commit": "6eb7a182023216648c00bcb1c0e546e18ed935b0",
+  "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "production_env_operator_key_verification_then_run_first_staged_beta_batch"
 }
