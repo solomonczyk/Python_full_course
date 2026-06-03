@@ -5,6 +5,7 @@ import subprocess
 import tempfile
 import urllib.request
 from contextlib import contextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
@@ -509,6 +510,333 @@ def get_review(review_id: str) -> dict[str, Any]:
         if r["id"] == review_id:
             return r
     raise HTTPException(status_code=404, detail=f"Review {review_id} not found")
+
+
+# ── routes: beta progress persistence ────────────────────────────────────────
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _hash_participant_code(code: str) -> str:
+    h = 0
+    for ch in code:
+        h = ((h << 5) - h) + ord(ch)
+        h = h & h
+    abs_h = h if h >= 0 else -h
+    return "p_" + format(abs_h, "x")
+
+
+def _ensure_beta_progress_table() -> None:
+    conn = get_connection()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS beta_progress (
+            participant_code TEXT PRIMARY KEY,
+            participant_id TEXT NOT NULL,
+            current_lesson_id TEXT NOT NULL DEFAULT '1-1',
+            completed_lessons TEXT NOT NULL DEFAULT '[]',
+            lesson_status TEXT NOT NULL DEFAULT '{}',
+            mission_stats TEXT NOT NULL DEFAULT '{}',
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+            last_active_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+
+class BetaProgressCreateBody(BaseModel):
+    participant_code: str
+
+
+class BetaLessonStartedBody(BaseModel):
+    lesson_id: str
+
+
+class BetaMissionResultBody(BaseModel):
+    lesson_id: str
+    passed: bool
+    attempts: int = 1
+    hints_used: int = 0
+
+
+class BetaHintUsedBody(BaseModel):
+    lesson_id: str
+
+
+class BetaLessonCompletedBody(BaseModel):
+    lesson_id: str
+
+
+class BetaProgressUpdateBody(BaseModel):
+    current_lesson_id: str | None = None
+    completed_lessons: list[str] | None = None
+    lesson_status: dict[str, str] | None = None
+    mission_stats: dict[str, Any] | None = None
+
+
+def _parse_beta_json(val: str, default: Any = None) -> Any:
+    if default is None:
+        default = {} if val.startswith("{") else []
+    if not val:
+        return default
+    try:
+        return json.loads(val)
+    except (json.JSONDecodeError, TypeError):
+        return default
+
+
+def _get_beta_row(participant_code: str) -> dict[str, Any] | None:
+    conn = get_connection()
+    row = conn.execute(
+        "SELECT * FROM beta_progress WHERE participant_code = ?",
+        (participant_code,),
+    ).fetchone()
+    conn.close()
+    return dict(row) if row else None
+
+
+def _beta_row_to_response(row: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "ok": True,
+        "found": True,
+        "participant_code": row.get("participant_code", ""),
+        "participant_id": row.get("participant_id", ""),
+        "current_lesson_id": row.get("current_lesson_id", "1-1"),
+        "completed_lessons": _parse_beta_json(row.get("completed_lessons", "[]"), []),
+        "lesson_status": _parse_beta_json(row.get("lesson_status", "{}"), {}),
+        "mission_stats": _parse_beta_json(row.get("mission_stats", "{}"), {}),
+        "created_at": row.get("created_at", ""),
+        "updated_at": row.get("updated_at", ""),
+        "last_active_at": row.get("last_active_at", ""),
+    }
+
+
+@app.post("/beta/progress/create")
+def create_beta_progress(body: BetaProgressCreateBody) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = body.participant_code.strip().upper()
+    participant_id = _hash_participant_code(participant_code)
+
+    existing = _get_beta_row(participant_code)
+    if existing:
+        return {
+            "ok": True,
+            "participant_code": existing["participant_code"],
+            "participant_id": existing["participant_id"],
+            "current_lesson_id": existing["current_lesson_id"],
+            "completed_lessons": _parse_beta_json(existing.get("completed_lessons", "[]"), []),
+            "created_at": existing["created_at"],
+        }
+
+    now = datetime.now(timezone.utc).isoformat() if hasattr(datetime, 'timezone') else _now_iso()
+    conn = get_connection()
+    conn.execute(
+        """INSERT INTO beta_progress
+           (participant_code, participant_id, current_lesson_id,
+            completed_lessons, lesson_status, mission_stats,
+            created_at, updated_at, last_active_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+        (participant_code, participant_id, "1-1", "[]", "{}", "{}", now, now, now),
+    )
+    conn.commit()
+    conn.close()
+    return {
+        "ok": True,
+        "participant_code": participant_code,
+        "participant_id": participant_id,
+        "current_lesson_id": "1-1",
+        "completed_lessons": [],
+        "created_at": now,
+    }
+
+
+@app.get("/beta/progress/{participant_code}")
+def get_beta_progress(participant_code: str) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    row = _get_beta_row(participant_code.strip().upper())
+    if not row:
+        return {"ok": True, "found": False, "message": "Progress not found"}
+    return _beta_row_to_response(row)
+
+
+@app.put("/beta/progress/{participant_code}")
+def update_beta_progress(
+    participant_code: str, body: BetaProgressUpdateBody
+) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = participant_code.strip().upper()
+    existing = _get_beta_row(participant_code)
+    if not existing:
+        return {"ok": True, "found": False, "message": "Progress not found"}
+
+    participant_id = existing["participant_id"]
+    completed_lessons = _parse_beta_json(existing.get("completed_lessons", "[]"), [])
+    lesson_status = _parse_beta_json(existing.get("lesson_status", "{}"), {})
+    mission_stats = _parse_beta_json(existing.get("mission_stats", "{}"), {})
+
+    if body.completed_lessons is not None:
+        completed_lessons = body.completed_lessons
+    if body.lesson_status is not None:
+        lesson_status = body.lesson_status
+    if body.mission_stats is not None:
+        mission_stats = body.mission_stats
+
+    now = _now_iso()
+    conn = get_connection()
+    conn.execute(
+        """UPDATE beta_progress SET
+           current_lesson_id = ?, completed_lessons = ?, lesson_status = ?,
+           mission_stats = ?, updated_at = ?, last_active_at = ?
+           WHERE participant_code = ?""",
+        (
+            body.current_lesson_id or existing.get("current_lesson_id", "1-1"),
+            json.dumps(completed_lessons),
+            json.dumps(lesson_status),
+            json.dumps(mission_stats),
+            now, now,
+            participant_code,
+        ),
+    )
+    conn.commit()
+    row = conn.execute(
+        "SELECT * FROM beta_progress WHERE participant_code = ?", (participant_code,)
+    ).fetchone()
+    conn.close()
+    return _beta_row_to_response(dict(row)) if row else _beta_row_to_response(existing)
+
+
+@app.post("/beta/progress/{participant_code}/lesson-started")
+def beta_lesson_started(participant_code: str, body: BetaLessonStartedBody) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = participant_code.strip().upper()
+    existing = _get_beta_row(participant_code)
+    now = _now_iso()
+
+    if existing:
+        lesson_status = _parse_beta_json(existing.get("lesson_status", "{}"), {})
+        if body.lesson_id not in lesson_status:
+            lesson_status[body.lesson_id] = "started"
+        conn = get_connection()
+        conn.execute(
+            """UPDATE beta_progress SET current_lesson_id = ?, lesson_status = ?,
+               updated_at = ?, last_active_at = ? WHERE participant_code = ?""",
+            (body.lesson_id, json.dumps(lesson_status), now, now, participant_code),
+        )
+        conn.commit()
+        conn.close()
+    else:
+        participant_id = _hash_participant_code(participant_code)
+        conn = get_connection()
+        conn.execute(
+            """INSERT INTO beta_progress
+               (participant_code, participant_id, current_lesson_id,
+                completed_lessons, lesson_status, mission_stats,
+                created_at, updated_at, last_active_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (participant_code, participant_id, body.lesson_id,
+             "[]", json.dumps({body.lesson_id: "started"}), "{}",
+             now, now, now),
+        )
+        conn.commit()
+        conn.close()
+    return {"ok": True}
+
+
+@app.post("/beta/progress/{participant_code}/mission-result")
+def beta_mission_result(participant_code: str, body: BetaMissionResultBody) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = participant_code.strip().upper()
+    existing = _get_beta_row(participant_code) or {}
+    participant_id = existing.get("participant_id", _hash_participant_code(participant_code))
+    mission_stats = _parse_beta_json(existing.get("mission_stats", "{}"), {})
+    lesson_status = _parse_beta_json(existing.get("lesson_status", "{}"), {})
+    completed_lessons = _parse_beta_json(existing.get("completed_lessons", "[]"), [])
+
+    if body.lesson_id not in mission_stats:
+        mission_stats[body.lesson_id] = {"attempts": 0, "failed": 0, "passed": False, "hints_used": 0}
+    stats = mission_stats[body.lesson_id]
+    stats["attempts"] = body.attempts
+    stats["hints_used"] = body.hints_used
+    if body.passed:
+        stats["passed"] = True
+        lesson_status[body.lesson_id] = "completed"
+        if body.lesson_id not in completed_lessons:
+            completed_lessons.append(body.lesson_id)
+    else:
+        stats["failed"] += 1
+
+    now = _now_iso()
+    conn = get_connection()
+    conn.execute(
+        """INSERT INTO beta_progress
+           (participant_code, participant_id, current_lesson_id,
+            completed_lessons, lesson_status, mission_stats,
+            created_at, updated_at, last_active_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(participant_code) DO UPDATE SET
+             mission_stats = excluded.mission_stats,
+             lesson_status = excluded.lesson_status,
+             completed_lessons = excluded.completed_lessons,
+             updated_at = excluded.updated_at,
+             last_active_at = excluded.last_active_at""",
+        (participant_code, participant_id, body.lesson_id,
+         json.dumps(completed_lessons), json.dumps(lesson_status),
+         json.dumps(mission_stats), now, now, now),
+    )
+    conn.commit()
+    conn.close()
+    return {"ok": True}
+
+
+@app.post("/beta/progress/{participant_code}/hint-used")
+def beta_hint_used(participant_code: str, body: BetaHintUsedBody) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = participant_code.strip().upper()
+    existing = _get_beta_row(participant_code)
+    if not existing:
+        return {"ok": True}
+
+    mission_stats = _parse_beta_json(existing.get("mission_stats", "{}"), {})
+    if body.lesson_id not in mission_stats:
+        mission_stats[body.lesson_id] = {"attempts": 0, "failed": 0, "passed": False, "hints_used": 0}
+    mission_stats[body.lesson_id]["hints_used"] += 1
+
+    now = _now_iso()
+    conn = get_connection()
+    conn.execute(
+        "UPDATE beta_progress SET mission_stats = ?, updated_at = ?, last_active_at = ? WHERE participant_code = ?",
+        (json.dumps(mission_stats), now, now, participant_code),
+    )
+    conn.commit()
+    conn.close()
+    return {"ok": True}
+
+
+@app.post("/beta/progress/{participant_code}/lesson-completed")
+def beta_lesson_completed(participant_code: str, body: BetaLessonCompletedBody) -> dict[str, Any]:
+    _ensure_beta_progress_table()
+    participant_code = participant_code.strip().upper()
+    existing = _get_beta_row(participant_code)
+    if not existing:
+        return {"ok": True}
+
+    lesson_status = _parse_beta_json(existing.get("lesson_status", "{}"), {})
+    completed_lessons = _parse_beta_json(existing.get("completed_lessons", "[]"), [])
+    lesson_status[body.lesson_id] = "completed"
+    if body.lesson_id not in completed_lessons:
+        completed_lessons.append(body.lesson_id)
+
+    now = _now_iso()
+    conn = get_connection()
+    conn.execute(
+        "UPDATE beta_progress SET lesson_status = ?, completed_lessons = ?, updated_at = ?, last_active_at = ? WHERE participant_code = ?",
+        (json.dumps(lesson_status), json.dumps(completed_lessons), now, now, participant_code),
+    )
+    conn.commit()
+    conn.close()
+    return {"ok": True}
 
 # ── AI chat ────────────────────────────────────────────────────────────────
 _AI_ENDPOINT = os.environ.get("DEEPSEEK_API_ENDPOINT", "https://api.deepseek.com/v1/chat/completions")

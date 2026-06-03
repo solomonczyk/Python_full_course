@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import init_db
 from app.routers import lessons, progress, quiz, mission, quests, recaps
+from app.routers import beta_progress
 
 
 @asynccontextmanager
@@ -42,6 +43,7 @@ app.include_router(quiz.router)
 app.include_router(mission.router)
 app.include_router(quests.router)
 app.include_router(recaps.router)
+app.include_router(beta_progress.router)
 
 
 @app.get("/")

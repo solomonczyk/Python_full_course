@@ -7,7 +7,9 @@ import {
   storeParticipantCode,
   isValidCodeFormat,
 } from '../lib/participantIdentity'
-import { loadBetaProgress, initBetaProgress, clearBetaProgress } from '../lib/progressStore'
+import { loadBetaProgress, initBetaProgress, clearBetaProgress, saveBetaProgress } from '../lib/progressStore'
+import { restoreBetaProgress } from '../lib/progressSync'
+import { createBackendProgress } from '../lib/backendProgressStore'
 import ParticipantCodePanel from '../components/ParticipantCodePanel'
 import ResumeProgressCard from '../components/ResumeProgressCard'
 import type { BetaProgressData } from '../types'
@@ -39,7 +41,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Что значит beta?',
-    a: 'Продукт уже можно проходить и тестировать — все уроки, миссии, повторения и квесты работают. Однако некоторые коммерческие функции (оплата, родительский дашборд) ещё не финальные. Это возможность попробовать курс бесплатно и повлиять на его развитие.'
+    a: 'Продукт уже можно проходить и тестировать — все уроки, миссии, повторения и квесты работают. Прогресс сохраняется на сервере: вы можете продолжить обучение на другом устройстве, введя свой beta-код. Некоторые коммерческие функции (оплата, родительский дашборд) ещё не финальные. Это возможность попробовать курс бесплатно и повлиять на его развитие.'
   },
   {
     q: 'Что делать, если ребёнок ошибается?',
@@ -149,8 +151,13 @@ export default function BetaLandingPage() {
   }, [])
 
   const handleContinueAfterCode = useCallback(() => {
+    const code = getStoredParticipantCode()
     trackEvent('demo_started', { source: 'hero_cta', route: '/lesson/1-1' })
     initBetaProgress()
+    // Create backend progress asynchronously (non-blocking)
+    if (code) {
+      createBackendProgress(code)
+    }
     navigate('/lesson/1-1')
   }, [navigate])
 
@@ -168,7 +175,7 @@ export default function BetaLandingPage() {
     setCodeError(null)
   }, [])
 
-  const handleRestoreProgress = useCallback(() => {
+  const handleRestoreProgress = useCallback(async () => {
     const trimmed = returnCode.trim().toUpperCase()
 
     if (!isValidCodeFormat(trimmed)) {
@@ -183,14 +190,23 @@ export default function BetaLandingPage() {
       return
     }
 
-    // Try to load progress
+    // Try backend first, fall back to localStorage
+    const result = await restoreBetaProgress(trimmed)
+    if (result.source === 'backend' && result.progress) {
+      setRestoredProgress(result.progress)
+      setFlowState('restored')
+      setCodeError(null)
+      return
+    }
+
+    // Fall back to localStorage
     const progress = loadBetaProgress(trimmed)
     if (progress) {
       setRestoredProgress(progress)
       setFlowState('restored')
       setCodeError(null)
     } else {
-      // Code format is valid but no progress found
+      // Code format is valid but no progress found anywhere
       setCodeError('Код не найден. Проверьте код или начните заново.')
       // Remove the stored code since no progress was found
       clearBetaProgress()
@@ -435,7 +451,7 @@ export default function BetaLandingPage() {
                 color: '#6b7280',
               }}
             >
-              Beta-доступ работает по beta-коду. Сохраните код, чтобы продолжить обучение позже.
+              Сохраните beta-код. По нему можно продолжить обучение позже — даже с другого устройства.
               Мы не просим имя ребёнка, телефон или платёжные данные.
             </div>
           )}
@@ -560,7 +576,7 @@ export default function BetaLandingPage() {
               { label: 'Миссии', value: 'Работают — каждая проверяется автоматически' },
               { label: 'Повторения', value: 'Встроены в учебный маршрут каждой части' },
               { label: 'Квесты', value: 'Доступны — проверка синтаксиса и логики' },
-              { label: 'Прогресс', value: 'Сохраняется в браузере по beta-коду' },
+              { label: 'Прогресс', value: 'Сохраняется на сервере — можно продолжить с другого устройства по beta-коду' },
               { label: 'Подсказки', value: 'Встроены в каждую миссию при ошибке' },
             ].map((item) => (
               <div
@@ -620,8 +636,8 @@ export default function BetaLandingPage() {
           >
             На beta-этапе не подключена оплата, не собираются платёжные данные
             и не создаются детские персональные профили. Прогресс сохраняется
-            локально в браузере — это технические данные, которые не покидают
-            ваше устройство.
+            на сервере по beta-коду — это технические данные, которые не содержат
+            личной информации.
           </div>
 
           <div>

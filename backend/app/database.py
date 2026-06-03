@@ -28,7 +28,8 @@ def _ensure_db() -> None:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     # Create table — works for both SQLite and Turso (libsql)
-    schema = """
+    schemas = [
+        """
         CREATE TABLE IF NOT EXISTS progress (
             user_id TEXT NOT NULL DEFAULT 'anonymous',
             lesson_id TEXT NOT NULL,
@@ -39,21 +40,37 @@ def _ensure_db() -> None:
             updated_at TEXT DEFAULT (datetime('now')),
             PRIMARY KEY (user_id, lesson_id)
         )
-    """
+        """,
+        """
+        CREATE TABLE IF NOT EXISTS beta_progress (
+            participant_code TEXT PRIMARY KEY,
+            participant_id TEXT NOT NULL,
+            current_lesson_id TEXT NOT NULL DEFAULT '1-1',
+            completed_lessons TEXT NOT NULL DEFAULT '[]',
+            lesson_status TEXT NOT NULL DEFAULT '{}',
+            mission_stats TEXT NOT NULL DEFAULT '{}',
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+            last_active_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+        """,
+    ]
 
     if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
         conn = get_connection()
-        conn.execute(schema)
+        for schema in schemas:
+            conn.execute(schema)
         conn.commit()
     else:
         conn = sqlite3.connect(str(DB_PATH))
-        conn.execute(schema)
-        # Migrate old table (without user_id) if exists
+        for schema in schemas:
+            conn.execute(schema)
+        # Migrate old progress table (without user_id) if exists
         try:
             conn.execute("SELECT user_id FROM progress LIMIT 1")
         except sqlite3.OperationalError:
             conn.execute("DROP TABLE IF EXISTS progress")
-            conn.execute(schema)
+            conn.execute(schemas[0])
         conn.commit()
         conn.close()
 

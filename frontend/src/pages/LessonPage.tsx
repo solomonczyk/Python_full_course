@@ -4,6 +4,7 @@ import { useLesson } from '../hooks/useApi'
 import { useProgressContext } from '../hooks/ProgressContext'
 import { trackEvent } from '../lib/analytics'
 import { trackLessonStarted, trackMissionAttempt, trackMissionResult, trackLessonCompleted } from '../lib/progressStore'
+import { syncLessonStarted, syncMissionResult, syncLessonCompleted } from '../lib/progressSync'
 import type { LessonSummary, FeedbackState, MissionResult } from '../types'
 import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
@@ -80,6 +81,8 @@ export default function LessonPage({ lessons }: Props) {
       if (lesson) {
         trackMissionAttempt(lesson.id, newCount > 1)
         trackMissionResult(lesson.id, false)
+        // Sync to backend (non-blocking)
+        syncMissionResult(lesson.id, false, newCount, newCount > 1 ? 1 : 0)
       }
     } else if (state === 'passed') {
       trackEvent('mission_passed', {
@@ -91,6 +94,8 @@ export default function LessonPage({ lessons }: Props) {
       if (lesson) {
         trackMissionAttempt(lesson.id, false)
         trackMissionResult(lesson.id, true)
+        // Sync to backend (non-blocking)
+        syncMissionResult(lesson.id, true, attemptCount, 0)
       }
     } else if (state === 'attempted') {
       // Reset attempt count when user starts fresh
@@ -110,6 +115,8 @@ export default function LessonPage({ lessons }: Props) {
       trackEvent('lesson_started', { lesson_id: lesson.id, source: 'lesson_page' })
       // Track lesson start in beta progress
       trackLessonStarted(lesson.id)
+      // Sync to backend (non-blocking)
+      syncLessonStarted(lesson.id)
     }
   }, [lesson?.id])
 
@@ -362,6 +369,7 @@ export default function LessonPage({ lessons }: Props) {
           trackEvent('lesson_completed', { lesson_id: lesson.id, result: 'mission_passed' })
           markComplete(lesson.id, score)
           trackLessonCompleted(lesson.id)
+          syncLessonCompleted(lesson.id)
         }}
         onStateChange={handleMissionStateChange}
       />
