@@ -64,7 +64,7 @@
     "playwright_tests": "26 passed, 3 infra-failed (backend not running during test)",
     "all_fst_blockers_remain_fixed": true
   },
-  "git_commit": "47172d83e0124e468d6f283493ea8681e2eceefb",
+  "git_commit": "eb3a9851fcfe9c9f8370a1319e40debff239cb9f",
   "git_clean": true,
   "git_pushed": true,
   "next_allowed_action": "commercial_beta_offer"
