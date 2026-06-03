@@ -66,7 +66,7 @@
     "concept_detection_rules": "scripts/config/audit_concept_detection_rules.json",
     "regression_tests": "tests/test_course_quality_audit_false_positives.py"
   },
-  "git_commit": "<hash>",
+  "git_commit": "5ecf789",
   "git_pushed": true,
   "git_clean": true,
   "next_allowed_action": "post_acceptance_monitoring_or_next_learning_flow_polish"
