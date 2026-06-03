@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-06-03T05:40:50.878688+00:00",
+    "generated_at": "2026-06-03T05:54:25.221927+00:00",
     "description": "Unified course inventory of all educational entities"
   },
   "lessons": [
@@ -3304,11 +3304,11 @@
     "total_entities": 152,
     "total_unique_entities": 147,
     "duplicate_ids_found": [
+      "quest-3",
       "quest-5",
       "quest-2",
       "quest-4",
-      "quest-1",
-      "quest-3"
+      "quest-1"
     ],
     "dialogue_blocks": 1000,
     "mission_blocks": 92,
