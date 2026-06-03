@@ -39,6 +39,8 @@ export interface AnalyticsEventPayload {
 export interface AnalyticsEvent {
   event: AnalyticsEventName
   anonymous_session_id: string
+  /** Pseudonymous participant code hash (no personal data) */
+  participant_id?: string
   timestamp: string
   lesson_id?: string
   mission_id?: string
@@ -123,6 +125,10 @@ function appendEvent(event: AnalyticsEvent): void {
   writeEvents(events)
 }
 
+// ── Imports for participant identity binding ──────────────────────────────
+
+import { getParticipantId } from './participantIdentity'
+
 // ── Public API ────────────────────────────────────────────────────────────
 
 /**
@@ -142,6 +148,14 @@ export function trackEvent(
       timestamp: new Date().toISOString(),
       ...payload,
     }
+
+    // Bind to beta participant identity if available
+    // Uses a deterministic hash of the participant code — no personal data
+    const pid = getParticipantId()
+    if (pid) {
+      event.participant_id = pid
+    }
+
     appendEvent(event)
   } catch {
     // Analytics failure MUST never break the app

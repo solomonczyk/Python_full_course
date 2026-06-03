@@ -75,7 +75,7 @@ const FORBIDDEN_PAYLOAD_FIELDS = [
 ]
 
 const ALLOWED_PAYLOAD_FIELDS = [
-  'event', 'anonymous_session_id', 'timestamp',
+  'event', 'anonymous_session_id', 'participant_id', 'timestamp',
   'lesson_id', 'mission_id', 'attempt_count', 'result', 'hint_id', 'source', 'route',
 ]
 
@@ -176,6 +176,25 @@ async function goToLesson(page: Page) {
   await page.waitForSelector('textarea[placeholder*="Напиши"]', { timeout: 10000 })
 }
 
+/**
+ * Navigate from beta landing to lesson with the participant code flow.
+ * Handles the 2-step flow: click start → code created → continue → lesson.
+ */
+async function startFromBeta(page: Page) {
+  // Click "Начать обучение" (hero CTA or bottom CTA — use first)
+  await page.getByRole('button', { name: 'Начать обучение' }).first().click()
+  // Wait for code creation and panel to appear
+  await page.waitForTimeout(1000)
+  await page.locator('text=Ваш beta-код создан').waitFor({ timeout: 5000 })
+  // Click continue to navigate to lesson
+  await page.locator('button:has-text("Продолжить обучение")').click()
+  // Wait for SPA navigation to lesson (any lesson page)
+  await page.waitForFunction(
+    () => window.location.href.includes('/lesson/'),
+    { timeout: 15000 }
+  )
+}
+
 // ── Shared setup ──────────────────────────────────────────────────────────────
 
 test.afterEach(async ({ page }) => {
@@ -231,11 +250,9 @@ test('no external analytics requests are made', async ({ page }) => {
 
   await goToBeta(page)
 
-  // Navigate to lesson
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
-  await page.waitForTimeout(3000)
+  // Navigate to lesson via participant code flow
+  await startFromBeta(page)
+  await page.waitForTimeout(2000)
 
   expect(interceptedForbidden).toHaveLength(0)
 })
@@ -246,9 +263,7 @@ test('analytics payload contains no personal data', async ({ page }) => {
   await goToBeta(page)
 
   // Navigate to lesson to generate more events
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
+  await startFromBeta(page)
   await page.waitForTimeout(2000)
 
   const events = await getAnalyticsEvents(page)
@@ -281,10 +296,8 @@ test('SYN-001: fast success — happy path', async ({ page }) => {
 
   await goToBeta(page)
 
-  // Click demo CTA
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
+  // Start learning via participant code flow
+  await startFromBeta(page)
   await page.waitForTimeout(2000)
 
   // Fill and submit correct code
@@ -316,9 +329,8 @@ test('SYN-002: one error then success', async ({ page }) => {
 
   await goToBeta(page)
 
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
+  // Start learning via participant code flow
+  await startFromBeta(page)
   await page.waitForTimeout(2000)
 
   // Submit wrong code
@@ -405,7 +417,7 @@ test('SYN-005: landing open but no demo', async ({ page }) => {
   expect(names).not.toContain('demo_started')
   expect(names).not.toContain('lesson_started')
 
-  const ctaButton = page.locator('button:has-text("Начать демо")')
+  const ctaButton = page.locator('button:has-text("Начать обучение")')
   await expect(ctaButton.first()).toBeVisible()
 })
 
@@ -417,9 +429,8 @@ test('SYN-006: demo open but no mission attempt', async ({ page }) => {
   await goToBeta(page)
   await page.waitForTimeout(300)
 
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
+  // Start learning via participant code flow
+  await startFromBeta(page)
   await page.waitForTimeout(2000)
 
   // Scroll through lesson without submitting
@@ -556,7 +567,7 @@ test('SYN-010: mobile small screen path', async ({ page }) => {
   await expect(heading).toBeVisible()
 
   // Check CTA tappability — use bottom CTA which may be more visible
-  const ctaButtons = page.locator('button:has-text("Начать демо")')
+  const ctaButtons = page.locator('button:has-text("Начать обучение")')
   await expect(ctaButtons.first()).toBeVisible()
   await expect(ctaButtons.first()).toBeEnabled()
 
@@ -564,10 +575,17 @@ test('SYN-010: mobile small screen path', async ({ page }) => {
   await ctaButtons.first().scrollIntoViewIfNeeded()
   await page.waitForTimeout(300)
 
-  // Navigate to lesson
+  // Navigate to lesson via participant code flow (mobile)
   await ctaButtons.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
-  await page.waitForTimeout(3000)
+  await page.waitForTimeout(1000)
+  // On mobile, code panel should be visible
+  await page.locator('text=Ваш beta-код создан').waitFor({ timeout: 5000 })
+  await page.locator('button:has-text("Продолжить обучение")').click()
+  await page.waitForFunction(
+    () => window.location.href.includes('/lesson/'),
+    { timeout: 15000 }
+  )
+  await page.waitForTimeout(2000)
 
   const lessonTitle = page.locator('h1')
   await expect(lessonTitle).toBeVisible()
@@ -596,9 +614,8 @@ test('analytics export contains all required event types', async ({ page }) => {
   await page.waitForLoadState('load')
   await page.waitForTimeout(300)
 
-  const ctaButton = page.locator('button:has-text("Начать демо")')
-  await ctaButton.first().click()
-  await page.waitForURL('**/lesson/1-1', { timeout: 15000 })
+  // Start learning via participant code flow
+  await startFromBeta(page)
   await page.waitForTimeout(2000)
 
   const textarea = page.getByPlaceholder('# Напиши свой код здесь')

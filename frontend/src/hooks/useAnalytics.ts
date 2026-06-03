@@ -14,6 +14,7 @@ import {
   type AnalyticsEventPayload,
   type AnalyticsEvent,
 } from '../lib/analytics'
+import { getParticipantId } from '../lib/participantIdentity'
 
 /**
  * Hook for tracking analytics events from React components.
@@ -41,5 +42,9 @@ export function useAnalytics() {
     clearStoredAnalyticsEvents()
   }, [])
 
-  return { track, getEvents, clearEvents }
+  const getCurrentParticipantId = useCallback((): string | null => {
+    return getParticipantId()
+  }, [])
+
+  return { track, getEvents, clearEvents, getParticipantId: getCurrentParticipantId }
 }

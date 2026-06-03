@@ -358,3 +358,29 @@ export interface AdaptiveFeedbackConfig {
   /** Expected output for contextual error hints */
   expectedOutput?: string
 }
+
+// ── Beta Participant Identity & Progress types ──────────────────────────────
+
+export interface BetaParticipantIdentity {
+  participantCode: string
+  createdAt: string
+}
+
+export type BetaLessonStatus = 'completed' | 'started'
+
+export interface BetaMissionStats {
+  attempts: number
+  failed: number
+  passed: boolean
+  hintsUsed: number
+}
+
+export interface BetaProgressData {
+  participantCode: string
+  currentLessonId: string
+  completedLessons: string[]
+  lessonStatus: Record<string, BetaLessonStatus>
+  missionStats: Record<string, BetaMissionStats>
+  lastActiveAt: string
+  createdAt: string
+}
