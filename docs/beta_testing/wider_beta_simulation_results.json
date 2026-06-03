@@ -1,0 +1,1237 @@
+{
+  "participants": [
+    {
+      "participant_label": "WB-001",
+      "participant_code": "BETA-64UFFT",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95ed04f95a",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-002",
+      "participant_code": "BETA-6AW3QU",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95edbccda8",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-003",
+      "participant_code": "BETA-6FNU5W",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95edffa816",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-004",
+      "participant_code": "BETA-766MDZ",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95eec80389",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-005",
+      "participant_code": "BETA-7UE426",
+      "persona": "hint_dependent",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f0834d8e",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-006",
+      "participant_code": "BETA-7YXGD4",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f0c4981e",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-007",
+      "participant_code": "BETA-8APE6D",
+      "persona": "early_abandon",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": false,
+      "lesson_started": false,
+      "first_mission_attempted": false,
+      "first_mission_passed": false,
+      "hints_used": 0,
+      "lesson_completed": false,
+      "progress_restored": false,
+      "session_abandoned": true,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f1239089"
+    },
+    {
+      "participant_label": "WB-008",
+      "participant_code": "BETA-8FFBKZ",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f16571b6",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-009",
+      "participant_code": "BETA-92N6RZ",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f203eb06",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-010",
+      "participant_code": "BETA-9AHH3M",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed95f2d4d11f",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-011",
+      "participant_code": "BETA-AEU293",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9600b98af8",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-012",
+      "participant_code": "BETA-AQZFH3",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96016537c4",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-013",
+      "participant_code": "BETA-CSVHA4",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9604e94d32",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-014",
+      "participant_code": "BETA-CTJ883",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9604f1b317",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-015",
+      "participant_code": "BETA-DCBFWK",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9605b39194",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-016",
+      "participant_code": "BETA-DDTGFM",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9605c9d977",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-017",
+      "participant_code": "BETA-EFC2TG",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960792d9a0",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-018",
+      "participant_code": "BETA-ERKHMZ",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96083fe874",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-019",
+      "participant_code": "BETA-EWZUAE",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96088d5ece",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-020",
+      "participant_code": "BETA-FA3N26",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9608fa5bb7",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-021",
+      "participant_code": "BETA-FWMKMA",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960a3c2a80",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-022",
+      "participant_code": "BETA-G26D42",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9609dd0b94",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-023",
+      "participant_code": "BETA-GCZYS6",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960add4b1b",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-024",
+      "participant_code": "BETA-GX7EFB",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960bf50318",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-025",
+      "participant_code": "BETA-H7VP2X",
+      "persona": "lesson_abandon",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": false,
+      "first_mission_passed": false,
+      "hints_used": 0,
+      "lesson_completed": false,
+      "progress_restored": false,
+      "session_abandoned": true,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960be7128c"
+    },
+    {
+      "participant_label": "WB-026",
+      "participant_code": "BETA-HDJXX7",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960c98f226",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-027",
+      "participant_code": "BETA-HG67AC",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960cb9a29f",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-028",
+      "participant_code": "BETA-HSHBND",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960d6b1638",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-029",
+      "participant_code": "BETA-JCS6RJ",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed960ff822f1",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-030",
+      "participant_code": "BETA-JYQEA7",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96112d7576",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-031",
+      "participant_code": "BETA-KBPBQ8",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96119db3cd",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-032",
+      "participant_code": "BETA-M6GWDN",
+      "persona": "hint_dependent",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96145a8100",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-033",
+      "participant_code": "BETA-N5AT75",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9615fe7af5",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-034",
+      "participant_code": "BETA-NB2RHC",
+      "persona": "lesson_abandon",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": false,
+      "first_mission_passed": false,
+      "hints_used": 0,
+      "lesson_completed": false,
+      "progress_restored": false,
+      "session_abandoned": true,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9616aed58c"
+    },
+    {
+      "participant_label": "WB-035",
+      "participant_code": "BETA-NDXZQ3",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9616dc69b7",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-036",
+      "participant_code": "BETA-R2SZJV",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed961cafde90",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-037",
+      "participant_code": "BETA-RWDX3U",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed961eb26858",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-038",
+      "participant_code": "BETA-S7DFF7",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed961ea40f74",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-039",
+      "participant_code": "BETA-S8EXR3",
+      "persona": "barely_passing",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed961eb2e056",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-040",
+      "participant_code": "BETA-SHBWF3",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed961f92f614",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-041",
+      "participant_code": "BETA-UCA7JK",
+      "persona": "hint_dependent",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 2,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9622b545e2",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-042",
+      "participant_code": "BETA-VBRY25",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9624643df3",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-043",
+      "participant_code": "BETA-WW4GT2",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed962733218e",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-044",
+      "participant_code": "BETA-X4AEB5",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed962700a2b0",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-045",
+      "participant_code": "BETA-X82FY5",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed96273235ad",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-046",
+      "participant_code": "BETA-XTFTZ5",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9628c613e2",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-047",
+      "participant_code": "BETA-Y58R63",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed9628bfaad0",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-048",
+      "participant_code": "BETA-YQUAVP",
+      "persona": "fast_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed962a572fdb",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-049",
+      "participant_code": "BETA-YR2BZV",
+      "persona": "struggling_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 3,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed962a5562a2",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    },
+    {
+      "participant_label": "WB-050",
+      "participant_code": "BETA-YWN35Q",
+      "persona": "one_error_then_success",
+      "beta_code_issued": true,
+      "landing_opened": true,
+      "quest_started": true,
+      "lesson_started": true,
+      "first_mission_attempted": true,
+      "first_mission_passed": true,
+      "hints_used": 0,
+      "lesson_completed": true,
+      "progress_restored": true,
+      "session_abandoned": false,
+      "blockers": [],
+      "major_issues": [],
+      "polish_issues": [],
+      "participant_id": "p_c6ed962aa855bc",
+      "restored": {
+        "current_lesson_id": "1-1",
+        "completed_lessons": [
+          "1-1"
+        ]
+      }
+    }
+  ],
+  "generated_at": "2026-06-03T14:23:55.934784+00:00"
+}

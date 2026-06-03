@@ -47,5 +47,8 @@ scripts/run_fix.cmd
 # Worktree temp files
 .claude/
 
+# Build artifacts
+.next/
+
 # Vercel deployment artifacts
 .vercel/
