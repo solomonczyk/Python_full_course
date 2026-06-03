@@ -13,6 +13,7 @@ import RecapPage from './pages/RecapPage'
 import PartPage from './pages/PartPage'
 import OnboardingPage from './pages/OnboardingPage'
 import CompletionPage from './pages/CompletionPage'
+import BetaLandingPage from './pages/BetaLandingPage'
 
 function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -83,6 +84,7 @@ export default function App() {
           {/* Full-screen pages (no sidebar) */}
           <Route path="/onboarding" element={<OnboardingPage />} />
           <Route path="/completion" element={<CompletionPage />} />
+          <Route path="/beta" element={<BetaLandingPage />} />
 
           {/* Layout pages (with sidebar/nav) — catch-all */}
           <Route path="/*" element={

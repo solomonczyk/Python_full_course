@@ -186,7 +186,33 @@ export default function HomePage({ lessons, progress }: Props) {
         </div>
       </section>
 
-      {/* 4. How to continue */}
+      {/* 4a. Beta info callout */}
+      <section
+        className="rounded-xl p-4 cursor-pointer transition-all hover:opacity-90"
+        style={{
+          background: '#1a1924',
+          border: '1px solid rgba(201,162,39,0.2)',
+        }}
+        onClick={() => navigate('/beta')}
+      >
+        <div className="flex items-start gap-3">
+          <span className="text-lg" style={{ color: '#c9a227' }}>
+            🧪
+          </span>
+          <div>
+            <h4 className="text-xs font-bold mb-0.5" style={{ color: '#c9a227' }}>
+              Python Quest в beta
+            </h4>
+            <p className="text-[11px] leading-relaxed" style={{ color: '#9b98a8' }}>
+              Мы всё ещё тестируем и улучшаем курс. Узнайте, что уже работает,
+              какие функции появятся позже и как ваша обратная связь помогает
+              сделать продукт лучше. → Подробнее
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4b. How to continue */}
       <section
         className="rounded-xl p-4"
         style={{
