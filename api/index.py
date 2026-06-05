@@ -42,22 +42,107 @@ class MissionSubmit(BaseModel):
 
 # ── db ─────────────────────────────────────────────────────────────────────
 _db_ready = False
+_db_backend: str | None = None  # 'turso' or 'sqlite' once resolved
 
 TURSO_DATABASE_URL = os.environ.get("TURSO_DATABASE_URL", "")
 TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN", "")
 
+# Environment detection: Vercel sets VERCEL_ENV=production for production deploys.
+_ENVIRONMENT = os.environ.get("VERCEL_ENV", os.environ.get("APP_ENV", "development"))
 
-def get_connection() -> sqlite3.Connection:
-    """Turso (libsql) if env vars are set, otherwise local SQLite."""
-    _ensure_db()
+
+def _resolve_backend() -> str:
+    """Determine which persistence backend is active.
+
+    Returns 'turso' if Turso/libsql is configured and importable.
+    Returns 'sqlite' in non-production environments if Turso is unavailable.
+    Raises RuntimeError in production if Turso cannot be used.
+    """
+    global _db_backend
+    if _db_backend is not None:
+        return _db_backend
+
+    is_production = _ENVIRONMENT == "production"
+
     if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
         try:
             import libsql_experimental as libsql  # type: ignore
+            # Verify connectivity
             conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
-            conn.row_factory = sqlite3.Row
-            return conn
+            conn.execute("SELECT 1")
+            conn.close()
+            _db_backend = "turso"
+            return _db_backend
         except ImportError:
-            pass  # Fall through to local SQLite
+            if is_production:
+                raise RuntimeError(
+                    "Turso/libsql configured but libsql-experimental package is not installed. "
+                    "Cannot fall back to /tmp SQLite in production. "
+                    "Install libsql-experimental in the deployment environment."
+                )
+            # Dev: allowed to fall back
+            _db_backend = "sqlite"
+            return _db_backend
+        except Exception as exc:
+            if is_production:
+                raise RuntimeError(
+                    f"Turso configured but connection failed: {exc}. "
+                    "Cannot fall back to /tmp SQLite in production."
+                ) from exc
+            _db_backend = "sqlite"
+            return _db_backend
+
+    # No Turso credentials configured
+    if is_production:
+        raise RuntimeError(
+            "TURSO_DATABASE_URL and TURSO_AUTH_TOKEN are not set. "
+            "Production requires Turso for persistent progress storage. "
+            "Cannot fall back to ephemeral /tmp SQLite."
+        )
+
+    _db_backend = "sqlite"
+    return _db_backend
+
+
+def get_backend_status() -> dict[str, object]:
+    """Return current persistence backend status without exposing secrets."""
+    try:
+        backend = _resolve_backend()
+        persistent = backend == "turso"
+        safe = persistent
+        error = None
+    except RuntimeError as e:
+        backend = "unavailable"
+        persistent = False
+        safe = False
+        error = str(e)
+
+    return {
+        "backend": backend,
+        "environment": _ENVIRONMENT,
+        "persistent_storage": persistent,
+        "sqlite_tmp_fallback": False,
+        "safe_for_beta_progress": safe,
+        "error": error,
+    }
+
+
+def get_connection() -> sqlite3.Connection:
+    """Return a database connection to the resolved backend.
+
+    In production, raises RuntimeError if Turso is not available
+    (fail-closed). In development, falls back to local SQLite.
+    """
+    backend = _resolve_backend()
+    _ensure_db()
+
+    if backend == "turso":
+        import libsql_experimental as libsql  # type: ignore
+        conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
+        conn.row_factory = sqlite3.Row
+        return conn
+
+    # backend == "sqlite" (only reached in dev/test)
     conn = sqlite3.connect(str(_DB_PATH))
     conn.row_factory = sqlite3.Row
     return conn
@@ -67,6 +152,11 @@ def _ensure_db() -> None:
     global _db_ready
     if _db_ready:
         return
+
+    backend = _db_backend
+    if backend is None:
+        backend = _resolve_backend()
+
     _DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     schema = """
@@ -82,19 +172,13 @@ def _ensure_db() -> None:
         )
     """
 
-    if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
-        try:
-            import libsql_experimental as libsql  # type: ignore
-            conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
-            conn.execute(schema)
-            conn.commit()
-        except ImportError:
-            pass  # Fall through to local SQLite
-            conn = sqlite3.connect(str(_DB_PATH))
-            conn.execute(schema)
-            conn.commit()
-            conn.close()
-    else:
+    if backend == "turso":
+        import libsql_experimental as libsql  # type: ignore
+        conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
+        conn.execute(schema)
+        conn.commit()
+        conn.close()
+    elif backend == "sqlite":
         conn = sqlite3.connect(str(_DB_PATH))
         conn.execute(schema)
         try:
@@ -1011,6 +1095,20 @@ def root() -> dict[str, str]:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "healthy"}
+
+@app.get("/health/persistence")
+def persistence_health() -> dict[str, object]:
+    """Report persistence backend status for diagnostics.
+
+    Returns:
+      - backend: "turso" | "sqlite" | "unavailable"
+      - environment: "production" | "development" | "test"
+      - persistent_storage: true if backend is Turso
+      - sqlite_tmp_fallback: always false (intentionally disabled)
+      - safe_for_beta_progress: true only if Turso is active
+      - error: description if backend is unavailable (never exposes secrets)
+    """
+    return get_backend_status()
 
 
 # ── Vercel ASGI handler ────────────────────────────────────────────────────

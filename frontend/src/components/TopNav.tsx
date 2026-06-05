@@ -43,8 +43,6 @@ export default function TopNav({ lessons, progress, onMenuClick }: Props) {
         <nav className="flex items-center gap-6">
           {[
             { label: 'Curriculum', path: '/' },
-            { label: 'Leaderboard', path: '/leaderboard' },
-            { label: 'Sandbox', path: '/sandbox' },
           ].map((tab) => (
             <button
               key={tab.label}
