@@ -1,0 +1,59 @@
+{
+  "task": "PYTHON-QUEST-VERIFY-TURSO-VERCEL-PERSISTENCE-001",
+  "timestamp": "2026-06-05T06:35:00Z",
+
+  "production_url": "https://python-full-course-andy-s-projects26.vercel.app",
+  "database_url": "libsql://python-full-course-andtar.aws-ap-northeast-1.turso.io",
+  "vercel_deployment_success": true,
+  "turso_database_url_set": true,
+  "turso_auth_token_set": true,
+  "secrets_exposed": false,
+
+  "health_endpoint_checked": true,
+  "health_backend": "turso",
+  "environment": "production",
+  "persistent_storage": true,
+  "sqlite_tmp_fallback": false,
+  "safe_for_beta_progress": true,
+
+  "progress_roundtrip_checked": true,
+  "beta_create_read_update_verified": true,
+  "regular_progress_get_verified": true,
+  "dummy_data_only": true,
+  "real_student_data_used": false,
+
+  "production_accepted": true,
+  "ready_for_real_students": true,
+  "ready_for_commercial_beta": true,
+
+  "changes_made": {
+    "api/index.py": [
+      "Replace libsql-experimental native HTTP client with stdlib Turso HTTP client (reverted)",
+      "Fix row_factory: add hasattr check for libsql Connection objects",
+      "Add _ensure_dict() helper for cross-backend row-to-dict conversion",
+      "Add _TursoDictCursor and _TursoDictConnection to wrap libsql tuple results into dicts"
+    ],
+    "requirements.txt": [
+      "Remove libsql-experimental from root requirements (build env is CPython 3.14, no wheel)"
+    ],
+    "backend/requirements.txt": [
+      "Remove libsql-experimental from backend requirements"
+    ],
+    "pyproject.toml": [
+      "Add libsql-experimental to root pyproject.toml (API runtime is Python 3.12, has wheel)"
+    ],
+    "backend/tests/test_production_truth.py": [
+      "Update test to assert libsql-experimental is NOT in requirements.txt (moved to pyproject.toml)"
+    ]
+  },
+
+  "fixes_made": [
+    "Build failure: libsql-experimental no wheel on CPython 3.14 → moved to pyproject.toml (runtime Python 3.12)",
+    "Runtime error: 'builtins.Connection' object has no attribute 'row_factory' → hasattr check + dict wrapper"
+  ],
+
+  "git_committed": true,
+  "git_pushed": true,
+  "git_clean": true,
+  "verdict": "PASS"
+}

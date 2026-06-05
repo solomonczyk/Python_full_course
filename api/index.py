@@ -67,7 +67,6 @@ def _resolve_backend() -> str:
     if TURSO_DATABASE_URL and TURSO_AUTH_TOKEN:
         try:
             import libsql_experimental as libsql  # type: ignore
-            # Verify connectivity
             conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
             conn.execute("SELECT 1")
             conn.close()
@@ -77,10 +76,8 @@ def _resolve_backend() -> str:
             if is_production:
                 raise RuntimeError(
                     "Turso/libsql configured but libsql-experimental package is not installed. "
-                    "Cannot fall back to /tmp SQLite in production. "
-                    "Install libsql-experimental in the deployment environment."
+                    "Cannot fall back to /tmp SQLite in production."
                 )
-            # Dev: allowed to fall back
             _db_backend = "sqlite"
             return _db_backend
         except Exception as exc:
@@ -138,14 +135,81 @@ def get_connection() -> sqlite3.Connection:
 
     if backend == "turso":
         import libsql_experimental as libsql  # type: ignore
-        conn = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
-        conn.row_factory = sqlite3.Row
+        raw = libsql.connect(TURSO_DATABASE_URL, auth_token=TURSO_AUTH_TOKEN)
+        # Wrap so that execute() returns dicts (libsql returns tuples by default)
+        conn = _TursoDictConnection(raw)
         return conn
 
     # backend == "sqlite" (only reached in dev/test)
     conn = sqlite3.connect(str(_DB_PATH))
     conn.row_factory = sqlite3.Row
     return conn
+
+
+class _TursoDictCursor:
+    """Wraps a libsql cursor to convert tuple rows to dicts."""
+    def __init__(self, cursor: Any):
+        self._cursor = cursor
+        self._description = None
+        try:
+            self._description = cursor.description
+        except Exception:
+            pass
+
+    @property
+    def description(self) -> Any:
+        return self._description
+
+    def fetchone(self) -> dict[str, Any] | None:
+        row = self._cursor.fetchone()
+        if row is None or not self._description:
+            return row
+        cols = [c[0] for c in self._description]
+        return dict(zip(cols, row))
+
+    def fetchall(self) -> list[dict[str, Any]]:
+        rows = self._cursor.fetchall()
+        if not rows or not self._description:
+            return rows
+        cols = [c[0] for c in self._description]
+        return [dict(zip(cols, row)) for row in rows]
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self._cursor, name)
+
+
+class _TursoDictConnection:
+    """Wraps a libsql connection so execute() returns dict-row cursors."""
+    def __init__(self, conn: Any):
+        self._conn = conn
+
+    def execute(self, sql: str, params: tuple | list | None = None) -> _TursoDictCursor:
+        cursor = self._conn.execute(sql, params or ())
+        return _TursoDictCursor(cursor)
+
+    def commit(self) -> None:
+        self._conn.commit()
+
+    def close(self) -> None:
+        self._conn.close()
+
+    def __getattr__(self, name: str) -> Any:
+        return getattr(self._conn, name)
+
+
+def _ensure_dict(row: Any) -> dict[str, Any]:
+    """Convert a DB result row to dict (works with sqlite3.Row and libsql rows)."""
+    if row is None:
+        return {}
+    if isinstance(row, dict):
+        return row
+    if hasattr(row, "keys"):
+        return dict(row)
+    if isinstance(row, (tuple, list)):
+        # Fallback: plain tuple — try to use .description from a known cursor
+        # (shouldn't normally happen, but defend against it)
+        return {f"col{i}": v for i, v in enumerate(row)}
+    return {"value": row}
 
 
 def _ensure_db() -> None:
@@ -282,7 +346,7 @@ def get_progress(request: Request) -> list[dict[str, Any]]:
         "SELECT * FROM progress WHERE user_id = ? ORDER BY lesson_id", (user_id,)
     ).fetchall()
     conn.close()
-    return [dict(r) for r in rows]
+    return [_ensure_dict(r) for r in rows]
 
 @app.post("/progress")
 def update_progress(request: Request, body: ProgressUpdate) -> dict[str, Any]:
@@ -305,7 +369,7 @@ def update_progress(request: Request, body: ProgressUpdate) -> dict[str, Any]:
         "SELECT * FROM progress WHERE user_id=? AND lesson_id=?", (user_id, body.lesson_id)
     ).fetchone()
     conn.close()
-    return dict(row)
+    return _ensure_dict(row)
 
 @app.delete("/progress/{lesson_id}")
 def reset_progress(lesson_id: str, request: Request) -> dict[str, str]:
@@ -680,7 +744,7 @@ def _get_beta_row(participant_code: str) -> dict[str, Any] | None:
         (participant_code,),
     ).fetchone()
     conn.close()
-    return dict(row) if row else None
+    return _ensure_dict(row) if row else None
 
 
 def _beta_row_to_response(row: dict[str, Any]) -> dict[str, Any]:
@@ -790,7 +854,7 @@ def update_beta_progress(
         "SELECT * FROM beta_progress WHERE participant_code = ?", (participant_code,)
     ).fetchone()
     conn.close()
-    return _beta_row_to_response(dict(row)) if row else _beta_row_to_response(existing)
+    return _beta_row_to_response(_ensure_dict(row)) if row else _beta_row_to_response(existing)
 
 
 @app.post("/beta/progress/{participant_code}/lesson-started")

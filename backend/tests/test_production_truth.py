@@ -292,12 +292,18 @@ def test_file_io_and_class_gaps_documented():
 # 5. REQUIREMENTS / DEPENDENCY TESTS
 # ═══════════════════════════════════════════════════════════════════════════
 
-def test_root_requirements_has_libsql():
-    """Root requirements.txt must contain libsql-experimental."""
+def test_root_requirements_no_libsql():
+    """Root requirements.txt must NOT contain libsql-experimental.
+
+    libsql-experimental is only in pyproject.toml because Vercel's build
+    stage (CPython 3.14) installs from requirements.txt and has no pre-built
+    wheel for libsql-experimental on cp314. The Python 3.12 API runtime
+    installs from pyproject.toml where the cp312 wheel is available.
+    """
     req_path = Path(__file__).resolve().parent.parent.parent / "requirements.txt"
     content = req_path.read_text(encoding="utf-8")
-    assert "libsql-experimental" in content, \
-        "Root requirements.txt must include libsql-experimental"
+    assert "libsql-experimental" not in content, \
+        "Root requirements.txt must not include libsql-experimental (use pyproject.toml instead)"
 
 
 def test_root_requirements_has_all_deps():

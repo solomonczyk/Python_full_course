@@ -52,3 +52,8 @@ scripts/run_fix.cmd
 
 # Vercel deployment artifacts
 .vercel/
+.env*
+
+# Turso / libsql auth cache
+auth
+auth-wal
