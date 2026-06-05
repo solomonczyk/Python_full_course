@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, Header, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -40,12 +40,21 @@ class MissionSubmit(BaseModel):
     lesson_id: str
     code: str
 
+class BetaFeedbackRequest(BaseModel):
+    """Feedback submission body for beta staged access."""
+    feedback_text: str
+    rating: int | None = None
+
 # ── db ─────────────────────────────────────────────────────────────────────
 _db_ready = False
 _db_backend: str | None = None  # 'turso' or 'sqlite' once resolved
 
 TURSO_DATABASE_URL = os.environ.get("TURSO_DATABASE_URL", "")
 TURSO_AUTH_TOKEN = os.environ.get("TURSO_AUTH_TOKEN", "")
+
+# Production operator key for staged beta access control.
+# In production, this MUST be overridden via Vercel env (never default).
+OPERATOR_KEY = os.environ.get("OPERATOR_KEY", "op-python-quest-dev-2026")
 
 # Environment detection: Vercel sets VERCEL_ENV=production for production deploys.
 _ENVIRONMENT = os.environ.get("VERCEL_ENV", os.environ.get("APP_ENV", "development"))
@@ -696,6 +705,77 @@ def _ensure_beta_progress_table() -> None:
     conn.close()
 
 
+# ── beta access / staged access helpers ──────────────────────────────────────
+
+MAX_STAGE = 5
+
+
+def _ensure_beta_stages_table() -> None:
+    """Create beta_stages table for staged beta access control."""
+    conn = get_connection()
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS beta_stages (
+            participant_code TEXT PRIMARY KEY,
+            current_stage INTEGER NOT NULL DEFAULT 1,
+            feedback_submitted INTEGER NOT NULL DEFAULT 0,
+            feedback_text TEXT,
+            feedback_rating INTEGER,
+            feedback_submitted_at TEXT,
+            operator_unlocked_at TEXT,
+            created_at TEXT NOT NULL DEFAULT (datetime('now')),
+            updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        )
+    """)
+    conn.commit()
+    conn.close()
+
+
+def _validate_operator_key(x_operator_key: str | None) -> bool:
+    """Return True if the provided header matches the configured OPERATOR_KEY."""
+    if not x_operator_key:
+        return False
+    return x_operator_key == OPERATOR_KEY
+
+
+STAGE_PARTS: dict[int, list[int]] = {
+    1: [1],
+    2: [1, 2],
+    3: [1, 2, 3],
+    4: [1, 2, 3, 4],
+    5: [1, 2, 3, 4, 5],
+}
+
+
+def _get_stage_row(participant_code: str) -> dict[str, Any] | None:
+    """Fetch beta_stages row or None."""
+    conn = get_connection()
+    row = conn.execute(
+        "SELECT * FROM beta_stages WHERE participant_code = ?",
+        (participant_code,),
+    ).fetchone()
+    conn.close()
+    return _ensure_dict(row) if row else None
+
+
+def _ensure_stage_row(participant_code: str) -> dict[str, Any]:
+    """Get existing row or create with defaults (stage=1)."""
+    existing = _get_stage_row(participant_code)
+    if existing:
+        return existing
+    now = _now_iso()
+    conn = get_connection()
+    conn.execute(
+        """INSERT INTO beta_stages
+            (participant_code, current_stage, created_at, updated_at)
+           VALUES (?, ?, ?, ?)""",
+        (participant_code, 1, now, now),
+    )
+    conn.commit()
+    conn.close()
+    result = _get_stage_row(participant_code)
+    return result or {"participant_code": participant_code, "current_stage": 1}
+
+
 class BetaProgressCreateBody(BaseModel):
     participant_code: str
 
@@ -987,6 +1067,145 @@ def beta_lesson_completed(participant_code: str, body: BetaLessonCompletedBody) 
     conn.commit()
     conn.close()
     return {"ok": True}
+
+
+# ── routes: beta access / staged access ──────────────────────────────────────
+
+
+@app.get("/beta/access/{participant_code}")
+def get_beta_access(participant_code: str) -> dict[str, Any]:
+    """Get current stage and feedback status for a beta participant."""
+    _ensure_beta_stages_table()
+    code = participant_code.strip().upper()
+    row = _ensure_stage_row(code)
+
+    return {
+        "ok": True,
+        "participant_code": code,
+        "current_stage": int(row.get("current_stage", 1)),
+        "max_stage": MAX_STAGE,
+        "has_feedback": bool(row.get("feedback_submitted", 0)),
+        "feedback_submitted_at": row.get("feedback_submitted_at"),
+    }
+
+
+@app.post("/beta/access/{participant_code}/provide-feedback")
+def provide_feedback(
+    participant_code: str,
+    body: BetaFeedbackRequest,
+) -> dict[str, Any]:
+    """Submit feedback. Required before operator can unlock next stage."""
+    code = participant_code.strip().upper()
+    if not body.feedback_text or len(body.feedback_text.strip()) < 10:
+        raise HTTPException(
+            status_code=422,
+            detail="Feedback must be at least 10 characters",
+        )
+
+    _ensure_beta_stages_table()
+    _ensure_stage_row(code)
+    now = _now_iso()
+
+    conn = get_connection()
+    conn.execute(
+        """UPDATE beta_stages
+           SET feedback_submitted = 1,
+               feedback_text = ?,
+               feedback_rating = ?,
+               feedback_submitted_at = ?,
+               updated_at = ?
+           WHERE participant_code = ?""",
+        (body.feedback_text, body.rating, now, now, code),
+    )
+    conn.commit()
+    conn.close()
+
+    return {"ok": True, "message": "Feedback submitted"}
+
+
+@app.post("/beta/access/{participant_code}/operator-unlock")
+def operator_unlock(
+    participant_code: str,
+    x_operator_key: str | None = Header(None, alias="X-Operator-Key"),
+) -> dict[str, Any]:
+    """Operator unlocks the next stage for a participant.
+
+    Requires X-Operator-Key header.
+    Checks that feedback has been submitted before unlocking.
+    """
+    if not _validate_operator_key(x_operator_key):
+        raise HTTPException(status_code=403, detail="Invalid operator key")
+
+    _ensure_beta_stages_table()
+    code = participant_code.strip().upper()
+    row = _ensure_stage_row(code)
+    current = int(row.get("current_stage", 1))
+
+    if current >= MAX_STAGE:
+        return {"ok": False, "detail": f"Already at maximum stage ({MAX_STAGE})"}
+
+    if not bool(row.get("feedback_submitted", 0)):
+        return {
+            "ok": False,
+            "detail": "Feedback required before unlock. Participant must submit feedback first.",
+        }
+
+    new_stage = current + 1
+    now = _now_iso()
+
+    conn = get_connection()
+    conn.execute(
+        "UPDATE beta_stages SET current_stage = ?, operator_unlocked_at = ?, updated_at = ? WHERE participant_code = ?",
+        (new_stage, now, now, code),
+    )
+    conn.commit()
+    conn.close()
+
+    return {
+        "ok": True,
+        "previous_stage": current,
+        "current_stage": new_stage,
+        "message": f"Stage unlocked to {new_stage}",
+    }
+
+
+@app.get("/beta/access/operator/pending-feedback")
+def get_pending_feedback(
+    x_operator_key: str | None = Header(None, alias="X-Operator-Key"),
+) -> dict[str, Any]:
+    """List participants with submitted feedback who are not yet at max stage.
+
+    Requires X-Operator-Key header.
+    """
+    if not _validate_operator_key(x_operator_key):
+        raise HTTPException(status_code=403, detail="Invalid operator key")
+
+    _ensure_beta_stages_table()
+    conn = get_connection()
+    rows = conn.execute(
+        """SELECT participant_code, current_stage, feedback_text,
+                  feedback_rating, feedback_submitted_at
+           FROM beta_stages
+           WHERE feedback_submitted = 1
+             AND current_stage < ?
+           ORDER BY feedback_submitted_at ASC""",
+        (MAX_STAGE,),
+    ).fetchall()
+    conn.close()
+
+    pending = []
+    for row in rows:
+        d = _ensure_dict(row)
+        pending.append({
+            "participant_code": d["participant_code"],
+            "current_stage": d["current_stage"],
+            "feedback_text": d.get("feedback_text"),
+            "feedback_rating": d.get("feedback_rating"),
+            "feedback_submitted_at": d.get("feedback_submitted_at"),
+        })
+
+    return {"ok": True, "pending": pending}
+
 
 # ── routes: analytics ────────────────────────────────────────────────────────
 _ANALYTICS_FILE = Path("/tmp/pq_analytics/events.jsonl")
