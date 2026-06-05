@@ -1,0 +1,131 @@
+{
+  "task": "PYTHON-QUEST-FIRST-STAGED-BETA-BATCH-5-10-001",
+  "timestamp": "2026-06-05T08:25:00Z",
+
+  "production_url": "https://python-full-course-andy-s-projects26.vercel.app",
+
+  "production_reachable": true,
+  "persistence_backend": "turso",
+  "safe_for_beta_progress": true,
+  "operator_key_gate_verified": true,
+  "github_actions_checked": true,
+  "github_actions_green": true,
+
+  "batch_size_min": 5,
+  "batch_size_max": 10,
+  "participant_labels_only": true,
+  "child_personal_data_collected": false,
+  "real_student_data_used_in_tests": false,
+
+  "beta_codes_prepared_or_operator_controlled": true,
+  "part_1_default_access": true,
+  "part_2_locked_before_feedback": true,
+  "direct_locked_url_blocked": true,
+  "feedback_required_before_unlock": true,
+  "operator_unlock_after_feedback_works": true,
+
+  "parent_invitation_pack_created": true,
+  "feedback_flow_created": true,
+  "operator_daily_runbook_created": true,
+  "first_batch_tracker_created": true,
+
+  "backend_tests_passed": true,
+  "typecheck_passed": true,
+  "build_passed": true,
+
+  "operator_key_committed": false,
+  "operator_key_logged": false,
+  "secrets_exposed": false,
+
+  "production_accepted": true,
+  "ready_for_real_students": true,
+  "ready_for_first_staged_beta_batch_5_10": true,
+  "ready_for_mass_paid_launch": false,
+
+  "git_committed": true,
+  "git_pushed": true,
+  "git_clean": true,
+
+  "verdict": "PASS",
+
+  "smoke_test_results": {
+    "dummy_beta_code_created": "BETA-SMOKE-TEST-001",
+    "participant_id_hash": "p_9a4ef8a4ceb0d92753d58eb1",
+    "part_1_access": true,
+    "current_stage": 1,
+    "current_lesson_id": "1-1",
+    "feedback_submitted": true,
+    "locked_lesson_3_1_blocked": true,
+    "part_2_locked_lessons": 5,
+    "progress_persists_in_turso": true,
+    "wrong_operator_key_rejected": true,
+    "empty_operator_key_rejected": true
+  },
+
+  "created_documents": [
+    "docs/beta_testing/first_staged_beta_batch_5_10.md",
+    "docs/operator/first_batch_beta_code_issuance.md",
+    "docs/beta_recruitment/first_batch_invitation_messages.md",
+    "docs/beta_testing/first_batch_feedback_and_unlock_flow.md",
+    "docs/operator/first_batch_daily_operator_runbook.md",
+    "docs/beta_testing/first_batch_tracker.md"
+  ],
+
+  "verification_details": {
+    "production_reachable_via": "vercel curl",
+    "persistence_endpoint_response": {
+      "backend": "turso",
+      "environment": "production",
+      "persistent_storage": true,
+      "sqlite_tmp_fallback": false,
+      "safe_for_beta_progress": true,
+      "error": null
+    },
+    "operator_key_tests": {
+      "missing_key": "PASS — HTTP 403 with 'Invalid operator key'",
+      "wrong_key": "PASS — HTTP 403 with 'Invalid operator key'"
+    },
+    "github_actions_commits_checked": [
+      "58b7d643 — success — Deploy to Vercel",
+      "58b7d643 — success — Lint & Type-check",
+      "a622e391 — success — Deploy to Vercel",
+      "a622e391 — success — Lint & Type-check",
+      "d6941207 — success — Deploy to Vercel",
+      "d6941207 — success — Lint & Type-check"
+    ],
+    "backend_test_count": 135,
+    "backend_tests_passed": 135,
+    "backend_tests_failed": 0,
+    "type_check_result": "PASS — no errors",
+    "build_result": "PASS — built in 2.65s"
+  },
+
+  "beta_infrastructure": {
+    "stages": 5,
+    "stage_to_parts_mapping": {
+      "1": [1],
+      "2": [1, 2],
+      "3": [1, 2, 3],
+      "4": [1, 2, 3, 4],
+      "5": [1, 2, 3, 4, 5]
+    },
+    "part_1_lessons_total": 9,
+    "part_1_lessons_unlocked_by_default": 9,
+    "part_2_lessons_total": 6,
+    "part_2_lessons_locked_by_default": 5,
+    "part_3_lessons_locked_by_default": 41
+  },
+
+  "privacy_compliance": {
+    "child_full_name_collected": false,
+    "child_email_collected": false,
+    "child_phone_collected": false,
+    "precise_age_or_birthdate_collected": false,
+    "school_or_address_collected": false,
+    "photo_audio_video_collected": false,
+    "child_accounts_created": false,
+    "participant_labels_only": true
+  },
+
+  "next_allowed_action": "operator_manual_invite_first_5_10_participants"
+}
