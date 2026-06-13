@@ -6,7 +6,7 @@ import { useBetaAccess } from '../hooks/useBetaAccess'
 import { trackEvent } from '../lib/analytics'
 import { trackLessonStarted, trackMissionAttempt, trackMissionResult, trackLessonCompleted } from '../lib/progressStore'
 import { syncLessonStarted, syncMissionResult, syncLessonCompleted } from '../lib/progressSync'
-import type { LessonSummary, FeedbackState, MissionResult } from '../types'
+import type { Character, LessonSummary, FeedbackState, MissionResult } from '../types'
 import CodeBlock from '../components/CodeBlock'
 import CodePanel from '../components/CodePanel'
 import QuizSection from '../components/QuizSection'
@@ -29,6 +29,11 @@ import TaskPresentationBlock from '../components/TaskPresentationBlock'
 import CommonMistakesBlock from '../components/CommonMistakesBlock'
 import FoundationBlock from '../components/FoundationBlock'
 import StagedAccessLocked from '../components/StagedAccessLocked'
+import ComicPanel from '../components/ComicPanel'
+import type { ComicPanelProps } from '../components/ComicPanel'
+import StoryEventPanel from '../components/StoryEventPanel'
+import CallbackBubble from '../components/CallbackBubble'
+import RecapPage from './RecapPage'
 
 interface Props {
   lessons: LessonSummary[]
@@ -185,6 +190,11 @@ export default function LessonPage({ lessons }: Props) {
     )
   }
 
+  // ── Recap-type lesson: render RecapPage instead of normal lesson ─────
+  if (lesson.type === 'recap') {
+    return <RecapPage lesson={lesson} lessons={lessons} />
+  }
+
   const idx = lessons.findIndex((l) => l.id === lesson.id)
   const prev = idx > 0 ? lessons[idx - 1] : null
   const next = idx >= 0 && idx < lessons.length - 1 ? lessons[idx + 1] : null
@@ -230,6 +240,26 @@ export default function LessonPage({ lessons }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Story event — third-person scene setting (before hook) */}
+      {lesson.story_event && lesson.type !== 'recap' && (
+        <StoryEventPanel storyEvent={lesson.story_event} />
+      )}
+
+      {/* Callback — character references a past lesson event */}
+      {lesson.callback && (
+        <CallbackBubble callback={lesson.callback} />
+      )}
+
+      {/* Narrative hook — Novice's problem at lesson start */}
+      {lesson.hook && (
+        <ComicPanel
+          character={lesson.hook.character as Character}
+          emotion={lesson.hook.emotion as ComicPanelProps['emotion']}
+          text={lesson.hook.text}
+          position="hook"
+        />
+      )}
 
       {/* Foundation block — terms and rules before the lesson starts */}
       {lesson.foundation && (
@@ -410,6 +440,17 @@ export default function LessonPage({ lessons }: Props) {
       {/* Practice subtasks */}
       {lesson.practice_subtasks && lesson.practice_subtasks.length > 0 && (
         <PracticeSubtasks subtasks={lesson.practice_subtasks} />
+      )}
+
+      {/* Narrative lesson_end — mentor celebrates the win */}
+      {lesson.lesson_end && (
+        <ComicPanel
+          character={lesson.lesson_end.character as Character}
+          emotion={lesson.lesson_end.emotion as ComicPanelProps['emotion']}
+          text={lesson.lesson_end.text}
+          storyProgress={lesson.story_progress}
+          position="lesson_end"
+        />
       )}
 
       {/* Bottom navigation */}

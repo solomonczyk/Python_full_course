@@ -10,34 +10,42 @@ export interface RecapPlacement {
  */
 export const RECAP_PLACEMENTS: RecapPlacement[] = [
   // Part 1
-  { recapId: 'recap-1', afterLesson: '1-9', placementType: 'end-of-part' },
+  { recapId: 'recap-1-reminder', afterLesson: '1-9', placementType: 'end-of-part' },
 
   // Part 2
-  { recapId: 'recap-2', afterLesson: '2-6', placementType: 'end-of-part' },
+  { recapId: 'recap-2-reminder', afterLesson: '2-6', placementType: 'end-of-part' },
 
   // Part 3 — mid-part checkpoints at chapter boundaries + full recap
   { recapId: 'recap-3a', afterLesson: '3-18', placementType: 'mid-part-checkpoint' },
   { recapId: 'recap-3b', afterLesson: '3-25', placementType: 'mid-part-checkpoint' },
   { recapId: 'recap-3c', afterLesson: '3-35', placementType: 'mid-part-checkpoint' },
   { recapId: 'recap-3d', afterLesson: '3-40', placementType: 'mid-part-checkpoint' },
-  { recapId: 'recap-3', afterLesson: '3-41', placementType: 'end-of-part' },
+  { recapId: 'recap-3-reminder', afterLesson: '3-41', placementType: 'end-of-part' },
 
   // Part 4
-  { recapId: 'recap-4', afterLesson: '4-31', placementType: 'end-of-part' },
+  { recapId: 'recap-4-reminder', afterLesson: '4-31', placementType: 'end-of-part' },
 
   // Part 5
-  { recapId: 'recap-5', afterLesson: '5-7', placementType: 'end-of-part' },
+  { recapId: 'recap-5-reminder', afterLesson: '5-7', placementType: 'end-of-part' },
 ]
 
 /**
- * Check if a recap's prerequisite lesson is completed.
+ * Check if a recap's prerequisite lesson is completed, OR if beta stage covers the recap's part.
+ *
+ * The part is derived from afterLesson: "5-7" → part 5.
  */
 export function isRecapUnlocked(
   recapId: string,
   progress: Record<string, { completed?: boolean }>,
+  betaStage?: number,
 ): boolean {
   const placement = RECAP_PLACEMENTS.find((p) => p.recapId === recapId)
   if (!placement) return false
+
+  // Beta stage check: if participant's stage covers the recap's part, unlock
+  const recapPart = parseInt(placement.afterLesson.split('-')[0], 10)
+  if (betaStage !== undefined && betaStage >= recapPart) return true
+
   return Boolean(progress[placement.afterLesson]?.completed)
 }
 

@@ -21,6 +21,11 @@ export type ReminderType =
   | 'loop_stop_reminder'
   | 'mutation_reminder'
   | 'copy_reference_reminder'
+  | 'function_def_reminder'
+  | 'function_params_reminder'
+  | 'return_reminder'
+  | 'dict_syntax_reminder'
+  | 'try_except_reminder'
 
 export interface SyntaxReminder {
   type: ReminderType
@@ -101,10 +106,32 @@ export interface LessonSummary {
   difficulty: Difficulty
   estimated_time_min: number
   scene_image?: string
+  type?: string  // "lesson" | "recap"
 }
 
 export interface Lesson extends LessonSummary {
   scene_image?: string
+  type?: string  // "lesson" | "recap"
+  hook?: {
+    character: Character
+    emotion: string
+    text: string
+  }
+  lesson_end?: {
+    character: Character
+    emotion: string
+    text: string
+  }
+  story_progress?: string
+  // Story layer fields
+  story_event?: StoryEvent
+  callback?: Callback
+  character_growth?: CharacterGrowth
+  // Recap-specific fields (type === 'recap')
+  narrator?: Character
+  story_scene?: string
+  recap_steps?: RecapStep[]
+  final_task?: FinalTask
   foundation?: FoundationBlock
   game_relevance?: string
   analogy?: {
@@ -274,6 +301,25 @@ export interface QuestCheckResult {
   error?: string
 }
 
+// ── Story layer types ─────────────────────────────────────────────────────
+
+export interface StoryEvent {
+  location: string
+  text: string
+  bagus_presence: string | null
+}
+
+export interface Callback {
+  references_lesson: string
+  character: Character
+  text: string
+}
+
+export interface CharacterGrowth {
+  character: Character
+  internal: string
+}
+
 // ── Recap types ──────────────────────────────────────────────────────────
 
 export interface RecapSummary {
@@ -294,6 +340,31 @@ export interface MiniCheckItem {
   answer: string
 }
 
+// ── New recap lesson types (narrative layer) ──────────────────────────
+
+export interface RecapStep {
+  skill: string
+  lesson_ref: string
+  reminder: string
+  mini_task: string
+}
+
+export interface FinalTask {
+  description: string
+  expected_output: string
+}
+
+export interface RecapLesson {
+  id: string
+  type: 'recap'
+  part: number
+  title: string
+  narrator: Character
+  story_scene: string
+  recap_steps: RecapStep[]
+  final_task: FinalTask
+}
+
 export interface Recap {
   id: string
   part: number
@@ -303,6 +374,7 @@ export interface Recap {
   hero_skills: HeroSkill[]
   key_rules: string[]
   mini_check: MiniCheckItem[]
+  character_growth?: CharacterGrowth
 }
 
 export interface TaskPresentation {

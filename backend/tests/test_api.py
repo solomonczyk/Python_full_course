@@ -308,10 +308,10 @@ def test_recaps():
 
 def test_recap_detail():
     """GET /recaps/{id} returns a single recap."""
-    r = client.get("/recaps/recap-1")
+    r = client.get("/recaps/recap-1-reminder")
     assert r.status_code == 200
     data = r.json()
-    assert data["id"] == "recap-1"
+    assert data["id"] == "recap-1-reminder"
     assert "story_summary" in data
     assert "hero_skills" in data
     assert "key_rules" in data

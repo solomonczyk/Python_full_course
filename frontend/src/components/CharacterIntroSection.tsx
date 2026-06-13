@@ -16,10 +16,10 @@ export default function CharacterIntroSection() {
         >
           <span className="material-symbols-outlined text-lg" style={{ color: '#c9a227', fontVariationSettings: "'FILL' 1" }}>diversity_3</span>
         </div>
-        <h2 className="font-display text-[24px] leading-8 font-bold" style={{ color: '#e8e6f0' }}>Персонажи курса</h2>
+        <h2 className="font-display text-[24px] leading-8 font-bold" style={{ color: '#e8e6f0' }}>Твои наставники</h2>
       </div>
       <p className="font-sans text-[15px] leading-[22px] mb-6 max-w-[600px]" style={{ color: '#9b98a8' }}>
-        В Python Quest у каждого персонажа своя роль. Вместе они проводят тебя через все ловушки Башни Алгоритмов.
+        Ты — Новичок, попаданец в мир Python. А это те, кого ты встретишь на пути: три наставника, каждый со своим подходом, и один антагонист, без которого приключение не было бы полным.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {CHARACTERS.map((c) => (

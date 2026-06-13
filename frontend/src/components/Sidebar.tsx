@@ -27,7 +27,7 @@ const PART_LABELS: Record<number, string> = {
 export default function Sidebar({ lessons, progress, recaps, open, onClose }: Props) {
   const location = useLocation()
   const navigate = useNavigate()
-  const { isLessonUnlocked } = useProgressContext()
+  const { isLessonUnlocked, betaStage } = useProgressContext()
   const match = location.pathname.match(/\/(?:lesson|review)\/([\w-]+)/)
   const activeId = match ? match[1] : undefined
   const activeLesson = activeId ? lessons.find(l => l.id === activeId) : null
@@ -167,7 +167,7 @@ export default function Sidebar({ lessons, progress, recaps, open, onClose }: Pr
                           <span className="truncate">{lesson.id} {lesson.title}</span>
                         </button>,
                         ...recapsAfterThis.map((recap) => {
-                          const recapUnlocked = isRecapUnlocked(recap.id, progress)
+                          const recapUnlocked = isRecapUnlocked(recap.id, progress, betaStage)
                           const recapCompleted = isRecapCompleted(recap.id, progress)
                           const isCheckpoint = recap.id.startsWith('recap-3') && recap.id !== 'recap-3'
                           const accentColor = isCheckpoint ? '#6c5ce7' : '#c9a227'

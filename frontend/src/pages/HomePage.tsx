@@ -150,7 +150,11 @@ export default function HomePage({ lessons, progress }: Props) {
             const allDone = done === total
             const isCurrent = done > 0 && done < total
             const isStageLocked = betaStage !== undefined && part > betaStage
-            const isLocked = isStageLocked || (done === 0 && part > 1)
+            // For beta participants, only stage lock applies.
+            // For non-beta, use normal sequential part lock.
+            const isLocked = betaStage !== undefined
+              ? isStageLocked
+              : (done === 0 && part > 1)
 
             return (
               <div key={part}

@@ -84,10 +84,60 @@ const REMINDER_STYLES: Record<SyntaxReminder['type'], {
     iconColor: 'text-indigo-600',
     label: 'ВНИМАНИЕ: ССЫЛКИ',
   },
+  function_def_reminder: {
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-400',
+    icon: 'function',
+    iconBg: 'bg-emerald-100',
+    iconColor: 'text-emerald-600',
+    label: 'ВНИМАНИЕ: ФУНКЦИЯ',
+  },
+  function_params_reminder: {
+    bg: 'bg-lime-50',
+    border: 'border-lime-400',
+    icon: 'settings',
+    iconBg: 'bg-lime-100',
+    iconColor: 'text-lime-600',
+    label: 'ВНИМАНИЕ: ПАРАМЕТРЫ',
+  },
+  return_reminder: {
+    bg: 'bg-rose-50',
+    border: 'border-rose-400',
+    icon: 'keyboard_return',
+    iconBg: 'bg-rose-100',
+    iconColor: 'text-rose-600',
+    label: 'ВНИМАНИЕ: ВОЗВРАТ',
+  },
+  dict_syntax_reminder: {
+    bg: 'bg-yellow-50',
+    border: 'border-yellow-400',
+    icon: 'dictionary',
+    iconBg: 'bg-yellow-100',
+    iconColor: 'text-yellow-600',
+    label: 'ВНИМАНИЕ: СЛОВАРЬ',
+  },
+  try_except_reminder: {
+    bg: 'bg-sky-50',
+    border: 'border-sky-400',
+    icon: 'shield',
+    iconBg: 'bg-sky-100',
+    iconColor: 'text-sky-600',
+    label: 'ВНИМАНИЕ: ЗАЩИТА',
+  },
+}
+
+// Fallback for unknown/missing reminder types — prevents runtime crash
+const DEFAULT_STYLE = {
+  bg: 'bg-gray-50',
+  border: 'border-gray-400',
+  icon: 'info',
+  iconBg: 'bg-gray-100',
+  iconColor: 'text-gray-600',
+  label: 'ВНИМАНИЕ',
 }
 
 export default function SyntaxReminderBlock({ reminder }: Props) {
-  const style = REMINDER_STYLES[reminder.type]
+  const style = REMINDER_STYLES[reminder.type] ?? DEFAULT_STYLE
 
   return (
     <section className={`${style.bg} border-l-8 ${style.border} rounded-2xl p-5 shadow-sm`}>

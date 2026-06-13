@@ -326,7 +326,7 @@ app.add_middleware(VercelPathMiddleware)
 @app.get("/lessons")
 def list_lessons() -> list[dict[str, Any]]:
     SUMMARY_FIELDS = ("id","part","chapter","lesson","slug","title","subtitle",
-                      "topic","locked","difficulty","estimated_time_min")
+                      "topic","locked","difficulty","estimated_time_min","type")
     return [
         {k: l[k] for k in SUMMARY_FIELDS if k in l}
         | ({"scene_image": l["scene_image"]} if "scene_image" in l and l.get("scene_image") else {})
@@ -1166,6 +1166,45 @@ def operator_unlock(
         "previous_stage": current,
         "current_stage": new_stage,
         "message": f"Stage unlocked to {new_stage}",
+    }
+
+
+@app.post("/beta/access/{participant_code}/operator-unlock-all")
+def operator_unlock_all(
+    participant_code: str,
+    x_operator_key: str | None = Header(None, alias="X-Operator-Key"),
+) -> dict[str, Any]:
+    """Operator unlocks ALL stages at once for a participant.
+
+    Requires X-Operator-Key header.
+    Skips the feedback requirement — this is a developer shortcut.
+    """
+    if not _validate_operator_key(x_operator_key):
+        raise HTTPException(status_code=403, detail="Invalid operator key")
+
+    _ensure_beta_stages_table()
+    code = participant_code.strip().upper()
+    row = _ensure_stage_row(code)
+    current = int(row.get("current_stage", 1))
+
+    if current >= MAX_STAGE:
+        return {"ok": False, "detail": f"Already at maximum stage ({MAX_STAGE})"}
+
+    now = _now_iso()
+
+    conn = get_connection()
+    conn.execute(
+        "UPDATE beta_stages SET current_stage = ?, operator_unlocked_at = ?, updated_at = ? WHERE participant_code = ?",
+        (MAX_STAGE, now, now, code),
+    )
+    conn.commit()
+    conn.close()
+
+    return {
+        "ok": True,
+        "previous_stage": current,
+        "current_stage": MAX_STAGE,
+        "message": f"All stages unlocked ({current} → {MAX_STAGE}). Full access granted.",
     }
 
 

@@ -1,10 +1,25 @@
 [
   {
-    "id": "recap-1",
+    "id": "recap-1-reminder",
     "part": 1,
     "title": "Напоминалка: Hello Python",
     "story_summary": "Новичок сделал первые шаги в мире Python. Он научился выводить текст на экран, работать с кавычками и строками, создавать переменные, получать ввод от пользователя, считать и сравнивать числа, а также принимать решения с помощью if и else.",
-    "learned_terms": ["print", "quotes", "string", "variable", "input", "int", "number", "operator", "comparison", "condition", "if_statement", "else_statement", "error", "syntax_error"],
+    "learned_terms": [
+      "print",
+      "quotes",
+      "string",
+      "variable",
+      "input",
+      "int",
+      "number",
+      "operator",
+      "comparison",
+      "condition",
+      "if_statement",
+      "else_statement",
+      "error",
+      "syntax_error"
+    ],
     "hero_skills": [
       {
         "name": "Голос героя",
@@ -60,14 +75,29 @@
         "question": "Какая разница между = и == ?",
         "answer": "= присваивает значение (положить в коробку), == сравнивает (проверить, равны ли)."
       }
-    ]
+    ],
+    "character_growth": {
+      "character": "novice",
+      "internal": "Когда я попал сюда — я думал, что код это набор странных символов для умных людей в очках. Теперь я понимаю: это просто язык. Странный, точный, без исключений — но язык. И я уже говорю на нём. Мир отвечает мне. И это… невероятно."
+    }
   },
   {
-    "id": "recap-2",
+    "id": "recap-2-reminder",
     "part": 2,
     "title": "Напоминалка: Магия данных",
     "story_summary": "Новичок углубился в мир типов данных: целые числа, числа с плавающей точкой, строки и их методы. Он научился писать f-строки для удобного форматирования, познакомился с модулем random — теперь может добавить случайность в игру. Также освоил elif для проверки нескольких условий и логические операторы.",
-    "learned_terms": ["int", "operator", "elif_statement", "condition", "comparison", "f_string", "random_import", "type_conversion", "modulo", "string"],
+    "learned_terms": [
+      "int",
+      "operator",
+      "elif_statement",
+      "condition",
+      "comparison",
+      "f_string",
+      "random_import",
+      "type_conversion",
+      "modulo",
+      "string"
+    ],
     "hero_skills": [
       {
         "name": "Мастер чисел",
@@ -117,14 +147,31 @@
         "question": "Что выведет 10 % 3?",
         "answer": "1 — остаток от деления 10 на 3 равен 1."
       }
-    ]
+    ],
+    "character_growth": {
+      "character": "novice",
+      "internal": "Ошибки бесили меня. Каждый раз, когда код не запускался — я думал: «Я не смогу». Но Багус, при всех его издёвках, сказал правду: ошибка — это не провал. Это адрес проблемы. Найди адрес — исправишь. Теперь я не боюсь красных строк. Я их читаю."
+    }
   },
   {
-    "id": "recap-3",
+    "id": "recap-3-reminder",
     "part": 3,
     "title": "Напоминалка: Врата логики",
     "story_summary": "Новичок освоил циклы: for — для перебора элементов, while — для повторения по условию. Научился использовать range() для создания последовательностей чисел. Познакомился со списками — научился создавать, читать по индексу, добавлять элементы. Узнал о методах списков и о том, как циклы работают со списками. Прошёл целых 41 урок — настоящий марафон!",
-    "learned_terms": ["loop", "for_loop", "while_loop", "range", "list", "index", "method", "indentation", "colon", "comparison", "error", "bug"],
+    "learned_terms": [
+      "loop",
+      "for_loop",
+      "while_loop",
+      "range",
+      "list",
+      "index",
+      "method",
+      "indentation",
+      "colon",
+      "comparison",
+      "error",
+      "bug"
+    ],
     "hero_skills": [
       {
         "name": "Конвейер",
@@ -176,14 +223,28 @@
         "question": "Чем for отличается от while?",
         "answer": "for перебирает элементы (знаешь сколько), while повторяет пока условие истинно (может быть бесконечным)."
       }
-    ]
+    ],
+    "character_growth": {
+      "character": "novice",
+      "internal": "Данные… странное слово. Раньше я думал о них как о чём-то скучном и бухгалтерском. Но здесь, в городе, я увидел: данные — это инвентарь героя. Это комнаты в башне. Это события на арене. Они живые, они двигаются, они рассказывают историю. Я больше не боюсь списков и строк — это просто вещи, которые я могу назвать и разложить по полкам."
+    }
   },
   {
     "id": "recap-3a",
     "part": 3,
     "title": "Чекпоинт: Циклы и диапазоны",
     "story_summary": "Новичок прошёл первые 10 уроков Part 3 и освоил циклы for и while. Научился использовать range() для создания последовательностей чисел, управлять повторениями и писать базовые циклы. Это основа для всего, что будет дальше — без циклов не работает ни один алгоритм.",
-    "learned_terms": ["loop", "for_loop", "while_loop", "range", "indentation", "colon", "comparison", "bug", "infinite_loop"],
+    "learned_terms": [
+      "loop",
+      "for_loop",
+      "while_loop",
+      "range",
+      "indentation",
+      "colon",
+      "comparison",
+      "bug",
+      "infinite_loop"
+    ],
     "hero_skills": [
       {
         "name": "Счётчик",
@@ -234,7 +295,16 @@
     "part": 3,
     "title": "Чекпоинт: Строки и методы",
     "story_summary": "Новичок научился работать со строками: индексация, срезы, методы upper/lower, замена символов, поиск подстроки, f-строки с выражениями. Строки — это не просто текст, а последовательность символов, с которыми можно работать как со списком.",
-    "learned_terms": ["string", "index", "slice", "method", "f_string", "len", "concatenation", "immutable"],
+    "learned_terms": [
+      "string",
+      "index",
+      "slice",
+      "method",
+      "f_string",
+      "len",
+      "concatenation",
+      "immutable"
+    ],
     "hero_skills": [
       {
         "name": "Указатель",
@@ -285,7 +355,18 @@
     "part": 3,
     "title": "Чекпоинт: Основы списков",
     "story_summary": "Новичок освоил списки: создание, индексация, добавление элементов через append, вставка через insert, удаление через pop и remove, поиск по индексу, подсчёт элементов через count. Списки — главный инструмент для хранения коллекций данных.",
-    "learned_terms": ["list", "index", "method", "append", "pop", "remove", "insert", "count", "len", "mutable"],
+    "learned_terms": [
+      "list",
+      "index",
+      "method",
+      "append",
+      "pop",
+      "remove",
+      "insert",
+      "count",
+      "len",
+      "mutable"
+    ],
     "hero_skills": [
       {
         "name": "Рюкзак",
@@ -336,7 +417,17 @@
     "part": 3,
     "title": "Чекпоинт: Продвинутые списки и практика",
     "story_summary": "Новичок завершает Part 3! Освоил продвинутые операции со списками: extend, sort, reverse, срезы списков, копирование, random.choice и shuffle. Теперь умеет не просто хранить данные, а управлять ими — сортировать, перемешивать, копировать и нарезать.",
-    "learned_terms": ["list", "slice", "sort", "reverse", "extend", "copy_reference", "shallow_copy", "random_import", "method"],
+    "learned_terms": [
+      "list",
+      "slice",
+      "sort",
+      "reverse",
+      "extend",
+      "copy_reference",
+      "shallow_copy",
+      "random_import",
+      "method"
+    ],
     "hero_skills": [
       {
         "name": "Объединить рюкзаки",
@@ -383,11 +474,21 @@
     ]
   },
   {
-    "id": "recap-4",
+    "id": "recap-4-reminder",
     "part": 4,
     "title": "Напоминалка: Лабиринт циклов",
     "story_summary": "Новичок прошёл лабиринт продвинутых циклов. Научился использовать вложенные циклы, работать с break и continue для управления потоком, применять range с шагом. Освоил продвинутую работу со списками: срезы, копирование, методы sort и reverse. Узнал про изменяемость списков и про то, что ссылки на список ведут к одному и тому же объекту.",
-    "learned_terms": ["loop", "for_loop", "while_loop", "range", "list", "index", "method", "syntax_error", "bug"],
+    "learned_terms": [
+      "loop",
+      "for_loop",
+      "while_loop",
+      "range",
+      "list",
+      "index",
+      "method",
+      "syntax_error",
+      "bug"
+    ],
     "hero_skills": [
       {
         "name": "Вложенный конвейер",
@@ -437,14 +538,31 @@
         "question": "Какая разница между list.sort() и sorted(list)?",
         "answer": "sort() изменяет исходный список, sorted() создаёт новый отсортированный список."
       }
-    ]
+    ],
+    "character_growth": {
+      "character": "novice",
+      "internal": "Раньше я садился за задачу — и сразу начинал печатать. Как в драке: бей первым, потом думай. Башня научила меня обратному. Сначала — план. Карта. Где я, куда иду, что проверяю. Я не угадываю код. Я его проектирую. Это другое ощущение — когда ты не боишься сложной задачи, потому что знаешь: разбери на части, и каждая часть станет простой."
+    }
   },
   {
-    "id": "recap-5",
+    "id": "recap-5-reminder",
     "part": 5,
     "title": "Напоминалка: Конструктор героя",
     "story_summary": "Новичок стал настоящим программистом! Он научился создавать собственные функции с помощью def, передавать параметры и возвращать результаты. Освоил словари — мощный инструмент для хранения данных по ключам, как в анкете героя. Узнал про пространства имён, про то, как переменные живут внутри и снаружи функций. Научился создавать модульный код — разбивать программу на маленькие переиспользуемые блоки.",
-    "learned_terms": ["function_def", "parameter", "return_statement", "dictionary", "key", "value", "indentation", "colon", "error", "bug", "pep8", "syntax_error"],
+    "learned_terms": [
+      "function_def",
+      "parameter",
+      "return_statement",
+      "dictionary",
+      "key",
+      "value",
+      "indentation",
+      "colon",
+      "error",
+      "bug",
+      "pep8",
+      "syntax_error"
+    ],
     "hero_skills": [
       {
         "name": "Кнопка на пульте",
@@ -495,6 +613,10 @@
         "question": "Какая разница между глобальной и локальной переменной?",
         "answer": "Локальная — живёт внутри функции, снаружи её не видно. Глобальная — видна везде, но функцию её менять не должна без special instructions."
       }
-    ]
+    ],
+    "character_growth": {
+      "character": "novice",
+      "internal": "Я написал игру. Не большую. Не идеальную. Но свою. И я понимаю каждую строку — от первого print до последнего except. Когда я нажимаю Enter и игра запускается — это чувство нельзя сравнить ни с чем. Я пришёл сюда мальчиком, который не знал, чем отличается строка от числа. А ухожу — тем, кто собрал работающую программу. И знаете что? Это только начало."
+    }
   }
 ]

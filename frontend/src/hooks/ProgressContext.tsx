@@ -23,8 +23,11 @@ export function isLessonUnlocked(
 
   const lesson = lessons[idx]
 
-  // NEW: Beta stage check — if participant has a stage, check part access
+  // Beta stage check: block parts beyond current stage
   if (betaStage !== undefined && lesson.part > betaStage) return false
+
+  // Beta stage: if participant's stage covers this part, bypass sequential unlock
+  if (betaStage !== undefined && lesson.part <= betaStage) return true
 
   if (!lesson.locked) return true  // explicitly unlocked in data
 
